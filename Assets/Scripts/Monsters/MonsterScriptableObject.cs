@@ -1,5 +1,12 @@
 ﻿using UnityEngine;
 
+public enum Status
+{
+    Neutral,
+    Stunned,
+    Enraged,
+}
+
 [CreateAssetMenu(fileName = "MonsterData", menuName = "ScriptableObjects/MonsterScriptableObject", order = 1)]
 public class MonsterScriptableObject : ScriptableObject
 {
@@ -12,11 +19,4 @@ public class MonsterScriptableObject : ScriptableObject
     public int Defense;
     public bool Fainted = false;
     public Status CurrentStatus;
-   
-    public enum Status
-    {
-        Neutral,
-        Stunned,
-        Enraged,
-    }
 }
