@@ -4,7 +4,7 @@ using UnityEngine;
 
 public enum BattleState
 {
-    Begin,
+    Start,
     PlayerTurn,
     EnemyTurn,
     Won,
@@ -14,16 +14,35 @@ public enum BattleState
 public class BattleSystem : MonoBehaviour
 {
     public BattleState state;
+    public GameObject playerPrefab, enemyPrefab;
+    public Transform playerBattleLocation, enemyBattleLocation;
 
     private void Start()
     {
-        
+        state = BattleState.Start;
+        StartCoroutine(SetupBattle());
     }
 
 
     IEnumerator SetupBattle()
     {
-        yield return new WaitForSeconds(0f);
+        GameObject playerGO = Instantiate(playerPrefab, playerBattleLocation);
+        //playerUnit = playerGO.GetComponent<Unit>();
+        // Get player data
+
+        GameObject enemyGO = Instantiate(enemyPrefab, enemyBattleLocation);
+        // enemyUnit = enemyGO.GetComponent<Unit>();
+        // Get enemy data
+
+        // dialogueText.text = "A wild " + enemyUnit.unitName + " approaches...";
+
+        // playerHUD.SetHUD(playerUnit);
+        // enemyHUD.SetHUD(enemyUnit);
+
+        yield return new WaitForSeconds(2f);
+
+        state = BattleState.PlayerTurn;
+        PlayerTurn();
     }
 
     IEnumerator PlayerAttack()
