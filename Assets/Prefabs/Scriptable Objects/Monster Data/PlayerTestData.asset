@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 57e2cf2fe33fa1945800c23d2fec2906, type: 3}
-  m_Name: FoxxoData
+  m_Name: PlayerTestData
   m_EditorClassIdentifier: 
-  Name: Foxxo
-  HP: 15
-  Level: 0
-  XP: 0
-  Attack: 5
-  Defense: 5
-  Fainted: 0
-  CurrentStatus: 0
+  Name: PlayerTest
+  BaseHP: 15
+  BaseMP: 17
+  BaseLevel: 0
+  BaseXP: 0
+  BaseAttack: 6
+  BaseDefense: 4
+  Prefab: {fileID: 3653250672529436985, guid: 811cdbfb499259d47a2de5a49ffced7e, type: 3}

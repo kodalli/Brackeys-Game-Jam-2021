@@ -14,7 +14,7 @@ public enum BattleState
 public class BattleSystem : MonoBehaviour
 {
     public BattleState state;
-    public GameObject playerPrefab, enemyPrefab;
+    public MonsterScriptableObject playerMonsterData, enemyMonsterData;
     public Transform playerBattleLocation, enemyBattleLocation;
 
     private void Start()
@@ -26,13 +26,15 @@ public class BattleSystem : MonoBehaviour
 
     IEnumerator SetupBattle()
     {
-        GameObject playerGO = Instantiate(playerPrefab, playerBattleLocation);
-        //playerUnit = playerGO.GetComponent<Unit>();
-        // Get player data
+        GameObject playerObj = Instantiate(playerMonsterData.Prefab);
+        playerObj.transform.position = playerBattleLocation.position;
 
-        GameObject enemyGO = Instantiate(enemyPrefab, enemyBattleLocation);
+        //playerUnit = playerGO.GetComponent<Unit>();
+
+        GameObject enemyObj = Instantiate(enemyMonsterData.Prefab);
+        enemyObj.transform.position = enemyBattleLocation.position;
+
         // enemyUnit = enemyGO.GetComponent<Unit>();
-        // Get enemy data
 
         // dialogueText.text = "A wild " + enemyUnit.unitName + " approaches...";
 
@@ -45,6 +47,7 @@ public class BattleSystem : MonoBehaviour
         PlayerTurn();
     }
 
+    #region Player Coroutines
     IEnumerator PlayerAttack()
     {
         yield return new WaitForSeconds(0f);
@@ -54,6 +57,7 @@ public class BattleSystem : MonoBehaviour
     {
         yield return new WaitForSeconds(0f);
     }
+    #endregion
 
     IEnumerator EnemyTurn()
     {
@@ -79,12 +83,24 @@ public class BattleSystem : MonoBehaviour
         StartCoroutine(PlayerAttack());
     }
 
-    public void OnHealButton()
+    public void OnItemsButton()
     {
         if (state != BattleState.PlayerTurn)
             return;
 
         StartCoroutine(PlayerHeal());
+    }
+
+    public void OnRunButton()
+    {
+        if (state != BattleState.PlayerTurn)
+            return;
+    }
+
+    public void OnSquadButton()
+    {
+        if (state != BattleState.PlayerTurn)
+            return;
     }
     #endregion
 }
