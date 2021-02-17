@@ -16,8 +16,9 @@ public enum Status
     Fainted,
 }
 
-public class Monster : MonoBehaviour
+public class Monster
 {
+    #region Variables
     public bool Owned { get; set; }
     public string Name { get; }
 
@@ -25,31 +26,34 @@ public class Monster : MonoBehaviour
 
     private int curHP, curMP, curDef, curAtk;
     private int curLevel, curXP;
-    private Status curStatus;
+    private Status CurrentStatus;
     private readonly float SCALING = 0.2f;
     private readonly int MAX_LEVEL = 30;
-
+    #endregion
     public Monster(MonsterScriptableObject baseData)
     {
         this.baseData = baseData;
         Name = baseData.Name;
-        curHP = baseData.BaseHP;
-        curMP = baseData.BaseMP;
-        curDef = baseData.BaseDefense;
-        curAtk = baseData.BaseAttack;
         curLevel = baseData.BaseLevel;
         curXP = GetXP(curLevel);
-        curStatus = Status.Neutral;
+        LevelUp();
+        CurrentStatus = Status.Neutral;
         Owned = false;
     }
 
     #region HP Methods
     public void AddHP(int val)
     {
+        if (CurrentStatus.Equals(Status.Fainted))
+            return;
+
         if (val + curHP > GetMaxHP())
             curHP = GetMaxHP();
         else if (val + curHP < 0)
+        {
             curHP = 0;
+            CurrentStatus = Status.Fainted;
+        }
         else
             curHP += val;
     }
@@ -62,6 +66,11 @@ public class Monster : MonoBehaviour
     public int GetMaxHP()
     {
         return Mathf.RoundToInt(baseData.BaseHP * curLevel * (1 + SCALING));
+    }
+    public void Revive()
+    {
+        CurrentStatus = Status.Neutral;
+        curHP = GetMaxHP();
     }
     #endregion Functions
 
@@ -90,9 +99,7 @@ public class Monster : MonoBehaviour
     #region Def Methods
     public void AddDef(int val)
     {
-        if (val + curDef > GetMaxDef())
-            curDef = GetMaxDef();
-        else if (val + curDef < 0)
+        if (val + curDef < 0)
             curDef = 0;
         else
             curDef += val;
@@ -112,9 +119,7 @@ public class Monster : MonoBehaviour
     #region Atk Methods
     public void AddAtk(int val)
     {
-        if (val + curAtk > GetMaxAtk())
-            curAtk = GetMaxAtk();
-        else if (val + curAtk < 0)
+        if (val + curAtk < 0)
             curAtk = 0;
         else
             curAtk += val;
@@ -140,6 +145,7 @@ public class Monster : MonoBehaviour
     public void AddXP(int val)
     {
         var maxXP = GetXP(MAX_LEVEL);
+        var prevLevel = curLevel;
         if (val + curXP > maxXP)
         {
             curXP = maxXP;
@@ -155,6 +161,9 @@ public class Monster : MonoBehaviour
             curXP += val;
             curLevel = GetLevel(curXP);
         }
+
+        if (curLevel != prevLevel)
+            LevelUp();
     }
     #endregion
 
@@ -181,14 +190,31 @@ public class Monster : MonoBehaviour
             curLevel += val;
             curXP = GetXP(curLevel);
         }
+        LevelUp();
+    }
+
+    // Sets props to max value scaled with level
+    public void LevelUp(int? level = null)
+    {
+        curLevel = level ?? curLevel;
+        curHP = GetMaxHP();
+        curMP = GetMaxMP();
+        curDef = GetMaxDef();
+        curAtk = GetMaxDef();
+        curXP = GetXP(curLevel);
     }
     #endregion
 
     // Status WIP
     #region Status Methods
-    public void ChangeStatus(Status status)
+    public Status GetStatus()
     {
-        curStatus = status;
+        return CurrentStatus;
+    }
+    public void SetStatus(Status NextStatus)
+    {
+        CurrentStatus = NextStatus;
     }
     #endregion
+
 }
