@@ -2118,9 +2118,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   dialogueText: {fileID: 1861097771}
-  enemyFighter: {fileID: 1650549772}
+  enemyNPC: {fileID: 1650549773}
   playerBattleLocation: {fileID: 1621965799}
   enemyBattleLocation: {fileID: 1581387162}
+  playerHUD: {fileID: 1446466756}
+  enemyHUD: {fileID: 1846777119}
 --- !u!4 &1067850071
 Transform:
   m_ObjectHideFlags: 0
@@ -2738,6 +2740,7 @@ GameObject:
   - component: {fileID: 1446466753}
   - component: {fileID: 1446466755}
   - component: {fileID: 1446466754}
+  - component: {fileID: 1446466756}
   m_Layer: 5
   m_Name: PlayerBattleHUD
   m_TagString: Untagged
@@ -2804,6 +2807,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1446466752}
   m_CullTransparentMesh: 0
+--- !u!114 &1446466756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1446466752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e874c5ba3a6c3b045b41d18410110af3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameText: {fileID: 2008349611}
+  levelText: {fileID: 1403010624}
+  hpText: {fileID: 430668933}
+  hpSlider: {fileID: 2054851412}
 --- !u!1 &1478400213
 GameObject:
   m_ObjectHideFlags: 0
@@ -3100,7 +3119,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Jeff
   State: 0
-  level: 3
+  level: 1
   squad:
   - {fileID: 11400000, guid: 07429d047448971479d39d78a7f3cef5, type: 2}
 --- !u!4 &1650549774
@@ -3276,6 +3295,7 @@ GameObject:
   - component: {fileID: 1846777116}
   - component: {fileID: 1846777118}
   - component: {fileID: 1846777117}
+  - component: {fileID: 1846777119}
   m_Layer: 5
   m_Name: EnemyBattleHUD
   m_TagString: Untagged
@@ -3342,6 +3362,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1846777115}
   m_CullTransparentMesh: 0
+--- !u!114 &1846777119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1846777115}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e874c5ba3a6c3b045b41d18410110af3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameText: {fileID: 920298810}
+  levelText: {fileID: 1599528907}
+  hpText: {fileID: 1059723667}
+  hpSlider: {fileID: 287711926}
 --- !u!1 &1861097769
 GameObject:
   m_ObjectHideFlags: 0

@@ -18,10 +18,10 @@ public class BattleSystem : MonoBehaviour
     public BattleState state;
     public TextMeshProUGUI dialogueText;
 
-    [SerializeField] private GameObject enemyFighter;
+    [SerializeField] private BattleNPC enemyNPC;
     [SerializeField] private Transform playerBattleLocation, enemyBattleLocation;
+    [SerializeField] private BattleHUD playerHUD, enemyHUD;
 
-    private BattleNPC enemyNPC;
     private Monster playerUnit, enemyUnit;
     private GameObject playerObj, enemyObj;
     private int playerSquadCount, enemySquadCount;
@@ -47,7 +47,6 @@ public class BattleSystem : MonoBehaviour
 
 
         // Enemy setup
-        enemyNPC = enemyFighter.GetComponent<BattleNPC>();
         var firstEnemyMonster = enemyNPC.squad[enemySquadCount];
         enemyUnit = enemyNPC.monstersDict[firstEnemyMonster.Name];
 
@@ -59,8 +58,8 @@ public class BattleSystem : MonoBehaviour
         // Update UI and HUD
         dialogueText.text = "A wild " + enemyUnit.Name + " approaches...";
 
-        // playerHUD.SetHUD(playerUnit);
-        // enemyHUD.SetHUD(enemyUnit);
+        playerHUD.SetHUD(playerUnit);
+        enemyHUD.SetHUD(enemyUnit);
 
         yield return new WaitForSeconds(2.5f);
 
@@ -76,12 +75,11 @@ public class BattleSystem : MonoBehaviour
         // Apply status
         // Check if enemy dead, if dead go to next enemy else end battle
 
-        var damage = enemyUnit.GetCurrentDef() - playerUnit.GetCurrentAtk();
-        enemyUnit.AddHP(damage);
+        enemyUnit.TakeDamage(playerUnit.GetCurrentAtk());
 
         var isDead = enemyUnit.GetStatus().Equals(Status.Fainted);
 
-        // enemyHUD.SetHP(enemyUnit.currentHP);
+        enemyHUD.SetHP(enemyUnit.GetCurrentHP());
         dialogueText.text = "The attack is successful!";
 
         yield return new WaitForSeconds(2f);
@@ -138,7 +136,7 @@ public class BattleSystem : MonoBehaviour
             state = BattleState.Lost;
             EndBattle();
         }
-        yield return new WaitForSeconds(1f);
+        
     }
 
     IEnumerator DrawPlayerMonster(int index)
@@ -165,10 +163,9 @@ public class BattleSystem : MonoBehaviour
 
         yield return new WaitForSeconds(1f);
 
-        var damage = playerUnit.GetCurrentDef() - enemyUnit.GetCurrentAtk();
-        playerUnit.AddHP(damage);
+        playerUnit.TakeDamage(enemyUnit.GetCurrentAtk());
 
-        // playerHUD.SetHP(playerUnit.currentHP);
+        playerHUD.SetHP(playerUnit.GetCurrentHP());
 
         var isDead = playerUnit.GetStatus().Equals(Status.Fainted);
 
@@ -261,6 +258,7 @@ public class BattleSystem : MonoBehaviour
         playerUnit = PlayerControlSave.Instance.localPlayerData.monstersDict[currentMonster.Name];
         playerObj = Instantiate(currentMonster.Prefab);
         playerObj.transform.position = playerBattleLocation.position;
+        playerHUD.SetHUD(playerUnit);
     }
 
     void BringEnemyMonsterIn()
@@ -269,6 +267,7 @@ public class BattleSystem : MonoBehaviour
         enemyUnit = enemyNPC.monstersDict[currentMonster.Name];
         enemyObj = Instantiate(currentMonster.Prefab);
         enemyObj.transform.position = enemyBattleLocation.position;
+        enemyHUD.SetHUD(enemyUnit);
     }
     #endregion
 

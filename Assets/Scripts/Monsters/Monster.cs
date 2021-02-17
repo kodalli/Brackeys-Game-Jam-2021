@@ -65,14 +65,21 @@ public class Monster
 
     public int GetMaxHP()
     {
-        return Mathf.RoundToInt(baseData.BaseHP * curLevel * (1 + SCALING));
+        return Mathf.RoundToInt(baseData.BaseHP * (curLevel + 1) * (1 + SCALING));
     }
     public void Revive()
     {
         CurrentStatus = Status.Neutral;
         curHP = GetMaxHP();
     }
-    #endregion Functions
+    public void TakeDamage(int enemyAtk)
+    {
+        // add crit chance
+        var damageMultiplier = 100f / (100 + curDef);
+        var damage = enemyAtk * damageMultiplier;
+        AddHP(-Mathf.RoundToInt(damage));
+    }
+    #endregion 
 
     #region MP Methods
     public void AddMP(int val)
@@ -92,7 +99,7 @@ public class Monster
 
     public int GetMaxMP()
     {
-        return Mathf.RoundToInt(baseData.BaseMP * curLevel * (1 + SCALING));
+        return Mathf.RoundToInt(baseData.BaseMP * (curLevel + 1) * (1 + SCALING));
     }
     #endregion
 
@@ -112,7 +119,7 @@ public class Monster
 
     public int GetMaxDef()
     {
-        return Mathf.RoundToInt(baseData.BaseDefense * curLevel * (1 + SCALING));
+        return Mathf.RoundToInt(baseData.BaseDefense * (curLevel + 1) * (1 + SCALING));
     }
     #endregion
 
@@ -132,14 +139,15 @@ public class Monster
 
     public int GetMaxAtk()
     {
-        return Mathf.RoundToInt(baseData.BaseAttack * curLevel * (1 + SCALING));
+        return Mathf.RoundToInt(baseData.BaseAttack * (curLevel + 1) * (1 + SCALING));
     }
     #endregion
 
     #region XP Methods
-    public int GetXP(int level)
+    public int GetXP(int? level = null)
     {
-        return Mathf.RoundToInt(4f * Mathf.Pow(level, 3f) / 5f);
+        level = level ?? curLevel;
+        return Mathf.RoundToInt(4f * Mathf.Pow((int)level, 3f) / 5f);
     }
 
     public void AddXP(int val)
@@ -168,9 +176,10 @@ public class Monster
     #endregion
 
     #region Level Methods
-    public int GetLevel(int xp)
+    public int GetLevel(int? xp = null)
     {
-        return Mathf.RoundToInt(5f * Mathf.Pow(xp, 1/3f) / 4f);
+        xp = xp ?? curXP;
+        return Mathf.RoundToInt(5f * Mathf.Pow((int)xp, 1/3f) / 4f);
     }
 
     public void AddLevel(int val)
