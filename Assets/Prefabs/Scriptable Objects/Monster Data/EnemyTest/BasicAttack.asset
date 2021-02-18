@@ -9,13 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57e2cf2fe33fa1945800c23d2fec2906, type: 3}
-  m_Name: PlayerTestData
+  m_Script: {fileID: 11500000, guid: 17fc579b15ec1894a98af942fb1ea3b6, type: 3}
+  m_Name: BasicAttack
   m_EditorClassIdentifier: 
-  Name: PlayerTest
-  BaseHP: 15
-  BaseMP: 17
-  BaseLevel: 0
-  BaseAttack: 5
-  BaseDefense: 9
-  Prefab: {fileID: 3653250672529436985, guid: 811cdbfb499259d47a2de5a49ffced7e, type: 3}
+  MoveName: Flex
+  StatusEffect: 3
+  MonsterMoveType: 2
+  SecondaryMonsterMoveType: 0
+  MPCost: 3
+  MaxMPForMove: 15
+  Description: Flexes on you dealing damage and making you depressed..

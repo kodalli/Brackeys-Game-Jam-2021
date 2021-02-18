@@ -16,7 +16,10 @@ public class BattleSystem : MonoBehaviour
 {
     #region Variables
     public BattleState state;
-    public TextMeshProUGUI dialogueText;
+
+    [SerializeField] private TextMeshProUGUI dialogueText;
+    [SerializeField] private TextMeshProUGUI AttackButtonText;
+    [SerializeField] private TextMeshProUGUI AttackButtonFusedText1, AttackButtonFusedText2, AttackButtonFusedText3;
 
     [SerializeField] private BattleNPC enemyNPC;
     [SerializeField] private Transform playerBattleLocation, enemyBattleLocation;
@@ -76,9 +79,9 @@ public class BattleSystem : MonoBehaviour
         // Check if enemy dead, if dead go to next enemy else end battle
 
         // Health bar damaged animation
-        var previousHP = enemyUnit.GetCurrentHP();
-        enemyUnit.TakeDamage(playerUnit.GetCurrentAtk());
-        var currentHP = enemyUnit.GetCurrentHP();
+        var previousHP = enemyUnit.CurHP;
+        enemyUnit.TakeDamage(playerUnit.CurAtk);
+        var currentHP = enemyUnit.CurHP;
         while (previousHP > currentHP)
         {
             previousHP--;
@@ -86,7 +89,7 @@ public class BattleSystem : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
 
-        var isDead = enemyUnit.GetStatus().Equals(Status.Fainted);
+        var isDead = enemyUnit.CurrentStatus.Equals(Status.Fainted);
 
         dialogueText.text = "The attack is successful!";
 
@@ -172,9 +175,9 @@ public class BattleSystem : MonoBehaviour
         yield return new WaitForSeconds(1f);
 
         // Health bar damaged animation
-        var previousHP = playerUnit.GetCurrentHP();
-        playerUnit.TakeDamage(enemyUnit.GetCurrentAtk());
-        var currentHP = playerUnit.GetCurrentHP();
+        var previousHP = playerUnit.CurHP;
+        playerUnit.TakeDamage(enemyUnit.CurAtk);
+        var currentHP = playerUnit.CurHP;
         while (previousHP > currentHP)
         {
             previousHP--;
@@ -182,7 +185,7 @@ public class BattleSystem : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
 
-        var isDead = playerUnit.GetStatus().Equals(Status.Fainted);
+        var isDead = playerUnit.CurrentStatus.Equals(Status.Fainted);
 
         yield return new WaitForSeconds(1f);
 
@@ -302,6 +305,33 @@ public class BattleSystem : MonoBehaviour
         state = BattleState.EnemyTurn;
     }
 
+    public void OnFusedAttackButton1()
+    {
+
+    }
+
+    public void OnFusedAttackButton2()
+    {
+
+    }
+
+    public void OnFusedAttackButton3()
+    {
+
+    }
+
+
+    public void OnFuseButton()
+    {
+        // fuse logic
+        // ask player to choose item to fuse
+        // if no items to fuse, fuse should be grayed out
+        // once fused
+        // Destroy player monster prefab
+        // Bring fused monster in
+        // Got to enemy turn
+    }
+
     public void OnItemsButton()
     {
         if (state != BattleState.PlayerTurn)
@@ -324,7 +354,7 @@ public class BattleSystem : MonoBehaviour
         var dict = PlayerControlSave.Instance.localPlayerData.monstersDict;
         foreach(KeyValuePair<string, Monster> monster in dict)
         {
-            Debug.Log(monster.Key + ", status " + monster.Value.GetStatus() + ", hp " + monster.Value.GetCurrentHP());
+            Debug.Log(monster.Key + ", status " + monster.Value.CurrentStatus + ", hp " + monster.Value.CurHP);
         }
     }
     #endregion

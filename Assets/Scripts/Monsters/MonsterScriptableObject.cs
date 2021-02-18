@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
-
+using System.Collections;
+using System.Collections.Generic;
 //public enum Status
 //{
 //    Neutral,
@@ -27,4 +28,7 @@ public class MonsterScriptableObject : ScriptableObject
     public int BaseDefense  = 5;
     //public Status CurrentStatus;
     public GameObject Prefab;
+    public bool Fused = false;
+    public List<AttackMove> MoveSet;
+    // Do not go over 3 for moveset
 }

@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections.Generic;
 
 public enum Status
 {
@@ -19,14 +20,18 @@ public enum Status
 public class Monster
 {
     #region Variables
-    public bool Owned { get; set; }
     public string Name { get; }
+    public bool Fused { get; }
+    public List<AttackMove> MoveSet { get; }
+    public int CurHP { get; private set; }
+    public int CurMP { get; private set; }
+    public int CurDef { get; private set; }
+    public int CurAtk { get; private set; }
+    public Status CurrentStatus { get; set; }
 
     private MonsterScriptableObject baseData;
-
-    private int curHP, curMP, curDef, curAtk;
     private int curLevel, curXP;
-    private Status CurrentStatus;
+    
     private readonly float SCALING = 0.2f;
     private readonly int MAX_LEVEL = 30;
     #endregion
@@ -38,7 +43,8 @@ public class Monster
         curXP = GetXP(curLevel);
         LevelUp();
         CurrentStatus = Status.Neutral;
-        Owned = false;
+        Fused = baseData.Fused;
+        MoveSet = baseData.MoveSet;
     }
 
     #region HP Methods
@@ -47,20 +53,15 @@ public class Monster
         if (CurrentStatus.Equals(Status.Fainted))
             return;
 
-        if (val + curHP > GetMaxHP())
-            curHP = GetMaxHP();
-        else if (val + curHP <= 0)
+        if (val + CurHP > GetMaxHP())
+            CurHP = GetMaxHP();
+        else if (val + CurHP <= 0)
         {
-            curHP = 0;
+            CurHP = 0;
             CurrentStatus = Status.Fainted;
         }
         else
-            curHP += val;
-    }
-
-    public int GetCurrentHP()
-    {
-        return curHP;
+            CurHP += val;
     }
 
     public int GetMaxHP()
@@ -70,12 +71,12 @@ public class Monster
     public void Revive()
     {
         CurrentStatus = Status.Neutral;
-        curHP = GetMaxHP();
+        CurHP = GetMaxHP();
     }
     public void TakeDamage(int enemyAtk)
     {
         // add crit chance
-        var damageMultiplier = 100f / (100 + curDef);
+        var damageMultiplier = 100f / (100 + CurDef);
         var damage = -Mathf.RoundToInt(enemyAtk * damageMultiplier);
         AddHP(damage);
         Debug.Log(Name + ": multiplier: " + damageMultiplier + " damage taken: " + damage);
@@ -85,17 +86,12 @@ public class Monster
     #region MP Methods
     public void AddMP(int val)
     {
-        if (val + curMP > GetMaxMP())
-            curMP = GetMaxMP();
-        else if (val + curMP <= 0)
-            curMP = 0;
+        if (val + CurMP > GetMaxMP())
+            CurMP = GetMaxMP();
+        else if (val + CurMP <= 0)
+            CurMP = 0;
         else
-            curMP += val;
-    }
-
-    public int GetCurrentMP()
-    {
-        return curMP;
+            CurMP += val;
     }
 
     public int GetMaxMP()
@@ -107,15 +103,10 @@ public class Monster
     #region Def Methods
     public void AddDef(int val)
     {
-        if (val + curDef <= 0)
-            curDef = 0;
+        if (val + CurDef <= 0)
+            CurDef = 0;
         else
-            curDef += val;
-    }
-
-    public int GetCurrentDef()
-    {
-        return curDef;
+            CurDef += val;
     }
 
     public int GetMaxDef()
@@ -127,15 +118,10 @@ public class Monster
     #region Atk Methods
     public void AddAtk(int val)
     {
-        if (val + curAtk <= 0)
-            curAtk = 0;
+        if (val + CurAtk <= 0)
+            CurAtk = 0;
         else
-            curAtk += val;
-    }
-
-    public int GetCurrentAtk()
-    {
-        return curAtk;
+            CurAtk += val;
     }
 
     public int GetMaxAtk()
@@ -207,25 +193,16 @@ public class Monster
     public void LevelUp(int? level = null)
     {
         curLevel = level ?? curLevel;
-        curHP = GetMaxHP();
-        curMP = GetMaxMP();
-        curDef = GetMaxDef();
-        curAtk = GetMaxDef();
+        CurHP = GetMaxHP();
+        CurMP = GetMaxMP();
+        CurDef = GetMaxDef();
+        CurAtk = GetMaxDef();
         curXP = GetXP(curLevel);
     }
     #endregion
 
     // Status WIP
     #region Status Methods
-    public Status GetStatus()
-    {
-        return CurrentStatus;
-    }
-
-    public void SetStatus(Status NextStatus)
-    {
-        CurrentStatus = NextStatus;
-    }
 
     #endregion
 
