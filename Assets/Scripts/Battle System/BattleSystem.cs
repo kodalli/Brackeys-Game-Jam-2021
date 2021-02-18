@@ -75,8 +75,6 @@ public class BattleSystem : MonoBehaviour
         // Apply status
         // Check if enemy dead, if dead go to next enemy else end battle
 
-        state = BattleState.EnemyTurn;
-
         enemyUnit.TakeDamage(playerUnit.GetCurrentAtk());
 
         var isDead = enemyUnit.GetStatus().Equals(Status.Fainted);
@@ -121,7 +119,7 @@ public class BattleSystem : MonoBehaviour
         // save enemy state?
 
         playerSquadCount++;
-
+        
         if (playerSquadCount < PlayerControlSave.Instance.localPlayerData.squad.Count)
         {
             BringPlayerMonsterIn();
@@ -132,13 +130,13 @@ public class BattleSystem : MonoBehaviour
 
             state = BattleState.PlayerTurn;
             PlayerTurn();
-        }
+        } 
         else
         {
             state = BattleState.Lost;
             EndBattle();
         }
-
+        
     }
 
     IEnumerator DrawPlayerMonster(int index)
@@ -271,11 +269,6 @@ public class BattleSystem : MonoBehaviour
         enemyObj.transform.position = enemyBattleLocation.position;
         enemyHUD.SetHUD(enemyUnit);
     }
-
-    void ApplyXPEarnings()
-    {
-
-    }
     #endregion
 
     #region Buttons
@@ -305,12 +298,6 @@ public class BattleSystem : MonoBehaviour
     {
         if (state != BattleState.PlayerTurn)
             return;
-
-        var dict = PlayerControlSave.Instance.localPlayerData.monstersDict;
-        foreach (KeyValuePair<string, Monster> monster in dict)
-        {
-            Debug.Log(monster.Key + ", status " + monster.Value.GetStatus() + ", hp " + monster.Value.GetCurrentHP());
-        }
     }
     #endregion
 }

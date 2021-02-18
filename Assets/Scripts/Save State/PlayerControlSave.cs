@@ -23,7 +23,7 @@ public class PlayerControlSave : MonoBehaviour
     private void Start()
     {
         localPlayerData = GlobalControlSave.Instance.savedPlayerData;
-        // localPlayerData.FillBaseValues(); // local player not loading global data, quick fix
+        localPlayerData.FillBaseValues(); // local player not loading global data, quick fix
         // Debug.Log(localPlayerData.monstersDict.Count);
     }
 

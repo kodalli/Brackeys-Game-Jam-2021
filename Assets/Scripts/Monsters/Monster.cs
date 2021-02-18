@@ -49,7 +49,7 @@ public class Monster
 
         if (val + curHP > GetMaxHP())
             curHP = GetMaxHP();
-        else if (val + curHP <= 0)
+        else if (val + curHP < 0)
         {
             curHP = 0;
             CurrentStatus = Status.Fainted;
@@ -65,7 +65,7 @@ public class Monster
 
     public int GetMaxHP()
     {
-        return Mathf.RoundToInt(baseData.BaseHP * Mathf.Pow((1 + SCALING), curLevel));
+        return Mathf.RoundToInt(baseData.BaseHP * (curLevel + 1) * (1 + SCALING));
     }
     public void Revive()
     {
@@ -76,9 +76,8 @@ public class Monster
     {
         // add crit chance
         var damageMultiplier = 100f / (100 + curDef);
-        var damage = -Mathf.RoundToInt(enemyAtk * damageMultiplier);
-        AddHP(damage);
-        Debug.Log(Name + ": multiplier: " + damageMultiplier + " damage taken: " + damage);
+        var damage = enemyAtk * damageMultiplier;
+        AddHP(-Mathf.RoundToInt(damage));
     }
     #endregion 
 
@@ -87,7 +86,7 @@ public class Monster
     {
         if (val + curMP > GetMaxMP())
             curMP = GetMaxMP();
-        else if (val + curMP <= 0)
+        else if (val + curMP < 0)
             curMP = 0;
         else
             curMP += val;
@@ -100,14 +99,14 @@ public class Monster
 
     public int GetMaxMP()
     {
-        return Mathf.RoundToInt(baseData.BaseMP * Mathf.Pow((1 + SCALING), curLevel));
+        return Mathf.RoundToInt(baseData.BaseMP * (curLevel + 1) * (1 + SCALING));
     }
     #endregion
 
     #region Def Methods
     public void AddDef(int val)
     {
-        if (val + curDef <= 0)
+        if (val + curDef < 0)
             curDef = 0;
         else
             curDef += val;
@@ -127,7 +126,7 @@ public class Monster
     #region Atk Methods
     public void AddAtk(int val)
     {
-        if (val + curAtk <= 0)
+        if (val + curAtk < 0)
             curAtk = 0;
         else
             curAtk += val;
@@ -140,7 +139,7 @@ public class Monster
 
     public int GetMaxAtk()
     {
-        return Mathf.RoundToInt(baseData.BaseAttack * Mathf.Pow((1 + SCALING), curLevel));
+        return Mathf.RoundToInt(baseData.BaseAttack * (curLevel + 1) * (1 + SCALING));
     }
     #endregion
 
@@ -180,7 +179,7 @@ public class Monster
     public int GetLevel(int? xp = null)
     {
         xp = xp ?? curXP;
-        return Mathf.RoundToInt(5f * Mathf.Pow((int)xp, 1 / 3f) / 4f);
+        return Mathf.RoundToInt(5f * Mathf.Pow((int)xp, 1/3f) / 4f);
     }
 
     public void AddLevel(int val)
@@ -221,12 +220,10 @@ public class Monster
     {
         return CurrentStatus;
     }
-
     public void SetStatus(Status NextStatus)
     {
         CurrentStatus = NextStatus;
     }
-
     #endregion
 
 }

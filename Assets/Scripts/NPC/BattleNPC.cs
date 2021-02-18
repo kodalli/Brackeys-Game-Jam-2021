@@ -12,7 +12,7 @@ public class BattleNPC : MonoBehaviour
     public List<MonsterScriptableObject> squad;
     public Dictionary<string, Monster> monstersDict = new Dictionary<string, Monster>();
 
-    private void Awake()
+    private void Start()
     {
         FillBaseValues();
     }
