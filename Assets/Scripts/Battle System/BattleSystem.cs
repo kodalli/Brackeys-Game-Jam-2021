@@ -119,7 +119,7 @@ public class BattleSystem : MonoBehaviour
         // save enemy state?
 
         playerSquadCount++;
-        
+
         if (playerSquadCount < PlayerControlSave.Instance.localPlayerData.squad.Count)
         {
             BringPlayerMonsterIn();
@@ -130,13 +130,13 @@ public class BattleSystem : MonoBehaviour
 
             state = BattleState.PlayerTurn;
             PlayerTurn();
-        } 
+        }
         else
         {
             state = BattleState.Lost;
             EndBattle();
         }
-        
+
     }
 
     IEnumerator DrawPlayerMonster(int index)

@@ -65,7 +65,7 @@ public class Monster
 
     public int GetMaxHP()
     {
-        return Mathf.RoundToInt(baseData.BaseHP  * Mathf.Pow((1 + SCALING), curLevel));
+        return Mathf.RoundToInt(baseData.BaseHP * Mathf.Pow((1 + SCALING), curLevel));
     }
     public void Revive()
     {
@@ -180,7 +180,7 @@ public class Monster
     public int GetLevel(int? xp = null)
     {
         xp = xp ?? curXP;
-        return Mathf.RoundToInt(5f * Mathf.Pow((int)xp, 1/3f) / 4f);
+        return Mathf.RoundToInt(5f * Mathf.Pow((int)xp, 1 / 3f) / 4f);
     }
 
     public void AddLevel(int val)
