@@ -269,6 +269,11 @@ public class BattleSystem : MonoBehaviour
         enemyObj.transform.position = enemyBattleLocation.position;
         enemyHUD.SetHUD(enemyUnit);
     }
+
+    void ApplyXPEarnings()
+    {
+
+    }
     #endregion
 
     #region Buttons

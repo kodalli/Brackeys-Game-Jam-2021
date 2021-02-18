@@ -16,7 +16,6 @@ MonoBehaviour:
   BaseHP: 15
   BaseMP: 17
   BaseLevel: 0
-  BaseXP: 0
-  BaseAttack: 6
-  BaseDefense: 4
+  BaseAttack: 5
+  BaseDefense: 9
   Prefab: {fileID: 3653250672529436985, guid: 811cdbfb499259d47a2de5a49ffced7e, type: 3}
