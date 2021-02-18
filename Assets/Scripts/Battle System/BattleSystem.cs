@@ -283,6 +283,7 @@ public class BattleSystem : MonoBehaviour
             return;
 
         StartCoroutine(PlayerAttack());
+        state = BattleState.EnemyTurn;
     }
 
     public void OnItemsButton()
@@ -303,6 +304,12 @@ public class BattleSystem : MonoBehaviour
     {
         if (state != BattleState.PlayerTurn)
             return;
+
+        var dict = PlayerControlSave.Instance.localPlayerData.monstersDict;
+        foreach(KeyValuePair<string, Monster> monster in dict)
+        {
+            Debug.Log(monster.Key + ", status " + monster.Value.GetStatus() + ", hp " + monster.Value.GetCurrentHP());
+        }
     }
     #endregion
 }
