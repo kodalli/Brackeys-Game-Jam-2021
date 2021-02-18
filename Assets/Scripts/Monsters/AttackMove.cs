@@ -13,7 +13,7 @@ public class AttackMove: ScriptableObject
     public MoveType MonsterMoveType = MoveType.None;
     public MoveType SecondaryMonsterMoveType = MoveType.None;
     [Range(0, 20)] public int MPCost;
-    [Range(0, 20)] public int MaxMPForMove;
+    [Range(0, 20)] public int MaxUsesForMove;
     public string Description;
     
     /*

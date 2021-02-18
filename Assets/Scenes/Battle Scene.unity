@@ -3793,6 +3793,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   dialogueText: {fileID: 1861097771}
+  AttackButtonText: {fileID: 0}
+  AttackButtonFusedText1: {fileID: 0}
+  AttackButtonFusedText2: {fileID: 0}
+  AttackButtonFusedText3: {fileID: 0}
   enemyNPC: {fileID: 1650549773}
   playerBattleLocation: {fileID: 1621965799}
   enemyBattleLocation: {fileID: 1581387162}
