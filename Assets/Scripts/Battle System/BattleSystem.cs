@@ -61,7 +61,7 @@ public class BattleSystem : MonoBehaviour
         playerHUD.SetHUD(playerUnit);
         enemyHUD.SetHUD(enemyUnit);
 
-        yield return new WaitForSeconds(2.5f);
+        yield return new WaitForSeconds(2f);
 
         state = BattleState.PlayerTurn;
         PlayerTurn();
@@ -75,11 +75,19 @@ public class BattleSystem : MonoBehaviour
         // Apply status
         // Check if enemy dead, if dead go to next enemy else end battle
 
+        // Health bar damaged animation
+        var previousHP = enemyUnit.GetCurrentHP();
         enemyUnit.TakeDamage(playerUnit.GetCurrentAtk());
+        var currentHP = enemyUnit.GetCurrentHP();
+        while (previousHP > currentHP)
+        {
+            previousHP--;
+            enemyHUD.SetHP(previousHP);
+            yield return new WaitForEndOfFrame();
+        }
 
         var isDead = enemyUnit.GetStatus().Equals(Status.Fainted);
 
-        enemyHUD.SetHP(enemyUnit.GetCurrentHP());
         dialogueText.text = "The attack is successful!";
 
         yield return new WaitForSeconds(2f);
@@ -163,9 +171,16 @@ public class BattleSystem : MonoBehaviour
 
         yield return new WaitForSeconds(1f);
 
+        // Health bar damaged animation
+        var previousHP = playerUnit.GetCurrentHP();
         playerUnit.TakeDamage(enemyUnit.GetCurrentAtk());
-
-        playerHUD.SetHP(playerUnit.GetCurrentHP());
+        var currentHP = playerUnit.GetCurrentHP();
+        while (previousHP > currentHP)
+        {
+            previousHP--;
+            playerHUD.SetHP(previousHP);
+            yield return new WaitForEndOfFrame();
+        }
 
         var isDead = playerUnit.GetStatus().Equals(Status.Fainted);
 
@@ -282,6 +297,7 @@ public class BattleSystem : MonoBehaviour
         if (state != BattleState.PlayerTurn)
             return;
 
+        dialogueText.text = "";
         StartCoroutine(PlayerAttack());
         state = BattleState.EnemyTurn;
     }

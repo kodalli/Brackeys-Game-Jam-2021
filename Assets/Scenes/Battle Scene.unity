@@ -518,8 +518,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 159576016}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1263.0952, y: 552.3809, z: 0}
-  m_LocalScale: {x: 178.57143, y: 238.09521, z: 1.1904761}
+  m_LocalPosition: {x: 192, y: 44, z: 0}
+  m_LocalScale: {x: 61.247017, y: 80.43261, z: 1.1904761}
   m_Children: []
   m_Father: {fileID: 1036781478}
   m_RootOrder: 4
@@ -1293,6 +1293,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   localPlayerData:
     squad: []
+    playerSpeed: 5
 --- !u!4 &374658755
 Transform:
   m_ObjectHideFlags: 0
@@ -1320,7 +1321,7 @@ GameObject:
   - component: {fileID: 404788998}
   - component: {fileID: 404788997}
   m_Layer: 5
-  m_Name: AttackButton
+  m_Name: CancelButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1389,18 +1390,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1067850070}
-        m_MethodName: OnAttackButton
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 218363027}
+      - m_Target: {fileID: 1036781477}
         m_MethodName: SetActive
         m_Mode: 6
         m_Arguments:
@@ -1411,7 +1401,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 611300091}
+      - m_Target: {fileID: 1056396490}
         m_MethodName: SetActive
         m_Mode: 6
         m_Arguments:
@@ -1626,7 +1616,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0.754, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -2233,8 +2223,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 586127483}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 135.71428, y: 115.47619, z: 0}
-  m_LocalScale: {x: 178.57143, y: 238.09521, z: 1.1904761}
+  m_LocalPosition: {x: -205, y: -89, z: 0}
+  m_LocalScale: {x: 61.247017, y: 80.43261, z: 1.1904761}
   m_Children: []
   m_Father: {fileID: 1036781478}
   m_RootOrder: 5
@@ -3373,6 +3363,7 @@ MonoBehaviour:
     squad:
     - {fileID: 11400000, guid: 07429d047448971479d39d78a7f3cef5, type: 2}
     - {fileID: 11400000, guid: bfc97e1da3e41404d9fc0a05df63edba, type: 2}
+    playerSpeed: 5
 --- !u!4 &985212371
 Transform:
   m_ObjectHideFlags: 0
@@ -3536,7 +3527,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1036781478
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3579,7 +3570,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1056396491
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3854,7 +3845,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0.754, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -5571,8 +5562,8 @@ RectTransform:
   m_Father: {fileID: 1597416802}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.754, y: 0}
-  m_AnchorMax: {x: 0.754, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -5645,8 +5636,8 @@ RectTransform:
   m_Father: {fileID: 1424437721}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.754, y: 0}
-  m_AnchorMax: {x: 0.754, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -6080,9 +6071,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1067850070}
-        m_MethodName: OnSquadButton
-        m_Mode: 1
+      - m_Target: {fileID: 1036781477}
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -6090,6 +6081,17 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1056396490}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &1869305696
 MonoBehaviour:
