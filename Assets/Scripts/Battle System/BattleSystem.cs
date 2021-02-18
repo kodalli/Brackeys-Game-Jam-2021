@@ -292,6 +292,20 @@ public class BattleSystem : MonoBehaviour
     {
 
     }
+
+    void TestAttack(int index)
+    {
+        try
+        {
+            var move = playerUnit.MoveSet[index];
+            Debug.Log(move.MoveName);
+        }
+        catch
+        {
+            Debug.Log("Index out of bounds");
+        }
+    }
+
     #endregion
 
     #region Buttons
@@ -307,17 +321,17 @@ public class BattleSystem : MonoBehaviour
 
     public void OnFusedAttackButton1()
     {
-
+        TestAttack(0);
     }
 
     public void OnFusedAttackButton2()
     {
-
+        TestAttack(1);
     }
 
     public void OnFusedAttackButton3()
     {
-
+        TestAttack(2);
     }
 
 

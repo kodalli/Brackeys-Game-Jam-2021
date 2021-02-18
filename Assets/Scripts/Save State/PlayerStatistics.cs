@@ -9,6 +9,7 @@ public class PlayerStatistics
     public List<MonsterScriptableObject> squad;
     public Dictionary<string, Monster> monstersDict = new Dictionary<string, Monster>();
     public float playerSpeed = 5f;
+    public List<ItemData> playerItems;
 
     public void FillBaseValues()
     {

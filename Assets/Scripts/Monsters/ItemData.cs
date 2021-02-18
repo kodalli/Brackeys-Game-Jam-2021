@@ -9,6 +9,8 @@ public class ItemData : ScriptableObject
     public string itemName;
     public List<MonsterScriptableObject> fusableMonsters;
     public List<MonsterScriptableObject> fusedMonsters;
+    public string itemDescription;
+    public Sprite sprite;
 
     public Monster FuseMonsterWithItem(Monster monsterToFuse)
     {
