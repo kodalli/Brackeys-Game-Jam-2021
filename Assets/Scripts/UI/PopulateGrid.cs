@@ -6,11 +6,13 @@ using TMPro;
 
 public class PopulateGrid : MonoBehaviour
 {
-	public GameObject prefab; // This is our prefab object that will be exposed in the inspector
+	[SerializeField] private GameObject prefab; // This is our prefab object that will be exposed in the inspector
+    [SerializeField] private GameObject battleSystemRef;
+    [SerializeField] private GameObject itemMenuRef;
 
 	void Start()
 	{
-		Populate();
+        Populate();
 	}
 
     private void Update()
@@ -23,7 +25,7 @@ public class PopulateGrid : MonoBehaviour
 		GameObject newObj; // Create GameObject instance
 
 		var items = PlayerControlSave.Instance.localPlayerData.playerItems;
-        Debug.Log(items.Count);
+        // Debug.Log(items.Count);
 
         for (int i = 0; i < items.Count; i++)
         {
@@ -31,8 +33,11 @@ public class PopulateGrid : MonoBehaviour
             newObj = (GameObject)Instantiate(prefab, transform);
             var texts = newObj.GetComponentsInChildren<TextMeshProUGUI>();
 
-            var battleSystemRef = GameObject.FindGameObjectWithTag("BattleSystem");
             
+            var buttonRef = newObj.GetComponentInChildren<Button>();
+            var item = items[i];
+            buttonRef.onClick.AddListener(delegate { OnClick(item); });
+            buttonRef.onClick.AddListener(delegate { itemMenuRef.SetActive(false); });
 
             // 0 button name, 1 item name, 2 description
             for (var j = 0; j < texts.Length; j++)
@@ -40,10 +45,10 @@ public class PopulateGrid : MonoBehaviour
                 switch(j)
                 {
                     case 1:
-                        texts[j].text = items[i].itemName;
+                        texts[j].text = item.itemName;
                         break;
                     case 2:
-                        texts[j].text = items[i].itemDescription;
+                        texts[j].text = item.itemDescription;
                         break;
                     default:
                         break;
@@ -52,5 +57,11 @@ public class PopulateGrid : MonoBehaviour
             //Debug.Log(texts);
 
         }
+    }
+
+    public void OnClick(ItemData item)
+    {
+        var obj = battleSystemRef.GetComponent<BattleSystem>();
+        obj.OnFuseButton(item);
     }
 }

@@ -18,12 +18,13 @@ public class BattleSystem : MonoBehaviour
     public BattleState state;
 
     [SerializeField] private TextMeshProUGUI dialogueText;
-    [SerializeField] private TextMeshProUGUI AttackButtonText;
     [SerializeField] private TextMeshProUGUI AttackButtonFusedText1, AttackButtonFusedText2, AttackButtonFusedText3;
 
     [SerializeField] private BattleNPC enemyNPC;
     [SerializeField] private Transform playerBattleLocation, enemyBattleLocation;
     [SerializeField] private BattleHUD playerHUD, enemyHUD;
+    [SerializeField] private GameObject combatOptionsPanel;
+    [SerializeField] private GameObject atkButton2, atkButton3, fuseButton, separateButton;
 
     private Monster playerUnit, enemyUnit;
     private GameObject playerObj, enemyObj;
@@ -33,6 +34,7 @@ public class BattleSystem : MonoBehaviour
     private void Start()
     {
         state = BattleState.Start;
+        combatOptionsPanel.SetActive(false);
         StartCoroutine(SetupBattle());
     }
 
@@ -42,27 +44,15 @@ public class BattleSystem : MonoBehaviour
         playerSquadCount = enemySquadCount = 0;
 
         // Player setup
-        var firstMonster = PlayerControlSave.Instance.localPlayerData.squad[playerSquadCount];
-        playerUnit = PlayerControlSave.Instance.localPlayerData.monstersDict[firstMonster.Name];
-
-        playerObj = Instantiate(firstMonster.Prefab);
-        playerObj.transform.position = playerBattleLocation.position;
-
+        BringPlayerMonsterIn();
 
         // Enemy setup
-        var firstEnemyMonster = enemyNPC.squad[enemySquadCount];
-        enemyUnit = enemyNPC.monstersDict[firstEnemyMonster.Name];
-
-        enemyObj = Instantiate(firstEnemyMonster.Prefab);
-        enemyObj.transform.position = enemyBattleLocation.position;
+        BringEnemyMonsterIn();
 
         enemyNPC.State = NPCStatus.Fighting;
 
         // Update UI and HUD
         dialogueText.text = "A wild " + enemyUnit.Name + " approaches...";
-
-        playerHUD.SetHUD(playerUnit);
-        enemyHUD.SetHUD(enemyUnit);
 
         yield return new WaitForSeconds(2f);
 
@@ -79,9 +69,12 @@ public class BattleSystem : MonoBehaviour
         // Check if enemy dead, if dead go to next enemy else end battle
 
         // Health bar damaged animation
+        combatOptionsPanel.SetActive(false);
+
         var previousHP = enemyUnit.CurHP;
         enemyUnit.TakeDamage(playerUnit.CurAtk);
         var currentHP = enemyUnit.CurHP;
+
         while (previousHP > currentHP)
         {
             previousHP--;
@@ -119,6 +112,8 @@ public class BattleSystem : MonoBehaviour
         // save unit data
         // swap playerUnit to new unit
         // if no more units then player lost and end battle
+
+
         Destroy(playerObj);
         var previousMonster = PlayerControlSave.Instance.localPlayerData.squad[playerSquadCount];
         PlayerControlSave.Instance.localPlayerData.monstersDict[previousMonster.Name] = playerUnit;
@@ -169,7 +164,7 @@ public class BattleSystem : MonoBehaviour
         // Do attack
         // Apply status
         // Check if player dead, if dead go to next monster else end battle
-
+        combatOptionsPanel.SetActive(false);
         dialogueText.text = enemyUnit.Name + " attacks!";
 
         yield return new WaitForSeconds(1f);
@@ -254,6 +249,7 @@ public class BattleSystem : MonoBehaviour
     #region Helpers
     void EndBattle()
     {
+        combatOptionsPanel.SetActive(false);
         // apply xp winnings at end of battle
         if (state == BattleState.Won)
         {
@@ -268,29 +264,85 @@ public class BattleSystem : MonoBehaviour
     void PlayerTurn()
     {
         dialogueText.text = "What will " + playerUnit.Name + " do?";
+        combatOptionsPanel.SetActive(true);
     }
 
     void BringPlayerMonsterIn()
     {
         var currentMonster = PlayerControlSave.Instance.localPlayerData.squad[playerSquadCount];
+
         playerUnit = PlayerControlSave.Instance.localPlayerData.monstersDict[currentMonster.Name];
+
+        Destroy(playerObj);
+
         playerObj = Instantiate(currentMonster.Prefab);
         playerObj.transform.position = playerBattleLocation.position;
+        playerObj.GetComponent<SpriteRenderer>().flipX = true;
+
         playerHUD.SetHUD(playerUnit);
+
+        ApplyUnfusedButtonText();
+    }
+
+    void BringFusedPlayerMonsterIn(MonsterScriptableObject fusedMonster)
+    {
+        var level = playerUnit.GetLevel();
+        var currentMonster = fusedMonster;
+
+        playerUnit = new Monster(currentMonster);
+        playerUnit.LevelUp(level);
+
+        Destroy(playerObj);
+
+        playerObj = Instantiate(currentMonster.Prefab);
+        playerObj.transform.position = playerBattleLocation.position;
+        playerObj.GetComponent<SpriteRenderer>().flipX = true;
+
+        playerHUD.SetHUD(playerUnit);
+
+        ApplyFusedButtonText();
     }
 
     void BringEnemyMonsterIn()
     {
         var currentMonster = enemyNPC.squad[enemySquadCount];
+
         enemyUnit = enemyNPC.monstersDict[currentMonster.Name];
         enemyObj = Instantiate(currentMonster.Prefab);
         enemyObj.transform.position = enemyBattleLocation.position;
+
         enemyHUD.SetHUD(enemyUnit);
     }
 
     void ApplyXPEarnings()
     {
 
+    }
+
+    void ApplyFusedButtonText()
+    {
+        var moveset = playerUnit.MoveSet;
+
+        AttackButtonFusedText1.text = moveset[0].MoveName;
+        AttackButtonFusedText2.text = moveset[1].MoveName;
+        AttackButtonFusedText3.text = moveset[2].MoveName;
+
+        fuseButton.SetActive(false);
+        separateButton.SetActive(true);
+        atkButton2.SetActive(true);
+        atkButton3.SetActive(true);
+    }
+
+    void ApplyUnfusedButtonText()
+    {
+        var moveset = playerUnit.MoveSet;
+
+        AttackButtonFusedText1.text = moveset[0].MoveName;
+
+        fuseButton.SetActive(true);
+        separateButton.SetActive(false);
+        atkButton2.SetActive(false);
+        atkButton3.SetActive(false);
     }
 
     void TestAttack(int index)
@@ -304,6 +356,8 @@ public class BattleSystem : MonoBehaviour
         {
             Debug.Log("Index out of bounds");
         }
+
+        OnAttackButton();
     }
 
     #endregion
@@ -335,7 +389,7 @@ public class BattleSystem : MonoBehaviour
     }
 
 
-    public void OnFuseButton()
+    public void OnFuseButton(ItemData item)
     {
         // fuse logic
         // ask player to choose item to fuse
@@ -345,7 +399,15 @@ public class BattleSystem : MonoBehaviour
         // Bring fused monster in
         // Got to enemy turn
 
-        Debug.Log("fuse button onclick");
+        if (state != BattleState.PlayerTurn)
+            return;
+
+        BringFusedPlayerMonsterIn(item.FuseMonsterWithItem(playerUnit));
+    }
+
+    public void OnSeparateButton()
+    {
+        BringPlayerMonsterIn();
     }
 
     public void OnItemsButton()
