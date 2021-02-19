@@ -29,8 +29,27 @@ public class PopulateGrid : MonoBehaviour
         {
             // Create new instances of our prefab until we've created as many as we specified
             newObj = (GameObject)Instantiate(prefab, transform);
-            var texts = newObj.GetComponentInChildren<TextMeshProUGUI>();
-            Debug.Log(texts);
+            var texts = newObj.GetComponentsInChildren<TextMeshProUGUI>();
+
+            var battleSystemRef = GameObject.FindGameObjectWithTag("BattleSystem");
+            
+
+            // 0 button name, 1 item name, 2 description
+            for (var j = 0; j < texts.Length; j++)
+            {
+                switch(j)
+                {
+                    case 1:
+                        texts[j].text = items[i].itemName;
+                        break;
+                    case 2:
+                        texts[j].text = items[i].itemDescription;
+                        break;
+                    default:
+                        break;
+                }
+            }
+            //Debug.Log(texts);
 
         }
     }

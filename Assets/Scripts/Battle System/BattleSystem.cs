@@ -344,6 +344,8 @@ public class BattleSystem : MonoBehaviour
         // Destroy player monster prefab
         // Bring fused monster in
         // Got to enemy turn
+
+        Debug.Log("fuse button onclick");
     }
 
     public void OnItemsButton()
