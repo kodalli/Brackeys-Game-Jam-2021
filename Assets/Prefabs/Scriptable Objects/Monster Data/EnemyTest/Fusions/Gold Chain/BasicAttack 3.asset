@@ -15,7 +15,7 @@ MonoBehaviour:
   MoveName: Bling Bling
   StatusEffect: 1
   MonsterMoveType: 2
-  SecondaryMonsterMoveType: 4
+  SecondaryMonsterMoveType: 1
   MPCost: 3
   MaxUsesForMove: 0
   Description: Reflects gold chain in opponents eyes stunning them.

@@ -290,6 +290,7 @@ public class BattleSystem : MonoBehaviour {
         playerObj = Instantiate(currentMonster.Prefab);
         playerObj.transform.position = playerBattleLocation.position;
         playerObj.GetComponent<SpriteRenderer>().flipX = true;
+        playerObj.GetComponent<SpriteRenderer>().sortingLayerName = "Background";
 
         playerHUD.SetHUD(playerUnit);
 
@@ -310,6 +311,7 @@ public class BattleSystem : MonoBehaviour {
         playerObj = Instantiate(currentMonster.Prefab);
         playerObj.transform.position = playerBattleLocation.position;
         playerObj.GetComponent<SpriteRenderer>().flipX = true;
+        playerObj.GetComponent<SpriteRenderer>().sortingLayerName = "Background";
 
         playerHUD.SetHUD(playerUnit);
 
@@ -329,6 +331,7 @@ public class BattleSystem : MonoBehaviour {
 
         enemyObj = Instantiate(currentMonster.Prefab);
         enemyObj.transform.position = enemyBattleLocation.position;
+        enemyObj.GetComponent<SpriteRenderer>().sortingLayerName = "Background";
         //enemyObj.GetComponent<SpriteRenderer>().flipX = true;
 
         enemyHUD.SetHUD(enemyUnit);
@@ -339,6 +342,7 @@ public class BattleSystem : MonoBehaviour {
 
         enemyUnit = enemyNPC.monstersDict[currentMonster.Name];
         enemyObj = Instantiate(currentMonster.Prefab);
+        enemyObj.GetComponent<SpriteRenderer>().sortingLayerName = "Background";
         enemyObj.transform.position = enemyBattleLocation.position;
 
         enemyHUD.SetHUD(enemyUnit);

@@ -536,7 +536,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -203, y: 106.3}
+  m_AnchoredPosition: {x: -203, y: 106.29999}
   m_SizeDelta: {x: -474.93964, y: -322.6364}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &192622499
@@ -4307,6 +4307,7 @@ MonoBehaviour:
   separateButton: {fileID: 1502985028}
   runSuccessProbabity: 0.7
   sceneName: Starting Village
+  xpMultiplier: 0.2
 --- !u!4 &1067850071
 Transform:
   m_ObjectHideFlags: 0
@@ -5035,8 +5036,8 @@ Canvas:
   m_GameObject: {fileID: 1238684036}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_RenderMode: 1
+  m_Camera: {fileID: 811375236}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -5105,7 +5106,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 260, y: -188.00002}
+  m_AnchoredPosition: {x: 260, y: -188}
   m_SizeDelta: {x: -597.54626, y: -398.12326}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1255930002
@@ -8230,7 +8231,7 @@ PrefabInstance:
     - target: {fileID: 8780614375521147962, guid: 9ccd3fb05151ecc4fa0457cd1494a63b,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 99.9
+      value: 99.899994
       objectReference: {fileID: 0}
     - target: {fileID: 8780614375521147962, guid: 9ccd3fb05151ecc4fa0457cd1494a63b,
         type: 3}
