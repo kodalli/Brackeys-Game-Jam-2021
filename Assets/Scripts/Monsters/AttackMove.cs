@@ -6,8 +6,7 @@ using UnityEngine;
 public enum MoveType { DamageOpponent, HealUser, CauseStatusOpponent, CauseStatusUser, None }
 
 [CreateAssetMenu(fileName = "MonsterMoveData", menuName = "ScriptableObjects/MonsterMoveDataScriptableObject", order = 1)]
-public class AttackMove: ScriptableObject
-{
+public class AttackMove : ScriptableObject {
     public string MoveName;
     public Status StatusEffect = Status.Neutral;
     public MoveType MonsterMoveType = MoveType.None;
@@ -15,7 +14,7 @@ public class AttackMove: ScriptableObject
     [Range(0, 20)] public int MPCost;
     [Range(0, 20)] public int MaxUsesForMove;
     public string Description;
-    
+
     /*
         Types of Moves
         1. Cause damage to enemy
