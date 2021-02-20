@@ -14,8 +14,11 @@ public class Dialog : MonoBehaviour
 
     void Start()
     {
-        dialogBox.SetActive(true);
-        StartCoroutine(Type());
+
+        if (!PlayerControlSave.Instance.localPlayerData.finishedTutorial) {
+            dialogBox.SetActive(true);
+            StartCoroutine(Type());
+        }
     }
     void Update()
     {
@@ -42,6 +45,7 @@ public class Dialog : MonoBehaviour
             textDisplay.text = "";
             continueButton.SetActive(false);
             dialogBox.SetActive(false);
+            PlayerControlSave.Instance.localPlayerData.finishedTutorial = true;
         }
     }
 }

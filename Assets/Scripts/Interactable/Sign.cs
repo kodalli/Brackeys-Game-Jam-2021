@@ -12,8 +12,8 @@ public class Sign : MonoBehaviour
     public TextMeshProUGUI dialogText;
     public string dialog;
 
-    [SerializeField] private GameObject key;
-    private GameObject temp;
+    [SerializeField] private GameObject keyPrefab;
+    private GameObject keyObj;
 
     private void Update()
     {
@@ -38,7 +38,7 @@ public class Sign : MonoBehaviour
             isNear = true;
             Vector3 pos = transform.position;
             pos.y += 1f; // hover above
-            temp = Instantiate(key, pos, Quaternion.identity);
+            keyObj = Instantiate(keyPrefab, pos, Quaternion.identity);
 
         }
 
@@ -50,7 +50,7 @@ public class Sign : MonoBehaviour
         {
             isNear = false;
             dialogBox.SetActive(false);
-            Destroy(temp);
+            Destroy(keyObj);
         }
     }
 

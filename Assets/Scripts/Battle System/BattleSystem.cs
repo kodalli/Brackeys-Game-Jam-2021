@@ -275,8 +275,6 @@ public class BattleSystem : MonoBehaviour {
     #region Helpers
     void EndBattle() {
         combatOptionsPanel.SetActive(false);
-        PlayerControlSave.Instance.SaveData();
-        PlayerControlSave.Instance.DisplayMonstersDict();
         // apply xp winnings at end of battle
         if (state == BattleState.Won) {
             //dialogueText.text = "You won the battle!";
@@ -296,6 +294,13 @@ public class BattleSystem : MonoBehaviour {
         }
 
         // Change Scene
+        StartCoroutine(ChangeScene());
+    }
+
+    IEnumerator ChangeScene() {
+        PlayerControlSave.Instance.SaveData();
+        //PlayerControlSave.Instance.DisplayMonstersDict();
+        yield return new WaitForSeconds(2f);
         SceneManager.LoadScene(sceneName);
     }
 

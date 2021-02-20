@@ -13,13 +13,17 @@ public class PlayerControlSave : MonoBehaviour {
         if (Instance != this) {
             Destroy(gameObject);
         }
-        SaveData();
+        GlobalControlSave.Instance.Player = gameObject;
+        //SaveData();
     }
 
     private void Start() {
         localPlayerData = GlobalControlSave.Instance.savedPlayerData;
         // localPlayerData.FillBaseValues(); // local player not loading global data, quick fix
         // Debug.Log(localPlayerData.monstersDict.Count);
+    }
+    private void Update() {
+        
     }
 
     public void SaveData() {
