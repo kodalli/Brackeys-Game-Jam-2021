@@ -35,6 +35,7 @@ public class BattleSystem : MonoBehaviour {
     #endregion
 
     private void Start() {
+        enemyNPC.Unwrap(PlayerControlSave.Instance.localPlayerData.enemyData);
         state = BattleState.Start;
         combatOptionsPanel.SetActive(false);
         StartCoroutine(SetupBattle());
@@ -49,6 +50,10 @@ public class BattleSystem : MonoBehaviour {
 
         // Enemy setup
         BringEnemyMonsterIn();
+
+        // if no usable player units then end the battle
+        if (playerUnit.CurrentStatus == Status.Fainted)
+            yield break;
 
         enemyNPC.State = NPCStatus.Fighting;
 
@@ -272,48 +277,28 @@ public class BattleSystem : MonoBehaviour {
     }
     #endregion
 
-    #region Helpers
-    void EndBattle() {
-        combatOptionsPanel.SetActive(false);
-        // apply xp winnings at end of battle
-        if (state == BattleState.Won) {
-            //dialogueText.text = "You won the battle!";
-            StartCoroutine(FancyText("You won the battle!"));
-            enemyNPC.State = NPCStatus.Defeated;
-            enemyNPC.Defeat();
-        }
-        else if (state == BattleState.Lost) {
-            //dialogueText.text = "You were defeated.";
-            StartCoroutine(FancyText("You were defeated."));
-            enemyNPC.State = NPCStatus.Standby;
-        }
-        else if (state == BattleState.Run) {
-            //dialogueText.text = "Escape successful!";
-            StartCoroutine(FancyText("Escape successful!"));
-            enemyNPC.State = NPCStatus.Standby;
-        }
-
-        // Change Scene
-        StartCoroutine(ChangeScene());
-    }
-
-    IEnumerator ChangeScene() {
-        PlayerControlSave.Instance.SaveData();
-        //PlayerControlSave.Instance.DisplayMonstersDict();
-        yield return new WaitForSeconds(2f);
-        SceneManager.LoadScene(sceneName);
-    }
-
-    void PlayerTurn() {
-        //dialogueText.text = "What will " + playerUnit.Name + " do?";
-        StartCoroutine(FancyText("What will " + playerUnit.Name + " do?"));
-        combatOptionsPanel.SetActive(true);
-    }
-
+    #region Bring Monsters In
     void BringPlayerMonsterIn() {
         var currentMonster = PlayerControlSave.Instance.localPlayerData.squad[playerSquadCount];
 
         playerUnit = PlayerControlSave.Instance.localPlayerData.monstersDict[currentMonster.Name];
+
+        // check if fainted, cycle through squad, if no one then end battle
+        if (playerUnit.CurrentStatus == Status.Fainted) {
+            for (int i = 0; i < PlayerControlSave.Instance.localPlayerData.squad.Count; i++) {
+                playerSquadCount = i;
+                currentMonster = PlayerControlSave.Instance.localPlayerData.squad[playerSquadCount];
+                playerUnit = PlayerControlSave.Instance.localPlayerData.monstersDict[currentMonster.Name];
+                //Debug.Log(playerUnit.Name + ", " + playerUnit.CurrentStatus);
+                if (playerUnit.CurrentStatus != Status.Fainted) {
+                    break;
+                }
+            }
+            if (playerUnit.CurrentStatus == Status.Fainted) {
+                state = BattleState.Lost;
+                EndBattle();
+            }
+        }
 
         Destroy(playerObj);
 
@@ -355,33 +340,53 @@ public class BattleSystem : MonoBehaviour {
 
         enemyHUD.SetHUD(enemyUnit);
     }
+    #endregion
+
+    #region End Battle
+    void EndBattle() {
+        combatOptionsPanel.SetActive(false);
+        // apply xp winnings at end of battle
+        if (state == BattleState.Won) {
+            //dialogueText.text = "You won the battle!";
+            StartCoroutine(FancyText("You won the battle!"));
+            enemyNPC.State = NPCStatus.Defeated;
+            PlayerControlSave.Instance.localPlayerData.enemyData.State = enemyNPC.State;
+            PlayerControlSave.Instance.localPlayerData.defeatedEnemyNames.Add(enemyNPC.Name);
+        }
+        else if (state == BattleState.Lost) {
+            //dialogueText.text = "You were defeated.";
+            StartCoroutine(FancyText("You were defeated."));
+            enemyNPC.State = NPCStatus.Standby;
+        }
+        else if (state == BattleState.Run) {
+            //dialogueText.text = "Escape successful!";
+            StartCoroutine(FancyText("Escape successful!"));
+            enemyNPC.State = NPCStatus.Standby;
+        }
+
+        // Change Scene
+        StartCoroutine(ChangeScene());
+    }
+
+    IEnumerator ChangeScene() {
+        PlayerControlSave.Instance.SaveData();
+        //PlayerControlSave.Instance.DisplayMonstersDict();
+        yield return new WaitForSeconds(2f);
+        SceneManager.LoadScene(sceneName);
+    }
+    #endregion
+
+    #region Helpers
+
+    void PlayerTurn() {
+        //dialogueText.text = "What will " + playerUnit.Name + " do?";
+        StartCoroutine(FancyText("What will " + playerUnit.Name + " do?"));
+        combatOptionsPanel.SetActive(true);
+    }
+
 
     void ApplyXPEarnings() {
 
-    }
-
-    void ApplyFusedButtonText() {
-        var moveset = playerUnit.MoveSet;
-
-        AttackButtonFusedText1.text = moveset[0].MoveName;
-        AttackButtonFusedText2.text = moveset[1].MoveName;
-        AttackButtonFusedText3.text = moveset[2].MoveName;
-
-        fuseButton.SetActive(false);
-        separateButton.SetActive(true);
-        atkButton2.SetActive(true);
-        atkButton3.SetActive(true);
-    }
-
-    void ApplyUnfusedButtonText() {
-        var moveset = playerUnit.MoveSet;
-
-        AttackButtonFusedText1.text = moveset[0].MoveName;
-
-        fuseButton.SetActive(true);
-        separateButton.SetActive(false);
-        atkButton2.SetActive(false);
-        atkButton3.SetActive(false);
     }
 
     int GetHpDifference() {
@@ -392,7 +397,7 @@ public class BattleSystem : MonoBehaviour {
         try {
             var move = playerUnit.MoveSet[index];
             DoAttack(move);
-            Debug.Log(move.MoveName);
+            //Debug.Log(move.MoveName);
         }
         catch {
             Debug.Log("Index out of bounds");
@@ -419,6 +424,30 @@ public class BattleSystem : MonoBehaviour {
     #endregion
 
     #region Buttons
+    void ApplyFusedButtonText() {
+        var moveset = playerUnit.MoveSet;
+
+        AttackButtonFusedText1.text = moveset[0].MoveName;
+        AttackButtonFusedText2.text = moveset[1].MoveName;
+        AttackButtonFusedText3.text = moveset[2].MoveName;
+
+        fuseButton.SetActive(false);
+        separateButton.SetActive(true);
+        atkButton2.SetActive(true);
+        atkButton3.SetActive(true);
+    }
+
+    void ApplyUnfusedButtonText() {
+        var moveset = playerUnit.MoveSet;
+
+        AttackButtonFusedText1.text = moveset[0].MoveName;
+
+        fuseButton.SetActive(true);
+        separateButton.SetActive(false);
+        atkButton2.SetActive(false);
+        atkButton3.SetActive(false);
+    }
+
     public void OnAttackButton() {
         //if (state != BattleState.PlayerTurn)
         //    return;

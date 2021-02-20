@@ -11,6 +11,8 @@ public class PlayerStatistics {
     public List<ItemData> playerItems;
     public bool finishedTutorial = false;
     public Vector3 playerPosition;
+    public NPCBattleWrapper enemyData;
+    public List<string> defeatedEnemyNames;
 
     public void FillBaseValues() {
         squad.ForEach(m => monstersDict.Add(m.Name, new Monster(m)));

@@ -3,32 +3,38 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class NPCBattleManager : MonoBehaviour
-{
-    private bool isNear = false;
-
-    //public GameObject dialogBox;
-    //public TextMeshProUGUI dialogText;
-    //public string dialog;
-
+public class NPCBattleManager : MonoBehaviour {
     [SerializeField] private GameObject keyPrefab;
+    [SerializeField] private List<string> prefightDialogue;
+    [SerializeField] private List<string> postfightDialogue;
+
+    private bool isNear = false;
     private GameObject keyObj;
 
     private void Update() {
         if (Input.GetKeyDown(KeyCode.E) && isNear) {
-            //if (dialogBox.activeInHierarchy) {
-            //    dialogBox.SetActive(false);
-            //}
-            //else {
-            //    dialogBox.SetActive(true);
-            //    dialogText.text = dialog;
-            //}
 
-            // give data to player about trainer info for battle
-            //var playerRef = GameObject.FindGameObjectWithTag("Player");
-            //playerRef.GetComponent<PlayerController>().PlayerSceneLoad("Battle Scene");
+            if (Dialog.Instance.dialogBox.activeSelf) {
+                return;
+            }
 
-            PlayerController.Instance.PlayerSceneLoad("Battle Scene");
+            // check if npc is defeated, if defeated display postfight dialogue
+            if (GetComponent<BattleNPC>().State == NPCStatus.Defeated) {
+                Dialog.Instance.DisplayTextInDialogueBox(postfightDialogue);
+                StartCoroutine(DisableMovementUntilDialogueEnds());
+
+            }
+            else if (!PlayerController.Instance.CanBattle()) {  // check if can battle
+                List<string> textList = new List<string>() { "All your homies have fainted." };
+                Dialog.Instance.DisplayTextInDialogueBox(textList);
+                return;
+            }
+            else {  // display prefight dialogue, then start battle
+                Dialog.Instance.DisplayTextInDialogueBox(prefightDialogue);
+                StartCoroutine(DisableMovementUntilDialogueEnds());
+                StartCoroutine(StartBattle());
+            }
+
         }
     }
 
@@ -49,5 +55,30 @@ public class NPCBattleManager : MonoBehaviour
             //dialogBox.SetActive(false);
             Destroy(keyObj);
         }
+    }
+
+    IEnumerator StartBattle() {
+
+        while (!Dialog.Instance.IsDialogueOver()) {
+            yield return default;
+        }
+
+        var enemy = new NPCBattleWrapper();
+        enemy.Wrap(GetComponent<BattleNPC>());
+
+        PlayerControlSave.Instance.localPlayerData.enemyData = enemy;
+
+        PlayerController.Instance.PlayerSceneLoad("Battle Scene");
+    }
+
+    IEnumerator DisableMovementUntilDialogueEnds() {
+        PlayerController.Instance.movementIsActive = false;
+
+        while (!Dialog.Instance.IsDialogueOver() && !PlayerController.Instance.movementIsActive) {
+            //Debug.Log("");
+            yield return default;
+        }
+
+        PlayerController.Instance.movementIsActive = true;
     }
 }

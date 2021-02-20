@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour {
     private Vector2 movement;
     private Rigidbody2D rb;
     private Animator anim;
+    public bool movementIsActive = true;
 
     private void Awake() {
         if (Instance == null) {
@@ -20,14 +21,13 @@ public class PlayerController : MonoBehaviour {
     private void Start() {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-        transform.position = PlayerControlSave.Instance.localPlayerData.playerPosition;
     }
     private void Update() {
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
 
-        if (movement == Vector2.zero) anim.SetBool("isMoving", false);
-        if (movement != Vector2.zero) {
+        if (movement == Vector2.zero || !movementIsActive) anim.SetBool("isMoving", false);
+        if (movement != Vector2.zero && movementIsActive) {
             anim.SetBool("isMoving", true);
             if (movement.x != 0) movement.y = 0;
             rb.MovePosition(rb.position + movement * PlayerControlSave.Instance.localPlayerData.playerSpeed * Time.deltaTime);
@@ -48,4 +48,11 @@ public class PlayerController : MonoBehaviour {
         UnityEngine.SceneManagement.SceneManager.LoadScene(scene);
     }
 
+    public bool CanBattle() {
+        var squadDict = PlayerControlSave.Instance.localPlayerData.monstersDict;
+        foreach (KeyValuePair<string, Monster> monster in squadDict)
+            if (monster.Value.CurrentStatus != Status.Fainted)
+                return true;
+        return false;
+    }
 }

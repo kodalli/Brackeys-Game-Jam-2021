@@ -47,3 +47,6 @@ MonoBehaviour:
     squad: []
     playerSpeed: 5
     playerItems: []
+    finishedTutorial: 0
+    playerPosition: {x: 0, y: 0, z: 0}
+    enemy: {fileID: 0}

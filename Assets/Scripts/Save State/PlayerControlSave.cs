@@ -13,7 +13,7 @@ public class PlayerControlSave : MonoBehaviour {
         if (Instance != this) {
             Destroy(gameObject);
         }
-        GlobalControlSave.Instance.Player = gameObject;
+        //GlobalControlSave.Instance.Player = gameObject;
         //SaveData();
     }
 

@@ -75,7 +75,7 @@ public class Monster {
         var damageMultiplier = 100f / (100 + CurDef);
         var damage = -Mathf.RoundToInt(enemyAtk * damageMultiplier);
         AddHP(damage);
-        Debug.Log(Name + ": multiplier: " + damageMultiplier + " damage taken: " + damage);
+        //Debug.Log(Name + ": multiplier: " + damageMultiplier + " damage taken: " + damage);
     }
     #endregion 
 

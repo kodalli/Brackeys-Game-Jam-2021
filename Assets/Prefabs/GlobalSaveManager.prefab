@@ -59,3 +59,6 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 592fec2ecb318564581873949ca37144, type: 2}
     - {fileID: 11400000, guid: 592fec2ecb318564581873949ca37144, type: 2}
     - {fileID: 11400000, guid: 592fec2ecb318564581873949ca37144, type: 2}
+    finishedTutorial: 0
+    playerPosition: {x: -1.55, y: -8.14, z: 0}
+    enemy: {fileID: 0}
