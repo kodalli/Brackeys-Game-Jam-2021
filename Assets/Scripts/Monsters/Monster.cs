@@ -1,8 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 
-public enum Status
-{
+public enum Status {
     Neutral,
     Stunned,
     Enraged,
@@ -17,8 +16,7 @@ public enum Status
     Fainted,
 }
 
-public class Monster
-{
+public class Monster {
     #region Variables
     public string Name { get; }
     public bool Fused { get; }
@@ -31,12 +29,11 @@ public class Monster
 
     private MonsterScriptableObject baseData;
     private int curLevel, curXP;
-    
+
     private readonly float SCALING = 0.2f;
     private readonly int MAX_LEVEL = 30;
     #endregion
-    public Monster(MonsterScriptableObject baseData)
-    {
+    public Monster(MonsterScriptableObject baseData) {
         this.baseData = baseData;
         Name = baseData.Name;
         curLevel = baseData.BaseLevel;
@@ -48,15 +45,13 @@ public class Monster
     }
 
     #region HP Methods
-    public void AddHP(int val)
-    {
+    public void AddHP(int val) {
         if (CurrentStatus.Equals(Status.Fainted))
             return;
 
         if (val + CurHP > GetMaxHP())
             CurHP = GetMaxHP();
-        else if (val + CurHP <= 0)
-        {
+        else if (val + CurHP <= 0) {
             CurHP = 0;
             CurrentStatus = Status.Fainted;
         }
@@ -64,17 +59,18 @@ public class Monster
             CurHP += val;
     }
 
-    public int GetMaxHP()
-    {
-        return Mathf.RoundToInt(baseData.BaseHP  * Mathf.Pow((1 + SCALING), curLevel));
+    public int GetMaxHP() {
+        return Mathf.RoundToInt(baseData.BaseHP * Mathf.Pow((1 + SCALING), curLevel));
     }
-    public void Revive()
-    {
+    public void Revive() {
+        // Reset all values
         CurrentStatus = Status.Neutral;
         CurHP = GetMaxHP();
+        CurAtk = GetMaxAtk();
+        CurDef = GetMaxDef();
+        CurMP = GetMaxMP();
     }
-    public void TakeDamage(int enemyAtk)
-    {
+    public void TakeDamage(int enemyAtk) {
         // add crit chance
         var damageMultiplier = 100f / (100 + CurDef);
         var damage = -Mathf.RoundToInt(enemyAtk * damageMultiplier);
@@ -84,8 +80,7 @@ public class Monster
     #endregion 
 
     #region MP Methods
-    public void AddMP(int val)
-    {
+    public void AddMP(int val) {
         if (val + CurMP > GetMaxMP())
             CurMP = GetMaxMP();
         else if (val + CurMP <= 0)
@@ -94,65 +89,55 @@ public class Monster
             CurMP += val;
     }
 
-    public int GetMaxMP()
-    {
+    public int GetMaxMP() {
         return Mathf.RoundToInt(baseData.BaseMP * Mathf.Pow((1 + SCALING), curLevel));
     }
     #endregion
 
     #region Def Methods
-    public void AddDef(int val)
-    {
+    public void AddDef(int val) {
         if (val + CurDef <= 0)
             CurDef = 0;
         else
             CurDef += val;
     }
 
-    public int GetMaxDef()
-    {
+    public int GetMaxDef() {
         return Mathf.RoundToInt(baseData.BaseDefense * (curLevel + 1) * (1 + SCALING));
     }
     #endregion
 
     #region Atk Methods
-    public void AddAtk(int val)
-    {
+    public void AddAtk(int val) {
         if (val + CurAtk <= 0)
             CurAtk = 0;
         else
             CurAtk += val;
     }
 
-    public int GetMaxAtk()
-    {
+    public int GetMaxAtk() {
         return Mathf.RoundToInt(baseData.BaseAttack * Mathf.Pow((1 + SCALING), curLevel));
     }
     #endregion
 
     #region XP Methods
-    public int GetXP(int? level = null)
-    {
+    public int GetXP(int? level = null) {
         level = level ?? curLevel;
         return Mathf.RoundToInt(4f * Mathf.Pow((int)level, 3f) / 5f);
     }
 
-    public void AddXP(int val)
-    {
+    public void AddXP(int val) {
         var maxXP = GetXP(MAX_LEVEL);
         var prevLevel = curLevel;
-        if (val + curXP > maxXP)
-        {
+        if (val + curXP > maxXP) {
             curXP = maxXP;
             curLevel = MAX_LEVEL;
         }
-        else if (val + curXP < 0)
-        {
+        else if (val + curXP < 0) {
             curXP = 0;
             curLevel = 0;
         }
-        else
-        {
+        else {
             curXP += val;
             curLevel = GetLevel(curXP);
         }
@@ -163,26 +148,21 @@ public class Monster
     #endregion
 
     #region Level Methods
-    public int GetLevel(int? xp = null)
-    {
+    public int GetLevel(int? xp = null) {
         xp = xp ?? curXP;
-        return Mathf.RoundToInt(5f * Mathf.Pow((int)xp, 1/3f) / 4f);
+        return Mathf.RoundToInt(5f * Mathf.Pow((int)xp, 1 / 3f) / 4f);
     }
 
-    public void AddLevel(int val)
-    {
-        if (val + curLevel > MAX_LEVEL)
-        {
+    public void AddLevel(int val) {
+        if (val + curLevel > MAX_LEVEL) {
             curXP = GetXP(MAX_LEVEL);
             curLevel = MAX_LEVEL;
         }
-        else if (val + curLevel < 0)
-        {
+        else if (val + curLevel < 0) {
             curXP = 0;
             curLevel = 0;
         }
-        else
-        {
+        else {
             curLevel += val;
             curXP = GetXP(curLevel);
         }
@@ -190,8 +170,7 @@ public class Monster
     }
 
     // Sets props to max value scaled with level
-    public void LevelUp(int? level = null)
-    {
+    public void LevelUp(int? level = null) {
         curLevel = level ?? curLevel;
         CurHP = GetMaxHP();
         CurMP = GetMaxMP();

@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: EnemyTestFusedGoldChain
   m_EditorClassIdentifier: 
   Name: EnemyTestFusedGoldChain
-  BaseHP: 15
+  BaseHP: 20
   BaseMP: 10
   BaseLevel: 0
-  BaseAttack: 5
-  BaseDefense: 5
+  BaseAttack: 7
+  BaseDefense: 6
   Prefab: {fileID: 3449486699630414139, guid: f8a3fbf73429db746ac8a97e7e027f0c, type: 3}
   Fused: 1
   MoveSet:
