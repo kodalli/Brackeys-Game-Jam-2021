@@ -63,8 +63,7 @@ public class NPCBattleManager : MonoBehaviour {
             yield return default;
         }
 
-        var enemy = new NPCBattleWrapper();
-        enemy.Wrap(GetComponent<BattleNPC>());
+        var enemy = new NPCBattleWrapper(GetComponent<BattleNPC>());
 
         PlayerControlSave.Instance.localPlayerData.enemyData = enemy;
 

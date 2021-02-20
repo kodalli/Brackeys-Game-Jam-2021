@@ -5687,6 +5687,7 @@ MonoBehaviour:
   levelText: {fileID: 1403010624}
   hpText: {fileID: 430668933}
   hpSlider: {fileID: 2054851412}
+  Fill: {fileID: 443469414}
 --- !u!1 &1478400213
 GameObject:
   m_ObjectHideFlags: 0
@@ -6955,6 +6956,7 @@ MonoBehaviour:
   levelText: {fileID: 1599528907}
   hpText: {fileID: 1059723667}
   hpSlider: {fileID: 287711926}
+  Fill: {fileID: 1072127718}
 --- !u!1 &1861097769
 GameObject:
   m_ObjectHideFlags: 0
@@ -7039,12 +7041,12 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 27
+  m_fontSize: 30
   m_fontSizeBase: 27
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
-  m_fontSizeMax: 28
+  m_fontSizeMax: 30
   m_fontStyle: 0
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256

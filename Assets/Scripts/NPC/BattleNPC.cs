@@ -10,6 +10,7 @@ public class BattleNPC : MonoBehaviour {
     public int level;
     public List<MonsterScriptableObject> squad;
     public Dictionary<string, Monster> monstersDict = new Dictionary<string, Monster>();
+    public List<ItemData> items;
 
     private void Awake() {
         FillBaseValues();
@@ -29,5 +30,6 @@ public class BattleNPC : MonoBehaviour {
         level = other.level;
         squad = other.squad;
         monstersDict = other.monstersDict;
+        items = other.items;
     }
 }

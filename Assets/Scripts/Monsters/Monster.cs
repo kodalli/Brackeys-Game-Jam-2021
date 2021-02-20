@@ -77,6 +77,16 @@ public class Monster {
         AddHP(damage);
         //Debug.Log(Name + ": multiplier: " + damageMultiplier + " damage taken: " + damage);
     }
+
+    public void Heal(int? amount = 0) {
+        if (amount != null && amount > 0) {
+            AddHP((int)amount);
+        }
+        else {
+            amount = Mathf.RoundToInt(GetMaxHP()*0.3f);
+            AddHP((int)amount);
+        }
+    }
     #endregion 
 
     #region MP Methods
@@ -121,9 +131,13 @@ public class Monster {
     #endregion
 
     #region XP Methods
-    public int GetXP(int? level = null) {
-        level = level ?? curLevel;
+    public int GetXP(int? level = 0) {
+        level = Mathf.Max((int)level, curLevel);
         return Mathf.RoundToInt(4f * Mathf.Pow((int)level, 3f) / 5f);
+    }
+
+    public int GetCurXP() {
+        return curXP;
     }
 
     public void AddXP(int val) {
@@ -180,8 +194,148 @@ public class Monster {
     }
     #endregion
 
-    // Status WIP
     #region Status Methods
+
+    public void ApplyStatusEffect(Status appliedStatus) {
+        //Neutral,
+        //Stunned,
+        //Enraged,
+        //Depressed,
+        //Traumatized,
+        //High,
+        //Sad,
+        //Happy,
+        //Horny,
+        //Confused,
+        //Woke,
+        //Fainted,
+
+        switch(appliedStatus) {
+            case Status.Neutral:
+                ApplyNeutral();
+                break;
+            case Status.Stunned:
+                ApplyStunned();
+                break;
+            case Status.Enraged:
+                ApplyEnraged();
+                break;
+            case Status.Depressed:
+                ApplyDepressed();
+                break;
+            case Status.Traumatized:
+                ApplyTraumatized();
+                break;
+            case Status.High:
+                ApplyHigh();
+                break;
+            case Status.Sad:
+                ApplySad();
+                break;
+            case Status.Happy:
+                ApplyHappy();
+                break;
+            case Status.Horny:
+                ApplyHorny();
+                break;
+            case Status.Confused:
+                ApplyConfused();
+                break;
+            case Status.Woke:
+                ApplyWoke();
+                break;
+            case Status.Fainted:
+                ApplyFainted();
+                break;
+            default:
+                Debug.LogError("Not valid status");
+                break;
+        }
+    }
+
+    private void ApplyNeutral() {
+        var previousHP = CurHP;
+        var previousMP = CurMP;
+        Revive();
+        CurHP = previousHP;
+        CurMP = previousMP;
+        CurrentStatus = Status.Neutral;
+    }
+
+    private void ApplyStunned() {
+        CurrentStatus = Status.Stunned;
+    }
+
+    private void ApplyEnraged() {
+        // inc atk
+        CurAtk = Mathf.RoundToInt(CurAtk * 1.5f);
+        CurrentStatus = Status.Enraged;
+
+    }
+
+    private void ApplyDepressed() {
+        // dec def and atk 
+        CurDef = Mathf.RoundToInt(CurDef * 0.8f);
+        CurAtk = Mathf.RoundToInt(CurAtk * 0.8f);
+        CurrentStatus = Status.Depressed;
+
+    }
+
+    private void ApplyTraumatized() {
+        // dec def and atk medium
+        CurDef = Mathf.RoundToInt(CurDef * 0.5f);
+        CurAtk = Mathf.RoundToInt(CurAtk * 0.5f);
+        CurrentStatus = Status.Traumatized;
+
+    }
+
+    private void ApplyHigh() {
+        // inc def alot
+        CurDef = Mathf.RoundToInt(CurDef * 4f);
+        CurrentStatus = Status.High;
+
+    }
+
+    private void ApplyHappy() {
+        // inc def and atk medium
+        CurDef = Mathf.RoundToInt(CurDef * 1.5f);
+        CurAtk = Mathf.RoundToInt(CurAtk * 1.5f);
+        CurrentStatus = Status.Happy;
+
+    }
+
+    private void ApplySad() {
+        // lower def
+        CurDef = Mathf.RoundToInt(CurDef * 0.8f);
+        CurrentStatus = Status.Sad;
+
+    }
+
+    private void ApplyHorny() {
+        // inc def, lower atk alot
+        CurAtk = Mathf.RoundToInt(CurAtk * 3f);
+        CurDef = Mathf.RoundToInt(CurDef * 0.2f);
+        CurrentStatus = Status.Horny;
+
+    }
+
+    private void ApplyConfused() {
+        // miss attack
+        CurrentStatus = Status.Confused;
+
+    }
+
+    private void ApplyWoke() {
+        // can attack agian
+        CurrentStatus = Status.Woke;
+
+    }
+
+    private void ApplyFainted() {
+        CurHP = 0;
+        CurrentStatus = Status.Fainted;
+
+    }
 
     #endregion
 
