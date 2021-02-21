@@ -125,6 +125,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyPrefab: {fileID: 3845481557541138249, guid: d3557604fd2fac1429e2633fcfca8775,
     type: 3}
+  prefightDialogue:
+  - Imma beat yo ass cunt!
+  postfightDialogue:
+  - Cox I got rekt!
+  - Dumb cunt, I'll fuck you in the ass the next time I come across your stupid cunt
+    face fuck you bitch ass yee yee cunt.
 --- !u!114 &5705236414981161706
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -142,4 +148,4 @@ MonoBehaviour:
   level: 0
   squad:
   - {fileID: 11400000, guid: bfc97e1da3e41404d9fc0a05df63edba, type: 2}
-  - {fileID: 11400000, guid: 07429d047448971479d39d78a7f3cef5, type: 2}
+  items: []

@@ -16,8 +16,10 @@ MonoBehaviour:
   fusableMonsters:
   - {fileID: 11400000, guid: bfc97e1da3e41404d9fc0a05df63edba, type: 2}
   - {fileID: 11400000, guid: 07429d047448971479d39d78a7f3cef5, type: 2}
+  - {fileID: 11400000, guid: c7316cf071ae78645b98b7c5fbc893d1, type: 2}
   fusedMonsters:
   - {fileID: 11400000, guid: 84ee948e0ec33704c8700bf57286906c, type: 2}
   - {fileID: 11400000, guid: 5c5cd8bb2c5e653479a390cf27b92ce1, type: 2}
+  - {fileID: 11400000, guid: 0c19bb45db3232645aba182cb83bc6ee, type: 2}
   itemDescription: A cool shiny gold chain
-  itemSprite: {fileID: 0}
+  sprite: {fileID: 0}
