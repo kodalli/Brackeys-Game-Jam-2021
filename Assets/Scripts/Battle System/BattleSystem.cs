@@ -60,7 +60,7 @@ public class BattleSystem : MonoBehaviour {
         enemyNPC.State = NPCStatus.Fighting;
 
         // Update UI and HUD
-        yield return StartCoroutine(FancyText(enemyNPC.name + " chooses " + enemyUnit.Name + " for battle...", 2f));
+        yield return StartCoroutine(FancyText(enemyNPC.Name + " chooses " + enemyUnit.Name + " for battle...", 2f));
 
         state = BattleState.PlayerTurn;
         PlayerTurn();

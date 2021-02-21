@@ -4981,6 +4981,7 @@ GameObject:
   - component: {fileID: 1238684039}
   - component: {fileID: 1238684038}
   - component: {fileID: 1238684037}
+  - component: {fileID: 1238684041}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -5046,7 +5047,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_TargetDisplay: 0
 --- !u!224 &1238684040
 RectTransform:
@@ -5071,6 +5072,14 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!222 &1238684041
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1238684036}
+  m_CullTransparentMesh: 0
 --- !u!1 &1255930000
 GameObject:
   m_ObjectHideFlags: 0
