@@ -137,6 +137,7 @@ public class BattleSystem : MonoBehaviour {
             BringPlayerMonsterIn();
             //dialogueText.text = playerUnit.Name + " enters the fight!";
             yield return StartCoroutine(FancyText(playerUnit.Name + " enters the fight!", 1f));
+            StartCoroutine(FancyText("What will " + playerUnit.Name + " do?", 0f));
         }
     }
 
@@ -255,6 +256,13 @@ public class BattleSystem : MonoBehaviour {
 
     #region Bring Monsters In
     void BringPlayerMonsterIn() {
+        Debug.Log("index " + playerSquadCount);
+
+        if (playerSquadCount > PlayerControlSave.Instance.localPlayerData.squad.Count - 1) {
+            state = BattleState.Lost;
+            EndBattle();
+            return;
+        }
         var currentMonster = PlayerControlSave.Instance.localPlayerData.squad[playerSquadCount];
 
         playerUnit = PlayerControlSave.Instance.localPlayerData.monstersDict[currentMonster.Name];
@@ -289,7 +297,7 @@ public class BattleSystem : MonoBehaviour {
     }
 
     void BringFusedPlayerMonsterIn(MonsterScriptableObject fusedMonster) {
-        var hpDifference = GetHpDifference();
+        var hpDifference = GetHpDifference(playerUnit);
         var level = playerUnit.GetLevel();
         var currentMonster = fusedMonster;
 
@@ -316,7 +324,7 @@ public class BattleSystem : MonoBehaviour {
     }
 
     void BringFusedEnemyMonsterIn(MonsterScriptableObject fusedMonster) {
-        var hpDifference = GetHpDifference();
+        var hpDifference = GetHpDifference(enemyUnit);
         var level = enemyUnit.GetLevel();
         var currentMonster = fusedMonster;
 
@@ -372,6 +380,7 @@ public class BattleSystem : MonoBehaviour {
 
     IEnumerator ChangeScene() {
         PlayerControlSave.Instance.SaveData();
+        Debug.Log("change scene " + GlobalControlSave.Instance.savedPlayerData.squad.Count);
         yield return new WaitForSeconds(2f);
         SceneManager.LoadScene(sceneName);
     }
@@ -475,8 +484,8 @@ public class BattleSystem : MonoBehaviour {
         combatOptionsPanel.SetActive(true);
     }
 
-    int GetHpDifference() {
-        return playerUnit.CurHP - playerUnit.GetMaxHP();
+    int GetHpDifference(Monster unit) {
+        return unit.CurHP - unit.GetMaxHP();
     }
 
     void TestAttack(int index) {
@@ -560,11 +569,13 @@ public class BattleSystem : MonoBehaviour {
         if (state != BattleState.PlayerTurn)
             return;
 
+        if (playerUnit.Fused)
+            return;
         BringFusedPlayerMonsterIn(item.FuseMonsterWithItem(playerUnit));
     }
 
     public void OnSeparateButton() {
-        var hpDifference = GetHpDifference();
+        var hpDifference = GetHpDifference(playerUnit);
 
         BringPlayerMonsterIn();
 
@@ -579,7 +590,7 @@ public class BattleSystem : MonoBehaviour {
             }
 
             playerHUD.SetHP(playerUnit.CurHP);
-            Debug.Log("current hp " + playerUnit.CurHP);
+            //Debug.Log("current hp " + playerUnit.CurHP);
 
         }
     }
@@ -610,10 +621,25 @@ public class BattleSystem : MonoBehaviour {
         if (state != BattleState.PlayerTurn)
             return;
 
-        var dict = PlayerControlSave.Instance.localPlayerData.monstersDict;
-        foreach (KeyValuePair<string, Monster> monster in dict) {
-            Debug.Log(monster.Key + ", status " + monster.Value.CurrentStatus + ", hp " + monster.Value.CurHP);
+        //var dict = PlayerControlSave.Instance.localPlayerData.monstersDict;
+        //foreach (KeyValuePair<string, Monster> monster in dict) {
+        //    Debug.Log(monster.Key + ", status " + monster.Value.CurrentStatus + ", hp " + monster.Value.CurHP);
+        //}
+    }
+
+    public void OnSquadSelectButton(string unitName) {
+        // get index
+        //Debug.Log("OnSquadSelectButton " + unitName);
+
+        var squad = PlayerControlSave.Instance.localPlayerData.squad;
+
+        for (int i = 0; i < squad.Count; i++) {
+            if (unitName == squad[i].Name) {
+                StartCoroutine(DrawPlayerMonster(i));
+                break;
+            }
         }
+
     }
     #endregion
 }
