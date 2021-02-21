@@ -19,6 +19,7 @@ public class BattleSystem : MonoBehaviour {
 
     [SerializeField] private TextMeshProUGUI dialogueText;
     [SerializeField] private TextMeshProUGUI AttackButtonFusedText1, AttackButtonFusedText2, AttackButtonFusedText3;
+    [SerializeField] private TextMeshProUGUI atkToolTip;
 
     [SerializeField] private BattleNPC enemyNPC;
     [SerializeField] private Transform playerBattleLocation, enemyBattleLocation;
@@ -597,12 +598,6 @@ public class BattleSystem : MonoBehaviour {
         }
     }
 
-    public void OnItemsButton() {
-        if (state != BattleState.PlayerTurn)
-            return;
-
-    }
-
     public void OnRunButton() {
         if (state != BattleState.PlayerTurn)
             return;
@@ -619,16 +614,6 @@ public class BattleSystem : MonoBehaviour {
         }
     }
 
-    public void OnSquadButton() {
-        if (state != BattleState.PlayerTurn)
-            return;
-
-        //var dict = PlayerControlSave.Instance.localPlayerData.monstersDict;
-        //foreach (KeyValuePair<string, Monster> monster in dict) {
-        //    Debug.Log(monster.Key + ", status " + monster.Value.CurrentStatus + ", hp " + monster.Value.CurHP);
-        //}
-    }
-
     public void OnSquadSelectButton(string unitName) {
         // get index
         //Debug.Log("OnSquadSelectButton " + unitName);
@@ -643,5 +628,35 @@ public class BattleSystem : MonoBehaviour {
         }
 
     }
+    #endregion
+
+    #region Hover ToolTips
+    void TestAtkHover(int index) {
+        try {
+            var move = playerUnit.MoveSet[index];
+            atkToolTip.text = move.Description;
+            //Debug.Log(move.MoveName);
+        }
+        catch {
+            Debug.Log("Index out of bounds");
+        }
+
+    }
+    public void OnHoverAtk1() {
+        TestAtkHover(0);
+    }
+    public void OnHoverAtk2() {
+        TestAtkHover(1);
+    }
+    public void OnHoverAtk3() {
+        TestAtkHover(2);
+    }
+    public void OnHoverFuse() {
+        atkToolTip.text = "Fuse current homie with an item to make them stronger.";
+    }
+    public void OnHoverSeparate() {
+        atkToolTip.text = "Separates homie to base state.";
+    }
+
     #endregion
 }
