@@ -255,6 +255,7 @@ public class BattleSystem : MonoBehaviour {
 
     #region Bring Monsters In
     void BringPlayerMonsterIn() {
+        //Debug.Log("index" + playerSquadCount);
         var currentMonster = PlayerControlSave.Instance.localPlayerData.squad[playerSquadCount];
 
         playerUnit = PlayerControlSave.Instance.localPlayerData.monstersDict[currentMonster.Name];
@@ -579,7 +580,7 @@ public class BattleSystem : MonoBehaviour {
             }
 
             playerHUD.SetHP(playerUnit.CurHP);
-            Debug.Log("current hp " + playerUnit.CurHP);
+            //Debug.Log("current hp " + playerUnit.CurHP);
 
         }
     }
@@ -610,10 +611,25 @@ public class BattleSystem : MonoBehaviour {
         if (state != BattleState.PlayerTurn)
             return;
 
-        var dict = PlayerControlSave.Instance.localPlayerData.monstersDict;
-        foreach (KeyValuePair<string, Monster> monster in dict) {
-            Debug.Log(monster.Key + ", status " + monster.Value.CurrentStatus + ", hp " + monster.Value.CurHP);
+        //var dict = PlayerControlSave.Instance.localPlayerData.monstersDict;
+        //foreach (KeyValuePair<string, Monster> monster in dict) {
+        //    Debug.Log(monster.Key + ", status " + monster.Value.CurrentStatus + ", hp " + monster.Value.CurHP);
+        //}
+    }
+
+    public void OnSquadSelectButton(string unitName) {
+        // get index
+        //Debug.Log("OnSquadSelectButton " + unitName);
+
+        var squad = PlayerControlSave.Instance.localPlayerData.squad;
+
+        for (int i = 0; i < squad.Count; i++) {
+            if (unitName == squad[i].Name) {
+                StartCoroutine(DrawPlayerMonster(i));
+                break;
+            }
         }
+
     }
     #endregion
 }

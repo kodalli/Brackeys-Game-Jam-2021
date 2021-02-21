@@ -44,6 +44,10 @@ public class Monster {
         MoveSet = baseData.MoveSet;
     }
 
+    public GameObject GetPrefab() {
+        return baseData.Prefab;
+    }
+
     #region HP Methods
     public void AddHP(int val) {
         if (CurrentStatus.Equals(Status.Fainted))
