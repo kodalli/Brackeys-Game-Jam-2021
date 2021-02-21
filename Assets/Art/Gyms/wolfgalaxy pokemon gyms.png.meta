@@ -1,7 +1,43 @@
 fileFormatVersion: 2
 guid: 09c9f4be4381bda43bef90edba556754
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -4172757549244570228
+    second: wolfgalaxy pokemon gyms_0
+  - first:
+      213: 4909901696575346765
+    second: wolfgalaxy pokemon gyms_1
+  - first:
+      213: 8483451369504256176
+    second: wolfgalaxy pokemon gyms_2
+  - first:
+      213: -6730615721943692439
+    second: wolfgalaxy pokemon gyms_3
+  - first:
+      213: 3810576538548940943
+    second: wolfgalaxy pokemon gyms_4
+  - first:
+      213: 4997877218541664878
+    second: wolfgalaxy pokemon gyms_5
+  - first:
+      213: 3272934780401394156
+    second: wolfgalaxy pokemon gyms_6
+  - first:
+      213: 6650925920336697043
+    second: wolfgalaxy pokemon gyms_7
+  - first:
+      213: 7188975098500572752
+    second: wolfgalaxy pokemon gyms_8
+  - first:
+      213: 6044150217105717936
+    second: wolfgalaxy pokemon gyms_9
+  - first:
+      213: -3724163047152690329
+    second: wolfgalaxy pokemon gyms_10
+  - first:
+      213: -3572792389925428377
+    second: wolfgalaxy pokemon gyms_11
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -31,7 +67,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
+    filterMode: 0
     aniso: -1
     mipBias: -100
     wrapU: 1
@@ -40,12 +76,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -64,7 +100,43 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -73,7 +145,259 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: wolfgalaxy pokemon gyms_0
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 184
+        width: 112
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c85a27ffd136716c0800000000000000
+      internalID: -4172757549244570228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wolfgalaxy pokemon gyms_1
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 184
+        width: 112
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d48167a4499732440800000000000000
+      internalID: 4909901696575346765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wolfgalaxy pokemon gyms_2
+      rect:
+        serializedVersion: 2
+        x: 230
+        y: 184
+        width: 112
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b03a94c2164bb570800000000000000
+      internalID: 8483451369504256176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wolfgalaxy pokemon gyms_3
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 94
+        width: 112
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96b03e549ac0892a0800000000000000
+      internalID: -6730615721943692439
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wolfgalaxy pokemon gyms_4
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 94
+        width: 112
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f80b5a92c23e1e430800000000000000
+      internalID: 3810576538548940943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wolfgalaxy pokemon gyms_5
+      rect:
+        serializedVersion: 2
+        x: 229
+        y: 94
+        width: 112
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6a7132b9d60c5540800000000000000
+      internalID: 4997877218541664878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wolfgalaxy pokemon gyms_6
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 3
+        width: 112
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce1a8de87dccb6d20800000000000000
+      internalID: 3272934780401394156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wolfgalaxy pokemon gyms_7
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 3
+        width: 112
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d65b1de2e5dc4c50800000000000000
+      internalID: 6650925920336697043
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wolfgalaxy pokemon gyms_8
+      rect:
+        serializedVersion: 2
+        x: 231
+        y: 16
+        width: 38
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 056614563ce54c360800000000000000
+      internalID: 7188975098500572752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wolfgalaxy pokemon gyms_9
+      rect:
+        serializedVersion: 2
+        x: 267
+        y: 20
+        width: 38
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0babfa3699221e350800000000000000
+      internalID: 6044150217105717936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wolfgalaxy pokemon gyms_10
+      rect:
+        serializedVersion: 2
+        x: 294
+        y: 18
+        width: 38
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76bd3d8a07d115cc0800000000000000
+      internalID: -3724163047152690329
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wolfgalaxy pokemon gyms_11
+      rect:
+        serializedVersion: 2
+        x: 333
+        y: 18
+        width: 32
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 763a6463044ea6ec0800000000000000
+      internalID: -3572792389925428377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
