@@ -131,6 +131,7 @@ MonoBehaviour:
   - Cox I got rekt!
   - Dumb cunt, I'll fuck you in the ass the next time I come across your stupid cunt
     face fuck you bitch ass yee yee cunt.
+  postFightLocation: {fileID: 0}
 --- !u!114 &5705236414981161706
 MonoBehaviour:
   m_ObjectHideFlags: 0
