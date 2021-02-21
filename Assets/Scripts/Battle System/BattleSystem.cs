@@ -60,7 +60,7 @@ public class BattleSystem : MonoBehaviour {
         enemyNPC.State = NPCStatus.Fighting;
 
         // Update UI and HUD
-        yield return StartCoroutine(FancyText(enemyNPC.name + " chooses " + enemyUnit.Name + " for battle...", 2f));
+        yield return StartCoroutine(FancyText(enemyNPC.Name + " chooses " + enemyUnit.Name + " for battle...", 2f));
 
         state = BattleState.PlayerTurn;
         PlayerTurn();
@@ -95,23 +95,6 @@ public class BattleSystem : MonoBehaviour {
         else {
             state = BattleState.EnemyTurn;
             StartCoroutine(EnemyTurn());
-        }
-    }
-
-    IEnumerator ApplyHeal(AttackMove move, Monster user, BattleHUD userHUD) {
-
-        if (move.MonsterMoveType == MoveType.HealUser || move.SecondaryMonsterMoveType == MoveType.HealUser) {
-            var previousHP = user.CurHP;
-            user.Heal();
-            var currentHP = user.CurHP;
-
-            while (previousHP < currentHP) {
-                previousHP++;
-                userHUD.SetHP(previousHP);
-                yield return new WaitForEndOfFrame();
-            }
-
-            yield return StartCoroutine(FancyText(user.Name + " healed...", 1f));
         }
     }
 
@@ -179,14 +162,22 @@ public class BattleSystem : MonoBehaviour {
             enemyUnit.CurrentStatus = Status.Neutral;
             state = BattleState.PlayerTurn;
             PlayerTurn();
-            yield return default;
+            yield break;
         }
 
-        yield return StartCoroutine(FancyText(enemyUnit.Name + " attacks!", 1f));
+        yield return StartCoroutine(FancyText(enemyUnit.Name + " attacks!", 1.5f));
+
+        // fuse unit if possible
+        if (!enemyUnit.Fused && enemyNPC.items.Count > 0) {
+            var fusedMonsterSO = GetFusedMonsterFromRandomItem();
+            BringFusedEnemyMonsterIn(fusedMonsterSO);
+            yield return StartCoroutine(FancyText(enemyNPC.Name + " fused to make " + enemyUnit.Name, 1.5f));
+        }
 
         // Select random move
-        var index = Mathf.RoundToInt(Random.Range(0, enemyUnit.MoveSet.Count));
-        var move = enemyUnit.MoveSet[index];
+        var move = enemyUnit.MoveSet[Random.Range(0, enemyUnit.MoveSet.Count)];
+
+        yield return StartCoroutine(FancyText(enemyUnit.Name + " uses " + move.MoveName, 1.5f));
 
         // Do status effect
         yield return StartCoroutine(ApplyStatusEffect(move, enemyUnit, playerUnit));
@@ -318,6 +309,12 @@ public class BattleSystem : MonoBehaviour {
         ApplyFusedButtonText();
     }
 
+    MonsterScriptableObject GetFusedMonsterFromRandomItem() {
+        // pick random item
+        var item = enemyNPC.items[Random.Range(0, enemyNPC.items.Count)];
+        return item.FuseMonsterWithItem(enemyUnit);
+    }
+
     void BringFusedEnemyMonsterIn(MonsterScriptableObject fusedMonster) {
         var hpDifference = GetHpDifference();
         var level = enemyUnit.GetLevel();
@@ -378,9 +375,25 @@ public class BattleSystem : MonoBehaviour {
         yield return new WaitForSeconds(2f);
         SceneManager.LoadScene(sceneName);
     }
+
+    IEnumerator ApplyXPEarnings() {
+        var enemiesDefeated = enemyNPC.squad.Count;
+        var xpEarnedPerEnemy = Mathf.Max(enemyUnit.GetXP(0), enemyUnit.GetXP(1));
+        var amountXPEarned = Mathf.Max(Mathf.RoundToInt(xpMultiplier * xpEarnedPerEnemy * enemiesDefeated), 1);
+        var squadDict = PlayerControlSave.Instance.localPlayerData.monstersDict;
+        foreach (KeyValuePair<string, Monster> userMonster in squadDict) {
+            Debug.Log("xp before " + PlayerControlSave.Instance.localPlayerData.monstersDict[userMonster.Key].GetCurXP());
+            squadDict[userMonster.Key].AddXP(amountXPEarned);
+            yield return StartCoroutine(FancyText(userMonster.Key + " earned " + amountXPEarned + "XP", 1f));
+            Debug.Log("xp after " + PlayerControlSave.Instance.localPlayerData.monstersDict[userMonster.Key].GetCurXP());
+        }
+
+        yield return StartCoroutine(FancyText("You won the battle!", 0f));
+    }
+
     #endregion
 
-    #region Helpers
+    #region Battle Turn Helpers
 
     bool CheckIfCanMove(Status unitStatus) {
         //Neutral,
@@ -438,25 +451,28 @@ public class BattleSystem : MonoBehaviour {
         }
     }
 
+    IEnumerator ApplyHeal(AttackMove move, Monster user, BattleHUD userHUD) {
+
+        if (move.MonsterMoveType == MoveType.HealUser || move.SecondaryMonsterMoveType == MoveType.HealUser) {
+            var previousHP = user.CurHP;
+            user.Heal();
+            var currentHP = user.CurHP;
+
+            while (previousHP < currentHP) {
+                previousHP++;
+                userHUD.SetHP(previousHP);
+                yield return new WaitForEndOfFrame();
+            }
+
+            yield return StartCoroutine(FancyText(user.Name + " healed...", 1f));
+        }
+    }
+    #endregion
+
+    #region Helpers
     void PlayerTurn() {
         StartCoroutine(FancyText("What will " + playerUnit.Name + " do?", 0f));
         combatOptionsPanel.SetActive(true);
-    }
-
-
-    IEnumerator ApplyXPEarnings() {
-        var enemiesDefeated = enemyNPC.squad.Count;
-        var xpEarnedPerEnemy = Mathf.Max(enemyUnit.GetXP(0), enemyUnit.GetXP(1));
-        var amountXPEarned = Mathf.Max(Mathf.RoundToInt(xpMultiplier * xpEarnedPerEnemy * enemiesDefeated), 1);
-        var squadDict = PlayerControlSave.Instance.localPlayerData.monstersDict;
-        foreach(KeyValuePair<string, Monster> userMonster in squadDict) {
-            Debug.Log("xp before " + PlayerControlSave.Instance.localPlayerData.monstersDict[userMonster.Key].GetCurXP());
-            squadDict[userMonster.Key].AddXP(amountXPEarned);
-            yield return StartCoroutine(FancyText(userMonster.Key + " earned " + amountXPEarned + "XP", 1f));
-            Debug.Log( "xp after " + PlayerControlSave.Instance.localPlayerData.monstersDict[userMonster.Key].GetCurXP());
-        }
-
-        yield return StartCoroutine(FancyText("You won the battle!", 0f));
     }
 
     int GetHpDifference() {
