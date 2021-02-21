@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 3338043806989384676, guid: 0ac10e327a94f034ea8782b7b8bdb529,
+  m_Sprite: {fileID: 3016348726425247055, guid: 0ac10e327a94f034ea8782b7b8bdb529,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -102,7 +102,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1.25}
+    oldSize: {x: 1, y: 1.1875}
     newSize: {x: 1, y: 1.25}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -125,6 +125,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyPrefab: {fileID: 3845481557541138249, guid: d3557604fd2fac1429e2633fcfca8775,
     type: 3}
+  prefightDialogue:
+  - Imma beat ur ass cunt!
+  postfightDialogue:
+  - Sheit I got rekt!
 --- !u!114 &5705236414981161706
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -137,9 +141,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b79bf43a637053f4a9ebc8bca344495f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: Holy Quan
+  Name: Holy Quan II
   State: 0
   level: 2
   squad:
   - {fileID: 11400000, guid: bfc97e1da3e41404d9fc0a05df63edba, type: 2}
   - {fileID: 11400000, guid: 07429d047448971479d39d78a7f3cef5, type: 2}
+  items: []

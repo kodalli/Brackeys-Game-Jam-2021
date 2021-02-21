@@ -8,8 +8,16 @@ public class NPCBattleManager : MonoBehaviour {
     [SerializeField] private List<string> prefightDialogue;
     [SerializeField] private List<string> postfightDialogue;
 
+    public Transform postFightLocation;
+
     private bool isNear = false;
     private GameObject keyObj;
+
+    private void Start() {
+        if(GetComponent<BattleNPC>().State == NPCStatus.Defeated && postFightLocation != null) {
+            gameObject.transform.position = postFightLocation.position;
+        }
+    }
 
     private void Update() {
         if (Input.GetKeyDown(KeyCode.E) && isNear) {
