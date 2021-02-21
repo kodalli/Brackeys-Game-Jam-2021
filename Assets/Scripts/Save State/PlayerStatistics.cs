@@ -7,7 +7,7 @@ using System;
 public class PlayerStatistics {
     public List<MonsterScriptableObject> squad;
     public Dictionary<string, Monster> monstersDict = new Dictionary<string, Monster>();
-    public float playerSpeed = 5f;
+    public float playerSpeed;
     public List<ItemData> playerItems;
     public bool finishedTutorial = false;
     public Vector3 playerPosition;
