@@ -65,6 +65,7 @@ public class Dialog : MonoBehaviour {
     }
 
     public void DisplayTextInDialogueBox(List<string> dialogueList) {
+        textDisplay.text = "";
         sentences = NormalizeDialogueList(dialogueList);
         index = 0;
         dialogBox.SetActive(true);

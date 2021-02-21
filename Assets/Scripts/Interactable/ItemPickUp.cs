@@ -1,17 +1,27 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
+public enum ItemType { FusionItem, Monster}
 public class ItemPickUp : MonoBehaviour
 {
     [SerializeField] private ItemData item;
+    [SerializeField] private MonsterScriptableObject monster;
+    [SerializeField] private int monsterLevel;
+    [SerializeField] private ItemType PickupType;
     [SerializeField] private GameObject keyPrefab;
     private GameObject keyObj;
     private bool isNear;
     private List<string> dialog = new List<string>();
     private void Start() {
-        dialog.Add($"You picked up {item.itemName}!");
-        dialog.Add("Fuse it with your homies to make them stronger");
+        if (PickupType == ItemType.FusionItem && item != null) {
+            dialog.Add($"You picked up {item.itemName}!");
+            dialog.Add("Fuse it with your homies to make them stronger");
+        } else if (PickupType == ItemType.Monster && monster != null) {
+            dialog.Add($"You picked up {monster.Name}!");
+        }
+
     }
 
     private void Update() {
@@ -40,8 +50,19 @@ public class ItemPickUp : MonoBehaviour
     }
 
     private void AddToInventory() {
-        // duplicate items still added fix later
-        PlayerControlSave.Instance.localPlayerData.playerItems.Add(item);
+        // check duplicates then add
+        if (PickupType == ItemType.FusionItem && item != null) {
+            if (PlayerControlSave.Instance.localPlayerData.playerItems.Any(other => other.itemName == item.itemName)) {
+                PlayerControlSave.Instance.localPlayerData.playerItems.Add(item);
+            }
+        }
+        else if (PickupType == ItemType.Monster && monster != null) {
+            if (PlayerControlSave.Instance.localPlayerData.monstersDict.ContainsKey(monster.Name)) return;
+            PlayerControlSave.Instance.localPlayerData.squad.Add(monster);
+            var mon = new Monster(monster);
+            mon.LevelUp(monsterLevel);
+            PlayerControlSave.Instance.localPlayerData.monstersDict.Add(mon.Name, mon);
+        }
         gameObject.SetActive(false);
     }
 }
