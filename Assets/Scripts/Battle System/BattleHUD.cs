@@ -6,11 +6,13 @@ using TMPro;
 
 public class BattleHUD : MonoBehaviour
 {
-	public TextMeshProUGUI nameText;
-	public TextMeshProUGUI levelText;
-	public TextMeshProUGUI hpText;
-	public Slider hpSlider;
-	public Image Fill;
+	[SerializeField] private TextMeshProUGUI nameText;
+	[SerializeField] private TextMeshProUGUI levelText;
+	[SerializeField] private TextMeshProUGUI hpText;
+	[SerializeField] private Slider hpSlider;
+	[SerializeField] private Image Fill;
+	[SerializeField] private TextMeshProUGUI userName;
+	[SerializeField] private bool isPlayer;
 	//private Color green;
 
 	public void SetHUD(Monster unit)
@@ -20,6 +22,11 @@ public class BattleHUD : MonoBehaviour
 		hpSlider.maxValue = unit.GetMaxHP();
 		hpSlider.value = unit.CurHP;
 		hpText.text = hpSlider.value + "/" + hpSlider.maxValue;
+		if (isPlayer) {
+			userName.text = "Player";
+        } else {
+			userName.text = PlayerControlSave.Instance.localPlayerData.enemyData?.Name ?? "NPC test";
+        }
 		//ChangeColor();
 	}
 
