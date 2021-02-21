@@ -28,6 +28,8 @@ public class ItemPickUp : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E) && isNear) {
             Dialog.Instance.DisplayTextInDialogueBox(dialog);
             AddToInventory();
+            gameObject.SetActive(false);
+            Debug.Log("picked");
         }
     }
 
@@ -52,9 +54,8 @@ public class ItemPickUp : MonoBehaviour
     private void AddToInventory() {
         // check duplicates then add
         if (PickupType == ItemType.FusionItem && item != null) {
-            if (PlayerControlSave.Instance.localPlayerData.playerItems.Any(other => other.itemName == item.itemName)) {
-                PlayerControlSave.Instance.localPlayerData.playerItems.Add(item);
-            }
+            if (PlayerControlSave.Instance.localPlayerData.playerItems.Any(other => other.itemName == item.itemName)) return;
+            PlayerControlSave.Instance.localPlayerData.playerItems.Add(item);
         }
         else if (PickupType == ItemType.Monster && monster != null) {
             if (PlayerControlSave.Instance.localPlayerData.monstersDict.ContainsKey(monster.Name)) return;
@@ -63,6 +64,5 @@ public class ItemPickUp : MonoBehaviour
             mon.LevelUp(monsterLevel);
             PlayerControlSave.Instance.localPlayerData.monstersDict.Add(mon.Name, mon);
         }
-        gameObject.SetActive(false);
     }
 }
