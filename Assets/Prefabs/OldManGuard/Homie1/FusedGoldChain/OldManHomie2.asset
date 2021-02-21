@@ -17,7 +17,7 @@ MonoBehaviour:
   BaseMP: 10
   BaseLevel: 0
   BaseAttack: 7
-  BaseDefense: 7
+  BaseDefense: 15
   Prefab: {fileID: 2616182615535167112, guid: ec0500a8f74b19e47a6efdd5dc236334, type: 3}
   Fused: 1
   MoveSet:

@@ -40,8 +40,12 @@ public class PopulateGrid : MonoBehaviour {
             newObj = Instantiate(prefab, transform);
             var texts = newObj.GetComponentsInChildren<TextMeshProUGUI>();
 
-            var imgRef = newObj.GetComponentInChildren<Image>();
-            if (items[i].sprite != null) imgRef.sprite = items[i].sprite;
+            foreach (var child in newObj.GetComponentsInChildren<Transform>()) {
+                if (child.name == "ItemImage") {
+                    var imgRef = child.GetComponentInChildren<Image>();
+                    if (items[i].sprite != null) imgRef.sprite = items[i].sprite;
+                }
+            }
 
             var buttonRef = newObj.GetComponentInChildren<Button>();
             var item = items[i];
@@ -78,8 +82,12 @@ public class PopulateGrid : MonoBehaviour {
 
             var m = monster.Value;
 
-            var imgRef = newObj.GetComponentInChildren<Image>();
-            imgRef = m.GetPrefab().GetComponent<Image>(); 
+            foreach (var child in newObj.GetComponentsInChildren<Transform>()) {
+                if (child.name == "MonsterImage") {
+                    var imgRef = child.GetComponentInChildren<Image>();
+                    imgRef.sprite = m.GetPrefab().GetComponent<SpriteRenderer>().sprite;
+                }
+            }
 
             var texts = newObj.GetComponentsInChildren<TextMeshProUGUI>();
 

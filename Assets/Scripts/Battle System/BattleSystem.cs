@@ -449,8 +449,10 @@ public class BattleSystem : MonoBehaviour {
     IEnumerator ApplyDamage(AttackMove move, Monster user, Monster opponent, BattleHUD opponentHUD) {
         if (move.MonsterMoveType == MoveType.DamageOpponent || move.SecondaryMonsterMoveType == MoveType.DamageOpponent) {
             var previousHP = opponent.CurHP;
-            opponent.TakeDamage(user.CurAtk);
+            var damageTaken = opponent.TakeDamage(user.CurAtk);
             var currentHP = opponent.CurHP;
+
+            Debug.Log($"{user.Name} atk {user.CurAtk} dmg done {damageTaken} opponent def {opponent.CurDef}");
 
             while (previousHP > currentHP) {
                 previousHP--;

@@ -74,11 +74,12 @@ public class Monster {
         CurDef = GetMaxDef();
         CurMP = GetMaxMP();
     }
-    public void TakeDamage(int enemyAtk) {
+    public int TakeDamage(int enemyAtk) {
         // add crit chance
         var damageMultiplier = 100f / (100 + CurDef);
         var damage = -Mathf.RoundToInt(enemyAtk * damageMultiplier);
         AddHP(damage);
+        return damage;
         //Debug.Log(Name + ": multiplier: " + damageMultiplier + " damage taken: " + damage);
     }
 
@@ -272,15 +273,15 @@ public class Monster {
 
     private void ApplyEnraged() {
         // inc atk
-        CurAtk = Mathf.RoundToInt(CurAtk * 1.5f);
+        CurAtk = Mathf.RoundToInt(CurAtk + 1.5f * curLevel + 1);
         CurrentStatus = Status.Enraged;
 
     }
 
     private void ApplyDepressed() {
         // dec def and atk 
-        CurDef = Mathf.RoundToInt(CurDef * 0.8f);
-        CurAtk = Mathf.RoundToInt(CurAtk * 0.8f);
+        CurDef = Mathf.RoundToInt(CurDef + 0.8f);
+        CurAtk = Mathf.RoundToInt(CurAtk + 0.8f);
         CurrentStatus = Status.Depressed;
 
     }
@@ -295,15 +296,15 @@ public class Monster {
 
     private void ApplyHigh() {
         // inc def alot
-        CurDef = Mathf.RoundToInt(CurDef * 4f);
+        CurDef = Mathf.RoundToInt(CurDef + 4f * curLevel + 1);
         CurrentStatus = Status.High;
 
     }
 
     private void ApplyHappy() {
         // inc def and atk medium
-        CurDef = Mathf.RoundToInt(CurDef * 1.5f);
-        CurAtk = Mathf.RoundToInt(CurAtk * 1.5f);
+        CurDef = Mathf.RoundToInt(CurDef + 1.5f * curLevel + 1);
+        CurAtk = Mathf.RoundToInt(CurAtk + 1.5f * curLevel + 1);
         CurrentStatus = Status.Happy;
 
     }
@@ -317,7 +318,7 @@ public class Monster {
 
     private void ApplyHorny() {
         // inc def, lower atk alot
-        CurAtk = Mathf.RoundToInt(CurAtk * 3f);
+        CurAtk = Mathf.RoundToInt(CurAtk + 2f * curLevel + 1);
         CurDef = Mathf.RoundToInt(CurDef * 0.2f);
         CurrentStatus = Status.Horny;
 

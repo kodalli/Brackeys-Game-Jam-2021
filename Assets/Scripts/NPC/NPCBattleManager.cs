@@ -13,11 +13,9 @@ public class NPCBattleManager : MonoBehaviour {
     private bool isNear = false;
     private GameObject keyObj;
 
-    private void Start() {
-        if(GetComponent<BattleNPC>().State == NPCStatus.Defeated && postFightLocation != null) {
-            gameObject.transform.position = postFightLocation.position;
-        }
-    }
+    //private void Start() {
+
+    //}
 
     private void Update() {
         if (Input.GetKeyDown(KeyCode.E) && isNear) {
@@ -43,6 +41,10 @@ public class NPCBattleManager : MonoBehaviour {
                 StartCoroutine(StartBattle());
             }
 
+        }
+
+        if (GetComponent<BattleNPC>().State.Equals(NPCStatus.Defeated) && postFightLocation != null) {
+            transform.position = postFightLocation.position;
         }
     }
 
