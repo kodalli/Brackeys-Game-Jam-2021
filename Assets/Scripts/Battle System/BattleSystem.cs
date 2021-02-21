@@ -137,6 +137,7 @@ public class BattleSystem : MonoBehaviour {
             BringPlayerMonsterIn();
             //dialogueText.text = playerUnit.Name + " enters the fight!";
             yield return StartCoroutine(FancyText(playerUnit.Name + " enters the fight!", 1f));
+            StartCoroutine(FancyText("What will " + playerUnit.Name + " do?", 0f));
         }
     }
 
@@ -255,7 +256,13 @@ public class BattleSystem : MonoBehaviour {
 
     #region Bring Monsters In
     void BringPlayerMonsterIn() {
-        //Debug.Log("index" + playerSquadCount);
+        Debug.Log("index " + playerSquadCount);
+
+        if (playerSquadCount > PlayerControlSave.Instance.localPlayerData.squad.Count - 1) {
+            state = BattleState.Lost;
+            EndBattle();
+            return;
+        }
         var currentMonster = PlayerControlSave.Instance.localPlayerData.squad[playerSquadCount];
 
         playerUnit = PlayerControlSave.Instance.localPlayerData.monstersDict[currentMonster.Name];
@@ -290,7 +297,7 @@ public class BattleSystem : MonoBehaviour {
     }
 
     void BringFusedPlayerMonsterIn(MonsterScriptableObject fusedMonster) {
-        var hpDifference = GetHpDifference();
+        var hpDifference = GetHpDifference(playerUnit);
         var level = playerUnit.GetLevel();
         var currentMonster = fusedMonster;
 
@@ -317,7 +324,7 @@ public class BattleSystem : MonoBehaviour {
     }
 
     void BringFusedEnemyMonsterIn(MonsterScriptableObject fusedMonster) {
-        var hpDifference = GetHpDifference();
+        var hpDifference = GetHpDifference(enemyUnit);
         var level = enemyUnit.GetLevel();
         var currentMonster = fusedMonster;
 
@@ -373,6 +380,7 @@ public class BattleSystem : MonoBehaviour {
 
     IEnumerator ChangeScene() {
         PlayerControlSave.Instance.SaveData();
+        Debug.Log("change scene " + GlobalControlSave.Instance.savedPlayerData.squad.Count);
         yield return new WaitForSeconds(2f);
         SceneManager.LoadScene(sceneName);
     }
@@ -476,8 +484,8 @@ public class BattleSystem : MonoBehaviour {
         combatOptionsPanel.SetActive(true);
     }
 
-    int GetHpDifference() {
-        return playerUnit.CurHP - playerUnit.GetMaxHP();
+    int GetHpDifference(Monster unit) {
+        return unit.CurHP - unit.GetMaxHP();
     }
 
     void TestAttack(int index) {
@@ -561,11 +569,13 @@ public class BattleSystem : MonoBehaviour {
         if (state != BattleState.PlayerTurn)
             return;
 
+        if (playerUnit.Fused)
+            return;
         BringFusedPlayerMonsterIn(item.FuseMonsterWithItem(playerUnit));
     }
 
     public void OnSeparateButton() {
-        var hpDifference = GetHpDifference();
+        var hpDifference = GetHpDifference(playerUnit);
 
         BringPlayerMonsterIn();
 
