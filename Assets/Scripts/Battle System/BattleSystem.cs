@@ -513,12 +513,21 @@ public class BattleSystem : MonoBehaviour {
     }
 
     IEnumerator FancyText(string text, float waitTime) {
-        for (int i = 0; i < text.Length + 1; i++) {
+
+        var i = 0;
+        while (waitTime > 0) {
+            // skip dialogue
+            if (Input.GetKeyDown(KeyCode.Z) || Input.GetKeyDown(KeyCode.E)) {
+                dialogueText.text = text;
+                yield break;
+            }
             dialogueText.text = text.Substring(0, i);
-            yield return new WaitForEndOfFrame();
+            if (i < text.Length) i++;
+            waitTime -= Time.deltaTime;
+            yield return default;
         }
-        yield return new WaitForSeconds(waitTime);
     }
+
 
     #endregion
 

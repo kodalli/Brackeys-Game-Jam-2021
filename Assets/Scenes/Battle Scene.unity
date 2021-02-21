@@ -6288,6 +6288,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1058474124193594453, guid: 9575a67f3f56f3947a378118ab400064,
         type: 3}
+      propertyPath: savedPlayerData.playerSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1058474124193594453, guid: 9575a67f3f56f3947a378118ab400064,
+        type: 3}
       propertyPath: savedPlayerData.playerItems.Array.size
       value: 1
       objectReference: {fileID: 0}

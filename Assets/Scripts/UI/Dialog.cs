@@ -7,6 +7,7 @@ public class Dialog : MonoBehaviour {
     public static Dialog Instance;
     public TextMeshProUGUI textDisplay;
     public GameObject dialogBox;
+    public GameObject signBox;
     public GameObject continueButton;
     public GameObject skipButton;
     public List<string> sentences;
@@ -30,8 +31,9 @@ public class Dialog : MonoBehaviour {
 
     IEnumerator Type() {
         skipButton.SetActive(true);
-
+        var prevIndex = index;
         foreach (char letter in sentences[index].ToCharArray()) {
+            if (prevIndex != index) yield break;
             textDisplay.text += letter;
             yield return new WaitForEndOfFrame();
         }
@@ -41,15 +43,14 @@ public class Dialog : MonoBehaviour {
 
     public void NextSentence() {
         continueButton.SetActive(false);
+        textDisplay.text = "";
 
         if (index < sentences.Count - 1) {
             index++;
-            textDisplay.text = "";
             StartCoroutine(Type());
         }
         else {
             index++;
-            textDisplay.text = "";
             continueButton.SetActive(false);
             skipButton.SetActive(false);
             dialogBox.SetActive(false);
@@ -70,6 +71,11 @@ public class Dialog : MonoBehaviour {
         index = 0;
         dialogBox.SetActive(true);
         StartCoroutine(Type());
+    }
+
+    public void DisplaySignText(string text) {
+        signBox.SetActive(true);
+        signBox.GetComponentInChildren<TextMeshProUGUI>().text = text;
     }
 
     private List<string> NormalizeDialogueList(List<string> dialogueList) {
