@@ -33,9 +33,6 @@ public class PopulateGrid : MonoBehaviour {
     }
 
     void PopulateItems() {
-
-        DestroyChildren();
-
         GameObject newObj; // Create GameObject instance
 
         var items = PlayerControlSave.Instance.localPlayerData.playerItems;
@@ -77,14 +74,10 @@ public class PopulateGrid : MonoBehaviour {
     }
 
     void PopulateSquad() {
-
-        DestroyChildren();
-
         GameObject newObj; // Create GameObject instance
 
         var monsterDict = PlayerControlSave.Instance.localPlayerData.monstersDict;
 
-        //var count = 0;
         foreach(KeyValuePair<string, Monster> monster in monsterDict) {
             // Create new instances of our prefab until we've created as many as we specified
             newObj = Instantiate(prefab, transform);
@@ -117,7 +110,6 @@ public class PopulateGrid : MonoBehaviour {
                         break;
                 }
             }
-            //count++;
         }
     }
 

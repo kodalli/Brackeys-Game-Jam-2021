@@ -38,46 +38,24 @@ public class ItemPickUp : MonoBehaviour
         Destroy(keyObj);
     }
 
-    //private void Update() {
-    //    if (Input.GetKeyDown(KeyCode.E) && isNear) {
-    //        Dialog.Instance.DisplayTextInDialogueBox(dialog);
-    //        AddToInventory();
-    //        gameObject.SetActive(false);
-    //        Debug.Log("picked");
-    //    }
-    //}
-
-    //private void OnCollisionEnter2D(Collision2D collision) {
-    //    if (collision.collider.CompareTag("Player")) {
-    //        isNear = true;
-    //        Vector3 pos = transform.position;
-    //        pos.y += 1f; // hover above
-    //        keyObj = Instantiate(keyPrefab, pos, Quaternion.identity);
-
-    //    }
-
-    //}
-
-    //private void OnCollisionExit2D(Collision2D collision) {
-    //    if (collision.collider.CompareTag("Player")) {
-    //        isNear = false;
-    //        Destroy(keyObj);
-    //    }
-    //}
-
     public void AddToInventory() {
+        if (Dialog.Instance.dialogBox.activeSelf) {
+            return;
+        }
+
         Dialog.Instance.DisplayTextInDialogueBox(dialog);
-        AddToInventory();
         Debug.Log("picked");
 
         // check duplicates then add
         if (PickupType == ItemType.FusionItem && item != null) {
-            if (PlayerControlSave.Instance.localPlayerData.playerItems.Any(other => other.itemName == item.itemName)) return;
+            if (PlayerControlSave.Instance.localPlayerData.playerItems
+                .Any(other => other.itemName == item.itemName)) return;
             PlayerControlSave.Instance.localPlayerData.playerItems.Add(item);
             itemMenu.UpdateMenu();
         }
         else if (PickupType == ItemType.Monster && monster != null) {
-            if (PlayerControlSave.Instance.localPlayerData.monstersDict.ContainsKey(monster.Name)) return;
+            if (PlayerControlSave.Instance.localPlayerData.monstersDict
+                .ContainsKey(monster.Name)) return;
             PlayerControlSave.Instance.localPlayerData.squad.Add(monster);
             var mon = new Monster(monster);
             mon.LevelUp(monsterLevel);

@@ -114,7 +114,7 @@ public class PlayerController : MonoBehaviour {
             collision.gameObject.GetComponent<NPCBattleManager>().DisableKey();
         }
         else if (collision.collider.CompareTag("ItemPickup")) {
-            isNear = true;
+            isNear = false;
             interactObj = collision.gameObject;
             collision.gameObject.GetComponent<ItemPickUp>().DisableKey();
         }
