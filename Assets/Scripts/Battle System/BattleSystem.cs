@@ -160,7 +160,7 @@ public class BattleSystem : MonoBehaviour {
         var canMove = CheckIfCanMove(enemyUnit.CurrentStatus);
 
         if(!canMove) {
-            yield return StartCoroutine(FancyText(enemyUnit.Name + " is " + enemyUnit.CurrentStatus + " and can't move...", 1f));
+            yield return StartCoroutine(FancyText(enemyUnit.Name + " is " + enemyUnit.CurrentStatus + " and can't move...", 1.5f));
             enemyUnit.CurrentStatus = Status.Neutral;
             state = BattleState.PlayerTurn;
             PlayerTurn();
@@ -205,7 +205,7 @@ public class BattleSystem : MonoBehaviour {
             canMove = CheckIfCanMove(playerUnit.CurrentStatus);
 
             if (!canMove) {
-                yield return StartCoroutine(FancyText(playerUnit.Name + " is " + playerUnit.CurrentStatus + " and can't move...", 1f));
+                yield return StartCoroutine(FancyText(playerUnit.Name + " is " + playerUnit.CurrentStatus + " and can't move...", 1.5f));
                 playerUnit.CurrentStatus = Status.Neutral;
                 state = BattleState.EnemyTurn;
                 StartCoroutine(EnemyTurn());
@@ -425,6 +425,8 @@ public class BattleSystem : MonoBehaviour {
             case Status.Confused:
                 return false;
             case Status.Fainted:
+                return false;
+            case Status.Woke:
                 return false;
             default:
                 return true;

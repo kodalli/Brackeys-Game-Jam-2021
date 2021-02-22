@@ -10,6 +10,8 @@ public class Dialog : MonoBehaviour {
     public GameObject signBox;
     public GameObject continueButton;
     public GameObject skipButton;
+    public GameObject squadMenu;
+    public GameObject itemMenu;
     public List<string> sentences;
     public int index;
     [SerializeField] private int maxSentenceSize = 20;
@@ -76,6 +78,22 @@ public class Dialog : MonoBehaviour {
     public void DisplaySignText(string text) {
         signBox.SetActive(true);
         signBox.GetComponentInChildren<TextMeshProUGUI>().text = text;
+    }
+
+    public void ToggleSquadMenu() {
+        if (squadMenu.activeSelf) squadMenu.SetActive(false);
+        else {
+            itemMenu.SetActive(false);
+            squadMenu.SetActive(true); 
+        }
+    }
+
+    public void ToggleItemMenu() {
+        if (itemMenu.activeSelf) itemMenu.SetActive(false);
+        else {
+            squadMenu.SetActive(false);
+            itemMenu.SetActive(true); 
+        }
     }
 
     private List<string> NormalizeDialogueList(List<string> dialogueList) {

@@ -11,8 +11,11 @@ public class ItemPickUp : MonoBehaviour
     [SerializeField] private int monsterLevel;
     [SerializeField] private ItemType PickupType;
     [SerializeField] private GameObject keyPrefab;
+    [SerializeField] private PopulateGrid itemMenu;
+    [SerializeField] private PopulateGrid squadMenu;
+
     private GameObject keyObj;
-    private bool isNear;
+    //private bool isNear;
     private List<string> dialog = new List<string>();
     private void Start() {
         if (PickupType == ItemType.FusionItem && item != null) {
@@ -24,38 +27,54 @@ public class ItemPickUp : MonoBehaviour
 
     }
 
-    private void Update() {
-        if (Input.GetKeyDown(KeyCode.E) && isNear) {
-            Dialog.Instance.DisplayTextInDialogueBox(dialog);
-            AddToInventory();
-            gameObject.SetActive(false);
-            Debug.Log("picked");
-        }
+    public void EnableKey() {
+        Vector3 pos = transform.position;
+        pos.y += 1f; // hover above
+        keyObj = Instantiate(keyPrefab, pos, Quaternion.identity);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision) {
-        if (collision.collider.CompareTag("Player")) {
-            isNear = true;
-            Vector3 pos = transform.position;
-            pos.y += 1f; // hover above
-            keyObj = Instantiate(keyPrefab, pos, Quaternion.identity);
-
-        }
-
+    public void DisableKey() {
+        Dialog.Instance.dialogBox.SetActive(false);
+        Destroy(keyObj);
     }
 
-    private void OnCollisionExit2D(Collision2D collision) {
-        if (collision.collider.CompareTag("Player")) {
-            isNear = false;
-            Destroy(keyObj);
-        }
-    }
+    //private void Update() {
+    //    if (Input.GetKeyDown(KeyCode.E) && isNear) {
+    //        Dialog.Instance.DisplayTextInDialogueBox(dialog);
+    //        AddToInventory();
+    //        gameObject.SetActive(false);
+    //        Debug.Log("picked");
+    //    }
+    //}
 
-    private void AddToInventory() {
+    //private void OnCollisionEnter2D(Collision2D collision) {
+    //    if (collision.collider.CompareTag("Player")) {
+    //        isNear = true;
+    //        Vector3 pos = transform.position;
+    //        pos.y += 1f; // hover above
+    //        keyObj = Instantiate(keyPrefab, pos, Quaternion.identity);
+
+    //    }
+
+    //}
+
+    //private void OnCollisionExit2D(Collision2D collision) {
+    //    if (collision.collider.CompareTag("Player")) {
+    //        isNear = false;
+    //        Destroy(keyObj);
+    //    }
+    //}
+
+    public void AddToInventory() {
+        Dialog.Instance.DisplayTextInDialogueBox(dialog);
+        AddToInventory();
+        Debug.Log("picked");
+
         // check duplicates then add
         if (PickupType == ItemType.FusionItem && item != null) {
             if (PlayerControlSave.Instance.localPlayerData.playerItems.Any(other => other.itemName == item.itemName)) return;
             PlayerControlSave.Instance.localPlayerData.playerItems.Add(item);
+            itemMenu.UpdateMenu();
         }
         else if (PickupType == ItemType.Monster && monster != null) {
             if (PlayerControlSave.Instance.localPlayerData.monstersDict.ContainsKey(monster.Name)) return;
@@ -63,6 +82,9 @@ public class ItemPickUp : MonoBehaviour
             var mon = new Monster(monster);
             mon.LevelUp(monsterLevel);
             PlayerControlSave.Instance.localPlayerData.monstersDict.Add(mon.Name, mon);
+            squadMenu.UpdateMenu();
         }
+
+        gameObject.SetActive(false);
     }
 }

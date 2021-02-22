@@ -12,10 +12,7 @@ public class NPCBattleManager : MonoBehaviour {
     private GameObject keyObj;
 
     private void Start() {
-        //StartCoroutine(CheckDefeated());
-        if (GetComponent<BattleNPC>().State.Equals(NPCStatus.Defeated) && postFightLocation != null) {
-            transform.position = postFightLocation.position;
-        }
+        StartCoroutine(CheckDefeated());
     }
 
     public void EnableKey() {
@@ -65,15 +62,16 @@ public class NPCBattleManager : MonoBehaviour {
         PlayerController.Instance.movementIsActive = true;
     }
 
-    //IEnumerator CheckDefeated() {
-    //    var countDown = 1f;
-    //    while (countDown > 0) {
-    //        if (GetComponent<BattleNPC>().State.Equals(NPCStatus.Defeated) && postFightLocation != null) {
-    //            transform.position = postFightLocation.position;
-    //            yield break;
-    //        }
-    //        yield return default;
-    //        countDown -= Time.deltaTime;
-    //    }
-    //}
+    IEnumerator CheckDefeated() {
+        var countDown = 1f;
+        while (countDown > 0) {
+            if (GetComponent<BattleNPC>().State.Equals(NPCStatus.Defeated) && postFightLocation != null) {
+                transform.position = postFightLocation.position;
+                Dialog.Instance.SkipDialogue();
+                yield break;
+            }
+            yield return default;
+            countDown -= Time.deltaTime;
+        }
+    }
 }

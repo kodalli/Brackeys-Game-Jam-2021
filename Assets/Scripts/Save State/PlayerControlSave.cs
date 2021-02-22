@@ -5,6 +5,9 @@ using UnityEngine;
 public class PlayerControlSave : MonoBehaviour {
     public static PlayerControlSave Instance;
     public PlayerStatistics localPlayerData = new PlayerStatistics();
+    public bool ShowFPS = false;
+
+    private int avgFrameRate;
 
     private void Awake() {
         if (Instance == null) {
@@ -23,7 +26,7 @@ public class PlayerControlSave : MonoBehaviour {
         // Debug.Log(localPlayerData.monstersDict.Count);
     }
     private void Update() {
-        
+        if (ShowFPS) FPSCounter();
     }
 
     public void SaveData() {
@@ -35,5 +38,12 @@ public class PlayerControlSave : MonoBehaviour {
         foreach (KeyValuePair<string, Monster> monster in localPlayerData.monstersDict) {
             Debug.Log(monster.Key + ", " + monster.Value.CurHP);
         }
+    }
+
+    private void FPSCounter() {
+        float current = (int)(1f / Time.unscaledDeltaTime);
+        avgFrameRate = (int)current;
+        Debug.Log(avgFrameRate.ToString() + " FPS");
+        //display_Text.text = avgFrameRate.ToString() + " FPS";
     }
 }

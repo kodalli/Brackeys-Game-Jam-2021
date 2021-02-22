@@ -12,7 +12,13 @@ public class PopulateGrid : MonoBehaviour {
     [SerializeField] private MenuType Menu; 
 
     void Start() {
-        switch(Menu) {
+        UpdateMenu();
+    }
+
+    public void UpdateMenu() {
+        DestroyChildren();
+
+        switch (Menu) {
             case MenuType.ItemMenu:
                 PopulateItems();
                 break;
@@ -22,14 +28,14 @@ public class PopulateGrid : MonoBehaviour {
             default:
                 break;
         }
+        //Debug.Log(GetComponentsInChildren<Transform>().Length);
+        //Debug.Log(GetComponentsInChildren<PopulateGrid>().Length);
     }
 
-    //private void Update()
-    //{
-    //    // doesn't work without this update method
-    //}
-
     void PopulateItems() {
+
+        DestroyChildren();
+
         GameObject newObj; // Create GameObject instance
 
         var items = PlayerControlSave.Instance.localPlayerData.playerItems;
@@ -71,6 +77,9 @@ public class PopulateGrid : MonoBehaviour {
     }
 
     void PopulateSquad() {
+
+        DestroyChildren();
+
         GameObject newObj; // Create GameObject instance
 
         var monsterDict = PlayerControlSave.Instance.localPlayerData.monstersDict;
@@ -109,6 +118,13 @@ public class PopulateGrid : MonoBehaviour {
                 }
             }
             //count++;
+        }
+    }
+
+    private void DestroyChildren() {
+        var obj = GetComponentInChildren<PopulateGrid>().gameObject;
+        foreach(var child in obj.GetComponentsInChildren<Image>()) {
+            Destroy(child.gameObject);
         }
     }
 

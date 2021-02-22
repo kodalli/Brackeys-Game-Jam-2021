@@ -7,6 +7,7 @@ TagManager:
   - BattleSystem
   - Sign
   - BattleNPC
+  - ItemPickup
   layers:
   - Default
   - TransparentFX
