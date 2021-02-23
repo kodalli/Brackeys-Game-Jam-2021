@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class Dialog : MonoBehaviour {
@@ -84,7 +85,8 @@ public class Dialog : MonoBehaviour {
         if (squadMenu.activeSelf) squadMenu.SetActive(false);
         else {
             itemMenu.SetActive(false);
-            squadMenu.SetActive(true); 
+            squadMenu.SetActive(true);
+            squadMenu.GetComponent<ScrollRect>().horizontal = false;
         }
     }
 
@@ -92,7 +94,8 @@ public class Dialog : MonoBehaviour {
         if (itemMenu.activeSelf) itemMenu.SetActive(false);
         else {
             squadMenu.SetActive(false);
-            itemMenu.SetActive(true); 
+            itemMenu.SetActive(true);
+            itemMenu.GetComponent<ScrollRect>().horizontal = false;
         }
     }
 
