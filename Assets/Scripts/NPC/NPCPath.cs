@@ -7,10 +7,15 @@ public class NPCPath : MonoBehaviour
 {
     [SerializeField] private Tilemap tileMap;
     [SerializeField] private bool flipPath;
+    [SerializeField] private float speed = 5f;
+    [SerializeField] private float countDown = 0.3f;
+    [SerializeField] private Vector2 adjust = new Vector2(0.5f, 0.5f);
+
+    private readonly int moveX = Animator.StringToHash("moveX");
+    private readonly int moveY = Animator.StringToHash("moveY");
+    private readonly int isMoving = Animator.StringToHash("isMoving");
 
     private List<Vector3> Path = new List<Vector3>();
-    private List<Vector3> WalkableTiles = new List<Vector3>();
-    private List<Vector2Int> WalkableIndexes = new List<Vector2Int>();
 
     private void Start() {
         tileMap.CompressBounds();
@@ -23,9 +28,8 @@ public class NPCPath : MonoBehaviour
 
         Vector3[,] Points = new Vector3[tileMap.cellBounds.size.x, tileMap.cellBounds.size.y];
         bool[,] Map = new bool[tileMap.cellBounds.size.x, tileMap.cellBounds.size.y];
+        List<Vector2Int> WalkableIndexes = new List<Vector2Int>();
 
-        WalkableTiles.Clear();
-        //List<Vector3> Path = new List<Vector3>();
         for (int x = tileMap.cellBounds.xMin; x < tileMap.cellBounds.xMax; x++) {
             for (int y = tileMap.cellBounds.yMin; y < tileMap.cellBounds.yMax; y++) {
                 Vector3Int localPlace = new Vector3Int(x, y, (int)tileMap.transform.position.y);
@@ -37,10 +41,7 @@ public class NPCPath : MonoBehaviour
                 if (tileMap.HasTile(localPlace)) {
                     Points[i, j] = worldPlace;
                     Map[i, j] = true;
-                    //Path.Add(worldPlace);
-                    WalkableTiles.Add(worldPlace);
                     WalkableIndexes.Add(new Vector2Int(i, j));
-                    //Debug.Log(worldPlace);
                 } else { Map[i, j] = false; }
 
             }
@@ -72,12 +73,22 @@ public class NPCPath : MonoBehaviour
 
     IEnumerator WalkPath(List<Vector3> path) {
         var rb = GetComponent<Rigidbody2D>();
+        var anim = GetComponent<Animator>();
         foreach(var coord in path) {
-            //transform.position = coord;
-            //rb.MovePosition(transform.position + coord * Time.fixedDeltaTime);
-            transform.position = Vector3.MoveTowards(transform.position, coord, 1f);
-            yield return new WaitForSeconds(0.2f);
+            var cd = countDown;
+            var coordAdj = (Vector2)coord + adjust;
+            while (cd > 0) {
+                rb.MovePosition(rb.position + (coordAdj - rb.position) * Time.deltaTime * speed);
+                if ((coordAdj - rb.position) != Vector2.zero) {
+                    anim.SetBool(isMoving, true);
+                    anim.SetFloat(moveX, (coordAdj - rb.position).x);
+                    anim.SetFloat(moveY, (coordAdj - rb.position).y);
+                }
+                cd -= Time.deltaTime;
+                yield return default;
+            }
         }
+        anim.SetBool(isMoving, false); 
     }
 
 

@@ -13,6 +13,10 @@ public class PlayerController : MonoBehaviour {
     private Rigidbody2D rb;
     private Animator anim;
 
+    private readonly int moveX = Animator.StringToHash("moveX");
+    private readonly int moveY = Animator.StringToHash("moveY");
+    private readonly int isMoving = Animator.StringToHash("isMoving");
+
     private void Awake() {
         if (Instance == null) {
             Instance = this;
@@ -32,7 +36,7 @@ public class PlayerController : MonoBehaviour {
         movement.y = Input.GetAxisRaw("Vertical");
 
         // Movement
-        if (movement == Vector2.zero || !movementIsActive) anim.SetBool("isMoving", false);
+        if (movement == Vector2.zero || !movementIsActive) anim.SetBool(isMoving, false);
         if (movement != Vector2.zero && movementIsActive) Move();
 
         // Dialogue box
@@ -77,11 +81,11 @@ public class PlayerController : MonoBehaviour {
     }
 
     private void Move() {
-        anim.SetBool("isMoving", true);
+        anim.SetBool(isMoving, true);
         if (movement.x != 0) movement.y = 0;
         rb.MovePosition(rb.position + movement * PlayerControlSave.Instance.localPlayerData.playerSpeed * Time.deltaTime);
-        anim.SetFloat("moveX", movement.x);
-        anim.SetFloat("moveY", movement.y);
+        anim.SetFloat(moveX, movement.x);
+        anim.SetFloat(moveY, movement.y);
     }
 
     private void OnCollisionEnter2D(Collision2D collision) {
