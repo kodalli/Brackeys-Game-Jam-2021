@@ -53,8 +53,12 @@ public class PlayerController : MonoBehaviour {
         }
 
         // Toggle menus
-        if (Input.GetKeyDown(KeyCode.Q)) Dialog.Instance.ToggleItemMenu();
-        if (Input.GetKeyDown(KeyCode.Tab)) Dialog.Instance.ToggleSquadMenu();
+        if (Input.GetKeyDown(KeyCode.Q)) {
+            Dialog.Instance.ToggleItemMenu();
+        }
+        if (Input.GetKeyDown(KeyCode.Tab)) {
+            Dialog.Instance.ToggleSquadMenu();
+        }
     }
 
     public void PlayerSceneLoad(string scene) {
