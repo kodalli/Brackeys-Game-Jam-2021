@@ -28,8 +28,6 @@ public class PopulateGrid : MonoBehaviour {
             default:
                 break;
         }
-        //Debug.Log(GetComponentsInChildren<Transform>().Length);
-        //Debug.Log(GetComponentsInChildren<PopulateGrid>().Length);
     }
 
     void PopulateItems() {
