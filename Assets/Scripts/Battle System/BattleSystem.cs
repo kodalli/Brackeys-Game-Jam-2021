@@ -108,12 +108,8 @@ public class BattleSystem : MonoBehaviour {
         // if no more units then player lost and end battle
 
         Destroy(playerObj);
-        var previousMonster = PlayerControlSave.Instance.localPlayerData.squad[playerSquadCount];
-        PlayerControlSave.Instance.localPlayerData.monstersDict[previousMonster.Name] = playerUnit;
 
         yield return StartCoroutine(FancyText(playerUnit.Name + " has been defeated!", 1f));
-
-        // save enemy state?
 
         playerSquadCount++;
 
@@ -133,13 +129,10 @@ public class BattleSystem : MonoBehaviour {
     }
 
     IEnumerator DrawPlayerMonster(int index) {
-        if (index < PlayerControlSave.Instance.localPlayerData.squad.Count) {
-            playerSquadCount = index;
-            BringPlayerMonsterIn();
-            //dialogueText.text = playerUnit.Name + " enters the fight!";
-            yield return StartCoroutine(FancyText(playerUnit.Name + " enters the fight!", 1f));
-            StartCoroutine(FancyText("What will " + playerUnit.Name + " do?", 0f));
-        }
+        playerSquadCount = index;
+        BringPlayerMonsterIn();
+        yield return StartCoroutine(FancyText(playerUnit.Name + " enters the fight!", 1f));
+        StartCoroutine(FancyText("What will " + playerUnit.Name + " do?", 0f));
     }
 
     #endregion
@@ -243,14 +236,6 @@ public class BattleSystem : MonoBehaviour {
         else {
             state = BattleState.Won;
             EndBattle();
-        }
-    }
-
-    IEnumerator DrawEnemyMonsterIn(int index) {
-        if (index < enemyNPC.squad.Count) {
-            enemySquadCount = index;
-            BringEnemyMonsterIn();
-            yield return StartCoroutine(FancyText(enemyUnit.Name + " enters the fight!", 1f));
         }
     }
     #endregion
