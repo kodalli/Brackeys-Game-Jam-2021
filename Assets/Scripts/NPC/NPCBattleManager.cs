@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class NPCBattleManager : MonoBehaviour {
     [SerializeField] private GameObject keyPrefab;
@@ -8,9 +9,14 @@ public class NPCBattleManager : MonoBehaviour {
     [SerializeField] private List<string> postfightDialogue;
     [SerializeField] private Transform postFightLocation;
 
+    NavMeshAgent agent;
+
     private GameObject keyObj;
 
     private void Start() {
+        agent = GetComponent<NavMeshAgent>();
+        agent.updateRotation = false;
+        agent.updateUpAxis = false;
         StartCoroutine(CheckDefeated());
     }
 
@@ -65,7 +71,8 @@ public class NPCBattleManager : MonoBehaviour {
         var countDown = 1f;
         while (countDown > 0) {
             if (GetComponent<BattleNPC>().State.Equals(NPCStatus.Defeated) && postFightLocation != null) {
-                transform.position = postFightLocation.position;
+                // transform.position = postFightLocation.position;
+                agent.SetDestination(postFightLocation.position);
                 Dialog.Instance.SkipDialogue();
                 yield break;
             }

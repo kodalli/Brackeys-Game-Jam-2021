@@ -5,6 +5,7 @@ using UnityEngine.AI;
 
 public class NPCPathFinding : MonoBehaviour
 {
+    public static NPCPathFinding Instance;
     [SerializeField] Transform target;
     NavMeshAgent agent;
     void Start(){
@@ -14,7 +15,7 @@ public class NPCPathFinding : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update() {
+    public void GoToLocation() {
         agent.SetDestination(target.position);
     }
 }

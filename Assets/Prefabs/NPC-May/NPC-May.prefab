@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 8296886307604230651}
   - component: {fileID: 8296886307604230648}
   - component: {fileID: 8296886307604230649}
-  - component: {fileID: 8296886307604230644}
   - component: {fileID: 8296886307604230647}
   m_Layer: 0
   m_Name: NPC-May
@@ -154,19 +153,6 @@ MonoBehaviour:
   squad:
   - {fileID: 11400000, guid: bfc97e1da3e41404d9fc0a05df63edba, type: 2}
   items: []
---- !u!114 &8296886307604230644
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8296886307604230654}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6fd34b30c965253439d6dfedb2e39da8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 0}
 --- !u!195 &8296886307604230647
 NavMeshAgent:
   m_ObjectHideFlags: 0
