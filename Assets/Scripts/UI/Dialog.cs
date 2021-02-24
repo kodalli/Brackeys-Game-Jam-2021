@@ -30,6 +30,7 @@ public class Dialog : MonoBehaviour {
         if (!GlobalControlSave.Instance.savedPlayerData.finishedTutorial) {
             DisplayTextInDialogueBox(sentences);
         }
+        squadMenu.GetComponent<ScrollRect>().horizontal = true;
     }
 
     IEnumerator Type() {
@@ -89,7 +90,7 @@ public class Dialog : MonoBehaviour {
         else {
             itemMenu.SetActive(false);
             squadMenu.SetActive(true);
-            squadMenu.GetComponent<ScrollRect>().horizontal = false;
+            
         }
     }
 
