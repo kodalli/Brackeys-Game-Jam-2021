@@ -42,6 +42,7 @@ public class Dialog : MonoBehaviour {
         }
 
         continueButton.SetActive(true);
+        
     }
 
     public void NextSentence() {
