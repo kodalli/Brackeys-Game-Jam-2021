@@ -15,14 +15,9 @@ public class NPCPath : MonoBehaviour
     private readonly int moveY = Animator.StringToHash("moveY");
     private readonly int isMoving = Animator.StringToHash("isMoving");
 
-    private List<Vector3> Path = new List<Vector3>();
-
-    private void Start() {
-        tileMap.CompressBounds();
-        var path = FindPathInTilemapCoordinates();
-        Path = path;
-        StartCoroutine(WalkPath(path));
-    }
+    //private void Start() {
+    //    WalkThePath();
+    //}
 
     public List<Vector3> FindPathInTilemapCoordinates() {
 
@@ -62,7 +57,7 @@ public class NPCPath : MonoBehaviour
         var path = astar.FindPath(Map, startIndex, endIndex);
         Debug.Log(path.Count);
 
-        Path.Clear();
+        var Path = new List<Vector3>();
 
         foreach(var loc in path) {
             Path.Add(Points[loc.x, loc.y]);
@@ -71,24 +66,30 @@ public class NPCPath : MonoBehaviour
         return Path;
     }
 
+    public void WalkThePath() {
+        tileMap.CompressBounds();
+        var path = FindPathInTilemapCoordinates();
+        StartCoroutine(WalkPath(path));
+    }
+
     IEnumerator WalkPath(List<Vector3> path) {
         var rb = GetComponent<Rigidbody2D>();
-        var anim = GetComponent<Animator>();
+        //var anim = GetComponent<Animator>();
         foreach(var coord in path) {
             var cd = countDown;
             var coordAdj = (Vector2)coord + adjust;
             while (cd > 0) {
                 rb.MovePosition(rb.position + (coordAdj - rb.position) * Time.deltaTime * speed);
                 if ((coordAdj - rb.position) != Vector2.zero) {
-                    anim.SetBool(isMoving, true);
-                    anim.SetFloat(moveX, (coordAdj - rb.position).x);
-                    anim.SetFloat(moveY, (coordAdj - rb.position).y);
+                    //anim.SetBool(isMoving, true);
+                    //anim.SetFloat(moveX, (coordAdj - rb.position).x);
+                    //anim.SetFloat(moveY, (coordAdj - rb.position).y);
                 }
                 cd -= Time.deltaTime;
                 yield return default;
             }
         }
-        anim.SetBool(isMoving, false); 
+        //anim.SetBool(isMoving, false); 
     }
 
 

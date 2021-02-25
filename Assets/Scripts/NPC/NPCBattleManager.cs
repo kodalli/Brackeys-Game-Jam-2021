@@ -6,7 +6,6 @@ public class NPCBattleManager : MonoBehaviour {
     [SerializeField] private GameObject keyPrefab;
     [SerializeField] private List<string> prefightDialogue;
     [SerializeField] private List<string> postfightDialogue;
-    [SerializeField] private Transform postFightLocation;
 
     private GameObject keyObj;
 
@@ -64,8 +63,8 @@ public class NPCBattleManager : MonoBehaviour {
     IEnumerator CheckDefeated() {
         var countDown = 1f;
         while (countDown > 0) {
-            if (GetComponent<BattleNPC>().State.Equals(NPCStatus.Defeated) && postFightLocation != null) {
-                transform.position = postFightLocation.position;
+            if (GetComponent<BattleNPC>().State.Equals(NPCStatus.Defeated)) {
+                GetComponent<NPCPath>().WalkThePath();
                 Dialog.Instance.SkipDialogue();
                 yield break;
             }
