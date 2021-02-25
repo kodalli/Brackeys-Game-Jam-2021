@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using System;
 
 public class NPCPath : MonoBehaviour
 {
-    [SerializeField] private Tilemap tileMap;
+    [SerializeField] private GameObject npcPaths;
+    //[SerializeField] private List<Tilemap> tileMaps;
     [SerializeField] private bool flipPath;
     [SerializeField] private float speed = 5f;
     [SerializeField] private float countDown = 0.3f;
@@ -16,11 +18,11 @@ public class NPCPath : MonoBehaviour
     private readonly int moveY = Animator.StringToHash("moveY");
     private readonly int isMoving = Animator.StringToHash("isMoving");
 
-    private void Start() {
-        // WalkThePath();
-    }
+    //private void Start() {
+    //    // WalkThePath(0);
+    //}
 
-    public List<Vector3> FindPathInTilemapCoordinates() {
+    public List<Vector3> FindPathInTilemapCoordinates(Tilemap tileMap) {
 
         Vector3[,] Points = new Vector3[tileMap.cellBounds.size.x, tileMap.cellBounds.size.y];
         bool[,] Map = new bool[tileMap.cellBounds.size.x, tileMap.cellBounds.size.y];
@@ -56,7 +58,7 @@ public class NPCPath : MonoBehaviour
 
         var astar = new AStarPathFinding();
         var path = astar.FindPath(Map, startIndex, endIndex);
-        Debug.Log(path.Count);
+        //Debug.Log(path.Count);
 
         var Path = new List<Vector3>();
 
@@ -67,10 +69,17 @@ public class NPCPath : MonoBehaviour
         return Path;
     }
 
-    public void WalkThePath() {
-        tileMap.CompressBounds();
-        var path = FindPathInTilemapCoordinates();
-        StartCoroutine(WalkPath(path));
+    public void WalkThePath(int index) {
+        var tileMaps = npcPaths.GetComponentsInChildren<Tilemap>();
+
+        Debug.Log($"path count {tileMaps.Length}");
+
+        if (index < tileMaps.Length) {
+            var tileMap = tileMaps[index];
+            tileMap.CompressBounds();
+            var path = FindPathInTilemapCoordinates(tileMap);
+            StartCoroutine(WalkPath(path));
+        }
     }
 
     IEnumerator WalkPath(List<Vector3> path) {
@@ -92,6 +101,12 @@ public class NPCPath : MonoBehaviour
             }
         }
         //anim.SetBool(isMoving, false);
+
+        // update values in enmeyPathCounter
+        var dict = PlayerControlSave.Instance.localPlayerData.enemyPathCounter;
+        var name = GetComponent<BattleNPC>().Name;
+        var index = dict[name].Item1 + 1; 
+        dict[name] = new Tuple<int, Vector3>(index, transform.position);
     }
 
 

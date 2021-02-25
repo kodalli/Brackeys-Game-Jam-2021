@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class NPCBattleManager : MonoBehaviour {
     [SerializeField] private GameObject keyPrefab;
@@ -12,6 +13,12 @@ public class NPCBattleManager : MonoBehaviour {
     private void Start() { 
         StartCoroutine(CheckDefeated());
     }
+
+    //private void Update() {
+    //    if (Input.GetKeyDown(KeyCode.Space)) {
+    //        StartCoroutine(CheckDefeated());
+    //    }
+    //}
 
     public void EnableKey() {
         Vector3 pos = transform.position;
@@ -61,15 +68,72 @@ public class NPCBattleManager : MonoBehaviour {
     }
 
     IEnumerator CheckDefeated() {
+        var npcPath = GetComponent<NPCPath>();
+
+        // if no NPCPath script then return
+        if (npcPath == null) yield break;
+
         var countDown = 1f;
         while (countDown > 0) {
+            var dict = PlayerControlSave.Instance.localPlayerData.enemyPathCounter;
+            var counter = 0;
+            var pos = transform.position;
+            var name = GetComponent<BattleNPC>().Name;
+            // check if the npc has walked any path yet
+            if (dict.ContainsKey(name)) {
+                // get the next path to walk
+                var pair = dict[name];
+                counter = pair.Item1;
+                pos = pair.Item2;
+                transform.position = pos;
+            } else {
+                // add npc to dictionary and start counter for paths to walk at 0
+                Tuple<int, Vector3> pair = new Tuple<int, Vector3>(0, pos);
+                dict.Add(name, pair);
+            }
             if (GetComponent<BattleNPC>().State.Equals(NPCStatus.Defeated)) {
-                GetComponent<NPCPath>().WalkThePath();
+                //***TODO handle list of npc paths***
+                Debug.Log(counter);
+                npcPath.WalkThePath(counter);
                 Dialog.Instance.SkipDialogue();
-                yield break;
+                //increment to next path for the npc
+
+               yield break;
             }
             yield return default;
             countDown -= Time.deltaTime;
         }
     }
-}
+
+    private void WalkNextPath() {
+        var npcPath = GetComponent<NPCPath>();
+
+        // if no NPCPath script then return
+        if (npcPath == null) return;
+
+        var dict = PlayerControlSave.Instance.localPlayerData.enemyPathCounter;
+        var counter = 0;
+        var pos = transform.position;
+        var name = GetComponent<BattleNPC>().Name;
+
+        // check if the npc has walked any path yet
+        if (dict.ContainsKey(name)) {
+            // get the next path to walk
+            var pair = dict[name];
+            counter = pair.Item1;
+            pos = pair.Item2;
+            transform.position = pos;
+        }
+        else {
+            // add npc to dictionary and start counter for paths to walk at 0
+            Tuple<int, Vector3> pair = new Tuple<int, Vector3>(0, pos);
+            dict.Add(name, pair);
+        }
+
+        Debug.Log(counter);
+        npcPath.WalkThePath(counter);
+        Dialog.Instance.SkipDialogue();
+
+        //increment to next path for the npc
+    }
+} 
