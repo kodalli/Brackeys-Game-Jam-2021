@@ -9,7 +9,7 @@ public class NPCBattleManager : MonoBehaviour {
 
     private GameObject keyObj;
 
-    private void Start() {
+    private void Start() { 
         StartCoroutine(CheckDefeated());
     }
 

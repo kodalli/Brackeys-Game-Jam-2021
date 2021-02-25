@@ -11,13 +11,14 @@ public class NPCPath : MonoBehaviour
     [SerializeField] private float countDown = 0.3f;
     [SerializeField] private Vector2 adjust = new Vector2(0.5f, 0.5f);
 
+
     private readonly int moveX = Animator.StringToHash("moveX");
     private readonly int moveY = Animator.StringToHash("moveY");
     private readonly int isMoving = Animator.StringToHash("isMoving");
 
-    //private void Start() {
-    //    WalkThePath();
-    //}
+    private void Start() {
+        // WalkThePath();
+    }
 
     public List<Vector3> FindPathInTilemapCoordinates() {
 
@@ -75,7 +76,8 @@ public class NPCPath : MonoBehaviour
     IEnumerator WalkPath(List<Vector3> path) {
         var rb = GetComponent<Rigidbody2D>();
         //var anim = GetComponent<Animator>();
-        foreach(var coord in path) {
+
+        foreach (var coord in path) {
             var cd = countDown;
             var coordAdj = (Vector2)coord + adjust;
             while (cd > 0) {
@@ -89,7 +91,7 @@ public class NPCPath : MonoBehaviour
                 yield return default;
             }
         }
-        //anim.SetBool(isMoving, false); 
+        //anim.SetBool(isMoving, false);
     }
 
 
