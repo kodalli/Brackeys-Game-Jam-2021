@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using System.Linq;
 
 public enum BattleState {
     Start,
@@ -61,7 +62,7 @@ public class BattleSystem : MonoBehaviour {
         enemyNPC.State = NPCStatus.Fighting;
 
         // Update UI and HUD
-        yield return StartCoroutine(FancyText(enemyNPC.Name + " chooses " + enemyUnit.Name + " for battle...", 2f));
+        yield return StartCoroutine(FancyText($"{enemyNPC.Name} chooses {enemyUnit.Name} for battle...", 2f));
 
         state = BattleState.PlayerTurn;
         PlayerTurn();
@@ -74,7 +75,7 @@ public class BattleSystem : MonoBehaviour {
         // disable combat menu
         combatOptionsPanel.SetActive(false);
 
-        yield return StartCoroutine(FancyText(playerUnit.Name + " used " + move.MoveName, 1.5f));
+        yield return StartCoroutine(FancyText($"{playerUnit.Name} used {move.MoveName}", 1.5f));
 
         // Do status effect
         yield return StartCoroutine(ApplyStatusEffect(move, playerUnit, enemyUnit));
@@ -85,9 +86,9 @@ public class BattleSystem : MonoBehaviour {
         // Do heal
         yield return StartCoroutine(ApplyHeal(move, playerUnit, playerHUD));
 
-        var isDead = enemyUnit.CurrentStatus.Equals(Status.Fainted);
-
         yield return StartCoroutine(FancyText("The attack is successful!", 1.5f));
+
+        var isDead = enemyUnit.CurrentStatus.Equals(Status.Fainted);
 
         // if cur monster dead go next -> enemy turn, else go -> enemy turn
         if (isDead) {
@@ -109,14 +110,14 @@ public class BattleSystem : MonoBehaviour {
 
         Destroy(playerObj);
 
-        yield return StartCoroutine(FancyText(playerUnit.Name + " has been defeated!", 1f));
+        yield return StartCoroutine(FancyText($"{playerUnit.Name} has been defeated!", 1f));
 
         playerSquadCount++;
 
         if (playerSquadCount < PlayerControlSave.Instance.localPlayerData.squad.Count) {
             BringPlayerMonsterIn();
 
-            yield return StartCoroutine(FancyText(playerUnit.Name + " enters the fight!", 1f));
+            yield return StartCoroutine(FancyText($"{playerUnit.Name} enters the fight!", 1f));
 
             state = BattleState.PlayerTurn;
             PlayerTurn();
@@ -131,8 +132,8 @@ public class BattleSystem : MonoBehaviour {
     IEnumerator DrawPlayerMonster(int index) {
         playerSquadCount = index;
         BringPlayerMonsterIn();
-        yield return StartCoroutine(FancyText(playerUnit.Name + " enters the fight!", 1f));
-        StartCoroutine(FancyText("What will " + playerUnit.Name + " do?", 0f));
+        yield return StartCoroutine(FancyText($"{playerUnit.Name} enters the fight!", 1f));
+        StartCoroutine(FancyText($"What will {playerUnit.Name} do?", 0f));
     }
 
     #endregion
@@ -153,26 +154,26 @@ public class BattleSystem : MonoBehaviour {
         var canMove = CheckIfCanMove(enemyUnit.CurrentStatus);
 
         if(!canMove) {
-            yield return StartCoroutine(FancyText(enemyUnit.Name + " is " + enemyUnit.CurrentStatus + " and can't move...", 1.5f));
+            yield return StartCoroutine(FancyText($"{enemyUnit.Name} is {enemyUnit.CurrentStatus} and can't move...", 1.5f));
             enemyUnit.CurrentStatus = Status.Neutral;
             state = BattleState.PlayerTurn;
             PlayerTurn();
             yield break;
         }
 
-        yield return StartCoroutine(FancyText(enemyUnit.Name + " attacks!", 1.5f));
+        yield return StartCoroutine(FancyText($"{enemyUnit.Name} attacks!", 1.5f));
 
         // fuse unit if possible
         if (!enemyUnit.Fused && enemyNPC.items.Count > 0) {
             var fusedMonsterSO = GetFusedMonsterFromRandomItem();
             BringFusedEnemyMonsterIn(fusedMonsterSO);
-            yield return StartCoroutine(FancyText(enemyNPC.Name + " fused to make " + enemyUnit.Name, 1.5f));
+            yield return StartCoroutine(FancyText($"{enemyNPC.Name} fused to make {enemyUnit.Name}", 1.5f));
         }
 
         // Select random move
         var move = enemyUnit.MoveSet[Random.Range(0, enemyUnit.MoveSet.Count)];
 
-        yield return StartCoroutine(FancyText(enemyUnit.Name + " uses " + move.MoveName, 1.5f));
+        yield return StartCoroutine(FancyText($"{enemyUnit.Name} uses {move.MoveName}", 1.5f));
 
         // Do status effect
         yield return StartCoroutine(ApplyStatusEffect(move, enemyUnit, playerUnit));
@@ -183,13 +184,13 @@ public class BattleSystem : MonoBehaviour {
         // Do heal
         yield return StartCoroutine(ApplyHeal(move, enemyUnit, enemyHUD));
 
-        var isDead = playerUnit.CurrentStatus.Equals(Status.Fainted);
-
         yield return new WaitForSeconds(1f);
+
+        var isDead = playerUnit.CurrentStatus.Equals(Status.Fainted);
 
         if (isDead) {
             // Go to next monster else lost
-            yield return StartCoroutine(FancyText(playerUnit + " fainted!", 1f));
+            yield return StartCoroutine(FancyText($"{playerUnit} fainted!", 1f));
             StartCoroutine(DrawNextPlayerMonster());
         }
         else {
@@ -198,7 +199,7 @@ public class BattleSystem : MonoBehaviour {
             canMove = CheckIfCanMove(playerUnit.CurrentStatus);
 
             if (!canMove) {
-                yield return StartCoroutine(FancyText(playerUnit.Name + " is " + playerUnit.CurrentStatus + " and can't move...", 1.5f));
+                yield return StartCoroutine(FancyText($"{playerUnit.Name} is {playerUnit.CurrentStatus} and can't move...", 1.5f));
                 playerUnit.CurrentStatus = Status.Neutral;
                 state = BattleState.EnemyTurn;
                 StartCoroutine(EnemyTurn());
@@ -221,14 +222,14 @@ public class BattleSystem : MonoBehaviour {
         var previousMonster = enemyNPC.squad[enemySquadCount];
         enemyNPC.monstersDict[previousMonster.Name] = enemyUnit;
 
-        yield return StartCoroutine(FancyText(enemyUnit.Name + " has been defeated!", 1f));
+        yield return StartCoroutine(FancyText($"{enemyUnit.Name} has been defeated!", 1f));
 
         enemySquadCount++;
 
         if (enemySquadCount < enemyNPC.squad.Count) {
             BringEnemyMonsterIn();
 
-            yield return StartCoroutine(FancyText(enemyUnit.Name + " enters the fight!", 1f));
+            yield return StartCoroutine(FancyText($"{enemyUnit.Name} enters the fight!", 1f));
 
             state = BattleState.EnemyTurn;
             StartCoroutine(EnemyTurn());
@@ -242,13 +243,12 @@ public class BattleSystem : MonoBehaviour {
 
     #region Bring Monsters In
     void BringPlayerMonsterIn() {
-        Debug.Log("index " + playerSquadCount);
-
         if (playerSquadCount > PlayerControlSave.Instance.localPlayerData.squad.Count - 1) {
             state = BattleState.Lost;
             EndBattle();
             return;
         }
+
         var currentMonster = PlayerControlSave.Instance.localPlayerData.squad[playerSquadCount];
 
         playerUnit = PlayerControlSave.Instance.localPlayerData.monstersDict[currentMonster.Name];
@@ -259,7 +259,6 @@ public class BattleSystem : MonoBehaviour {
                 playerSquadCount = i;
                 currentMonster = PlayerControlSave.Instance.localPlayerData.squad[playerSquadCount];
                 playerUnit = PlayerControlSave.Instance.localPlayerData.monstersDict[currentMonster.Name];
-                //Debug.Log(playerUnit.Name + ", " + playerUnit.CurrentStatus);
                 if (playerUnit.CurrentStatus != Status.Fainted) {
                     break;
                 }
@@ -270,19 +269,23 @@ public class BattleSystem : MonoBehaviour {
             }
         }
 
+        // destroy previous monster prefab sprite
         Destroy(playerObj);
 
+        // create new player prefab with current monster sprite
         playerObj = Instantiate(currentMonster.Prefab);
         playerObj.transform.position = playerBattleLocation.position;
         playerObj.GetComponent<SpriteRenderer>().flipX = true;
         playerObj.GetComponent<SpriteRenderer>().sortingLayerName = "Background";
 
+        // update ui
         playerHUD.SetHUD(playerUnit);
 
         ApplyUnfusedButtonText();
     }
 
     void BringFusedPlayerMonsterIn(MonsterScriptableObject fusedMonster) {
+        // adjust hp and level for fused monster brought in
         var hpDifference = GetHpDifference(playerUnit);
         var level = playerUnit.GetLevel();
         var currentMonster = fusedMonster;
@@ -291,23 +294,23 @@ public class BattleSystem : MonoBehaviour {
         playerUnit.LevelUp(level);
         playerUnit.AddHP(hpDifference);
 
+        // remove old monster
         Destroy(playerObj);
 
+        // create new fused monster sprite
         playerObj = Instantiate(currentMonster.Prefab);
         playerObj.transform.position = playerBattleLocation.position;
         playerObj.GetComponent<SpriteRenderer>().flipX = true;
         playerObj.GetComponent<SpriteRenderer>().sortingLayerName = "Background";
 
+        // update ui
         playerHUD.SetHUD(playerUnit);
 
         ApplyFusedButtonText();
     }
 
-    MonsterScriptableObject GetFusedMonsterFromRandomItem() {
-        // pick random item
-        var item = enemyNPC.items[Random.Range(0, enemyNPC.items.Count)];
-        return item.FuseMonsterWithItem(enemyUnit);
-    }
+    // pick random item and return fused mosnter
+    MonsterScriptableObject GetFusedMonsterFromRandomItem() => enemyNPC.items[Random.Range(0, enemyNPC.items.Count)].FuseMonsterWithItem(enemyUnit);
 
     void BringFusedEnemyMonsterIn(MonsterScriptableObject fusedMonster) {
         var hpDifference = GetHpDifference(enemyUnit);
@@ -323,7 +326,6 @@ public class BattleSystem : MonoBehaviour {
         enemyObj = Instantiate(currentMonster.Prefab);
         enemyObj.transform.position = enemyBattleLocation.position;
         enemyObj.GetComponent<SpriteRenderer>().sortingLayerName = "Background";
-        //enemyObj.GetComponent<SpriteRenderer>().flipX = true;
 
         enemyHUD.SetHUD(enemyUnit);
     }
@@ -373,13 +375,13 @@ public class BattleSystem : MonoBehaviour {
 
     IEnumerator ApplyXPEarnings() {
         var enemiesDefeated = enemyNPC.squad.Count;
-        var xpEarnedPerEnemy = Mathf.Max(enemyUnit.GetXP(0), enemyUnit.GetXP(1));
+        var xpEarnedPerEnemy = enemyUnit.GetXPFromLevel(enemyUnit.GetLevel());
         var amountXPEarned = Mathf.Max(Mathf.RoundToInt(xpMultiplier * xpEarnedPerEnemy * enemiesDefeated), 1);
         var squadDict = PlayerControlSave.Instance.localPlayerData.monstersDict;
         foreach (KeyValuePair<string, Monster> userMonster in squadDict) {
             Debug.Log("xp before " + PlayerControlSave.Instance.localPlayerData.monstersDict[userMonster.Key].GetCurXP());
             squadDict[userMonster.Key].AddXP(amountXPEarned);
-            yield return StartCoroutine(FancyText(userMonster.Key + " earned " + amountXPEarned + "XP", 1f));
+            yield return StartCoroutine(FancyText($"{userMonster.Key} earned {amountXPEarned}XP", 1f));
             Debug.Log("xp after " + PlayerControlSave.Instance.localPlayerData.monstersDict[userMonster.Key].GetCurXP());
         }
 
@@ -423,12 +425,12 @@ public class BattleSystem : MonoBehaviour {
         if (move.StatusEffect != Status.Neutral) {
             if (move.MonsterMoveType == MoveType.CauseStatusOpponent || move.SecondaryMonsterMoveType == MoveType.CauseStatusOpponent) {
                 opponent.CurrentStatus = move.StatusEffect;
-                yield return StartCoroutine(FancyText(opponent.Name + " is " + move.StatusEffect, 1.5f));
+                yield return StartCoroutine(FancyText($"{opponent.Name} is {move.StatusEffect}", 1.5f));
                 //Debug.Log(enemyUnit.CurrentStatus);
             }
             if (move.MonsterMoveType == MoveType.CauseStatusUser || move.SecondaryMonsterMoveType == MoveType.CauseStatusUser) {
                 user.CurrentStatus = move.StatusEffect;
-                yield return StartCoroutine(FancyText(user.Name + " is " + move.StatusEffect, 1.5f));
+                yield return StartCoroutine(FancyText($"{user.Name} is {move.StatusEffect}", 1.5f));
                 //Debug.Log(playerUnit.CurrentStatus);
             }
         }
@@ -463,14 +465,14 @@ public class BattleSystem : MonoBehaviour {
                 yield return new WaitForEndOfFrame();
             }
 
-            yield return StartCoroutine(FancyText(user.Name + " healed...", 1f));
+            yield return StartCoroutine(FancyText($"{user.Name} healed...", 1f));
         }
     }
     #endregion
 
     #region Helpers
     void PlayerTurn() {
-        StartCoroutine(FancyText("What will " + playerUnit.Name + " do?", 0f));
+        StartCoroutine(FancyText($"What will {playerUnit.Name} do?", 0f));
         combatOptionsPanel.SetActive(true);
     }
 
@@ -611,18 +613,10 @@ public class BattleSystem : MonoBehaviour {
     }
 
     public void OnSquadSelectButton(string unitName) {
-        // get index
-        //Debug.Log("OnSquadSelectButton " + unitName);
-
+        // get index and draw that monster from player squad
         var squad = PlayerControlSave.Instance.localPlayerData.squad;
-
-        for (int i = 0; i < squad.Count; i++) {
-            if (unitName == squad[i].Name) {
-                StartCoroutine(DrawPlayerMonster(i));
-                break;
-            }
-        }
-
+        var index = squad.TakeWhile(unit => unit.Name != unitName).Count();
+        StartCoroutine(DrawPlayerMonster(index));
     }
     #endregion
 

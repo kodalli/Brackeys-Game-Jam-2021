@@ -84,19 +84,17 @@ public class Dialog : MonoBehaviour {
     public void ToggleSquadMenu() {
         if (squadMenu.activeSelf) {
             squadMenu.SetActive(false);
-            //squadMenu.GetComponent<ScrollRect>().horizontal = true;
         }
         else {
             itemMenu.SetActive(false);
             squadMenu.SetActive(true);
-            squadMenu.GetComponent<ScrollRect>().horizontal = false;
+            StartCoroutine(DisableScrollRect());
         }
     }
 
     public void ToggleItemMenu() {
         if (itemMenu.activeSelf) {
             itemMenu.SetActive(false);
-            //itemMenu.GetComponent<ScrollRect>().horizontal = true;
         }
         else {
             squadMenu.SetActive(false);
@@ -127,4 +125,10 @@ public class Dialog : MonoBehaviour {
     }
 
     public bool IsDialogueOver() => index > sentences.Count - 1;
+
+    IEnumerator DisableScrollRect() {
+        yield return new WaitForSeconds(0.5f);
+        squadMenu.GetComponent<ScrollRect>().horizontal = false;
+
+    }
 }

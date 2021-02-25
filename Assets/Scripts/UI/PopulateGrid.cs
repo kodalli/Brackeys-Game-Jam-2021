@@ -102,7 +102,7 @@ public class PopulateGrid : MonoBehaviour {
                         texts[j].text = m.Name;
                         break;
                     case 2:
-                        texts[j].text = $"{m.CurHP}/{m.GetMaxHP()}HP, LvL {m.GetLevel()}, {m.GetCurXP()}/{m.GetXP(m.GetLevel()+1)}XP to next level";
+                        texts[j].text = $"{m.CurHP}/{m.GetMaxHP()}HP, LvL {m.GetLevel()}, {m.GetCurXP()}/{m.GetXPFromLevel(m.GetLevel()+1)}XP to next level";
                         break;
                     default:
                         break;

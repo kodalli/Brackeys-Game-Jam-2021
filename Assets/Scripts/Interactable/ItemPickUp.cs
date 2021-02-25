@@ -44,6 +44,8 @@ public class ItemPickUp : MonoBehaviour
         }
 
         Dialog.Instance.DisplayTextInDialogueBox(dialog);
+        Dialog.Instance.dialogBox.SetActive(true);
+        Debug.Log(Dialog.Instance.dialogBox.activeSelf);
         Debug.Log("picked");
 
         // check duplicates then add
@@ -63,6 +65,7 @@ public class ItemPickUp : MonoBehaviour
             squadMenu.UpdateMenu();
         }
 
-        gameObject.SetActive(false);
+        // gameObject.SetActive(false);
+        Destroy(gameObject);
     }
 }
