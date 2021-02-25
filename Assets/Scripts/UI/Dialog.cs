@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
+
 public class Dialog : MonoBehaviour {
     public static Dialog Instance;
     public TextMeshProUGUI textDisplay;
@@ -42,7 +43,7 @@ public class Dialog : MonoBehaviour {
         }
 
         continueButton.SetActive(true);
-        
+
     }
 
     public void NextSentence() {
@@ -133,3 +134,4 @@ public class Dialog : MonoBehaviour {
 
     }
 }
+

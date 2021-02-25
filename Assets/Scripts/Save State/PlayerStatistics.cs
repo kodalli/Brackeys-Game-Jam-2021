@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
+
 [Serializable]
 public class PlayerStatistics {
     public List<MonsterScriptableObject> squad;
@@ -20,4 +21,5 @@ public class PlayerStatistics {
     public void FillBaseValues() {
         squad.ForEach(m => monstersDict.Add(m.Name, new Monster(m)));
     }
+
 }
