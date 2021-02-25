@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 7328706038705737765}
   - component: {fileID: 7328706038705737762}
   - component: {fileID: 7328706038705737785}
-  - component: {fileID: 7328706038705737764}
   - component: {fileID: 235682133232321756}
   - component: {fileID: 5709626307029081656}
   m_Layer: 0
@@ -154,23 +153,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &7328706038705737764
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7328706038705737784}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca0a7e6a54078184ea816930a6ad48f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tileMap: {fileID: 0}
-  flipPath: 0
-  speed: 5
-  countDown: 0.4
-  adjust: {x: 0.5, y: 1}
 --- !u!114 &235682133232321756
 MonoBehaviour:
   m_ObjectHideFlags: 0
