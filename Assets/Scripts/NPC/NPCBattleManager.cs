@@ -14,11 +14,11 @@ public class NPCBattleManager : MonoBehaviour {
         StartCoroutine(CheckDefeated());
     }
 
-    //private void Update() {
-    //    if (Input.GetKeyDown(KeyCode.Space)) {
-    //        StartCoroutine(CheckDefeated());
-    //    }
-    //}
+    private void Update() {
+        if (Input.GetKeyDown(KeyCode.Space)) {
+            StartCoroutine(CheckDefeated());
+        }
+    }
 
     public void EnableKey() {
         Vector3 pos = transform.position;

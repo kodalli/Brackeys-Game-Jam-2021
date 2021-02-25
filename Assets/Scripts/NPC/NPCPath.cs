@@ -84,7 +84,7 @@ public class NPCPath : MonoBehaviour
 
     IEnumerator WalkPath(List<Vector3> path) {
         var rb = GetComponent<Rigidbody2D>();
-        //var anim = GetComponent<Animator>();
+        var anim = GetComponent<Animator>();
 
         foreach (var coord in path) {
             var cd = countDown;
@@ -92,15 +92,15 @@ public class NPCPath : MonoBehaviour
             while (cd > 0) {
                 rb.MovePosition(rb.position + (coordAdj - rb.position) * Time.deltaTime * speed);
                 if ((coordAdj - rb.position) != Vector2.zero) {
-                    //anim.SetBool(isMoving, true);
-                    //anim.SetFloat(moveX, (coordAdj - rb.position).x);
-                    //anim.SetFloat(moveY, (coordAdj - rb.position).y);
+                    anim.SetBool(isMoving, true);
+                    anim.SetFloat(moveX, (coordAdj - rb.position).x);
+                    anim.SetFloat(moveY, (coordAdj - rb.position).y);
                 }
                 cd -= Time.deltaTime;
                 yield return default;
             }
         }
-        //anim.SetBool(isMoving, false);
+        anim.SetBool(isMoving, false);
 
         // update values in enmeyPathCounter
         var dict = PlayerControlSave.Instance.localPlayerData.enemyPathCounter;
