@@ -1,20 +1,31 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 using System;
 
 public class NPCBattleManager : MonoBehaviour {
     [SerializeField] private GameObject keyPrefab;
     [SerializeField] private List<string> prefightDialogue;
     [SerializeField] private List<string> postfightDialogue;
+    [SerializeField] private Transform target;
+    NavMeshAgent agent;
 
     private GameObject keyObj;
 
-    private void Start() { 
-        StartCoroutine(CheckDefeated());
+    private void Start() {
+        agent = GetComponent<NavMeshAgent>();
+        agent.updateRotation = false;
+        agent.updateUpAxis = false;
+
+        // StartCoroutine(CheckDefeated());
     }
 
     private void Update() {
+
+        if (target != null)
+            agent.SetDestination(target.position);
+
         if (Input.GetKeyDown(KeyCode.Space)) {
             StartCoroutine(CheckDefeated());
         }

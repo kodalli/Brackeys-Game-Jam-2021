@@ -13,7 +13,6 @@ public class NPCPath : MonoBehaviour
     [SerializeField] private float countDown = 0.3f;
     [SerializeField] private Vector2 adjust = new Vector2(0.5f, 0.5f);
 
-
     private readonly int moveX = Animator.StringToHash("moveX");
     private readonly int moveY = Animator.StringToHash("moveY");
     private readonly int isMoving = Animator.StringToHash("isMoving");
@@ -96,7 +95,7 @@ public class NPCPath : MonoBehaviour
                     anim.SetFloat(moveX, (coordAdj - rb.position).x);
                     anim.SetFloat(moveY, (coordAdj - rb.position).y);
                 }
-                cd -= Time.deltaTime;
+                cd -= Time.deltaTime;  
                 yield return default;
             }
         }

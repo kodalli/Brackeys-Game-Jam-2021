@@ -1,8 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class PlayerController : MonoBehaviour {
+
+    #region Variables
     public static PlayerController Instance;
 
     public bool movementIsActive = true;
@@ -12,10 +15,11 @@ public class PlayerController : MonoBehaviour {
     private Vector2 movement;
     private Rigidbody2D rb;
     private Animator anim;
-
+    
     private readonly int moveX = Animator.StringToHash("moveX");
     private readonly int moveY = Animator.StringToHash("moveY");
     private readonly int isMoving = Animator.StringToHash("isMoving");
+    #endregion
 
     private void Awake() {
         if (Instance == null) {
@@ -26,7 +30,7 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
-    private void Start() {
+    void Start() {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
     }
