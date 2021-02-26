@@ -8,5 +8,6 @@ public class OnSceneLoad : MonoBehaviour
     void Start()
     {
         transform.position = GlobalControlSave.Instance.savedPlayerData.playerPosition;
+        //PlayerController.Instance.npcSquad.Clear();
     }
 }

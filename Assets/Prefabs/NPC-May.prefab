@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 2098476364426849936}
   - component: {fileID: 2098476365712464661}
   - component: {fileID: 2098476365712464660}
+  - component: {fileID: 2098476365712464656}
   - component: {fileID: 2098476365712464663}
   - component: {fileID: 2098476365712464662}
   - component: {fileID: 2098476365712464657}
-  - component: {fileID: 2098476365712464656}
   m_Layer: 0
   m_Name: NPC-May
   m_TagString: BattleNPC
@@ -113,6 +113,26 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1.25}
   m_EdgeRadius: 0
+--- !u!114 &2098476365712464656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2098476365712464659}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca0a7e6a54078184ea816930a6ad48f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  npcPaths: {fileID: 0}
+  flipPath: 0
+  speed: 5
+  countDown: 0.3
+  adjust: {x: 0.5, y: 0.5}
+  isFollowing: 0
+  walkPathEnabled: 1
+  numFrames: 5
 --- !u!114 &2098476365712464663
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -135,6 +155,7 @@ MonoBehaviour:
   - 'Fight the old man guard and '
   - 'then if you win, he''ll let you pass. '
   - YEEEEEHAW
+  target: {fileID: 0}
 --- !u!114 &2098476365712464662
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -174,20 +195,3 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &2098476365712464656
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2098476365712464659}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca0a7e6a54078184ea816930a6ad48f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  npcPaths: {fileID: 0}
-  flipPath: 0
-  speed: 5
-  countDown: 0.3
-  adjust: {x: 0.5, y: 0.5}

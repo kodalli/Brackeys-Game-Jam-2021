@@ -6,21 +6,62 @@ using System;
 
 public class NPCPath : MonoBehaviour
 {
+    public bool IsFollowing_m { get; private set; }
+
     [SerializeField] private GameObject npcPaths;
-    //[SerializeField] private List<Tilemap> tileMaps;
     [SerializeField] private bool flipPath;
     [SerializeField] private float speed = 5f;
     [SerializeField] private float countDown = 0.3f;
     [SerializeField] private Vector2 adjust = new Vector2(0.5f, 0.5f);
 
+    // follow leader
+    [SerializeField] private bool isFollowing = false;
+    [SerializeField] private bool walkPathEnabled = true;
+    [SerializeField] private int numFrames = 5;
+    private Rigidbody2D rb;
+    private Animator anim;
+    private Queue<Vector3> targetMovement;
+    private Vector2 newPos;
+
+    // animator variables
     private readonly int moveX = Animator.StringToHash("moveX");
     private readonly int moveY = Animator.StringToHash("moveY");
     private readonly int isMoving = Animator.StringToHash("isMoving");
 
-    //private void Start() {
-    //    // WalkThePath(0);
-    //}
+    private void Awake() {
+        IsFollowing_m = isFollowing;
+    }
 
+    private void Start() {
+        // WalkThePath(0);
+        targetMovement = new Queue<Vector3>();
+        rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
+        rb.bodyType = RigidbodyType2D.Kinematic;
+        newPos = transform.position;
+        Debug.Log("In start " + IsFollowing_m);
+    }
+
+    public void FollowLeader() {
+        if (!isFollowing) return;
+
+        if (PlayerController.Instance.DeltaPosition != Vector3.zero) {
+            anim.SetBool(isMoving, true);
+            anim.SetFloat(moveX, (newPos - rb.position).x);
+            anim.SetFloat(moveY, (newPos - rb.position).y);
+            targetMovement.Enqueue(PlayerController.Instance.transform.position);
+        } else {
+            anim.SetBool(isMoving, false);
+        }
+
+        if (targetMovement.Count > numFrames) {
+            newPos = targetMovement.Dequeue();
+        }
+
+        rb.MovePosition(rb.position + (newPos - rb.position) * Time.deltaTime * speed);
+    }
+
+    #region Walk Path Logic
     public List<Vector3> FindPathInTilemapCoordinates(Tilemap tileMap) {
 
         Vector3[,] Points = new Vector3[tileMap.cellBounds.size.x, tileMap.cellBounds.size.y];
@@ -69,6 +110,8 @@ public class NPCPath : MonoBehaviour
     }
 
     public void WalkThePath(int index) {
+        if (!walkPathEnabled) return;
+
         var tileMaps = npcPaths.GetComponentsInChildren<Tilemap>();
 
         Debug.Log($"path count {tileMaps.Length}");
@@ -82,9 +125,6 @@ public class NPCPath : MonoBehaviour
     }
 
     IEnumerator WalkPath(List<Vector3> path) {
-        var rb = GetComponent<Rigidbody2D>();
-        var anim = GetComponent<Animator>();
-
         foreach (var coord in path) {
             var cd = countDown;
             var coordAdj = (Vector2)coord + adjust;
@@ -131,4 +171,5 @@ public class NPCPath : MonoBehaviour
 
         return (start, end);
     }
+    #endregion
 }
