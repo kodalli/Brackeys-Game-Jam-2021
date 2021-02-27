@@ -39,7 +39,7 @@ public class NPCPath : MonoBehaviour
         anim = GetComponent<Animator>();
         rb.bodyType = RigidbodyType2D.Kinematic;
         newPos = transform.position;
-        Debug.Log("In start " + IsFollowing_m);
+        //Debug.Log("In start " + IsFollowing_m);
     }
 
     public void FollowLeader() {

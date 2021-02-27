@@ -75,6 +75,7 @@ public class PlayerController : MonoBehaviour {
     }
 
     private void FixedUpdate() {
+        // npc follow player logic
         DeltaPosition = transform.position - lastPos;
         lastPos = transform.position;
         foreach(KeyValuePair<string, GameObject> npc in npcSquad) {
