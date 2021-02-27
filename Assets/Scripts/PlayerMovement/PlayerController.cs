@@ -47,7 +47,7 @@ public class PlayerController : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.Escape)) Dialog.Instance.SkipDialogue();
 
         // Interact
-        if (!Dialog.Instance.IsDialogueOver() && Input.GetKeyDown(KeyCode.E))
+        if (Dialog.Instance != null && !Dialog.Instance.IsDialogueOver() && Input.GetKeyDown(KeyCode.E))
             Dialog.Instance.NextSentence();
         else if (Input.GetKeyDown(KeyCode.E)) {
             // Interact with sign or npc, or obj
