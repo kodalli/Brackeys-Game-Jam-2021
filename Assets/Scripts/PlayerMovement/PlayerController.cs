@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using System.Linq;
 
 public class PlayerController : MonoBehaviour {
 
@@ -9,12 +10,15 @@ public class PlayerController : MonoBehaviour {
     public static PlayerController Instance;
 
     public bool movementIsActive = true;
+    public Vector3 DeltaPosition { get; private set; }
+    public Dictionary<string, GameObject> npcSquad = new Dictionary<string, GameObject>();
 
     private bool isNear;
     private GameObject interactObj;
     private Vector2 movement;
     private Rigidbody2D rb;
     private Animator anim;
+    private Vector3 lastPos;
     
     private readonly int moveX = Animator.StringToHash("moveX");
     private readonly int moveY = Animator.StringToHash("moveY");
@@ -33,6 +37,7 @@ public class PlayerController : MonoBehaviour {
     void Start() {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        lastPos = transform.position;
     }
     private void Update() {
 
@@ -40,11 +45,11 @@ public class PlayerController : MonoBehaviour {
         movement.y = Input.GetAxisRaw("Vertical");
 
         // Movement
-        if (movement == Vector2.zero || !movementIsActive) anim.SetBool(isMoving, false);
         if (movement != Vector2.zero && movementIsActive) Move();
+        else if (movement == Vector2.zero || !movementIsActive) anim.SetBool(isMoving, false);
 
         // Dialogue box
-        if (Input.GetKeyDown(KeyCode.Escape)) Dialog.Instance.SkipDialogue();
+        if (Dialog.Instance != null && Input.GetKeyDown(KeyCode.Escape)) Dialog.Instance.SkipDialogue();
 
         // Interact
         if (Dialog.Instance != null && !Dialog.Instance.IsDialogueOver() && Input.GetKeyDown(KeyCode.E))
@@ -66,6 +71,14 @@ public class PlayerController : MonoBehaviour {
         }
         if (Input.GetKeyDown(KeyCode.Tab)) {
             Dialog.Instance.ToggleSquadMenu();
+        }
+    }
+
+    private void FixedUpdate() {
+        DeltaPosition = transform.position - lastPos;
+        lastPos = transform.position;
+        foreach(KeyValuePair<string, GameObject> npc in npcSquad) {
+            npc.Value.GetComponent<NPCPath>().FollowLeader();
         }
     }
 

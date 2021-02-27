@@ -18,18 +18,14 @@ public class NPCBattleManager : MonoBehaviour {
         agent.updateRotation = false;
         agent.updateUpAxis = false;
 
-        // StartCoroutine(CheckDefeated());
+        StartCoroutine(CheckDefeated());
     }
 
-    private void Update() {
+    //private void Update() {
 
-        if (target != null)
-            agent.SetDestination(target.position);
-
-        if (Input.GetKeyDown(KeyCode.Space)) {
-            StartCoroutine(CheckDefeated());
-        }
-    }
+    //    if (target != null)
+    //        agent.SetDestination(target.position);
+    //}
 
     public void EnableKey() {
         Vector3 pos = transform.position;
@@ -103,8 +99,9 @@ public class NPCBattleManager : MonoBehaviour {
                 dict.Add(name, pair);
             }
             if (GetComponent<BattleNPC>().State.Equals(NPCStatus.Defeated)) {
-                //***TODO handle list of npc paths***
-                Debug.Log(counter);
+                if (GetComponent<NPCPath>().IsFollowing_m) GetComponent<Collider2D>().enabled = false;
+                if (!PlayerController.Instance.npcSquad.ContainsKey(name)) 
+                    PlayerController.Instance.npcSquad.Add(name, gameObject);
                 npcPath.WalkThePath(counter);
                 Dialog.Instance.SkipDialogue();
                 //increment to next path for the npc
