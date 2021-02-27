@@ -79,7 +79,7 @@ public class NPCBattleManager : MonoBehaviour {
 
         // if no NPCPath script then return
         if (npcPath == null) yield break;
-
+         
         var countDown = 1f;
         while (countDown > 0) {
             var dict = PlayerControlSave.Instance.localPlayerData.enemyPathCounter;

@@ -28,9 +28,9 @@ public class Dialog : MonoBehaviour {
     }
 
     void Start() {
-        if (!GlobalControlSave.Instance.savedPlayerData.finishedTutorial) {
-            DisplayTextInDialogueBox(sentences);
-        }
+        //if (!GlobalControlSave.Instance.savedPlayerData.finishedTutorial) {
+        //    DisplayTextInDialogueBox(sentences);
+        //}
     }
 
     IEnumerator Type() {
