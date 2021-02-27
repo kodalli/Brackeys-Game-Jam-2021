@@ -452,7 +452,7 @@ PrefabInstance:
     - target: {fileID: 2225067309621732001, guid: 54f73edea331dca4eb19fe73b6ccb126,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2225067309621732007, guid: 54f73edea331dca4eb19fe73b6ccb126,
         type: 3}
@@ -589,7 +589,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 299638208}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.5, y: 4.03, z: -10}
+  m_LocalPosition: {x: 1.8499999, y: 4.03, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 566091575}
@@ -702,7 +702,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 566091573}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 5.35, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 281094906}
@@ -779,7 +779,7 @@ PrefabInstance:
     - target: {fileID: 6800737474734532914, guid: 16b3bc0e7c28e6743a1dc94d51f5e4da,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 16b3bc0e7c28e6743a1dc94d51f5e4da, type: 3}
@@ -11778,6 +11778,10 @@ PlayableDirector:
   m_SceneBindings:
   - key: {fileID: -9143692732868869652, guid: 58fe729bb6b60614995c7de3128dad95, type: 2}
     value: {fileID: 1097380840}
+  - key: {fileID: 8463100080521226476, guid: 58fe729bb6b60614995c7de3128dad95, type: 2}
+    value: {fileID: 1852741882}
+  - key: {fileID: -4637361421279076387, guid: 58fe729bb6b60614995c7de3128dad95, type: 2}
+    value: {fileID: 1852741882}
   m_ExposedReferences:
     m_References: []
 --- !u!4 &848456233
@@ -11916,7 +11920,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: then take those homies, and explore the world
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -11926,7 +11930,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+  m_fontColor: {r: 0, g: 0, b: 0, a: 0}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -12009,7 +12013,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!156049354 &1644716225
 Grid:
   m_ObjectHideFlags: 0
@@ -12112,6 +12116,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e1f7a2e3fffd3e749a3b437d02e75cff, type: 3}
+--- !u!95 &1852741882 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 7328706038705737785, guid: 8af83f02c0ab8b84ab9d98ae89899945,
+    type: 3}
+  m_PrefabInstance: {fileID: 191512688}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2052550215
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12192,7 +12202,7 @@ PrefabInstance:
     - target: {fileID: 1058474124193594454, guid: 9575a67f3f56f3947a378118ab400064,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9575a67f3f56f3947a378118ab400064, type: 3}

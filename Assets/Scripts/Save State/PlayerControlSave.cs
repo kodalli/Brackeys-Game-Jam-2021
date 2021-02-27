@@ -2,23 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerControlSave : MonoBehaviour {
-    public static PlayerControlSave Instance;
+public class PlayerControlSave : Singleton<PlayerControlSave> {
     public PlayerStatistics localPlayerData = new PlayerStatistics();
     public bool ShowFPS = false;
 
     private int avgFrameRate;
-
-    private void Awake() {
-        if (Instance == null) {
-            Instance = this;
-        }
-        if (Instance != this) {
-            Destroy(gameObject);
-        }
-        //GlobalControlSave.Instance.Player = gameObject;
-        //SaveData();
-    }
 
     private void Start() {
         localPlayerData = GlobalControlSave.Instance.savedPlayerData;
