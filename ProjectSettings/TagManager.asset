@@ -3,7 +3,11 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - BattleSystem
+  - Sign
+  - BattleNPC
+  - ItemPickup
   layers:
   - Default
   - TransparentFX
@@ -46,4 +50,7 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 3591341311
+    locked: 0
+  - name: Key
+    uniqueID: 3159253547
     locked: 0

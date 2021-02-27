@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
-
+using System.Collections;
+using System.Collections.Generic;
 //public enum Status
 //{
 //    Neutral,
@@ -16,15 +17,17 @@
 //}
 
 [CreateAssetMenu(fileName = "MonsterData", menuName = "ScriptableObjects/MonsterScriptableObject", order = 1)]
-public class MonsterScriptableObject : ScriptableObject
-{
+public class MonsterScriptableObject : ScriptableObject {
     // current hp, current attack, current defense, current mp
     public string Name;
     public int BaseHP = 15;
     public int BaseMP = 10;
     public int BaseLevel = 0;
     public int BaseAttack = 5;
-    public int BaseDefense  = 5;
+    public int BaseDefense = 5;
     //public Status CurrentStatus;
     public GameObject Prefab;
+    public bool Fused = false;
+    public List<AttackMove> MoveSet;
+    // Do not go over 3 for moveset
 }

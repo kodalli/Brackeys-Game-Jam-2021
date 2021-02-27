@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb2f8e33f5e62254487a6a71cf033f32, type: 3}
+  m_Name: Gold Chain
+  m_EditorClassIdentifier: 
+  itemName: Gold Chain
+  fusableMonsters:
+  - {fileID: 11400000, guid: bfc97e1da3e41404d9fc0a05df63edba, type: 2}
+  - {fileID: 11400000, guid: 07429d047448971479d39d78a7f3cef5, type: 2}
+  - {fileID: 11400000, guid: c7316cf071ae78645b98b7c5fbc893d1, type: 2}
+  fusedMonsters:
+  - {fileID: 11400000, guid: 84ee948e0ec33704c8700bf57286906c, type: 2}
+  - {fileID: 11400000, guid: 5c5cd8bb2c5e653479a390cf27b92ce1, type: 2}
+  - {fileID: 11400000, guid: 0c19bb45db3232645aba182cb83bc6ee, type: 2}
+  itemDescription: A cool shiny gold chain
+  sprite: {fileID: 21300000, guid: 9409dc3987e22024ba32080c6394fd5d, type: 3}

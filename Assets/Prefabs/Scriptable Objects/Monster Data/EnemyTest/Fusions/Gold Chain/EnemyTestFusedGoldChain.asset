@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57e2cf2fe33fa1945800c23d2fec2906, type: 3}
+  m_Name: EnemyTestFusedGoldChain
+  m_EditorClassIdentifier: 
+  Name: EnemyTestFusedGoldChain
+  BaseHP: 20
+  BaseMP: 10
+  BaseLevel: 0
+  BaseAttack: 7
+  BaseDefense: 6
+  Prefab: {fileID: 3449486699630414139, guid: f8a3fbf73429db746ac8a97e7e027f0c, type: 3}
+  Fused: 1
+  MoveSet:
+  - {fileID: 11400000, guid: 9468f210a548c1b4b86cd57e38fcff4b, type: 2}
+  - {fileID: 11400000, guid: 939aac104b5efca49a2ea25b757c7c8e, type: 2}
+  - {fileID: 11400000, guid: c53acd721a6d5614f96b7ff398c2f85b, type: 2}
