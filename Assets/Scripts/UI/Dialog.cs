@@ -5,8 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 
 
-public class Dialog : MonoBehaviour {
-    public static Dialog Instance;
+public class Dialog : Singleton<Dialog>{
     public TextMeshProUGUI textDisplay;
     public GameObject dialogBox;
     public GameObject signBox;
@@ -18,19 +17,10 @@ public class Dialog : MonoBehaviour {
     public int index;
     [SerializeField] private int maxSentenceSize = 20;
 
-    private void Awake() {
-        if (Instance == null) {
-            Instance = this;
-        }
-        if (Instance != this) {
-            Destroy(gameObject);
-        }
-    }
-
     void Start() {
-        //if (!GlobalControlSave.Instance.savedPlayerData.finishedTutorial) {
-        //    DisplayTextInDialogueBox(sentences);
-        //}
+        if (!GlobalControlSave.Instance.savedPlayerData.finishedTutorial) {
+            DisplayTextInDialogueBox(sentences);
+        }
     }
 
     IEnumerator Type() {

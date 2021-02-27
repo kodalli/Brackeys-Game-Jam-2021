@@ -78,7 +78,7 @@ public class Monster {
     public int TakeDamage(int enemyAtk) {
         // add crit chance
         var damageMultiplier = 100f / (100 + CurDef);
-        var damage = -Mathf.RoundToInt(Mathf.Sqrt(enemyAtk) * damageMultiplier);
+        var damage = -Mathf.RoundToInt(Mathf.Pow(enemyAtk, 0.75f) * damageMultiplier);
         AddHP(damage);
         return damage;
         //Debug.Log(Name + ": multiplier: " + damageMultiplier + " damage taken: " + damage);

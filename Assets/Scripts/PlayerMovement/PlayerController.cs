@@ -4,11 +4,9 @@ using UnityEngine;
 using UnityEngine.AI;
 using System.Linq;
 
-public class PlayerController : MonoBehaviour {
+public class PlayerController : Singleton<PlayerController> {
 
     #region Variables
-    public static PlayerController Instance;
-
     public bool movementIsActive = true;
     public Vector3 DeltaPosition { get; private set; }
     public Dictionary<string, GameObject> npcSquad = new Dictionary<string, GameObject>();
@@ -24,15 +22,6 @@ public class PlayerController : MonoBehaviour {
     private readonly int moveY = Animator.StringToHash("moveY");
     private readonly int isMoving = Animator.StringToHash("isMoving");
     #endregion
-
-    private void Awake() {
-        if (Instance == null) {
-            Instance = this;
-        }
-        if (Instance != this) {
-            Destroy(gameObject);
-        }
-    }
 
     void Start() {
         rb = GetComponent<Rigidbody2D>();
