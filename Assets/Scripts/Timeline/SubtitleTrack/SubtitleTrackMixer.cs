@@ -20,7 +20,6 @@ public class SubtitleTrackMixer : PlayableBehaviour
 
             if(inputWeight > 0f) {
                 ScriptPlayable<SubtitleBehavior> inputPlayable = (ScriptPlayable<SubtitleBehavior>)playable.GetInput(i);
-
                 SubtitleBehavior input = inputPlayable.GetBehaviour();
                 currentText = input.subtitleText;
                 currentAlpha = inputWeight;

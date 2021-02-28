@@ -329,59 +329,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!1 &101443752
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 101443754}
-  - component: {fileID: 101443753}
-  m_Layer: 0
-  m_Name: (singleton) Dialog
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &101443753
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 101443752}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad00ff1f20e724b45aeddbefd901ecbc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  textDisplay: {fileID: 0}
-  dialogBox: {fileID: 0}
-  signBox: {fileID: 0}
-  continueButton: {fileID: 0}
-  skipButton: {fileID: 0}
-  squadMenu: {fileID: 0}
-  itemMenu: {fileID: 0}
-  sentences: []
-  index: 0
-  maxSentenceSize: 20
---- !u!4 &101443754
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 101443752}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 11
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &191512688
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -603,14 +550,34 @@ PrefabInstance:
       objectReference: {fileID: 1945048610672018219}
     - target: {fileID: 2225067309621732000, guid: 54f73edea331dca4eb19fe73b6ccb126,
         type: 3}
+      propertyPath: charNameText
+      value: 
+      objectReference: {fileID: 306696016}
+    - target: {fileID: 2225067309621732000, guid: 54f73edea331dca4eb19fe73b6ccb126,
+        type: 3}
+      propertyPath: dialoguePanel
+      value: 
+      objectReference: {fileID: 601847012}
+    - target: {fileID: 2225067309621732000, guid: 54f73edea331dca4eb19fe73b6ccb126,
+        type: 3}
       propertyPath: continueButton
       value: 
       objectReference: {fileID: 1945048609824130074}
     - target: {fileID: 2225067309621732000, guid: 54f73edea331dca4eb19fe73b6ccb126,
         type: 3}
+      propertyPath: dialogueLineText
+      value: 
+      objectReference: {fileID: 64638276}
+    - target: {fileID: 2225067309621732000, guid: 54f73edea331dca4eb19fe73b6ccb126,
+        type: 3}
       propertyPath: sentences.Array.size
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 2225067309621732000, guid: 54f73edea331dca4eb19fe73b6ccb126,
+        type: 3}
+      propertyPath: toggleSpacebarMessage
+      value: 
+      objectReference: {fileID: 1308955657}
     - target: {fileID: 2225067309621732000, guid: 54f73edea331dca4eb19fe73b6ccb126,
         type: 3}
       propertyPath: sentences.Array.data[0]
@@ -644,7 +611,7 @@ PrefabInstance:
     - target: {fileID: 2225067309621732001, guid: 54f73edea331dca4eb19fe73b6ccb126,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2225067309621732007, guid: 54f73edea331dca4eb19fe73b6ccb126,
         type: 3}
@@ -1121,7 +1088,7 @@ GameObject:
   - component: {fileID: 601847015}
   - component: {fileID: 601847014}
   m_Layer: 5
-  m_Name: IntroPanel
+  m_Name: IntroDialoguePanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12185,8 +12152,6 @@ PlayableDirector:
     value: {fileID: 1852741882}
   - key: {fileID: -936952939902357567, guid: 58fe729bb6b60614995c7de3128dad95, type: 2}
     value: {fileID: 0}
-  - key: {fileID: 5711678014569065539, guid: 58fe729bb6b60614995c7de3128dad95, type: 2}
-    value: {fileID: 601847012}
   m_ExposedReferences:
     m_References: []
 --- !u!4 &848456233
@@ -12281,12 +12246,12 @@ GameObject:
   - component: {fileID: 1308955660}
   - component: {fileID: 1308955659}
   m_Layer: 5
-  m_Name: PressEKey
+  m_Name: PressSpaceKey
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1308955658
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12325,7 +12290,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Press Z to skip
+  m_text: 'Press Space to skip
 
 '
   m_isRightToLeft: 0
@@ -13354,7 +13319,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 1
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 299638210}
   m_PlaneDistance: 100
   m_PixelPerfect: 1
   m_ReceivesEvents: 1
@@ -13420,7 +13385,6 @@ GameObject:
   - component: {fileID: 1945048610276444909}
   - component: {fileID: 1945048610276444908}
   - component: {fileID: 1945048610276444911}
-  - component: {fileID: 1945048610276444914}
   m_Layer: 5
   m_Name: UICanvas
   m_TagString: Untagged
@@ -13428,23 +13392,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1945048610276444914
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1945048610276444913}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67dbc5a06148fd44fb1ef784ebf1b666, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameMode: 0
-  charNameText: {fileID: 306696016}
-  dialogueLineText: {fileID: 64638276}
-  toggleSpacebarMessage: {fileID: 1308955657}
-  dialoguePanel: {fileID: 601847012}
 --- !u!224 &1945048610294522384
 RectTransform:
   m_ObjectHideFlags: 0

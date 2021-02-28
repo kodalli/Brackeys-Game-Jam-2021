@@ -23,11 +23,10 @@ public class DialogueBehaviour : PlayableBehaviour
 
 	public override void ProcessFrame(Playable playable, FrameData info, object playerData)
 	{
-		if(!clipPlayed
-			&& info.weight > 0f)
+		if(!clipPlayed && info.weight > 0f)
 		{
 			//UIManager.Instance.SetDialogue(characterName, dialogueLine, dialogueSize);
-			UIManager.Instance.SetDialogue(characterName, dialogueLine, dialogueSize);
+			Dialog.Instance.SetDialogue(characterName, dialogueLine, dialogueSize);
 
 			if(Application.isPlaying)
 			{
@@ -46,13 +45,11 @@ public class DialogueBehaviour : PlayableBehaviour
 		if(pauseScheduled)
 		{
 			pauseScheduled = false;
-			//GameManager.Instance.PauseTimeline(director);
-			UIManager.Instance.PauseTimeline(director);
+			PlayerController.Instance.PauseTimeline(director);
 		}
 		else
 		{
-			//UIManager.Instance.ToggleDialoguePanel(false);
-			UIManager.Instance.ToggleDialoguePanel(false);
+			Dialog.Instance.ToggleDialoguePanel(false);
 		}
 
 		clipPlayed = false;

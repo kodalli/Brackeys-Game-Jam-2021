@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-
 public class Dialog : Singleton<Dialog>{
     public TextMeshProUGUI textDisplay;
     public GameObject dialogBox;
@@ -17,12 +16,18 @@ public class Dialog : Singleton<Dialog>{
     public int index;
     [SerializeField] private int maxSentenceSize = 20;
 
-    void Start() {
-        if (!GlobalControlSave.Instance.savedPlayerData.finishedTutorial) {
-            DisplayTextInDialogueBox(sentences);
-        }
-    }
+    [Header("Timeline Variables")]
+    public TextMeshProUGUI charNameText;
+    public TextMeshProUGUI dialogueLineText;
+    public GameObject toggleSpacebarMessage;
+    public GameObject dialoguePanel;
 
+    void Start() {
+        //if (!GlobalControlSave.Instance.savedPlayerData.finishedTutorial) {
+        //    DisplayTextInDialogueBox(sentences);
+        //}
+    }
+    #region Original Dialougue Functions
     IEnumerator Type() {
         skipButton.SetActive(true);
         var prevIndex = index;
@@ -123,5 +128,25 @@ public class Dialog : Singleton<Dialog>{
         squadMenu.GetComponent<ScrollRect>().horizontal = false;
 
     }
+    #endregion
+
+    #region Timeline Toggle Functions
+    public void SetDialogue(string charName, string lineOfDialogue, int sizeOfDialogue) {
+        charNameText.SetText(charName);
+        dialogueLineText.SetText(lineOfDialogue);
+        dialogueLineText.fontSize = sizeOfDialogue;
+
+        ToggleDialoguePanel(true);
+    }
+
+    public void TogglePressSpacebarMessage(bool active) {
+        toggleSpacebarMessage.SetActive(active);
+    }
+
+    public void ToggleDialoguePanel(bool active) {
+        dialoguePanel.SetActive(active);
+    }
+    #endregion
+
 }
 
