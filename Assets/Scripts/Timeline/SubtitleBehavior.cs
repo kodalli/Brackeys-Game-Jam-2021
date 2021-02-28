@@ -4,7 +4,9 @@ using UnityEngine;
 using UnityEngine.Playables;
 using TMPro;
 
-public class SubtitleBehavior : PlayableBehaviour {
-    public string subtitleText;
-    public Color color;
+namespace TimelineUtils {
+    public class SubtitleBehavior : PlayableBehaviour {
+        public string subtitleText;
+        public Color color;
+    }
 }

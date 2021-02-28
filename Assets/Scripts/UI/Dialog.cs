@@ -13,7 +13,7 @@ public class Dialog : Singleton<Dialog>{
     public GameObject skipButton;
     public GameObject squadMenu;
     public GameObject itemMenu;
-    public List<string> sentences;
+    public List<string> sentences = new List<string>();
     public int index;
     [SerializeField] private int maxSentenceSize = 20;
 
@@ -61,6 +61,7 @@ public class Dialog : Singleton<Dialog>{
     }
 
     public void DisplayTextInDialogueBox(List<string> dialogueList) {
+        if (textDisplay == null) return;
         textDisplay.text = "";
         sentences = NormalizeDialogueList(dialogueList);
         index = 0;
