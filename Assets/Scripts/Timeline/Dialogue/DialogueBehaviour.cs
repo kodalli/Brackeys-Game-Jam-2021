@@ -27,7 +27,7 @@ public class DialogueBehaviour : PlayableBehaviour
 			&& info.weight > 0f)
 		{
 			//UIManager.Instance.SetDialogue(characterName, dialogueLine, dialogueSize);
-			Dialog.Instance.DisplaySignText(characterName);
+			UIManager.Instance.SetDialogue(characterName, dialogueLine, dialogueSize);
 
 			if(Application.isPlaying)
 			{
@@ -46,10 +46,12 @@ public class DialogueBehaviour : PlayableBehaviour
 		if(pauseScheduled)
 		{
 			pauseScheduled = false;
-			GameManager.Instance.PauseTimeline(director);
+			//GameManager.Instance.PauseTimeline(director);
+			UIManager.Instance.PauseTimeline(director);
 		}
 		else
 		{
+			//UIManager.Instance.ToggleDialoguePanel(false);
 			UIManager.Instance.ToggleDialoguePanel(false);
 		}
 
