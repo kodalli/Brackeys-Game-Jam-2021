@@ -329,59 +329,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!1 &101443752
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 101443754}
-  - component: {fileID: 101443753}
-  m_Layer: 0
-  m_Name: (singleton) Dialog
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &101443753
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 101443752}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad00ff1f20e724b45aeddbefd901ecbc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  textDisplay: {fileID: 0}
-  dialogBox: {fileID: 0}
-  signBox: {fileID: 0}
-  continueButton: {fileID: 0}
-  skipButton: {fileID: 0}
-  squadMenu: {fileID: 0}
-  itemMenu: {fileID: 0}
-  sentences: []
-  index: 0
-  maxSentenceSize: 20
---- !u!4 &101443754
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 101443752}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 11
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &191512688
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12187,6 +12134,8 @@ PlayableDirector:
     value: {fileID: 0}
   - key: {fileID: 5711678014569065539, guid: 58fe729bb6b60614995c7de3128dad95, type: 2}
     value: {fileID: 601847012}
+  - key: {fileID: -9143692732868869652, guid: 58fe729bb6b60614995c7de3128dad95, type: 2}
+    value: {fileID: 0}
   m_ExposedReferences:
     m_References: []
 --- !u!4 &848456233
@@ -13445,6 +13394,7 @@ MonoBehaviour:
   dialogueLineText: {fileID: 64638276}
   toggleSpacebarMessage: {fileID: 1308955657}
   dialoguePanel: {fileID: 601847012}
+  activeDirector: {fileID: 0}
 --- !u!224 &1945048610294522384
 RectTransform:
   m_ObjectHideFlags: 0
