@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using System.Linq;
+using UnityEngine.Playables;
 
 public class PlayerController : Singleton<PlayerController> {
 
@@ -10,6 +11,7 @@ public class PlayerController : Singleton<PlayerController> {
     public bool movementIsActive = true;
     public Vector3 DeltaPosition { get; private set; }
     public Dictionary<string, GameObject> npcSquad = new Dictionary<string, GameObject>();
+    [SerializeField] private PlayableDirector activeDirector;
 
     private bool isNear;
     private GameObject interactObj;
@@ -29,37 +31,49 @@ public class PlayerController : Singleton<PlayerController> {
         lastPos = transform.position;
     }
     private void Update() {
-
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
 
-        // Movement
-        if (movement != Vector2.zero && movementIsActive) Move();
-        else if (movement == Vector2.zero || !movementIsActive) anim.SetBool(isMoving, false);
+        switch (GameStateMachine.Instance.gameMode) {
+            case GameStateMachine.GameMode.Gameplay:
+                // Movement
+                if (movement != Vector2.zero && movementIsActive) Move();
+                else if (movement == Vector2.zero || !movementIsActive) anim.SetBool(isMoving, false);
 
-        // Dialogue box
-        if (Dialog.Instance != null && Input.GetKeyDown(KeyCode.Escape)) Dialog.Instance.SkipDialogue();
+                // Dialogue box
+                if (Dialog.Instance != null && Input.GetKeyDown(KeyCode.Escape)) Dialog.Instance.SkipDialogue();
 
-        // Interact
-        if (Dialog.Instance != null && !Dialog.Instance.IsDialogueOver() && Input.GetKeyDown(KeyCode.E))
-            Dialog.Instance.NextSentence();
-        else if (Input.GetKeyDown(KeyCode.E)) {
-            // Interact with sign or npc, or obj
-            if (interactObj == null) { }
-            else if (isNear && interactObj.CompareTag("Sign"))
-                interactObj.GetComponent<Sign>().OnInteractKey();
-            else if (isNear && interactObj.CompareTag("BattleNPC"))
-                interactObj.GetComponent<NPCBattleManager>().OnInteractKey();
-            else if (isNear && interactObj.CompareTag("ItemPickup"))
-                interactObj.GetComponent<ItemPickUp>().AddToInventory();
-        }
+                // Interact
+                if (Dialog.Instance != null && !Dialog.Instance.IsDialogueOver() && Input.GetKeyDown(KeyCode.E))
+                    Dialog.Instance.NextSentence();
+                else if (Input.GetKeyDown(KeyCode.E)) {
+                    // Interact with sign or npc, or obj
+                    if (interactObj == null) { }
+                    else if (isNear && interactObj.CompareTag("Sign"))
+                        interactObj.GetComponent<Sign>().OnInteractKey();
+                    else if (isNear && interactObj.CompareTag("BattleNPC"))
+                        interactObj.GetComponent<NPCBattleManager>().OnInteractKey();
+                    else if (isNear && interactObj.CompareTag("ItemPickup"))
+                        interactObj.GetComponent<ItemPickUp>().AddToInventory();
+                }
 
-        // Toggle menus
-        if (Input.GetKeyDown(KeyCode.Q)) {
-            Dialog.Instance.ToggleItemMenu();
-        }
-        if (Input.GetKeyDown(KeyCode.Tab)) {
-            Dialog.Instance.ToggleSquadMenu();
+                // Toggle menus
+                if (Input.GetKeyDown(KeyCode.Q)) {
+                    Dialog.Instance.ToggleItemMenu();
+                }
+                if (Input.GetKeyDown(KeyCode.Tab)) {
+                    Dialog.Instance.ToggleSquadMenu();
+                }
+                break;
+
+            case GameStateMachine.GameMode.DialogueMoment:
+                anim.SetBool(isMoving, false);
+                if (Input.GetKeyDown(KeyCode.Space)) {
+                    ResumeTimeline();
+                }
+                //if (!activeDirector.playableGraph.IsValid())
+                //    GameStateMachine.Instance.gameMode = GameStateMachine.GameMode.Gameplay;
+                break;
         }
     }
 
@@ -134,4 +148,20 @@ public class PlayerController : Singleton<PlayerController> {
             collision.gameObject.GetComponent<ItemPickUp>().DisableKey();
         }
     }
+    #region Timeline Functions
+    public void PauseTimeline(PlayableDirector whichOne) {
+
+        Dialog.Instance.TogglePressSpacebarMessage(true);
+        GameStateMachine.Instance.gameMode = GameStateMachine.GameMode.DialogueMoment; //InputManager will be waiting for a spacebar to resume
+        activeDirector = whichOne;
+        activeDirector.playableGraph.GetRootPlayable(0).SetSpeed(0d);
+
+    }
+    public void ResumeTimeline() {
+        GameStateMachine.Instance.gameMode = GameStateMachine.GameMode.Gameplay;
+        Dialog.Instance.TogglePressSpacebarMessage(false);
+        Dialog.Instance.ToggleDialoguePanel(false);
+        activeDirector.playableGraph.GetRootPlayable(0).SetSpeed(1d);
+    }
+    #endregion
 }
