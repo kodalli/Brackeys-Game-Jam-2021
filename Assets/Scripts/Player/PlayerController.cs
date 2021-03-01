@@ -1,10 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
-using System.Linq;
-using UnityEngine.Playables;
 using UnityEngine.SceneManagement;
+using TimelineUtils;
 
 public enum GameMode {
     Gameplay,
