@@ -13,6 +13,7 @@ namespace TimelineUtils {
 
         #region Timeline Functions
         public void PauseTimeline(PlayableDirector whichOne) {
+            if (!whichOne) return;
             if (!activeDirector.playableGraph.IsValid()) {
                 Dialog.Instance.ToggleTimelineSkip(true);
                 PlayerControlSave.Instance.localPlayerData.currentGameMode = GameMode.DialogueMoment;
