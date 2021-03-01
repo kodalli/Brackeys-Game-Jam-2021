@@ -23,17 +23,17 @@ MonoBehaviour:
     m_Value: 0.3
     min: 0
   scatter:
-    m_OverrideState: 0
-    m_Value: 0.7
+    m_OverrideState: 1
+    m_Value: 0.5
     min: 0
     max: 1
   clamp:
     m_OverrideState: 0
-    m_Value: 65472
+    m_Value: 65468.52
     min: 0
   tint:
-    m_OverrideState: 0
-    m_Value: {r: 1, g: 1, b: 1, a: 1}
+    m_OverrideState: 1
+    m_Value: {r: 1, g: 0.2028302, b: 0.2028302, a: 1}
     hdr: 0
     showAlpha: 0
     showEyeDropper: 1
