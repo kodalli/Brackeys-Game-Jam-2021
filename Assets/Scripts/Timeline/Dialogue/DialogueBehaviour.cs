@@ -6,11 +6,11 @@ using UnityEngine.Timeline;
 [Serializable]
 public class DialogueBehaviour : PlayableBehaviour
 {
-    public string characterName;
-    public string dialogueLine;
-    public int dialogueSize;
-
-	public bool hasToPause = false;
+	[SerializeField] private string characterName;
+	[SerializeField] private string dialogueLine;
+	[SerializeField] private int dialogueSize;
+	[SerializeField] private float typeSpeed = 0.05f;
+	[SerializeField] private bool hasToPause = false;
 
 	private bool clipPlayed = false;
 	private bool pauseScheduled = false;
@@ -26,7 +26,7 @@ public class DialogueBehaviour : PlayableBehaviour
 		if(!clipPlayed && info.weight > 0f)
 		{
 			//UIManager.Instance.SetDialogue(characterName, dialogueLine, dialogueSize);
-			Dialog.Instance.SetDialogue(characterName, dialogueLine, dialogueSize);
+			Dialog.Instance.SetTimelineDialogue(characterName, dialogueLine, dialogueSize, typeSpeed);
 
 			if(Application.isPlaying)
 			{
@@ -45,11 +45,11 @@ public class DialogueBehaviour : PlayableBehaviour
 		if(pauseScheduled)
 		{
 			pauseScheduled = false;
-			PlayerController.Instance.PauseTimeline(director);
+			TimelineController.Instance.PauseTimeline(director);
 		}
 		else
 		{
-			Dialog.Instance.ToggleDialoguePanel(false);
+			Dialog.Instance.ToggleTimelineDialoguePanel(false);
 		}
 
 		clipPlayed = false;

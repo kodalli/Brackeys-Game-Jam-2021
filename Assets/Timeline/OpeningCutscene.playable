@@ -16,6 +16,7 @@ MonoBehaviour:
     characterName: King Homie
     dialogueLine: Yo was up my g
     dialogueSize: 40
+    typeSpeed: 0.05
     hasToPause: 1
 --- !u!114 &-5637064551905142657
 MonoBehaviour:
@@ -238,6 +239,7 @@ MonoBehaviour:
     characterName: King Homie
     dialogueLine: Welcome to this game cunt
     dialogueSize: 40
+    typeSpeed: 0.05
     hasToPause: 1
 --- !u!114 &8717856277630560569
 MonoBehaviour:
