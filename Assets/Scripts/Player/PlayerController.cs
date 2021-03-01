@@ -4,6 +4,12 @@ using UnityEngine;
 using UnityEngine.AI;
 using System.Linq;
 using UnityEngine.Playables;
+using UnityEngine.SceneManagement;
+
+public enum GameMode {
+    Gameplay,
+    DialogueMoment, //waiting for input
+}
 
 public class PlayerController : Singleton<PlayerController> {
 
@@ -11,7 +17,6 @@ public class PlayerController : Singleton<PlayerController> {
     public bool movementIsActive = true;
     public Vector3 DeltaPosition { get; private set; }
     public Dictionary<string, GameObject> npcSquad = new Dictionary<string, GameObject>();
-    [SerializeField] private PlayableDirector activeDirector;
 
     private bool isNear;
     private GameObject interactObj;
@@ -34,8 +39,8 @@ public class PlayerController : Singleton<PlayerController> {
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
 
-        switch (GameStateMachine.Instance.gameMode) {
-            case GameStateMachine.GameMode.Gameplay:
+        switch (PlayerControlSave.Instance.localPlayerData.currentGameMode) {
+            case GameMode.Gameplay:
                 // Movement
                 if (movement != Vector2.zero && movementIsActive) Move();
                 else if (movement == Vector2.zero || !movementIsActive) anim.SetBool(isMoving, false);
@@ -66,13 +71,10 @@ public class PlayerController : Singleton<PlayerController> {
                 }
                 break;
 
-            case GameStateMachine.GameMode.DialogueMoment:
+            case GameMode.DialogueMoment:
                 anim.SetBool(isMoving, false);
-                if (Input.GetKeyDown(KeyCode.Space)) {
-                    ResumeTimeline();
-                }
-                //if (!activeDirector.playableGraph.IsValid())
-                //    GameStateMachine.Instance.gameMode = GameStateMachine.GameMode.Gameplay;
+                if (Input.GetKeyDown(KeyCode.Space))
+                    TimelineController.Instance.ResumeTimeline();
                 break;
         }
     }
@@ -90,7 +92,7 @@ public class PlayerController : Singleton<PlayerController> {
         // things to save
         PlayerControlSave.Instance.localPlayerData.playerPosition = transform.position;
         PlayerControlSave.Instance.SaveData();
-        UnityEngine.SceneManagement.SceneManager.LoadScene(scene);
+        SceneManager.LoadScene(scene);
     }
 
     public bool CanBattle() {
@@ -109,6 +111,29 @@ public class PlayerController : Singleton<PlayerController> {
         anim.SetFloat(moveY, movement.y);
     }
 
+    #region On Trigger Enter/Exit
+
+    private void OnTriggerEnter2D(Collider2D collision) {
+        Debug.Log("Enter" + collision.gameObject.name);
+
+        switch(collision.gameObject.name) {
+            case "Cutscene1":
+                PlayerControlSave.Instance.localPlayerData.currentGameMode = GameMode.DialogueMoment;
+                PlayerControlSave.Instance.localPlayerData.playerPosition.x = -3.5f;
+                PlayerControlSave.Instance.localPlayerData.playerPosition.y = 4.03f;
+                SceneManager.LoadScene(2);
+                break;
+        }
+
+    }
+
+    private void OnTriggerExit2D(Collider2D collision) {
+        Debug.Log("Exit" + collision.gameObject.name);
+    }
+
+    #endregion
+
+    #region On Collsion Enter/Exit
     private void OnCollisionEnter2D(Collision2D collision) {
 
         if (collision.collider.CompareTag("Sign")) {
@@ -148,20 +173,6 @@ public class PlayerController : Singleton<PlayerController> {
             collision.gameObject.GetComponent<ItemPickUp>().DisableKey();
         }
     }
-    #region Timeline Functions
-    public void PauseTimeline(PlayableDirector whichOne) {
-
-        Dialog.Instance.TogglePressSpacebarMessage(true);
-        GameStateMachine.Instance.gameMode = GameStateMachine.GameMode.DialogueMoment; //InputManager will be waiting for a spacebar to resume
-        activeDirector = whichOne;
-        activeDirector.playableGraph.GetRootPlayable(0).SetSpeed(0d);
-
-    }
-    public void ResumeTimeline() {
-        GameStateMachine.Instance.gameMode = GameStateMachine.GameMode.Gameplay;
-        Dialog.Instance.TogglePressSpacebarMessage(false);
-        Dialog.Instance.ToggleDialoguePanel(false);
-        activeDirector.playableGraph.GetRootPlayable(0).SetSpeed(1d);
-    }
     #endregion
+
 }

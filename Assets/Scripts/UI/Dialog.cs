@@ -144,20 +144,28 @@ public class Dialog : Singleton<Dialog>{
     #endregion
 
     #region Timeline Toggle Functions
-    public void SetDialogue(string charName, string lineOfDialogue, int sizeOfDialogue) {
+    public void SetTimelineDialogue(string charName, string lineOfDialogue, int sizeOfDialogue, float typeSpeed) {
         charNameText.SetText(charName);
-        dialogueLineText.SetText(lineOfDialogue);
+        //dialogueLineText.SetText(lineOfDialogue);
+        StartCoroutine(TimelineTypeText(lineOfDialogue, typeSpeed));
         dialogueLineText.fontSize = sizeOfDialogue;
 
-        ToggleDialoguePanel(true);
+        ToggleTimelineDialoguePanel(true);
     }
 
-    public void TogglePressSpacebarMessage(bool active) {
+    public void ToggleTimelineSkip(bool active) {
         toggleSpacebarMessage.SetActive(active);
     }
 
-    public void ToggleDialoguePanel(bool active) {
+    public void ToggleTimelineDialoguePanel(bool active) {
         dialoguePanel.SetActive(active);
+    }
+
+    IEnumerator TimelineTypeText(string dialogue, float typeSpeed) {
+        for(int i = 0; i < dialogue.Length+1; i++) {
+            dialogueLineText.SetText(dialogue.Substring(0, i));
+            yield return new WaitForSeconds(typeSpeed);
+        }
     }
     #endregion
 
