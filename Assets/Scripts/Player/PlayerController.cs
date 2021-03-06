@@ -37,6 +37,8 @@ public class PlayerController : Singleton<PlayerController> {
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
 
+        Debug.Log(movement);
+
         switch (PlayerControlSave.Instance.localPlayerData.currentGameMode) {
             case GameMode.Gameplay:
                 // Movement
@@ -85,7 +87,13 @@ public class PlayerController : Singleton<PlayerController> {
             npc.Value.GetComponent<NPCPath>().FollowLeader();
         }
     }
-
+    private void Move() {
+        anim.SetBool(isMoving, true);
+        if (movement.x != 0) movement.y = 0;
+        rb.MovePosition(rb.position + movement * PlayerControlSave.Instance.localPlayerData.playerSpeed * Time.deltaTime);
+        anim.SetFloat(moveX, movement.x);
+        anim.SetFloat(moveY, movement.y);
+    }
     public void PlayerSceneLoad(string scene) {
         // things to save
         PlayerControlSave.Instance.localPlayerData.playerPosition = transform.position;
@@ -101,13 +109,6 @@ public class PlayerController : Singleton<PlayerController> {
         return false;
     }
 
-    private void Move() {
-        anim.SetBool(isMoving, true);
-        if (movement.x != 0) movement.y = 0;
-        rb.MovePosition(rb.position + movement * PlayerControlSave.Instance.localPlayerData.playerSpeed * Time.deltaTime);
-        anim.SetFloat(moveX, movement.x);
-        anim.SetFloat(moveY, movement.y);
-    }
 
     #region On Trigger Enter/Exit
 

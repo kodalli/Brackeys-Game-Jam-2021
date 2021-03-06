@@ -12,6 +12,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Battle Scene.unity
     guid: e9009126069d1b74986b6d05508603b8
   - enabled: 1
-    path: Assets/Scenes/OpeningCutscene.unity
+    path: Assets/Scenes/OpeningCutsceneTest.unity
     guid: 4322aef25c9f29b4ea6f735009ad09d3
   m_configObjects: {}
