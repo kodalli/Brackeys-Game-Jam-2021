@@ -78,6 +78,6 @@ public class Player : MonoBehaviour{
         transform.Rotate(0.0f, 180.0f, 0.0f);
     }
     private void AnimationTrigger() => StateMachine.CurrentState.AnimationTrigger();
-    private void AnimationFinishTrigger() => StateMachine.CurrentState.AnimationFinishTrigger();
+    private void AnimationFinishTrigger() => StateMachine.CurrentState.AnimationFinishTrigger(); // Being used as a trigger on the "Land" animation
     #endregion
 }
