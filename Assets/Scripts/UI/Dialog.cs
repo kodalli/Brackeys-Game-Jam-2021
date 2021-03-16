@@ -4,25 +4,41 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-
 public class Dialog : Singleton<Dialog>{
+
+    #region Variables
+    [Header("Opening Dialogue Variables")]
+
+    [Space(10)]
     public TextMeshProUGUI textDisplay;
     public GameObject dialogBox;
-    public GameObject signBox;
     public GameObject continueButton;
     public GameObject skipButton;
+    public List<string> sentences;
+    [SerializeField] private int maxSentenceSize = 20;
+    public int index;
+
+    [Header("Menu Variables")]
     public GameObject squadMenu;
     public GameObject itemMenu;
-    public List<string> sentences;
-    public int index;
-    [SerializeField] private int maxSentenceSize = 20;
+    
+    [Header("Timeline Variables")]
+    public TextMeshProUGUI charNameText;
+    public TextMeshProUGUI dialogueLineText;
+    public GameObject toggleSpacebarMessage;
+    public GameObject dialoguePanel;
+
+    [Header("Other Variables")]
+    public GameObject signBox;
+
+    #endregion
 
     void Start() {
-        if (!GlobalControlSave.Instance.savedPlayerData.finishedTutorial) {
-            DisplayTextInDialogueBox(sentences);
-        }
+        //if (!GlobalControlSave.Instance.savedPlayerData.finishedTutorial) {
+        //    DisplayTextInDialogueBox(sentences);
+        //}
     }
-
+    #region Starting Village Dialogue Functions
     IEnumerator Type() {
         skipButton.SetActive(true);
         var prevIndex = index;
@@ -68,6 +84,31 @@ public class Dialog : Singleton<Dialog>{
         StartCoroutine(Type());
     }
 
+    private List<string> NormalizeDialogueList(List<string> dialogueList) {
+        List<string> sentences = new List<string>();
+
+        foreach (var str in dialogueList) {
+            if (str.Length > maxSentenceSize) {
+                // split up text
+                List<string> splitUP = new List<string>();
+                for (int i = 0; i < str.Length; i += maxSentenceSize) {
+                    var text = str.Substring(i, Mathf.Min(maxSentenceSize, str.Length - i));
+                    splitUP.Add(text);
+                }
+                sentences.AddRange(splitUP);
+            }
+            else {
+                sentences.Add(str);
+            }
+        }
+
+        return sentences;
+    }
+
+    public bool IsDialogueOver() => index > sentences.Count - 1;
+    #endregion
+
+    #region Menus and Sign Dialogue Functions
     public void DisplaySignText(string text) {
         signBox.SetActive(true);
         signBox.GetComponentInChildren<TextMeshProUGUI>().text = text;
@@ -95,33 +136,38 @@ public class Dialog : Singleton<Dialog>{
         }
     }
 
-    private List<string> NormalizeDialogueList(List<string> dialogueList) {
-        List<string> sentences = new List<string>();
-
-        foreach (var str in dialogueList) {
-            if (str.Length > maxSentenceSize) {
-                // split up text
-                List<string> splitUP = new List<string>();
-                for (int i = 0; i < str.Length; i += maxSentenceSize) {
-                    var text = str.Substring(i, Mathf.Min(maxSentenceSize, str.Length - i));
-                    splitUP.Add(text);
-                }
-                sentences.AddRange(splitUP);
-            }
-            else {
-                sentences.Add(str);
-            }
-        }
-
-        return sentences;
-    }
-
-    public bool IsDialogueOver() => index > sentences.Count - 1;
-
     IEnumerator DisableScrollRect() {
         yield return new WaitForSeconds(0.5f);
         squadMenu.GetComponent<ScrollRect>().horizontal = false;
 
     }
+    #endregion
+
+    #region Timeline Toggle Functions
+    public void SetTimelineDialogue(string charName, string lineOfDialogue, int sizeOfDialogue, float typeSpeed) {
+        charNameText.SetText(charName);
+        //dialogueLineText.SetText(lineOfDialogue);
+        StartCoroutine(TimelineTypeText(lineOfDialogue, typeSpeed));
+        dialogueLineText.fontSize = sizeOfDialogue;
+
+        ToggleTimelineDialoguePanel(true);
+    }
+
+    public void ToggleTimelineSkip(bool active) {
+        toggleSpacebarMessage.SetActive(active);
+    }
+
+    public void ToggleTimelineDialoguePanel(bool active) {
+        dialoguePanel.SetActive(active);
+    }
+
+    IEnumerator TimelineTypeText(string dialogue, float typeSpeed) {
+        for(int i = 0; i < dialogue.Length+1; i++) {
+            dialogueLineText.SetText(dialogue.Substring(0, i));
+            yield return new WaitForSeconds(typeSpeed);
+        }
+    }
+    #endregion
+
 }
 
