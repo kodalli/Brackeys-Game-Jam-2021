@@ -79,5 +79,9 @@ public class Player : MonoBehaviour{
     }
     private void AnimationTrigger() => StateMachine.CurrentState.AnimationTrigger();
     private void AnimationFinishTrigger() => StateMachine.CurrentState.AnimationFinishTrigger(); // Being used as a trigger on the "Land" animation
+
+    private void OnDrawGizmos() {
+        Gizmos.DrawWireSphere(groundCheck.position, playerDataX.groundCheckRadius);
+    }
     #endregion
 }
