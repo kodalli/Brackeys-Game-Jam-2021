@@ -5,18 +5,46 @@ using UnityEngine;
 public class PlayerInAirState : PlayerState {
 
     private int xInput;
+
     private bool isGrounded;
+
+    private bool isTouchingWall;
+    private bool isTouchingWallBack;
+    private bool oldIsTouchingWall;
+    private bool oldIsTouchingWallBack;
+
     private bool jumpInput;
-    private bool coyoteTime;
     private bool isJumping;
     private bool jumpInputStop;
+
+    private bool coyoteTime;
+    private bool wallJumpCoyoteTime;
+    private float startWallJumpCoyoteTime;
+
+    private bool isTouchingLedge;
+
     public PlayerInAirState(PlayerX player, PlayerStateMachine stateMachine, PlayerData playerData, string animBoolName) : base(player, stateMachine, playerData, animBoolName) {
     }
 
     public override void DoChecks() {
         base.DoChecks();
 
+        oldIsTouchingWall = isTouchingWall;
+        oldIsTouchingWallBack = isTouchingWallBack;
+
         isGrounded = player.CheckIfGrounded();
+        isTouchingWall = player.CheckIfTouchingWall();
+        isTouchingWallBack = player.CheckIfTouchingWallBack();
+        isTouchingLedge = player.CheckIfTouchingLedge();
+
+        if (isTouchingWall && !isTouchingLedge) {
+            player.LedgeClimbState.SetDetectedPos(player.transform.position);
+        }
+
+        if (!wallJumpCoyoteTime && !isTouchingWall && !isTouchingWallBack && (oldIsTouchingWall || oldIsTouchingWallBack)){
+            StartWallJumpCoyoteTime();
+        }
+
     }
 
     public override void Enter() {
@@ -25,12 +53,19 @@ public class PlayerInAirState : PlayerState {
 
     public override void Exit() {
         base.Exit();
+
+        // Uncomment this if easy wall jumping is enabled (the commented if else below)   
+        // -----------
+        //oldIsTouchingWall = oldIsTouchingWallBack = false;
+        //isTouchingWall = isTouchingWallBack = false;
+
     }
 
     public override void LogicUpdate() {
         base.LogicUpdate();
 
         CheckCoyoteTime();
+        CheckWallJumpCoyoteTime();
 
         xInput = player.InputHandler.NormInputX;
         jumpInput = player.InputHandler.JumpInput;
@@ -41,8 +76,21 @@ public class PlayerInAirState : PlayerState {
         if(isGrounded && player.CurrentVelocity.y < 0.01f) {
             stateMachine.ChangeState(player.LandState);
         }
+        else if (isTouchingWall && !isTouchingLedge) {
+            stateMachine.ChangeState(player.LedgeClimbState);
+        }
+        // ** Use this ELSE IF to enable wall jumping without first sliding aka while falling while touching wall **
+        //else if (jumpInput && (isTouchingWall || isTouchingWallBack || wallJumpCoyoteTime)) {
+        //    StopWallJumpCoyoteTime();
+        //    isTouchingWall = player.CheckIfTouchingWall();
+        //    player.WallJumpState.DetermineWallJumpDirection(isTouchingWall);
+        //    stateMachine.ChangeState(player.WallJumpState);
+        //}
         else if(jumpInput && player.JumpState.canJump()) {
             stateMachine.ChangeState(player.JumpState);
+        }
+        else if(isTouchingWall && xInput == player.FacingDirection && player.CurrentVelocity.y <= 0) {
+            stateMachine.ChangeState(player.WallSlideState);
         }
         else {
             player.CheckIfShouldFlip(xInput);
@@ -74,5 +122,16 @@ public class PlayerInAirState : PlayerState {
         }
     }
     public void StartCoyoteTime() => coyoteTime = true;
+    private void CheckWallJumpCoyoteTime() {
+        if (wallJumpCoyoteTime && Time.time > startWallJumpCoyoteTime + playerData.coyoteTime) {
+            wallJumpCoyoteTime = false;
+        }
+    }
+    public void StartWallJumpCoyoteTime() {
+        wallJumpCoyoteTime = true;
+        startWallJumpCoyoteTime = Time.time;
+    }
+
+    public void StopWallJumpCoyoteTime() => wallJumpCoyoteTime = false;
     public void SetIsJumping() => isJumping = true;
 }

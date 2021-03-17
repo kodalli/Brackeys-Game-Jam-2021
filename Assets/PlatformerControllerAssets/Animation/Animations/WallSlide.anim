@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: temp
+  m_Name: WallSlide
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,22 +20,12 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: -8578418458684398838, guid: 71a51ee6db264a144a7db48899d63eec,
-        type: 3}
-    - time: 0.2
-      value: {fileID: 8948831832030624112, guid: 71a51ee6db264a144a7db48899d63eec,
-        type: 3}
-    - time: 0.4
-      value: {fileID: 4448149332788452818, guid: 6974bad21796a074bb0117ac39b5e96a,
-        type: 3}
-    - time: 0.6
-      value: {fileID: 4448149332788452818, guid: 6974bad21796a074bb0117ac39b5e96a,
-        type: 3}
+      value: {fileID: 21300000, guid: 9472446d3cbcc9b408e8098dfc1eeb93, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
     script: {fileID: 0}
-  m_SampleRate: 5
+  m_SampleRate: 7
   m_WrapMode: 0
   m_Bounds:
     m_Center: {x: 0, y: 0, z: 0}
@@ -50,16 +40,13 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: -8578418458684398838, guid: 71a51ee6db264a144a7db48899d63eec, type: 3}
-    - {fileID: 8948831832030624112, guid: 71a51ee6db264a144a7db48899d63eec, type: 3}
-    - {fileID: 4448149332788452818, guid: 6974bad21796a074bb0117ac39b5e96a, type: 3}
-    - {fileID: 4448149332788452818, guid: 6974bad21796a074bb0117ac39b5e96a, type: 3}
+    - {fileID: 21300000, guid: 9472446d3cbcc9b408e8098dfc1eeb93, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.8
+    m_StopTime: 0.14285715
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
