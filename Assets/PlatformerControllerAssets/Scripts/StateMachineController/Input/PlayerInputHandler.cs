@@ -16,6 +16,10 @@ public class PlayerInputHandler : MonoBehaviour{
     [SerializeField] private float inputHoldTime = 0.2f;
     private float jumpinputStartTime;
 
+    // Grab Variables
+    public bool GrabInput { get; private set; }
+
+
     private void Update() {
         CheckJumpInputHoldTime();
     }

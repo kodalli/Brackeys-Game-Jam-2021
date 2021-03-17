@@ -1,8 +1,30 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 
-public class PlayerX : MonoBehaviour{
+public class PlayerX : MonoBehaviour {
+
+    #region Unity Editor Functions
+#if UNITY_EDITOR
+    void OnGUI() {
+        if (!debugMode) return;
+
+        // Calculate Frame Rate
+        var current = (int)(1f / Time.unscaledDeltaTime);
+        var avgFrameRate = (int)current;
+
+        // Show Current State 
+        GUIStyle guiStyle = new GUIStyle();
+        guiStyle.fontSize = 40;
+        string state = StateMachine.CurrentState.ToString();
+
+        // Display on Editor Window
+        GUI.Label(new Rect(0, 0, 1000, 100), state, guiStyle);
+        GUI.Label(new Rect(0, 100, 1000, 100), avgFrameRate.ToString(), guiStyle);
+    }
+#endif
+    #endregion
 
     #region State Variables
     public PlayerStateMachine StateMachine { get; private set; }
@@ -11,6 +33,9 @@ public class PlayerX : MonoBehaviour{
     public PlayerJumpState JumpState { get; private set; }
     public PlayerInAirState InAirState { get; private set; }
     public PlayerLandState LandState { get; private set; }
+    public PlayerWallSlideState WallSlideState { get; private set; }
+    public PlayerWallJumpState WallJumpState { get; private set; }
+    public PlayerLedgeClimbState LedgeClimbState { get; private set; }
 
     [SerializeField] private PlayerData playerData;
     #endregion
@@ -25,6 +50,8 @@ public class PlayerX : MonoBehaviour{
     #region Check Transforms
 
     [SerializeField] private Transform groundCheck;
+    [SerializeField] private Transform wallCheck;
+    [SerializeField] private Transform ledgeCheck;
 
     #endregion
 
@@ -32,6 +59,8 @@ public class PlayerX : MonoBehaviour{
     private Vector2 workspace;
     public Vector2 CurrentVelocity { get; private set; }
     public int FacingDirection { get; private set; }
+
+    public bool debugMode = true;
 
     #endregion
 
@@ -44,7 +73,10 @@ public class PlayerX : MonoBehaviour{
         JumpState = new PlayerJumpState(this, StateMachine, playerData, "inAir");
         InAirState = new PlayerInAirState(this, StateMachine, playerData, "inAir");
         LandState = new PlayerLandState(this, StateMachine, playerData, "land");
-        
+        WallSlideState = new PlayerWallSlideState(this, StateMachine, playerData, "wallSlide");
+        WallJumpState = new PlayerWallJumpState(this, StateMachine, playerData, "inAir");
+        LedgeClimbState = new PlayerLedgeClimbState(this, StateMachine, playerData, "ledgeClimbState");
+
     }
     private void Start() {
         Anim = GetComponent<Animator>();
@@ -66,6 +98,19 @@ public class PlayerX : MonoBehaviour{
     #endregion
 
     #region Set Functions
+
+    public void SetVelocityToZero() {
+        RB.velocity = Vector2.zero;
+        CurrentVelocity = Vector2.zero;
+    }
+
+    public void SetWallJumpVelocity(float velocity, Vector2 angle, int direction) {
+        angle.Normalize();
+        workspace.Set(angle.x * velocity * direction, angle.y * velocity);
+        RB.velocity = workspace;
+        CurrentVelocity = workspace;
+    }
+
     public void SetVelocityX(float velocity) {
         workspace.Set(velocity, CurrentVelocity.y);
         RB.velocity = workspace;
@@ -81,12 +126,13 @@ public class PlayerX : MonoBehaviour{
 
     #region Check Functions
 
-    public bool CheckIfGrounded() {
-        return Physics2D.OverlapCircle(groundCheck.position, playerData.groundCheckRadius, playerData.whatIsGround);
-    }
+    public bool CheckIfTouchingWall() => Physics2D.Raycast(wallCheck.position, Vector2.right * FacingDirection, playerData.wallCheckDistance, playerData.whatIsGround);
+    public bool CheckIfTouchingWallBack() => Physics2D.Raycast(wallCheck.position, Vector2.right * -FacingDirection, playerData.wallCheckDistance, playerData.whatIsGround);
+    public bool CheckIfGrounded() => Physics2D.OverlapCircle(groundCheck.position, playerData.groundCheckRadius, playerData.whatIsGround);
+    public bool CheckIfTouchingLedge() => Physics2D.Raycast(ledgeCheck.position, Vector2.right * FacingDirection, playerData.wallCheckDistance, playerData.whatIsGround);
 
     public void CheckIfShouldFlip(int xInput) {
-        if(xInput != 0 && xInput != FacingDirection) {
+        if (xInput != 0 && xInput != FacingDirection) {
             Flip();
         }
     }
@@ -95,6 +141,18 @@ public class PlayerX : MonoBehaviour{
 
     #region Other Functions
 
+    public Vector2 DetermineCornerPos() {
+        RaycastHit2D xHit = Physics2D.Raycast(wallCheck.position, Vector2.right * FacingDirection, playerData.wallCheckDistance, playerData.whatIsGround);
+        float xDistance = xHit.distance;
+        workspace.Set(xDistance * FacingDirection, 0f);
+        RaycastHit2D yHit = Physics2D.Raycast(ledgeCheck.position + (Vector3)workspace, Vector2.down, ledgeCheck.position.y - wallCheck.position.y, playerData.whatIsGround);
+        float yDistance = yHit.distance;
+
+        workspace.Set(wallCheck.position.x + (xDistance * FacingDirection), ledgeCheck.position.y - yDistance);
+        Debug.DrawRay(ledgeCheck.position + (Vector3)workspace, Vector2.down, Color.red, playerData.whatIsGround);
+        return workspace;
+    }
+
     private void AnimationTrigger() => StateMachine.CurrentState.AnimationTrigger();
 
     private void AnimationFinishTrigger() => StateMachine.CurrentState.AnimationFinishTrigger();
@@ -102,6 +160,11 @@ public class PlayerX : MonoBehaviour{
     private void Flip() {
         FacingDirection *= -1;
         transform.Rotate(0.0f, 180.0f, 0.0f);
+    }
+
+    private void OnDrawGizmos() { // Used to Check Wall Check Distance
+        Gizmos.color = Color.red;
+        Gizmos.DrawLine(wallCheck.position, wallCheck.position + (Vector3)(Vector2.right * playerData.wallCheckDistance * FacingDirection));
     }
     #endregion
 
