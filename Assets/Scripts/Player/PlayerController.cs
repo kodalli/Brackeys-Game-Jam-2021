@@ -37,13 +37,14 @@ public class PlayerController : Singleton<PlayerController> {
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
 
-        Debug.Log(movement);
+        //Debug.Log(movement);
 
         switch (PlayerControlSave.Instance.localPlayerData.currentGameMode) {
             case GameMode.Gameplay:
                 // Movement
-                if (movement != Vector2.zero && movementIsActive) Move();
-                else if (movement == Vector2.zero || !movementIsActive) anim.SetBool(isMoving, false);
+                //if (movement != Vector2.zero && movementIsActive) Move();
+                //else if (movement == Vector2.zero || !movementIsActive) anim.SetBool(isMoving, false);
+                Move();
 
                 // Dialogue box
                 if (Dialog.Instance != null && Input.GetKeyDown(KeyCode.Escape)) Dialog.Instance.SkipDialogue();
@@ -88,11 +89,17 @@ public class PlayerController : Singleton<PlayerController> {
         }
     }
     private void Move() {
-        anim.SetBool(isMoving, true);
-        if (movement.x != 0) movement.y = 0;
-        rb.MovePosition(rb.position + movement * PlayerControlSave.Instance.localPlayerData.playerSpeed * Time.deltaTime);
-        anim.SetFloat(moveX, movement.x);
-        anim.SetFloat(moveY, movement.y);
+        if (movement == Vector2.zero || !movementIsActive) {
+            anim.SetBool(isMoving, false);
+            return;
+        }
+        if (movement != Vector2.zero && movementIsActive) {
+            anim.SetBool(isMoving, true);
+            if (movement.x != 0) movement.y = 0;
+            rb.MovePosition(rb.position + movement * PlayerControlSave.Instance.localPlayerData.playerSpeed * Time.deltaTime);
+            anim.SetFloat(moveX, movement.x);
+            anim.SetFloat(moveY, movement.y);
+        }
     }
     public void PlayerSceneLoad(string scene) {
         // things to save
@@ -115,7 +122,7 @@ public class PlayerController : Singleton<PlayerController> {
     private void OnTriggerEnter2D(Collider2D collision) {
         Debug.Log("Enter" + collision.gameObject.name);
 
-        switch(collision.gameObject.name) {
+        switch (collision.gameObject.name) {
             case "Cutscene1":
                 PlayerControlSave.Instance.localPlayerData.currentGameMode = GameMode.DialogueMoment;
                 PlayerControlSave.Instance.localPlayerData.playerPosition.x = -3.5f;

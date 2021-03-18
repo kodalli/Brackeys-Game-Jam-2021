@@ -56,7 +56,7 @@ public class PlayerX : MonoBehaviour {
     #endregion
 
     #region Other Variables
-    private Vector2 workspace;
+    private Vector2 previousVelocity;
     public Vector2 CurrentVelocity { get; private set; }
     public int FacingDirection { get; private set; }
 
@@ -106,20 +106,20 @@ public class PlayerX : MonoBehaviour {
 
     public void SetWallJumpVelocity(float velocity, Vector2 angle, int direction) {
         angle.Normalize();
-        workspace.Set(angle.x * velocity * direction, angle.y * velocity);
-        RB.velocity = workspace;
-        CurrentVelocity = workspace;
+        previousVelocity.Set(angle.x * velocity * direction, angle.y * velocity);
+        RB.velocity = previousVelocity;
+        CurrentVelocity = previousVelocity;
     }
 
     public void SetVelocityX(float velocity) {
-        workspace.Set(velocity, CurrentVelocity.y);
-        RB.velocity = workspace;
-        CurrentVelocity = workspace;
+        previousVelocity.Set(velocity, CurrentVelocity.y);
+        RB.velocity = previousVelocity;
+        CurrentVelocity = previousVelocity;
     }
     public void SetVelocityY(float velocity) {
-        workspace.Set(CurrentVelocity.x, velocity);
-        RB.velocity = workspace;
-        CurrentVelocity = workspace;
+        previousVelocity.Set(CurrentVelocity.x, velocity);
+        RB.velocity = previousVelocity;
+        CurrentVelocity = previousVelocity;
     }
 
     #endregion
@@ -144,13 +144,13 @@ public class PlayerX : MonoBehaviour {
     public Vector2 DetermineCornerPos() {
         RaycastHit2D xHit = Physics2D.Raycast(wallCheck.position, Vector2.right * FacingDirection, playerData.wallCheckDistance, playerData.whatIsGround);
         float xDistance = xHit.distance;
-        workspace.Set(xDistance * FacingDirection, 0f);
-        RaycastHit2D yHit = Physics2D.Raycast(ledgeCheck.position + (Vector3)workspace, Vector2.down, ledgeCheck.position.y - wallCheck.position.y, playerData.whatIsGround);
+        previousVelocity.Set(xDistance * FacingDirection, 0f);
+        RaycastHit2D yHit = Physics2D.Raycast(ledgeCheck.position + (Vector3)previousVelocity, Vector2.down, ledgeCheck.position.y - wallCheck.position.y, playerData.whatIsGround);
         float yDistance = yHit.distance;
 
-        workspace.Set(wallCheck.position.x + (xDistance * FacingDirection), ledgeCheck.position.y - yDistance);
-        Debug.DrawRay(ledgeCheck.position + (Vector3)workspace, Vector2.down, Color.red, playerData.whatIsGround);
-        return workspace;
+        previousVelocity.Set(wallCheck.position.x + (xDistance * FacingDirection), ledgeCheck.position.y - yDistance);
+        Debug.DrawRay(ledgeCheck.position + (Vector3)previousVelocity, Vector2.down, Color.red, playerData.whatIsGround);
+        return previousVelocity;
     }
 
     private void AnimationTrigger() => StateMachine.CurrentState.AnimationTrigger();
