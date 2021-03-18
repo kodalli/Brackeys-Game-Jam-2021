@@ -12,7 +12,7 @@ public class PlayerLedgeClimbState : PlayerState {
     private Vector2 stopPos;
 
     private bool isHanging;
-    private bool isClimbing;
+    private bool isLedgeJumping;
 
     private int xInput;
     private int yInput;
@@ -54,9 +54,17 @@ public class PlayerLedgeClimbState : PlayerState {
 
         isHanging = false;
 
-        if (isClimbing) {
+        // jumping in direction of wall from ledge
+        if (isLedgeJumping && xInput == player.FacingDirection) {
             player.transform.position = stopPos;
-            isClimbing = false;
+            isLedgeJumping = false;
+        // jumping opposite of wall from ledge
+        } else if (isLedgeJumping) {
+            var oppositeStopPos = new Vector2(player.transform.position.x + xInput * playerData.stopOffset.x,
+                player.transform.position.y + playerData.stopOffset.y);
+
+            player.transform.position = oppositeStopPos;
+            isLedgeJumping = false;
         }
 
     }
@@ -64,7 +72,7 @@ public class PlayerLedgeClimbState : PlayerState {
     public override void LogicUpdate() {
         base.LogicUpdate();
 
-        BugHandler();
+        HandleStuckInWall();
 
         xInput = player.InputHandler.NormInputX;
         yInput = player.InputHandler.NormInputY;
@@ -73,24 +81,29 @@ public class PlayerLedgeClimbState : PlayerState {
         player.SetVelocityToZero();
         player.transform.position = startPos;
 
-        if ((xInput == player.FacingDirection && jumpInput) && isHanging && !isClimbing) {
-            isClimbing = true;
-            stateMachine.ChangeState(player.JumpState);
-        }
-        else if (yInput == -1 && isHanging && !isClimbing) {
-            stateMachine.ChangeState(player.InAirState);
+        if (!isExitingState) {
+            // jump off ledge
+            // xInput == player.FacingDirection && isHanging
+            if (jumpInput && !isLedgeJumping && isHanging) {
+                isLedgeJumping = true;
+                stateMachine.ChangeState(player.JumpState);
+            }
+            // drop down from ledge
+            else if (yInput == -1 && isHanging && !isLedgeJumping) {
+                stateMachine.ChangeState(player.InAirState);
+            }
         }
 
     }
 
-    private void BugHandler() {
+    private void HandleStuckInWall() {
 
         // seconds in float
         stateTime += Time.deltaTime;
         // turn seconds in float to int
         var seconds = (int)(stateTime % 60);
         if (seconds > debugTime) {
-            isClimbing = true;
+            isLedgeJumping = true;
             stateMachine.ChangeState(player.JumpState);
         }
     }
