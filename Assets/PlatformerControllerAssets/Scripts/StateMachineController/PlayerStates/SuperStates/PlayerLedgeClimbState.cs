@@ -19,7 +19,7 @@ public class PlayerLedgeClimbState : PlayerState {
     private bool jumpInput;
 
     private float stateTime = 0.0f;
-    private readonly float debugTime = 5f;
+    private readonly float debugTime = 20f;
 
     public PlayerLedgeClimbState(PlayerX player, PlayerStateMachine stateMachine, PlayerData playerData, string animBoolName) : base(player, stateMachine, playerData, animBoolName) {
     }

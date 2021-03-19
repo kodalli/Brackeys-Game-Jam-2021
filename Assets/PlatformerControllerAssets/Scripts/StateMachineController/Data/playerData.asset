@@ -17,12 +17,20 @@ MonoBehaviour:
   amountOfJumps: 1
   coyoteTime: 0.2
   variableJumpHeightMultiplier: 0.5
+  dashCoolDown: 0.5
+  dashMaxHoldTime: 1
+  holdTimeScale: 0.25
+  dashTime: 0.2
+  dashVelocity: 30
+  drag: 10
+  variableDashMultiplier: 0
+  distanceBetweenAfterImages: 0.5
   wallSlideVelocity: 2
   wallJumpVelocity: 20
   wallJumpTime: 0.4
   wallJumpAngle: {x: 1, y: 2}
   startOffset: {x: 0.6, y: 0.675}
-  stopOffset: {x: 0, y: 0}
+  stopOffset: {x: 0.1, y: 0.4}
   groundCheckRadius: 0.3
   wallCheckDistance: 0.7
   whatIsGround:

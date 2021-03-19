@@ -16,6 +16,16 @@ public class PlayerData : ScriptableObject
     public float coyoteTime = 0.2f;
     public float variableJumpHeightMultiplier = 0.5f;
 
+    [Header("Dash State")]
+    public float dashCoolDown = 0.5f;
+    public float dashMaxHoldTime = 1f;
+    public float holdTimeScale = 0.25f;
+    public float dashTime = 0.2f;
+    public float dashVelocity = 30f;
+    public float drag = 10f;
+    public float variableDashMultiplier = 0.2f;
+    public float distanceBetweenAfterImages = 0.5f;
+
     [Header("Wall Slide State")]
     public float wallSlideVelocity = 2f;
 

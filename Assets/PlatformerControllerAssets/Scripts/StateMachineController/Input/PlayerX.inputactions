@@ -22,10 +22,18 @@
                     "interactions": ""
                 },
                 {
-                    "name": "Grab",
+                    "name": "Dash",
                     "type": "Button",
                     "id": "9b958950-9a41-415e-bff3-ce5f19bd2899",
                     "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "DashDirection",
+                    "type": "Value",
+                    "id": "7f1e653d-14b4-4eeb-a799-b49eebf89146",
+                    "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": ""
                 }
@@ -122,11 +130,11 @@
                 {
                     "name": "",
                     "id": "2a54de6f-fe48-4e38-aa27-bc12b216a5cb",
-                    "path": "<Keyboard>/ctrl",
+                    "path": "<Keyboard>/e",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
-                    "action": "Grab",
+                    "action": "Dash",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -137,7 +145,29 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
-                    "action": "Grab",
+                    "action": "Dash",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "df4d5698-f561-4868-a010-13b45a6c09e1",
+                    "path": "<Gamepad>/leftStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "DashDirection",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "90a2e896-04ba-4c6e-ad15-ebd9f8908ce8",
+                    "path": "<Mouse>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "DashDirection",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
