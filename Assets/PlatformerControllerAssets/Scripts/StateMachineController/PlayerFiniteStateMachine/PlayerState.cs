@@ -11,7 +11,7 @@ public class PlayerState{
     protected bool isAnimationFinished;
     protected bool isExitingState;
 
-    protected float stateEntryTime;
+    protected float startTime;
 
     private string animBoolName;
    
@@ -24,21 +24,20 @@ public class PlayerState{
     public virtual void Enter() {
         DoChecks();
         player.Anim.SetBool(animBoolName, true);
-        stateEntryTime = Time.time;
+        startTime = Time.time;
         isAnimationFinished = false;
         isExitingState = false;
     }
     public virtual void Exit() {
         player.Anim.SetBool(animBoolName, false);
         isExitingState = true;
-        // stateEntryTime = 0f;
     }
     public virtual void LogicUpdate() { }
     public virtual void PhysicsUpdate() {
         DoChecks();
     }
     public virtual void DoChecks() { }
-    public virtual void AnimationTrigger() { }
+    public virtual void AnimationTrigger() { } 
     public virtual void AnimationFinishTrigger() => isAnimationFinished = true;
 
 

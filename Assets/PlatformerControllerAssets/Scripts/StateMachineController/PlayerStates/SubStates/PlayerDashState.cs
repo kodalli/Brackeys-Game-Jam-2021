@@ -15,12 +15,15 @@ public class PlayerDashState : PlayerAbilityState {
     private int dashX;
     private int dashY;
 
+    // private readonly int HealthBar = "_Health".GetHashCode();
+    readonly int HealthBar = Shader.PropertyToID("_Health");
+
     public PlayerDashState(PlayerX player, PlayerStateMachine stateMachine, PlayerData playerData, string animBoolName) : base(player, stateMachine, playerData, animBoolName) {
     }
     public override void AnimationTrigger() {
         base.AnimationTrigger();
+        player.Anim.enabled = false;
     }
-
     public override void AnimationFinishTrigger() {
         base.AnimationFinishTrigger();
     }
@@ -29,15 +32,13 @@ public class PlayerDashState : PlayerAbilityState {
 
         // If you're in this state, it means you've pressed dash, so you let the state and InputHandler know
         CanDash = false;
-        player.InputHandler.UseDashInput();
-
         isHolding = true; // If you're in this state, then you are pressing dash, so it is initially true
+        player.InputHandler.UseDashInput();
         dashDirection = Vector2.right * player.FacingDirection;
 
-        if (playerData.dashTimeStop) Time.timeScale = playerData.holdTimeScale;
+        if (playerData.dashTimeStop) Time.timeScale = playerData.holdTimeScale; // Slows down time if its enabled in playerData
 
-        stateEntryTime = Time.unscaledTime;
-        // player.DashDirectionIndicator.gameObject.SetActive(true);
+        startTime = Time.unscaledTime;
     }
 
     public override void Exit() {
@@ -61,22 +62,18 @@ public class PlayerDashState : PlayerAbilityState {
             // Logic for when Dash button is being held down
             if (isHolding) {
 
+                // player.DashTimeIndicatorMaterial.SetFloat(HealthBar, Time.unscaledTime - stateEntryTime);
+
                 // ** Set all InputHandler variables **
                 dashX = player.InputHandler.DashInputX;
                 dashY = player.InputHandler.DashInputY;
-                dashDirectionInput = player.InputHandler.DashDirectionInput;
                 dashInputStop = player.InputHandler.DashInputStop;
 
-                if (dashDirectionInput != Vector2.zero) {
-                    dashDirection = dashDirectionInput;
-                    // dashDirection.Normalize();
-                }
+                player.DashTimeIndicator.gameObject.SetActive(true);
 
-                // float angle = Vector2.SignedAngle(Vector2.right, dashDirection); // Calculate angle to rotate indicator based on Mouse Position
-                // player.DashDirectionIndicator.rotation = Quaternion.Euler(0f, 0f, angle - 45f); // Rotate Indicator Based on Mouse Position
                 RotateIndicator(); // Rotate Indicator based on ArrowKeys Input
 
-                if (dashInputStop || Time.unscaledTime >= stateEntryTime + playerData.dashMaxHoldTime) {
+                if (dashInputStop || Time.unscaledTime >= startTime + playerData.dashMaxHoldTime) {
                     ApplyDash(); // Apply Dash Logic
                 }
             }
@@ -87,23 +84,31 @@ public class PlayerDashState : PlayerAbilityState {
     }
     private void ApplyDash() {
         isHolding = false;
-        Time.timeScale = 1f;
-        stateEntryTime = Time.time;
+        startTime = Time.time;
+        Debug.Log(startTime);
+        player.DashTimeIndicator.gameObject.SetActive(false);
+        // Time.timeScale = 1f; // Use this if dashTimeStop is enabled
 
         // ** Use this for arrow key dashing **
         // ** Remove if you want to use mousePos dashing **
         dashDirection.x = dashX;
         dashDirection.y = dashY;
 
+        if(dashDirection == Vector2.zero) {
+            dashDirection.x = player.FacingDirection;
+        }
+
         player.CheckIfShouldFlip(Mathf.RoundToInt(dashDirection.x)); // Rotate Player based on dash direction
         player.RB.drag = playerData.drag;
+        player.Anim.enabled = true;
         player.SetDashVelocity(playerData.dashVelocity, dashDirection.normalized); // Actually dash the player in wanted direction
         player.DashDirectionIndicator.gameObject.SetActive(false); // Disable the indicator once dash is released
     }
     private void ApplyDashTimeEnd() {
         player.SetDashVelocity(playerData.dashVelocity, dashDirection);
+        player.DashTimeIndicator.gameObject.SetActive(false);
 
-        if (Time.time >= stateEntryTime + playerData.dashTime) {
+        if (Time.time >= startTime + playerData.dashTime) {
             player.RB.drag = 0f;
             isAbilityDone = true; // Moves player back into AirState
             lashDashTime = Time.time;

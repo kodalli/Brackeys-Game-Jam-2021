@@ -36,7 +36,7 @@ public class PlayerLedgeClimbState : PlayerState {
         base.Enter();
 
         // stateTime = 0f;
-        stateEntryTime = 0f;
+        startTime = 0f;
 
         player.SetVelocityToZero();
         player.transform.position = detectedPos;
@@ -99,9 +99,9 @@ public class PlayerLedgeClimbState : PlayerState {
     private void HandleStuckInWall() {
 
         // seconds in float
-        stateEntryTime += Time.deltaTime;
+        startTime += Time.deltaTime;
         // turn seconds in float to int
-        var seconds = (int)(stateEntryTime % 60);
+        var seconds = (int)(startTime % 60);
         if (seconds > playerData.ledgeHangTime) {
             isLedgeJumping = true;
             stateMachine.ChangeState(player.JumpState);

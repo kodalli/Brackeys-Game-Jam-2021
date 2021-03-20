@@ -19,7 +19,7 @@ public class PlayerInputHandler : MonoBehaviour{
     #region Jump Variables
     public bool JumpInput { get; private set; }
     public bool JumpInputStop { get; private set; }
-    [SerializeField] private float inputHoldTime = 0.2f;
+    [SerializeField] private float inputHoldTime; // Fixes Double Jump from Spamming Spacebar
     private float jumpinputStartTime;
 
     #endregion

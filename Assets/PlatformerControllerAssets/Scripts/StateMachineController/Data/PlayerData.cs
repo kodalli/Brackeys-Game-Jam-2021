@@ -18,7 +18,7 @@ public class PlayerData : ScriptableObject
 
     [Header("Dash State")]
     public float dashCoolDown = 0.5f;
-    public float dashMaxHoldTime = 1f;
+    public float dashMaxHoldTime = 5f;
     public float holdTimeScale = 0.25f;
     public float dashTime = 0.2f;
     public float dashVelocity = 30f;

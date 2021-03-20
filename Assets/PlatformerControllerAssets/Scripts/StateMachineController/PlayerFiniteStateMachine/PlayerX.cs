@@ -42,10 +42,13 @@ public class PlayerX : MonoBehaviour {
     #endregion
 
     #region Components
-    public Animator Anim { get; private set; }
     public PlayerInputHandler InputHandler { get; private set; }
+    public Animator Anim { get; private set; }
     public Rigidbody2D RB { get; private set; }
+    public SpriteRenderer SR { get; private set; }
+    public Transform DashTimeIndicator { get; private set; }
     public Transform DashDirectionIndicator { get; private set; }
+    public Material DashTimeIndicatorMaterial { get; private set; }
 
     #endregion
 
@@ -78,14 +81,17 @@ public class PlayerX : MonoBehaviour {
         WallSlideState = new PlayerWallSlideState(this, StateMachine, playerData, "wallSlide");
         WallJumpState = new PlayerWallJumpState(this, StateMachine, playerData, "inAir");
         LedgeClimbState = new PlayerLedgeClimbState(this, StateMachine, playerData, "ledgeClimbState");
-        DashState = new PlayerDashState(this, StateMachine, playerData, "inAir");
+        DashState = new PlayerDashState(this, StateMachine, playerData, "dash");
 
     }
     private void Start() {
         Anim = GetComponent<Animator>();
         InputHandler = GetComponent<PlayerInputHandler>();
         RB = GetComponent<Rigidbody2D>();
+        SR = GetComponent<SpriteRenderer>();
         DashDirectionIndicator = transform.Find("DashDirectionIndicator");
+        DashTimeIndicator = transform.Find("DashTimeIndicator");
+        DashTimeIndicatorMaterial = DashTimeIndicator.GetComponent<Renderer>().material;
 
         FacingDirection = 1;
 
@@ -148,10 +154,15 @@ public class PlayerX : MonoBehaviour {
 
     #endregion
 
-    #region Other Functions
+    #region Animation Triggers
     private void AnimationTrigger() => StateMachine.CurrentState.AnimationTrigger();
-
     private void AnimationFinishTrigger() => StateMachine.CurrentState.AnimationFinishTrigger();
+
+    #endregion
+
+    #region Other Functions
+
+    // Used so Animation Events on animations can be used
 
     public Vector2 DetermineCornerPos() {
         RaycastHit2D xHit = Physics2D.Raycast(wallCheck.position, Vector2.right * FacingDirection, playerData.wallCheckDistance, playerData.whatIsGround);
@@ -168,7 +179,7 @@ public class PlayerX : MonoBehaviour {
 
     private void Flip() {
         FacingDirection *= -1;
-        transform.Rotate(0.0f, 180.0f, 0.0f);
+        SR.flipX = FacingDirection != 1;
     }
 
     private void OnDrawGizmos() { // Used to Check Wall Check Distance
