@@ -25,6 +25,7 @@ public class PlayerData : ScriptableObject
     public float drag = 10f;
     public float variableDashMultiplier = 0.2f;
     public float distanceBetweenAfterImages = 0.5f;
+    public bool dashTimeStop;
 
     [Header("Wall Slide State")]
     public float wallSlideVelocity = 2f;
@@ -37,6 +38,7 @@ public class PlayerData : ScriptableObject
     [Header("Ledge Climb State")]
     public Vector2 startOffset = new Vector2(0.6f, 0.675f);
     public Vector2 stopOffset = new Vector2(0.1f, 0.4f);
+    public float ledgeHangTime = 4f;
 
     [Header("Check Variables")]
     public float groundCheckRadius = 0.3f;

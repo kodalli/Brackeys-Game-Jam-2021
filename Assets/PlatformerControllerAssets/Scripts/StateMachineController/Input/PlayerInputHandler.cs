@@ -6,36 +6,56 @@ using UnityEngine.InputSystem;
 public class PlayerInputHandler : MonoBehaviour{
 
     private PlayerInput playerInput;
+    public AngleRotations angleRotations;
     private Camera cam;
 
-    // Movement Variables
+    #region Movement Variables 
     public Vector2 RawMovementInput { get; private set; }
     public int NormInputX { get; private set; }
     public int NormInputY { get; private set; }
 
-    // Jump Variables
+    #endregion
+
+    #region Jump Variables
     public bool JumpInput { get; private set; }
     public bool JumpInputStop { get; private set; }
     [SerializeField] private float inputHoldTime = 0.2f;
     private float jumpinputStartTime;
 
-    // Dash Variables
-    public Vector2 RawDashDirectionInput { get; private set; }
-    public Vector2Int DashDirectionInput { get; private set; }
+    #endregion
+
+    #region Dash Variables
+    
+    // Dash Button Variables
     public bool DashInput { get; private set; }
     public bool DashInputStop { get; private set; }
-
     private float dashInputStartTime;
 
+    // ** Dash with Mouse **
+    public Vector2 RawDashDirectionInput { get; private set; }
+    public Vector2Int DashDirectionInput { get; private set; }
+
+    // ** Dash with Arrow Keys
+    public Vector2 DashDirectionKeyboardInput { get; private set; }
+    public int DashInputX { get; private set; }
+    public int DashInputY { get; private set; }
+
+    #endregion
+
+    #region Unity Callback Functions
     private void Start() {
         playerInput = GetComponent<PlayerInput>();
         cam = Camera.main;
+        angleRotations.up = 0f; angleRotations.right = 90f; angleRotations.down = 180f; angleRotations.left = 270f;
     }
     private void Update() {
         CheckJumpInputHoldTime();
         CheckDashInputHoldTime();
     }
 
+    #endregion
+
+    #region Unity PlayerInput Event Functions
     public void OnMoveInput(InputAction.CallbackContext context) {
         RawMovementInput = context.ReadValue<Vector2>();
 
@@ -70,6 +90,16 @@ public class PlayerInputHandler : MonoBehaviour{
 
         DashDirectionInput = Vector2Int.RoundToInt(RawDashDirectionInput.normalized);
     }
+    public void OnDashDirectionKeyboardInput(InputAction.CallbackContext context) {
+        DashDirectionKeyboardInput = context.ReadValue<Vector2>();
+        DashInputX = (int)(DashDirectionKeyboardInput * Vector2.right).normalized.x;
+        DashInputY = (int)(DashDirectionKeyboardInput * Vector2.up).normalized.y;
+
+    }
+
+    #endregion
+
+    #region Other Functions
     public void UseJumpInput() => JumpInput = false;
     public void UseDashInput() => DashInput = false;
     private void CheckJumpInputHoldTime() {
@@ -82,4 +112,11 @@ public class PlayerInputHandler : MonoBehaviour{
             DashInput = false;  
         }
     }
+
+    #endregion
+
+    public struct AngleRotations {
+        public float up, down, left, right;
+    }
+
 }

@@ -149,6 +149,9 @@ public class PlayerX : MonoBehaviour {
     #endregion
 
     #region Other Functions
+    private void AnimationTrigger() => StateMachine.CurrentState.AnimationTrigger();
+
+    private void AnimationFinishTrigger() => StateMachine.CurrentState.AnimationFinishTrigger();
 
     public Vector2 DetermineCornerPos() {
         RaycastHit2D xHit = Physics2D.Raycast(wallCheck.position, Vector2.right * FacingDirection, playerData.wallCheckDistance, playerData.whatIsGround);
@@ -162,9 +165,6 @@ public class PlayerX : MonoBehaviour {
         return previousVelocity;
     }
 
-    private void AnimationTrigger() => StateMachine.CurrentState.AnimationTrigger();
-
-    private void AnimationFinishTrigger() => StateMachine.CurrentState.AnimationFinishTrigger();
 
     private void Flip() {
         FacingDirection *= -1;
