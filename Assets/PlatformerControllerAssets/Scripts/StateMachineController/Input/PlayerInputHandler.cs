@@ -115,8 +115,11 @@ public class PlayerInputHandler : MonoBehaviour{
 
     #endregion
 
+    #region Structs
     public struct AngleRotations {
         public float up, down, left, right;
     }
+
+    #endregion
 
 }

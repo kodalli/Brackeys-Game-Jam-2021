@@ -43,6 +43,7 @@ public class PlayerDashState : PlayerAbilityState {
     public override void Exit() {
         base.Exit();
 
+        // Fall down cleaner
         if (player.CurrentVelocity.y > 0) {
             player.SetVelocityY(player.CurrentVelocity.y * playerData.variableDashMultiplier);
         }
@@ -68,12 +69,12 @@ public class PlayerDashState : PlayerAbilityState {
 
                 if (dashDirectionInput != Vector2.zero) {
                     dashDirection = dashDirectionInput;
-                    dashDirection.Normalize();
+                    // dashDirection.Normalize();
                 }
 
                 // float angle = Vector2.SignedAngle(Vector2.right, dashDirection); // Calculate angle to rotate indicator based on Mouse Position
                 // player.DashDirectionIndicator.rotation = Quaternion.Euler(0f, 0f, angle - 45f); // Rotate Indicator Based on Mouse Position
-                RotateObject(); // TODO:: Rotate Indicator based on ArrowKeys Input
+                RotateIndicator(); // Rotate Indicator based on ArrowKeys Input
 
                 if (dashInputStop || Time.unscaledTime >= stateEntryTime + playerData.dashMaxHoldTime) {
                     ApplyDash(); // Apply Dash Logic
@@ -110,7 +111,7 @@ public class PlayerDashState : PlayerAbilityState {
     }
     public bool CheckIfCanDash() => CanDash && Time.time > lashDashTime + playerData.dashCoolDown;
     public void ResetCanDash() => CanDash = true;
-    public void RotateObject() {
+    public void RotateIndicator() {
         if (dashX != 0 || dashY != 0) {
             player.DashDirectionIndicator.gameObject.SetActive(true);
             if (dashX > 0) {

@@ -50,7 +50,7 @@ Shader "Unlit/Healthbar"{
                 if(_Health < 0.2)
                     healthBarColor *= flash;
 
-                return float4(healthBarColor * healthBarMask, 1);
+                return float4(healthBarColor * healthBarMask, healthBarMask);
 
             } 
             ENDCG
