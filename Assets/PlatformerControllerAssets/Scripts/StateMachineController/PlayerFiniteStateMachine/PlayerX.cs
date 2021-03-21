@@ -8,7 +8,7 @@ public class PlayerX : MonoBehaviour {
     #region Unity Editor Functions
 #if UNITY_EDITOR
     void OnGUI() {
-        if (!debugMode) return;
+        if (!playerData.debugMode) return;
 
         // Calculate Frame Rate
         var current = (int)(1f / Time.unscaledDeltaTime);
@@ -64,8 +64,6 @@ public class PlayerX : MonoBehaviour {
     private Vector2 previousVelocity;
     public Vector2 CurrentVelocity { get; private set; }
     public int FacingDirection { get; private set; }
-
-    public bool debugMode = true;
 
     #endregion
 

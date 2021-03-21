@@ -15,7 +15,6 @@ public class PlayerDashState : PlayerAbilityState {
     private int dashX;
     private int dashY;
 
-    // private readonly int HealthBar = "_Health".GetHashCode();
     readonly int HealthBar = Shader.PropertyToID("_Health");
 
     public PlayerDashState(PlayerX player, PlayerStateMachine stateMachine, PlayerData playerData, string animBoolName) : base(player, stateMachine, playerData, animBoolName) {
@@ -36,7 +35,7 @@ public class PlayerDashState : PlayerAbilityState {
         player.InputHandler.UseDashInput();
         dashDirection = Vector2.right * player.FacingDirection;
 
-        if (playerData.dashTimeStop) Time.timeScale = playerData.holdTimeScale; // Slows down time if its enabled in playerData
+        if (playerData.dashTimeFreeze) Time.timeScale = playerData.holdTimeScale; // Slows down time if its enabled in playerData
 
         startTime = Time.unscaledTime;
     }
@@ -87,7 +86,7 @@ public class PlayerDashState : PlayerAbilityState {
         startTime = Time.time;
         Debug.Log(startTime);
         player.DashTimeIndicator.gameObject.SetActive(false);
-        // Time.timeScale = 1f; // Use this if dashTimeStop is enabled
+        if (playerData.dashTimeFreeze) Time.timeScale = 1f; // Enable Time Freeze
 
         // ** Use this for arrow key dashing **
         // ** Remove if you want to use mousePos dashing **
@@ -105,6 +104,7 @@ public class PlayerDashState : PlayerAbilityState {
         player.DashDirectionIndicator.gameObject.SetActive(false); // Disable the indicator once dash is released
     }
     private void ApplyDashTimeEnd() {
+        player.Anim.enabled = true;
         player.SetDashVelocity(playerData.dashVelocity, dashDirection);
         player.DashTimeIndicator.gameObject.SetActive(false);
 

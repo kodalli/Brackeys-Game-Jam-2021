@@ -2,9 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "newPlayerData", menuName = "Data/Player Data/Base Data")]
+[CreateAssetMenu(fileName = "newPlayerData", menuName = "Player Data")]
 public class PlayerData : ScriptableObject
 {
+    [Header("Debug Variables")]
+    public bool debugMode;
+
     [Header("Move State")]
     public float movementVelocity = 10f;
 
@@ -25,7 +28,7 @@ public class PlayerData : ScriptableObject
     public float drag = 10f;
     public float variableDashMultiplier = 0.2f;
     public float distanceBetweenAfterImages = 0.5f;
-    public bool dashTimeStop;
+    public bool dashTimeFreeze;
 
     [Header("Wall Slide State")]
     public float wallSlideVelocity = 2f;
