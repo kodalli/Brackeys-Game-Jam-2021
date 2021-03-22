@@ -8,6 +8,12 @@ public class PlayerData : ScriptableObject
     [Header("Debug Variables")]
     public bool debugMode;
 
+    [Header("Damage Info")]
+    public float bulletDamage = 1f;
+    public float bulletSpeed = 5f;
+    public Vector2 bulletDirection = new Vector2(1,0);
+    public float bulletDestroyDelay = 2f;
+
     [Header("Move State")]
     public float movementVelocity = 10f;
 

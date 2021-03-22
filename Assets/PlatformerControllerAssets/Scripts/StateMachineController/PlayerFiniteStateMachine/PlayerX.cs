@@ -37,6 +37,7 @@ public class PlayerX : MonoBehaviour {
     public PlayerWallJumpState WallJumpState { get; private set; }
     public PlayerLedgeClimbState LedgeClimbState { get; private set; }
     public PlayerDashState DashState { get; private set; }
+    public PlayerShootState ShootState { get; private set; }
 
     [SerializeField] private PlayerData playerData;
     #endregion
@@ -80,6 +81,7 @@ public class PlayerX : MonoBehaviour {
         WallJumpState = new PlayerWallJumpState(this, StateMachine, playerData, "inAir");
         LedgeClimbState = new PlayerLedgeClimbState(this, StateMachine, playerData, "ledgeClimbState");
         DashState = new PlayerDashState(this, StateMachine, playerData, "dash");
+        ShootState = new PlayerShootState(this, StateMachine, playerData, "shootState");
 
     }
     private void Start() {
@@ -149,19 +151,6 @@ public class PlayerX : MonoBehaviour {
             Flip();
         }
     }
-
-    #endregion
-
-    #region Animation Triggers
-    private void AnimationTrigger() => StateMachine.CurrentState.AnimationTrigger();
-    private void AnimationFinishTrigger() => StateMachine.CurrentState.AnimationFinishTrigger();
-
-    #endregion
-
-    #region Other Functions
-
-    // Used so Animation Events on animations can be used
-
     public Vector2 DetermineCornerPos() {
         RaycastHit2D xHit = Physics2D.Raycast(wallCheck.position, Vector2.right * FacingDirection, playerData.wallCheckDistance, playerData.whatIsGround);
         float xDistance = xHit.distance;
@@ -173,12 +162,15 @@ public class PlayerX : MonoBehaviour {
         Debug.DrawRay(ledgeCheck.position + (Vector3)previousVelocity, Vector2.down, Color.red, playerData.whatIsGround);
         return previousVelocity;
     }
-
-
     private void Flip() {
         FacingDirection *= -1;
-        SR.flipX = FacingDirection != 1;
+        transform.Rotate(0.0f, 180.0f, 0.0f);
+        // SR.flipX = FacingDirection != 1;
     }
+
+    #endregion
+
+    #region Other Functions
 
     private void OnDrawGizmos() { // Used to Check Wall Check Distance
         Gizmos.color = Color.red;
@@ -186,4 +178,23 @@ public class PlayerX : MonoBehaviour {
     }
     #endregion
 
+    #region Animation Triggers
+
+    // Used so Animation Events on animations can be used
+    private void AnimationTrigger() => StateMachine.CurrentState.AnimationTrigger();
+    private void AnimationFinishTrigger() => StateMachine.CurrentState.AnimationFinishTrigger();
+
+    #endregion
+
+    [SerializeField] Transform bulletShootPos;
+    [SerializeField] GameObject bulletPrefab;
+
+    public void ShootBullet() {
+        GameObject bullet = Instantiate(bulletPrefab, bulletShootPos.position, Quaternion.identity);
+        bullet.name = bulletPrefab.name; // Instantiate creates a copy and renames it to clone --  this sets it back for convenience
+        bullet.GetComponent<BulletScript>().SetDamageValue(playerData.bulletDamage);
+        bullet.GetComponent<BulletScript>().SetBulletSpeed(playerData.bulletSpeed);
+        bullet.GetComponent<BulletScript>().SetBulletDirection((FacingDirection == 1) ? Vector2.right : Vector2.left);
+        bullet.GetComponent<BulletScript>().Shoot();
+    }
 }

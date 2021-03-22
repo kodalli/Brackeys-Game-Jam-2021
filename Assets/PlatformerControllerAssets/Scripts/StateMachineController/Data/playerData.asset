@@ -13,6 +13,10 @@ MonoBehaviour:
   m_Name: playerData
   m_EditorClassIdentifier: 
   debugMode: 1
+  bulletDamage: 1
+  bulletSpeed: 20
+  bulletDirection: {x: 1, y: 0}
+  bulletDestroyDelay: 2
   movementVelocity: 12
   jumpVelocity: 30
   amountOfJumps: 1
