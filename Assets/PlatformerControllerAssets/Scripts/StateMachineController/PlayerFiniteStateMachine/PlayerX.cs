@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-public class PlayerX : MonoBehaviour {
+public class PlayerX : Singleton<PlayerX> {
 
     #region Unity Editor Functions
 #if UNITY_EDITOR
@@ -38,7 +38,6 @@ public class PlayerX : MonoBehaviour {
     public PlayerLedgeClimbState LedgeClimbState { get; private set; }
     public PlayerDashState DashState { get; private set; }
     public PlayerShootState ShootState { get; private set; }
-
     [SerializeField] private PlayerData playerData;
     #endregion
 
@@ -66,6 +65,8 @@ public class PlayerX : MonoBehaviour {
     public Vector2 CurrentVelocity { get; private set; }
     public int FacingDirection { get; private set; }
 
+    private Transform BulletShootPos;
+
     #endregion
 
     #region Unity Callback Functions
@@ -81,8 +82,7 @@ public class PlayerX : MonoBehaviour {
         WallJumpState = new PlayerWallJumpState(this, StateMachine, playerData, "inAir");
         LedgeClimbState = new PlayerLedgeClimbState(this, StateMachine, playerData, "ledgeClimbState");
         DashState = new PlayerDashState(this, StateMachine, playerData, "dash");
-        ShootState = new PlayerShootState(this, StateMachine, playerData, "shootState");
-
+        ShootState = new PlayerShootState(this, StateMachine, playerData, "shoot");
     }
     private void Start() {
         Anim = GetComponent<Animator>();
@@ -92,14 +92,17 @@ public class PlayerX : MonoBehaviour {
         DashDirectionIndicator = transform.Find("DashDirectionIndicator");
         DashTimeIndicator = transform.Find("DashTimeIndicator");
         DashTimeIndicatorMaterial = DashTimeIndicator.GetComponent<Renderer>().material;
+        BulletShootPos = transform.Find("BulletShootPos");
 
         FacingDirection = 1;
 
         StateMachine.Initialize(IdleState);
     }
+
     private void Update() {
         CurrentVelocity = RB.velocity;
         StateMachine.CurrentState.LogicUpdate();
+
     }
     private void FixedUpdate() {
         StateMachine.CurrentState.PhysicsUpdate();
@@ -137,6 +140,20 @@ public class PlayerX : MonoBehaviour {
         CurrentVelocity = previousVelocity;
     }
 
+    private void Flip() {
+        FacingDirection *= -1;
+        transform.Rotate(0.0f, 180.0f, 0.0f);
+        // SR.flipX = FacingDirection != 1;
+    }
+    public void ShootBullet() {
+        GameObject bullet = Instantiate((GameObject)Resources.Load("Bullet"), BulletShootPos.position, Quaternion.identity);
+        // bullet.name = BulletPrefab.name; // Instantiate creates a copy and renames it to clone --  this sets it back for visual convenience
+        bullet.GetComponent<BulletScript>().SetDamageValue(playerData.bulletDamage);
+        bullet.GetComponent<BulletScript>().SetBulletSpeed(playerData.bulletSpeed);
+        bullet.GetComponent<BulletScript>().SetBulletDirection((FacingDirection == 1) ? Vector2.right : Vector2.left);
+        bullet.GetComponent<BulletScript>().Shoot();
+    }
+
     #endregion
 
     #region Check Functions
@@ -162,11 +179,6 @@ public class PlayerX : MonoBehaviour {
         Debug.DrawRay(ledgeCheck.position + (Vector3)previousVelocity, Vector2.down, Color.red, playerData.whatIsGround);
         return previousVelocity;
     }
-    private void Flip() {
-        FacingDirection *= -1;
-        transform.Rotate(0.0f, 180.0f, 0.0f);
-        // SR.flipX = FacingDirection != 1;
-    }
 
     #endregion
 
@@ -186,15 +198,4 @@ public class PlayerX : MonoBehaviour {
 
     #endregion
 
-    [SerializeField] Transform bulletShootPos;
-    [SerializeField] GameObject bulletPrefab;
-
-    public void ShootBullet() {
-        GameObject bullet = Instantiate(bulletPrefab, bulletShootPos.position, Quaternion.identity);
-        bullet.name = bulletPrefab.name; // Instantiate creates a copy and renames it to clone --  this sets it back for convenience
-        bullet.GetComponent<BulletScript>().SetDamageValue(playerData.bulletDamage);
-        bullet.GetComponent<BulletScript>().SetBulletSpeed(playerData.bulletSpeed);
-        bullet.GetComponent<BulletScript>().SetBulletDirection((FacingDirection == 1) ? Vector2.right : Vector2.left);
-        bullet.GetComponent<BulletScript>().Shoot();
-    }
 }

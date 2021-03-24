@@ -84,7 +84,6 @@ public class PlayerDashState : PlayerAbilityState {
     private void ApplyDash() {
         isHolding = false;
         startTime = Time.time;
-        Debug.Log(startTime);
         player.DashTimeIndicator.gameObject.SetActive(false);
         if (playerData.dashTimeFreeze) Time.timeScale = 1f; // Enable Time Freeze
 

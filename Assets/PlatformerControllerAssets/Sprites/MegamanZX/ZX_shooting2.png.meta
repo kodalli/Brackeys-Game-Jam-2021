@@ -1,0 +1,804 @@
+fileFormatVersion: 2
+guid: de5d9c8b0f4c96e45821ab5877c9f59a
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 6860637892266987574
+    second: ZX_shooting2_0
+  - first:
+      213: -5931802315133827359
+    second: ZX_shooting2_1
+  - first:
+      213: 9160879356890686822
+    second: ZX_shooting2_2
+  - first:
+      213: 9035934666332546735
+    second: ZX_shooting2_3
+  - first:
+      213: -1676144082390323551
+    second: ZX_shooting2_4
+  - first:
+      213: -6340227971147824385
+    second: ZX_shooting2_5
+  - first:
+      213: -2623653905231932190
+    second: ZX_shooting2_6
+  - first:
+      213: 4975989090710310641
+    second: ZX_shooting2_7
+  - first:
+      213: -3821307183905079729
+    second: ZX_shooting2_8
+  - first:
+      213: -8309269206429689882
+    second: ZX_shooting2_9
+  - first:
+      213: 6075527329709957057
+    second: ZX_shooting2_10
+  - first:
+      213: 695272038650509143
+    second: ZX_shooting2_11
+  - first:
+      213: 1934326049809897850
+    second: ZX_shooting2_12
+  - first:
+      213: 5649945953929769972
+    second: ZX_shooting2_13
+  - first:
+      213: 6016651243285071862
+    second: ZX_shooting2_14
+  - first:
+      213: 3963218110884484277
+    second: ZX_shooting2_15
+  - first:
+      213: 4836029162210608909
+    second: ZX_shooting2_16
+  - first:
+      213: 203896899032228642
+    second: ZX_shooting2_17
+  - first:
+      213: 6910123476414552195
+    second: ZX_shooting2_18
+  - first:
+      213: 5815538076063545673
+    second: ZX_shooting2_19
+  - first:
+      213: 8134263509599104627
+    second: ZX_shooting2_20
+  - first:
+      213: -5816685095430456580
+    second: ZX_shooting2_21
+  - first:
+      213: 1281511404353345151
+    second: ZX_shooting2_22
+  - first:
+      213: 8090588254415314073
+    second: ZX_shooting2_23
+  - first:
+      213: -8176831162025422765
+    second: ZX_shooting2_24
+  - first:
+      213: 3217318249024808224
+    second: ZX_shooting2_25
+  - first:
+      213: -3336259701451118822
+    second: ZX_shooting2_26
+  - first:
+      213: -1062465753539183832
+    second: ZX_shooting2_27
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: ZX_shooting2_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 63
+        width: 55
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 630982550d1e53f50800000000000000
+      internalID: 6860637892266987574
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZX_shooting2_1
+      rect:
+        serializedVersion: 2
+        x: 57
+        y: 63
+        width: 52
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e6cb90f8310eada0800000000000000
+      internalID: -5931802315133827359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZX_shooting2_2
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 63
+        width: 54
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 665ada91d3bf12f70800000000000000
+      internalID: 9160879356890686822
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZX_shooting2_3
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 63
+        width: 54
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa6a36064b6166d70800000000000000
+      internalID: 9035934666332546735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZX_shooting2_4
+      rect:
+        serializedVersion: 2
+        x: 223
+        y: 63
+        width: 54
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ae60c076d32db8e0800000000000000
+      internalID: -1676144082390323551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZX_shooting2_5
+      rect:
+        serializedVersion: 2
+        x: 279
+        y: 63
+        width: 54
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff20db0904cf208a0800000000000000
+      internalID: -6340227971147824385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZX_shooting2_6
+      rect:
+        serializedVersion: 2
+        x: 335
+        y: 63
+        width: 47
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e495158ca8e69bd0800000000000000
+      internalID: -2623653905231932190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZX_shooting2_7
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 63
+        width: 43
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1fec10ec6b34e0540800000000000000
+      internalID: 4975989090710310641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZX_shooting2_8
+      rect:
+        serializedVersion: 2
+        x: 429
+        y: 63
+        width: 44
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4e70b5cc5df7fac0800000000000000
+      internalID: -3821307183905079729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZX_shooting2_9
+      rect:
+        serializedVersion: 2
+        x: 475
+        y: 63
+        width: 44
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e79aaf5eab8fac80800000000000000
+      internalID: -8309269206429689882
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZX_shooting2_10
+      rect:
+        serializedVersion: 2
+        x: 521
+        y: 63
+        width: 44
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1cf1a86baeb905450800000000000000
+      internalID: 6075527329709957057
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZX_shooting2_11
+      rect:
+        serializedVersion: 2
+        x: 567
+        y: 63
+        width: 45
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75776064c3a16a900800000000000000
+      internalID: 695272038650509143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZX_shooting2_12
+      rect:
+        serializedVersion: 2
+        x: 614
+        y: 63
+        width: 45
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7914b63b4b18da10800000000000000
+      internalID: 1934326049809897850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZX_shooting2_13
+      rect:
+        serializedVersion: 2
+        x: 661
+        y: 63
+        width: 46
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f3b32019e3a86e40800000000000000
+      internalID: 5649945953929769972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZX_shooting2_14
+      rect:
+        serializedVersion: 2
+        x: 709
+        y: 63
+        width: 42
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f74b6d9d607f7350800000000000000
+      internalID: 6016651243285071862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZX_shooting2_15
+      rect:
+        serializedVersion: 2
+        x: 753
+        y: 63
+        width: 43
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b41aa2bfdd200730800000000000000
+      internalID: 3963218110884484277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZX_shooting2_16
+      rect:
+        serializedVersion: 2
+        x: 798
+        y: 63
+        width: 43
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d074ef096e60d1340800000000000000
+      internalID: 4836029162210608909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZX_shooting2_17
+      rect:
+        serializedVersion: 2
+        x: 843
+        y: 63
+        width: 44
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 223ae9d362364d200800000000000000
+      internalID: 203896899032228642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZX_shooting2_18
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 0
+        width: 44
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 388d6cdb0b0b5ef50800000000000000
+      internalID: 6910123476414552195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZX_shooting2_19
+      rect:
+        serializedVersion: 2
+        x: 268
+        y: 0
+        width: 41
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 949b6817111f4b050800000000000000
+      internalID: 5815538076063545673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZX_shooting2_20
+      rect:
+        serializedVersion: 2
+        x: 311
+        y: 0
+        width: 43
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37ea3179095b2e070800000000000000
+      internalID: 8134263509599104627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZX_shooting2_21
+      rect:
+        serializedVersion: 2
+        x: 356
+        y: 0
+        width: 43
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cfafe8c49bbf64fa0800000000000000
+      internalID: -5816685095430456580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZX_shooting2_22
+      rect:
+        serializedVersion: 2
+        x: 401
+        y: 0
+        width: 43
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f76d71025d7d8c110800000000000000
+      internalID: 1281511404353345151
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZX_shooting2_23
+      rect:
+        serializedVersion: 2
+        x: 446
+        y: 0
+        width: 43
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99c5f50d62b874070800000000000000
+      internalID: 8090588254415314073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZX_shooting2_24
+      rect:
+        serializedVersion: 2
+        x: 491
+        y: 0
+        width: 39
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 350512f716f068e80800000000000000
+      internalID: -8176831162025422765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZX_shooting2_25
+      rect:
+        serializedVersion: 2
+        x: 532
+        y: 0
+        width: 36
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0256182c6e536ac20800000000000000
+      internalID: 3217318249024808224
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZX_shooting2_26
+      rect:
+        serializedVersion: 2
+        x: 570
+        y: 0
+        width: 36
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a172e805a7933b1d0800000000000000
+      internalID: -3336259701451118822
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZX_shooting2_27
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 0
+        width: 36
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82b774eb60d5141f0800000000000000
+      internalID: -1062465753539183832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

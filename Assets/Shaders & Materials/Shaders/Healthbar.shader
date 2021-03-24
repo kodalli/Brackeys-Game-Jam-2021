@@ -8,7 +8,7 @@ Shader "Unlit/Healthbar"{
 
             Pass {
                 ZWrite On // Renders above tilemap
-                // Cull Off
+                Cull Off
                 Blend SrcAlpha OneMinusSrcAlpha // Alpha Blending
 
                 CGPROGRAM

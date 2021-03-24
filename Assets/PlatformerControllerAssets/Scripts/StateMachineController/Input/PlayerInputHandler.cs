@@ -7,7 +7,6 @@ public class PlayerInputHandler : MonoBehaviour{
 
     public AngleRotations angleRotations;
     private PlayerInput playerInput;
-    private Camera cam;
 
     [SerializeField] private bool DisableInput;
 
@@ -41,16 +40,14 @@ public class PlayerInputHandler : MonoBehaviour{
     #endregion
 
     #region Shooting Variables
-    public bool ShootInput { get; private set; }
-    public bool ShootInputStop { get; private set; }
-    private float shootInputStartTime;
+
+    public bool KeyShoot { get; private set; }
 
     #endregion
 
     #region Unity Callback Functions
     private void Start() {
         playerInput = GetComponent<PlayerInput>();
-        cam = Camera.main;
         angleRotations.up = 0f; angleRotations.right = 90f; angleRotations.down = 180f; angleRotations.left = 270f;
 
         if (DisableInput) DisableInputMode();
@@ -58,7 +55,6 @@ public class PlayerInputHandler : MonoBehaviour{
     private void Update() {
         CheckJumpInputHoldTime();
         CheckDashInputHoldTime();
-        CheckShootInputHoldTime();
     }
 
     #endregion
@@ -96,12 +92,11 @@ public class PlayerInputHandler : MonoBehaviour{
 
     }
     public void OnShootInput(InputAction.CallbackContext context) {
-        if (context.started) {
-            ShootInput = true;
-            ShootInputStop = false;
-            shootInputStartTime = Time.time;
-        } else if (context.canceled) {
-            ShootInputStop = true;
+        if(context.started) {
+            KeyShoot = true;
+        }
+        else if (context.canceled) {
+            KeyShoot = false;
         }
     }
 
@@ -110,7 +105,6 @@ public class PlayerInputHandler : MonoBehaviour{
     #region Other Functions
     public void UseJumpInput() => JumpInput = false;
     public void UseDashInput() => DashInput = false;
-    public void UseShootInput() => ShootInput = false;
     private void CheckJumpInputHoldTime() {
         if(Time.time >= jumpinputStartTime + inputHoldTime) {
             JumpInput = false;
@@ -119,11 +113,6 @@ public class PlayerInputHandler : MonoBehaviour{
     private void CheckDashInputHoldTime() {
         if(Time.time >= dashInputStartTime + inputHoldTime) {
             DashInput = false;  
-        }
-    }
-    private void CheckShootInputHoldTime() {
-        if (Time.time >= shootInputStartTime + inputHoldTime) {
-            ShootInput = false;
         }
     }
 
