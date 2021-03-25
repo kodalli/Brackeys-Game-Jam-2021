@@ -36,6 +36,10 @@ public class PlayerX : MonoBehaviour {
     public PlayerWallSlideState WallSlideState { get; private set; }
     public PlayerWallJumpState WallJumpState { get; private set; }
     public PlayerLedgeClimbState LedgeClimbState { get; private set; }
+<<<<<<< Updated upstream
+=======
+    public PlayerDashState DashState { get; private set; }
+>>>>>>> Stashed changes
 
     [SerializeField] private PlayerData playerData;
     #endregion
@@ -60,8 +64,11 @@ public class PlayerX : MonoBehaviour {
     public Vector2 CurrentVelocity { get; private set; }
     public int FacingDirection { get; private set; }
 
+<<<<<<< Updated upstream
     public bool debugMode = true;
 
+=======
+>>>>>>> Stashed changes
     #endregion
 
     #region Unity Callback Functions
@@ -76,12 +83,23 @@ public class PlayerX : MonoBehaviour {
         WallSlideState = new PlayerWallSlideState(this, StateMachine, playerData, "wallSlide");
         WallJumpState = new PlayerWallJumpState(this, StateMachine, playerData, "inAir");
         LedgeClimbState = new PlayerLedgeClimbState(this, StateMachine, playerData, "ledgeClimbState");
+<<<<<<< Updated upstream
+=======
+        DashState = new PlayerDashState(this, StateMachine, playerData, "dash");
+>>>>>>> Stashed changes
 
     }
     private void Start() {
         Anim = GetComponent<Animator>();
         InputHandler = GetComponent<PlayerInputHandler>();
         RB = GetComponent<Rigidbody2D>();
+<<<<<<< Updated upstream
+=======
+        SR = GetComponent<SpriteRenderer>();
+        DashDirectionIndicator = transform.Find("DashDirectionIndicator");
+        DashTimeIndicator = transform.Find("DashTimeIndicator");
+        DashTimeIndicatorMaterial = DashTimeIndicator.GetComponent<Renderer>().material;
+>>>>>>> Stashed changes
 
         FacingDirection = 1;
 
@@ -139,8 +157,21 @@ public class PlayerX : MonoBehaviour {
 
     #endregion
 
+<<<<<<< Updated upstream
     #region Other Functions
 
+=======
+    #region Animation Triggers
+    private void AnimationTrigger() => StateMachine.CurrentState.AnimationTrigger();
+    private void AnimationFinishTrigger() => StateMachine.CurrentState.AnimationFinishTrigger();
+
+    #endregion
+
+    #region Other Functions
+
+    // Used so Animation Events on animations can be used
+
+>>>>>>> Stashed changes
     public Vector2 DetermineCornerPos() {
         RaycastHit2D xHit = Physics2D.Raycast(wallCheck.position, Vector2.right * FacingDirection, playerData.wallCheckDistance, playerData.whatIsGround);
         float xDistance = xHit.distance;
@@ -153,6 +184,7 @@ public class PlayerX : MonoBehaviour {
         return previousVelocity;
     }
 
+<<<<<<< Updated upstream
     private void AnimationTrigger() => StateMachine.CurrentState.AnimationTrigger();
 
     private void AnimationFinishTrigger() => StateMachine.CurrentState.AnimationFinishTrigger();
@@ -160,6 +192,12 @@ public class PlayerX : MonoBehaviour {
     private void Flip() {
         FacingDirection *= -1;
         transform.Rotate(0.0f, 180.0f, 0.0f);
+=======
+
+    private void Flip() {
+        FacingDirection *= -1;
+        SR.flipX = FacingDirection != 1;
+>>>>>>> Stashed changes
     }
 
     private void OnDrawGizmos() { // Used to Check Wall Check Distance

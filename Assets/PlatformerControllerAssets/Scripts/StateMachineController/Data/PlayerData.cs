@@ -5,6 +5,12 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "newPlayerData", menuName = "Data/Player Data/Base Data")]
 public class PlayerData : ScriptableObject
 {
+<<<<<<< Updated upstream
+=======
+    [Header("Debug Variables")]
+    public bool debugMode;
+
+>>>>>>> Stashed changes
     [Header("Move State")]
     public float movementVelocity = 10f;
 

@@ -12,8 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d5bb471874fe04439427bf34aa7db95, type: 3}
   m_Name: playerData
   m_EditorClassIdentifier: 
+<<<<<<< Updated upstream
   movementVelocity: 10
   jumpVelocity: 23
+=======
+  debugMode: 1
+  movementVelocity: 12
+  jumpVelocity: 30
+>>>>>>> Stashed changes
   amountOfJumps: 1
   coyoteTime: 0.2
   variableJumpHeightMultiplier: 0.5

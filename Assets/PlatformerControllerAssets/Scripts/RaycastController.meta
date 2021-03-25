@@ -1,5 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< Updated upstream
 guid: 4784d449560e7674881f4fd5573f6bf7
+=======
+<<<<<<< Updated upstream:Assets/Animations/Jaden.meta
+guid: d8c06a5b815b56a4fa6b856ceca6c828
+=======
+guid: 4784d449560e7674881f4fd5573f6bf7
+>>>>>>> Stashed changes:Assets/PlatformerControllerAssets/Scripts/RaycastController.meta
+>>>>>>> Stashed changes
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

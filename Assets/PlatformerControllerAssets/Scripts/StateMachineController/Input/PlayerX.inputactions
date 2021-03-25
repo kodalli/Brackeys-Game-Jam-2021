@@ -28,6 +28,25 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+<<<<<<< Updated upstream
+=======
+                },
+                {
+                    "name": "DashDirection",
+                    "type": "Value",
+                    "id": "7f1e653d-14b4-4eeb-a799-b49eebf89146",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "DashDirectionKeyboard",
+                    "type": "Value",
+                    "id": "52885834-387d-40a0-bffa-b6ed9edcee09",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": ""
+>>>>>>> Stashed changes
                 }
             ],
             "bindings": [
@@ -137,9 +156,92 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
+<<<<<<< Updated upstream
                     "action": "Grab",
                     "isComposite": false,
                     "isPartOfComposite": false
+=======
+                    "action": "Dash",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "df4d5698-f561-4868-a010-13b45a6c09e1",
+                    "path": "<Gamepad>/leftStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "DashDirection",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "90a2e896-04ba-4c6e-ad15-ebd9f8908ce8",
+                    "path": "<Mouse>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "DashDirection",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "2D Vector",
+                    "id": "bba59c1f-e132-47a0-bedd-0200c24d8584",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "DashDirectionKeyboard",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "28d7e17e-8eba-4c16-8481-d619996cfe8b",
+                    "path": "<Keyboard>/upArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "DashDirectionKeyboard",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "623442c3-ff21-4dff-98fd-94d3a68597cb",
+                    "path": "<Keyboard>/downArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "DashDirectionKeyboard",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "e3210ac5-e125-43b9-9002-b2d8d48a4f17",
+                    "path": "<Keyboard>/leftArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "DashDirectionKeyboard",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "ffa0fbbd-2979-4274-a271-68f4ff5b3752",
+                    "path": "<Keyboard>/rightArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "DashDirectionKeyboard",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+>>>>>>> Stashed changes
                 }
             ]
         }

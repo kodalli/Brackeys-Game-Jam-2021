@@ -19,7 +19,11 @@ public class RaycastController : MonoBehaviour {
 	public float verticalRaySpacing;
 
 	[HideInInspector]
+<<<<<<< Updated upstream
 	public BoxCollider2D collider;
+=======
+	new BoxCollider2D collider;
+>>>>>>> Stashed changes
 	public RaycastOrigins raycastOrigins;
 
 	public virtual void Awake() {
