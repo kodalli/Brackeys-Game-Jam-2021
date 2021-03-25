@@ -37,7 +37,7 @@ public class PlayerState{
         DoChecks();
     }
     public virtual void DoChecks() { }
-    public virtual void AnimationTrigger() { }
+    public virtual void AnimationTrigger() { } 
     public virtual void AnimationFinishTrigger() => isAnimationFinished = true;
 
 

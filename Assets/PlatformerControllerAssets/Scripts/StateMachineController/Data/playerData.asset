@@ -12,25 +12,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d5bb471874fe04439427bf34aa7db95, type: 3}
   m_Name: playerData
   m_EditorClassIdentifier: 
-<<<<<<< Updated upstream
-  movementVelocity: 10
-  jumpVelocity: 23
-=======
   debugMode: 1
+  bulletDamage: 1
+  bulletSpeed: 20
+  bulletDirection: {x: 1, y: 0}
+  bulletDestroyDelay: 2
   movementVelocity: 12
   jumpVelocity: 30
->>>>>>> Stashed changes
   amountOfJumps: 1
   coyoteTime: 0.2
   variableJumpHeightMultiplier: 0.5
+  dashCoolDown: 0.5
+  dashMaxHoldTime: 1
+  holdTimeScale: 0.25
+  dashTime: 0.3
+  dashVelocity: 70
+  drag: 10
+  variableDashMultiplier: 0
+  distanceBetweenAfterImages: 0.5
+  dashTimeFreeze: 0
   wallSlideVelocity: 2
-  wallJumpVelocity: 20
+  wallJumpVelocity: 30
   wallJumpTime: 0.4
   wallJumpAngle: {x: 1, y: 2}
-  startOffset: {x: 0.6, y: 0.675}
-  stopOffset: {x: 0, y: 0}
+  startOffset: {x: 0.85, y: 0.9}
+  stopOffset: {x: 0.5, y: 2}
+  ledgeHangTime: 4
   groundCheckRadius: 0.3
-  wallCheckDistance: 0.7
+  wallCheckDistance: 1.2
   whatIsGround:
     serializedVersion: 2
     m_Bits: 256

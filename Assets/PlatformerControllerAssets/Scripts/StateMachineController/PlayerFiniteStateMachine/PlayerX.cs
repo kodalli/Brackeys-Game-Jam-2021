@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-public class PlayerX : MonoBehaviour {
+public class PlayerX : Singleton<PlayerX> {
 
     #region Unity Editor Functions
 #if UNITY_EDITOR
     void OnGUI() {
-        if (!debugMode) return;
+        if (!playerData.debugMode) return;
 
         // Calculate Frame Rate
         var current = (int)(1f / Time.unscaledDeltaTime);
@@ -36,18 +36,19 @@ public class PlayerX : MonoBehaviour {
     public PlayerWallSlideState WallSlideState { get; private set; }
     public PlayerWallJumpState WallJumpState { get; private set; }
     public PlayerLedgeClimbState LedgeClimbState { get; private set; }
-<<<<<<< Updated upstream
-=======
     public PlayerDashState DashState { get; private set; }
->>>>>>> Stashed changes
-
+    public PlayerShootState ShootState { get; private set; }
     [SerializeField] private PlayerData playerData;
     #endregion
 
     #region Components
-    public Animator Anim { get; private set; }
     public PlayerInputHandler InputHandler { get; private set; }
+    public Animator Anim { get; private set; }
     public Rigidbody2D RB { get; private set; }
+    public SpriteRenderer SR { get; private set; }
+    public Transform DashTimeIndicator { get; private set; }
+    public Transform DashDirectionIndicator { get; private set; }
+    public Material DashTimeIndicatorMaterial { get; private set; }
 
     #endregion
 
@@ -64,11 +65,8 @@ public class PlayerX : MonoBehaviour {
     public Vector2 CurrentVelocity { get; private set; }
     public int FacingDirection { get; private set; }
 
-<<<<<<< Updated upstream
-    public bool debugMode = true;
+    private Transform BulletShootPos;
 
-=======
->>>>>>> Stashed changes
     #endregion
 
     #region Unity Callback Functions
@@ -83,31 +81,28 @@ public class PlayerX : MonoBehaviour {
         WallSlideState = new PlayerWallSlideState(this, StateMachine, playerData, "wallSlide");
         WallJumpState = new PlayerWallJumpState(this, StateMachine, playerData, "inAir");
         LedgeClimbState = new PlayerLedgeClimbState(this, StateMachine, playerData, "ledgeClimbState");
-<<<<<<< Updated upstream
-=======
         DashState = new PlayerDashState(this, StateMachine, playerData, "dash");
->>>>>>> Stashed changes
-
+        ShootState = new PlayerShootState(this, StateMachine, playerData, "shoot");
     }
     private void Start() {
         Anim = GetComponent<Animator>();
         InputHandler = GetComponent<PlayerInputHandler>();
         RB = GetComponent<Rigidbody2D>();
-<<<<<<< Updated upstream
-=======
         SR = GetComponent<SpriteRenderer>();
         DashDirectionIndicator = transform.Find("DashDirectionIndicator");
         DashTimeIndicator = transform.Find("DashTimeIndicator");
         DashTimeIndicatorMaterial = DashTimeIndicator.GetComponent<Renderer>().material;
->>>>>>> Stashed changes
+        BulletShootPos = transform.Find("BulletShootPos");
 
         FacingDirection = 1;
 
         StateMachine.Initialize(IdleState);
     }
+
     private void Update() {
         CurrentVelocity = RB.velocity;
         StateMachine.CurrentState.LogicUpdate();
+
     }
     private void FixedUpdate() {
         StateMachine.CurrentState.PhysicsUpdate();
@@ -128,6 +123,11 @@ public class PlayerX : MonoBehaviour {
         RB.velocity = previousVelocity;
         CurrentVelocity = previousVelocity;
     }
+    public void SetDashVelocity(float velocity, Vector2 direction) {
+        previousVelocity = direction * velocity;
+        RB.velocity = previousVelocity;
+        CurrentVelocity = previousVelocity;
+    }
 
     public void SetVelocityX(float velocity) {
         previousVelocity.Set(velocity, CurrentVelocity.y);
@@ -138,6 +138,20 @@ public class PlayerX : MonoBehaviour {
         previousVelocity.Set(CurrentVelocity.x, velocity);
         RB.velocity = previousVelocity;
         CurrentVelocity = previousVelocity;
+    }
+
+    private void Flip() {
+        FacingDirection *= -1;
+        transform.Rotate(0.0f, 180.0f, 0.0f);
+        // SR.flipX = FacingDirection != 1;
+    }
+    public void ShootBullet() {
+        GameObject bullet = Instantiate((GameObject)Resources.Load("Bullet"), BulletShootPos.position, Quaternion.identity);
+        // bullet.name = BulletPrefab.name; // Instantiate creates a copy and renames it to clone --  this sets it back for visual convenience
+        bullet.GetComponent<BulletScript>().SetDamageValue(playerData.bulletDamage);
+        bullet.GetComponent<BulletScript>().SetBulletSpeed(playerData.bulletSpeed);
+        bullet.GetComponent<BulletScript>().SetBulletDirection((FacingDirection == 1) ? Vector2.right : Vector2.left);
+        bullet.GetComponent<BulletScript>().Shoot();
     }
 
     #endregion
@@ -154,24 +168,6 @@ public class PlayerX : MonoBehaviour {
             Flip();
         }
     }
-
-    #endregion
-
-<<<<<<< Updated upstream
-    #region Other Functions
-
-=======
-    #region Animation Triggers
-    private void AnimationTrigger() => StateMachine.CurrentState.AnimationTrigger();
-    private void AnimationFinishTrigger() => StateMachine.CurrentState.AnimationFinishTrigger();
-
-    #endregion
-
-    #region Other Functions
-
-    // Used so Animation Events on animations can be used
-
->>>>>>> Stashed changes
     public Vector2 DetermineCornerPos() {
         RaycastHit2D xHit = Physics2D.Raycast(wallCheck.position, Vector2.right * FacingDirection, playerData.wallCheckDistance, playerData.whatIsGround);
         float xDistance = xHit.distance;
@@ -184,26 +180,22 @@ public class PlayerX : MonoBehaviour {
         return previousVelocity;
     }
 
-<<<<<<< Updated upstream
-    private void AnimationTrigger() => StateMachine.CurrentState.AnimationTrigger();
+    #endregion
 
-    private void AnimationFinishTrigger() => StateMachine.CurrentState.AnimationFinishTrigger();
-
-    private void Flip() {
-        FacingDirection *= -1;
-        transform.Rotate(0.0f, 180.0f, 0.0f);
-=======
-
-    private void Flip() {
-        FacingDirection *= -1;
-        SR.flipX = FacingDirection != 1;
->>>>>>> Stashed changes
-    }
+    #region Other Functions
 
     private void OnDrawGizmos() { // Used to Check Wall Check Distance
         Gizmos.color = Color.red;
         Gizmos.DrawLine(wallCheck.position, wallCheck.position + (Vector3)(Vector2.right * playerData.wallCheckDistance * FacingDirection));
     }
+    #endregion
+
+    #region Animation Triggers
+
+    // Used so Animation Events on animations can be used
+    private void AnimationTrigger() => StateMachine.CurrentState.AnimationTrigger();
+    private void AnimationFinishTrigger() => StateMachine.CurrentState.AnimationFinishTrigger();
+
     #endregion
 
 }

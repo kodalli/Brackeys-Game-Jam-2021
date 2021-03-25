@@ -8,6 +8,7 @@ TagManager:
   - Sign
   - BattleNPC
   - ItemPickup
+  - Confiner
   layers:
   - Default
   - TransparentFX
@@ -19,7 +20,7 @@ TagManager:
   - 
   - Ground
   - Player
-  - 
+  - Enemy
   - 
   - 
   - 
@@ -50,9 +51,6 @@ TagManager:
     locked: 0
   - name: Platforms
     uniqueID: 245177153
-    locked: 0
-  - name: walls
-    uniqueID: 390323707
     locked: 0
   - name: Decorations
     uniqueID: 3097172403

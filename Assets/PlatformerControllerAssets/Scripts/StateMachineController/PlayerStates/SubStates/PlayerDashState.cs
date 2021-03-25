@@ -61,7 +61,7 @@ public class PlayerDashState : PlayerAbilityState {
             // Logic for when Dash button is being held down
             if (isHolding) {
 
-                // player.DashTimeIndicatorMaterial.SetFloat(HealthBar, Time.unscaledTime - stateEntryTime);
+                player.DashTimeIndicatorMaterial.SetFloat(HealthBar, Time.unscaledTime - startTime);
 
                 // ** Set all InputHandler variables **
                 dashX = player.InputHandler.DashInputX;
@@ -84,7 +84,6 @@ public class PlayerDashState : PlayerAbilityState {
     private void ApplyDash() {
         isHolding = false;
         startTime = Time.time;
-        Debug.Log(startTime);
         player.DashTimeIndicator.gameObject.SetActive(false);
         if (playerData.dashTimeFreeze) Time.timeScale = 1f; // Enable Time Freeze
 

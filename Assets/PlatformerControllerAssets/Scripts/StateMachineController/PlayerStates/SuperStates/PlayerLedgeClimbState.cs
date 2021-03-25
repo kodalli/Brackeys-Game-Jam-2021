@@ -18,8 +18,7 @@ public class PlayerLedgeClimbState : PlayerState {
     private int yInput;
     private bool jumpInput;
 
-    private float stateTime = 0.0f;
-    private readonly float debugTime = 5f;
+    // private float stateTime = 0.0f;
 
     public PlayerLedgeClimbState(PlayerX player, PlayerStateMachine stateMachine, PlayerData playerData, string animBoolName) : base(player, stateMachine, playerData, animBoolName) {
     }
@@ -36,7 +35,8 @@ public class PlayerLedgeClimbState : PlayerState {
     public override void Enter() {
         base.Enter();
 
-        stateTime = 0f;
+        // stateTime = 0f;
+        startTime = 0f;
 
         player.SetVelocityToZero();
         player.transform.position = detectedPos;
@@ -99,10 +99,10 @@ public class PlayerLedgeClimbState : PlayerState {
     private void HandleStuckInWall() {
 
         // seconds in float
-        stateTime += Time.deltaTime;
+        startTime += Time.deltaTime;
         // turn seconds in float to int
-        var seconds = (int)(stateTime % 60);
-        if (seconds > debugTime) {
+        var seconds = (int)(startTime % 60);
+        if (seconds > playerData.ledgeHangTime) {
             isLedgeJumping = true;
             stateMachine.ChangeState(player.JumpState);
         }

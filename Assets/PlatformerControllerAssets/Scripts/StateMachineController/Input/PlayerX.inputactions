@@ -22,20 +22,10 @@
                     "interactions": ""
                 },
                 {
-                    "name": "Grab",
+                    "name": "Dash",
                     "type": "Button",
                     "id": "9b958950-9a41-415e-bff3-ce5f19bd2899",
                     "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": ""
-<<<<<<< Updated upstream
-=======
-                },
-                {
-                    "name": "DashDirection",
-                    "type": "Value",
-                    "id": "7f1e653d-14b4-4eeb-a799-b49eebf89146",
-                    "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": ""
                 },
@@ -46,7 +36,14 @@
                     "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": ""
->>>>>>> Stashed changes
+                },
+                {
+                    "name": "Shoot",
+                    "type": "Button",
+                    "id": "d7c56ec5-7b08-4714-9fc6-9685a4ec574a",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -141,11 +138,11 @@
                 {
                     "name": "",
                     "id": "2a54de6f-fe48-4e38-aa27-bc12b216a5cb",
-                    "path": "<Keyboard>/ctrl",
+                    "path": "<Keyboard>/e",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
-                    "action": "Grab",
+                    "action": "Dash",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -156,34 +153,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
-<<<<<<< Updated upstream
-                    "action": "Grab",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-=======
                     "action": "Dash",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "df4d5698-f561-4868-a010-13b45a6c09e1",
-                    "path": "<Gamepad>/leftStick",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Gamepad",
-                    "action": "DashDirection",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "90a2e896-04ba-4c6e-ad15-ebd9f8908ce8",
-                    "path": "<Mouse>/position",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard",
-                    "action": "DashDirection",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -241,9 +211,25 @@
                     "action": "DashDirectionKeyboard",
                     "isComposite": false,
                     "isPartOfComposite": true
->>>>>>> Stashed changes
+                },
+                {
+                    "name": "",
+                    "id": "fc47b0b5-eeda-4a43-8aa3-171d889dec15",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "Shoot",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "Dialogue",
+            "id": "5e07feb1-1979-4993-8c6a-c12d3eacd0c8",
+            "actions": [],
+            "bindings": []
         }
     ],
     "controlSchemes": [
