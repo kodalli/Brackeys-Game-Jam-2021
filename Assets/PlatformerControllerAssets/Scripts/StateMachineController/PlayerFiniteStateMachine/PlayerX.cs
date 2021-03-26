@@ -16,14 +16,21 @@ public class PlayerX : Singleton<PlayerX> {
 
         // Show Current State 
         GUIStyle guiStyle = new GUIStyle();
-        guiStyle.fontSize = 40;
+        guiStyle.fontSize = 50;
         string state = StateMachine.CurrentState.ToString();
 
         // Display on Editor Window
         GUI.Label(new Rect(0, 0, 1000, 100), state, guiStyle);
         GUI.Label(new Rect(0, 100, 1000, 100), avgFrameRate.ToString(), guiStyle);
+        GUI.Label(new Rect(0, 200, 1000, 100), "Health:" + currentHealth.ToString(), guiStyle);
+
     }
 #endif
+    #endregion
+
+    #region Player Info Variables
+    public int currentHealth;
+    public int maxHealth = 100;
     #endregion
 
     #region State Variables
@@ -38,6 +45,8 @@ public class PlayerX : Singleton<PlayerX> {
     public PlayerLedgeClimbState LedgeClimbState { get; private set; }
     public PlayerDashState DashState { get; private set; }
     public PlayerShootState ShootState { get; private set; }
+    public PlayerHit1State Hit1State { get; private set; }
+
     [SerializeField] private PlayerData playerData;
     #endregion
 
@@ -83,6 +92,7 @@ public class PlayerX : Singleton<PlayerX> {
         LedgeClimbState = new PlayerLedgeClimbState(this, StateMachine, playerData, "ledgeClimbState");
         DashState = new PlayerDashState(this, StateMachine, playerData, "dash");
         ShootState = new PlayerShootState(this, StateMachine, playerData, "shoot");
+        Hit1State = new PlayerHit1State(this, StateMachine, playerData, "hit1");
     }
     private void Start() {
         Anim = GetComponent<Animator>();
@@ -95,6 +105,8 @@ public class PlayerX : Singleton<PlayerX> {
         BulletShootPos = transform.Find("BulletShootPos");
 
         FacingDirection = 1;
+
+        currentHealth = maxHealth;
 
         StateMachine.Initialize(IdleState);
     }
@@ -198,4 +210,10 @@ public class PlayerX : Singleton<PlayerX> {
 
     #endregion
 
+    #region Hit Functions
+
+    public void Defeat() {
+        Destroy(gameObject);
+    }
+    #endregion
 }
