@@ -46,8 +46,7 @@ public class PlayerGroundedState : PlayerState {
             stateMachine.ChangeState(player.InAirState);
         } else if (dashInput && player.DashState.CheckIfCanDash()) {
             stateMachine.ChangeState(player.DashState);
-        }
-        else if (keyShoot || (keyShoot && xInput != 0)) {
+        } else if (keyShoot || (keyShoot && xInput != 0)) {
             stateMachine.ChangeState(player.ShootState);
         }
     }

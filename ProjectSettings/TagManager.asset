@@ -9,6 +9,7 @@ TagManager:
   - BattleNPC
   - ItemPickup
   - Confiner
+  - Enemy
   layers:
   - Default
   - TransparentFX

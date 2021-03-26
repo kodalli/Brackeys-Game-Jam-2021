@@ -90,14 +90,11 @@ public class PlayerInAirState : PlayerState {
         //}
         else if(jumpInput && player.JumpState.canJump()) {
             stateMachine.ChangeState(player.JumpState);
-        }
-        else if(isTouchingWall && xInput == player.FacingDirection && player.CurrentVelocity.y <= 0) {
+        } else if(isTouchingWall && xInput == player.FacingDirection && player.CurrentVelocity.y <= 0) {
             stateMachine.ChangeState(player.WallSlideState);
-        }
-        else if(dashInput && player.DashState.CheckIfCanDash()) {
+        } else if(dashInput && player.DashState.CheckIfCanDash()) {
             stateMachine.ChangeState(player.DashState);
-        }
-        else {
+        } else {
             player.CheckIfShouldFlip(xInput);
             player.SetVelocityX(playerData.movementVelocity * xInput);
 

@@ -42,6 +42,13 @@ public class BulletScript : MonoBehaviour {
         destroyTime = bulletDestroyDelay;
     }
     private void OnTriggerEnter2D(Collider2D other) {
+        if (other.gameObject.CompareTag("Enemy")) {
+            EnemyController enemy = other.gameObject.GetComponent<EnemyController>();
+            if(enemy != null) {
+                enemy.TakeDamage(this.bulletDamage);
+            }
+            Destroy(gameObject);
+        }
     }
 
 

@@ -77,6 +77,81 @@ TextureImporter:
   - first:
       213: -2285816277167521911
     second: 0 4_24
+  - first:
+      213: 75731022846932990
+    second: ZX_damaged_0
+  - first:
+      213: -6126661045286476760
+    second: ZX_damaged_1
+  - first:
+      213: -3192578143079119233
+    second: ZX_damaged_2
+  - first:
+      213: -7620801830942818501
+    second: ZX_damaged_3
+  - first:
+      213: -406115290222078487
+    second: ZX_damaged_4
+  - first:
+      213: -978143595597603620
+    second: ZX_damaged_5
+  - first:
+      213: 1085942664134801577
+    second: ZX_damaged_6
+  - first:
+      213: 1299745372044507431
+    second: ZX_damaged_7
+  - first:
+      213: 2864998378908822053
+    second: ZX_damaged_8
+  - first:
+      213: -5400855003870859707
+    second: ZX_damaged_9
+  - first:
+      213: -4908028425648104169
+    second: ZX_damaged_10
+  - first:
+      213: 559025065248584579
+    second: ZX_damaged_11
+  - first:
+      213: 1792009181732086265
+    second: ZX_damaged_12
+  - first:
+      213: -4964262545227001258
+    second: ZX_damaged_13
+  - first:
+      213: 1614314257910552136
+    second: ZX_damaged_14
+  - first:
+      213: 2212505325000200056
+    second: ZX_damaged_15
+  - first:
+      213: 7252436387314325379
+    second: ZX_damaged_16
+  - first:
+      213: 669797014382583000
+    second: ZX_damaged_17
+  - first:
+      213: 5703624064964366976
+    second: ZX_damaged_18
+  - first:
+      213: 4184227158292083558
+    second: ZX_damaged_19
+  - first:
+      213: 2450627380232522273
+    second: ZX_damaged_20
+  - first:
+      213: 2358618314411067588
+    second: ZX_damaged_21
+  - first:
+      213: -5657275343365800359
+    second: ZX_damaged_22
+  - first:
+      213: -5705351561645713098
+    second: ZX_damaged_23
+  - first:
+      213: -5261403795778943358
+    second: ZX_damaged_24
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -190,526 +265,526 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 0 4_0
+      name: ZX_damaged_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 39
         height: 37
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e541eb189744c6e80800000000000000
-      internalID: -8184091134180584354
+      spriteID: ef7b44bc6fc0d0100800000000000000
+      internalID: 75731022846932990
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 0 4_1
+      name: ZX_damaged_1
       rect:
         serializedVersion: 2
         x: 41
         y: 0
         width: 39
         height: 39
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 453d6a947d5d1dda0800000000000000
-      internalID: -5921716914385136812
+      spriteID: 824e9706d3ab9faa0800000000000000
+      internalID: -6126661045286476760
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 0 4_2
+      name: ZX_damaged_2
       rect:
         serializedVersion: 2
         x: 82
         y: 0
         width: 40
         height: 39
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 81b83cdff80ea0820800000000000000
-      internalID: 2885365420326619928
+      spriteID: f76c718081fa1b3d0800000000000000
+      internalID: -3192578143079119233
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 0 4_3
+      name: ZX_damaged_3
       rect:
         serializedVersion: 2
         x: 124
         y: 0
         width: 43
         height: 27
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c629e3f96e0afed90800000000000000
-      internalID: -7066252377946418580
+      spriteID: b3fb10b8c197d3690800000000000000
+      internalID: -7620801830942818501
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 0 4_4
+      name: ZX_damaged_4
       rect:
         serializedVersion: 2
         x: 169
         y: 0
         width: 32
         height: 31
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 409f723ae28731d00800000000000000
-      internalID: 942228888751700228
+      spriteID: 9e555749b403d5af0800000000000000
+      internalID: -406115290222078487
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 0 4_5
+      name: ZX_damaged_5
       rect:
         serializedVersion: 2
         x: 203
         y: 0
         width: 32
         height: 31
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2d6f809cfdf5b5090800000000000000
-      internalID: -8044730894612105518
+      spriteID: cdcd41d059fec62f0800000000000000
+      internalID: -978143595597603620
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 0 4_6
+      name: ZX_damaged_6
       rect:
         serializedVersion: 2
         x: 240
         y: 0
         width: 33
         height: 30
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 14dc5345cfab3b580800000000000000
-      internalID: -8812494452926591679
+      spriteID: 9a83236791b021f00800000000000000
+      internalID: 1085942664134801577
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 0 4_7
+      name: ZX_damaged_7
       rect:
         serializedVersion: 2
         x: 275
         y: 0
         width: 33
         height: 29
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a1ec88ef82c6b8610800000000000000
-      internalID: 1624511013922065946
+      spriteID: 729bb2f878f990210800000000000000
+      internalID: 1299745372044507431
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 0 4_8
+      name: ZX_damaged_8
       rect:
         serializedVersion: 2
         x: 310
         y: 0
         width: 32
         height: 37
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 82e04e735cd420f30800000000000000
-      internalID: 4540276883784470056
+      spriteID: 52a2ee0a8d482c720800000000000000
+      internalID: 2864998378908822053
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 0 4_9
+      name: ZX_damaged_9
       rect:
         serializedVersion: 2
         x: 344
         y: 0
         width: 30
         height: 37
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 030bd3a850bbb6920800000000000000
-      internalID: 2984684810531614768
+      spriteID: 54ee2ea2dfe4c05b0800000000000000
+      internalID: -5400855003870859707
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 0 4_10
+      name: ZX_damaged_10
       rect:
         serializedVersion: 2
         x: 376
         y: 0
         width: 30
         height: 38
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2a78dfcbd8ceb5070800000000000000
-      internalID: 8096324848633874338
+      spriteID: 71d99b5962e23ebb0800000000000000
+      internalID: -4908028425648104169
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 0 4_11
+      name: ZX_damaged_11
       rect:
         serializedVersion: 2
         x: 408
         y: 0
         width: 30
         height: 39
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b724f6ad7853cd170800000000000000
-      internalID: 8204491478763782779
+      spriteID: 3837ea2c55e02c700800000000000000
+      internalID: 559025065248584579
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 0 4_12
+      name: ZX_damaged_12
       rect:
         serializedVersion: 2
         x: 441
         y: 0
         width: 30
         height: 39
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 69d87f21c8f7de5b0800000000000000
-      internalID: -5337469743773807210
+      spriteID: 9f121673bde7ed810800000000000000
+      internalID: 1792009181732086265
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 0 4_13
+      name: ZX_damaged_13
       rect:
         serializedVersion: 2
         x: 473
         y: 0
         width: 30
         height: 38
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 07b18da8f0d0d8860800000000000000
-      internalID: 7533692112065796976
+      spriteID: 652d7f354856b1bb0800000000000000
+      internalID: -4964262545227001258
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 0 4_14
+      name: ZX_damaged_14
       rect:
         serializedVersion: 2
         x: 505
         y: 0
         width: 30
         height: 38
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6ddcaf4c8d08c3090800000000000000
-      internalID: -8053420365139227178
+      spriteID: 8465b9ab342376610800000000000000
+      internalID: 1614314257910552136
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 0 4_15
+      name: ZX_damaged_15
       rect:
         serializedVersion: 2
         x: 537
         y: 0
         width: 34
         height: 41
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2061bdac10ceb6000800000000000000
-      internalID: 30377314950518274
+      spriteID: 87f0c48eed564be10800000000000000
+      internalID: 2212505325000200056
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 0 4_16
+      name: ZX_damaged_16
       rect:
         serializedVersion: 2
         x: 573
         y: 0
         width: 25
         height: 43
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bdd86de8144ff15a0800000000000000
-      internalID: -6548246770766934565
+      spriteID: 387dcfd1874d5a460800000000000000
+      internalID: 7252436387314325379
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 0 4_17
+      name: ZX_damaged_17
       rect:
         serializedVersion: 2
         x: 600
         y: 0
         width: 23
         height: 44
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 276729d477cbddfe0800000000000000
-      internalID: -1162565908203145614
+      spriteID: 8dc14e9f5d89b4900800000000000000
+      internalID: 669797014382583000
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 0 4_18
+      name: ZX_damaged_18
       rect:
         serializedVersion: 2
         x: 625
         y: 0
         width: 24
         height: 44
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fe31cddc62db72b30800000000000000
-      internalID: 4262583546689623023
+      spriteID: 08212943ed7572f40800000000000000
+      internalID: 5703624064964366976
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 0 4_19
+      name: ZX_damaged_19
       rect:
         serializedVersion: 2
         x: 651
         y: 0
         width: 24
         height: 44
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b895433966bcf8330800000000000000
-      internalID: 3715411859020732811
+      spriteID: 663ba857e6c511a30800000000000000
+      internalID: 4184227158292083558
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 0 4_20
+      name: ZX_damaged_20
       rect:
         serializedVersion: 2
         x: 677
         y: 0
         width: 24
         height: 44
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f347134a3a7d7c040800000000000000
-      internalID: 4667936636627153983
+      spriteID: 12a0b9b4e90620220800000000000000
+      internalID: 2450627380232522273
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 0 4_21
+      name: ZX_damaged_21
       rect:
         serializedVersion: 2
         x: 703
         y: 0
         width: 24
         height: 44
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 375e654992374ae60800000000000000
-      internalID: 7972623862772196723
+      spriteID: 4c8c3374cde7bb020800000000000000
+      internalID: 2358618314411067588
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 0 4_22
+      name: ZX_damaged_22
       rect:
         serializedVersion: 2
         x: 729
         y: 0
         width: 35
         height: 42
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7e7a70f634cc583e0800000000000000
-      internalID: -2052009465199745049
+      spriteID: 95efa1a7c025d71b0800000000000000
+      internalID: -5657275343365800359
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 0 4_23
+      name: ZX_damaged_23
       rect:
         serializedVersion: 2
         x: 766
         y: 0
         width: 38
         height: 41
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1db4267b69fb4c010800000000000000
-      internalID: 1208301254084807633
+      spriteID: 6391361abf482d0b0800000000000000
+      internalID: -5705351561645713098
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 0 4_24
+      name: ZX_damaged_24
       rect:
         serializedVersion: 2
         x: 806
         y: 0
         width: 40
         height: 39
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 98fbf99e4362740e0800000000000000
-      internalID: -2285816277167521911
+      spriteID: 28644b4bf1dbbf6b0800000000000000
+      internalID: -5261403795778943358
       vertices: []
       indices: 
       edges: []

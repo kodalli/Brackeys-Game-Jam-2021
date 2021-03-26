@@ -19,7 +19,7 @@ MonoBehaviour:
   bulletDestroyDelay: 2
   movementVelocity: 12
   jumpVelocity: 30
-  amountOfJumps: 1
+  amountOfJumps: 2
   coyoteTime: 0.2
   variableJumpHeightMultiplier: 0.5
   dashCoolDown: 0.5
