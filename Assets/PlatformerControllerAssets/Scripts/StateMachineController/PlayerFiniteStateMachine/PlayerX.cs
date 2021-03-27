@@ -20,9 +20,9 @@ public class PlayerX : Singleton<PlayerX> {
         string state = StateMachine.CurrentState.ToString();
 
         // Display on Editor Window
-        GUI.Label(new Rect(0, 0, 1000, 100), state, guiStyle);
-        GUI.Label(new Rect(0, 100, 1000, 100), avgFrameRate.ToString(), guiStyle);
-        GUI.Label(new Rect(0, 200, 1000, 100), "Health:" + currentHealth.ToString(), guiStyle);
+        GUI.Label(new Rect(3000, 0, 1000, 100), state, guiStyle);
+        GUI.Label(new Rect(3000, 100, 1000, 100), avgFrameRate.ToString(), guiStyle);
+        GUI.Label(new Rect(3000, 200, 1000, 100), "Health:" + currentHealth.ToString(), guiStyle);
 
     }
 #endif
@@ -31,6 +31,7 @@ public class PlayerX : Singleton<PlayerX> {
     #region Player Info Variables
     public int currentHealth;
     public int maxHealth = 100;
+
     #endregion
 
     #region State Variables
@@ -154,7 +155,10 @@ public class PlayerX : Singleton<PlayerX> {
 
     private void Flip() {
         FacingDirection *= -1;
-        transform.Rotate(0.0f, 180.0f, 0.0f);
+        var scale = transform.localScale; 
+        scale.x *= -1; 
+        transform.localScale = scale;
+        // transform.Rotate(0.0f, 180.0f, 0.0f);
         // SR.flipX = FacingDirection != 1;
     }
     public void ShootBullet() {
@@ -210,7 +214,7 @@ public class PlayerX : Singleton<PlayerX> {
 
     #endregion
 
-    #region Hit Functions
+    #region Damage
 
     public void Defeat() {
         Destroy(gameObject);

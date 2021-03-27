@@ -8,8 +8,10 @@ public class PlayerHit1State : PlayerDamagedState {
     bool isInvincible;
     bool hitSideRight;
 
-    float hitForceX = 7f;
-    float hitForceY = 5f;
+    public int enemyDamage = 1;
+
+    float hitForceX;
+    float hitForceY;
 
     public PlayerHit1State(PlayerX player, PlayerStateMachine stateMachine, PlayerData playerData, string animBoolName) : base(player, stateMachine, playerData, animBoolName) {
     }
@@ -26,9 +28,9 @@ public class PlayerHit1State : PlayerDamagedState {
     public override void Enter() {
         base.Enter();
 
-        hitForceX = 10f; hitForceY = 5f;
+        hitForceX = 4f; hitForceY = 5f;
 
-        TakeDamage(playerData.contactDamage);
+        TakeDamage(enemyDamage);
     }
     public override void Exit() {
         base.Exit();
@@ -49,10 +51,10 @@ public class PlayerHit1State : PlayerDamagedState {
         if (!isInvincible) {
             player.currentHealth -= damage;
             Mathf.Clamp(player.currentHealth, 0, player.maxHealth);
+            UIHealthBar.Instance.SetValue(player.currentHealth / (float)player.maxHealth);
             if (player.currentHealth <= 0) {
                 player.Defeat();
-            }
-            else {
+            } else {
                 StartDamageAnimation();
             }
         }
