@@ -10,6 +10,7 @@ TagManager:
   - ItemPickup
   - Confiner
   - Enemy
+  - Bullet
   layers:
   - Default
   - TransparentFX

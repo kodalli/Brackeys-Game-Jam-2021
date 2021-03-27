@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BulletScript : MonoBehaviour {
 
+    Animator animator;
     Rigidbody2D RB;
     SpriteRenderer SR;
 
@@ -17,6 +18,7 @@ public class BulletScript : MonoBehaviour {
     private void Awake() {
         RB = GetComponent<Rigidbody2D>();
         SR = GetComponent<SpriteRenderer>();
+        animator = GetComponent<Animator>();
     }
     private void Update() {
         destroyTime -= Time.deltaTime;

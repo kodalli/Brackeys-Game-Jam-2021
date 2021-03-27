@@ -20,7 +20,7 @@ public class PlayerRBController : MonoBehaviour {
     Vector2 movementInput;
     int keyHorizontal;
     bool keyJump;
-    bool keyShoot;
+    // bool keyShoot;
 
     bool isGrounded;
     float groundCheckRadius = 0.3f;
@@ -49,8 +49,8 @@ public class PlayerRBController : MonoBehaviour {
         keyHorizontal = (int)(movementInput * Vector2.right).normalized.x;
         playerActionControls.Gameplay.Jump.performed += _ => keyJump = true;
         playerActionControls.Gameplay.Jump.canceled += _ => keyJump = false;
-        playerActionControls.Gameplay.Shoot.performed += _ => keyShoot = true;
-        playerActionControls.Gameplay.Shoot.canceled += _ => keyShoot = false;
+        // playerActionControls.Gameplay.Shoot.performed += _ => keyShoot = true;
+        // playerActionControls.Gameplay.Shoot.canceled += _ => keyShoot = false;
 
         keyHorizontal = (int)Input.GetAxisRaw("Horizontal");
 

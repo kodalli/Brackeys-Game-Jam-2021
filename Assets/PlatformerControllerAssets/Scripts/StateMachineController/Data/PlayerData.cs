@@ -3,19 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "newPlayerData", menuName = "Player Data")]
-public class PlayerData : ScriptableObject
-{
+public class PlayerData : ScriptableObject {
     [Header("Debug Variables")]
     public bool debugMode;
 
     [Header("Player Shoot Info")]
     public float bulletDamage = 1f;
     public float bulletSpeed = 5f;
-    public Vector2 bulletDirection = new Vector2(1,0);
+    public Vector2 bulletDirection = new Vector2(1, 0);
     public float bulletDestroyDelay = 2f;
-
-    [Header("Enemy Damage Info")]
-    public int contactDamage = 1;
 
     [Header("Move State")]
     public float movementVelocity = 10f;
