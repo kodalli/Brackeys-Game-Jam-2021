@@ -14,6 +14,7 @@ public class EnemyController : MonoBehaviour {
     void Start() {
         currentHealth = maxHealth;
     }
+
     public void Invincible(bool invincibility) {
         isInvincible = invincibility;
     }
@@ -21,7 +22,7 @@ public class EnemyController : MonoBehaviour {
         if (!isInvincible) {
             currentHealth -= (int)damage;
             Mathf.Clamp(currentHealth, 0, maxHealth);
-            if(currentHealth <= 0) {
+            if (currentHealth <= 0) {
                 Defeat();
             }
         }
