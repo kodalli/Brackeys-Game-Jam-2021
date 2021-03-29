@@ -8,7 +8,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(SpriteRenderer))]
 
-public class EnemyController : MonoBehaviour {
+public class EnemyController : Singleton<EnemyController> {
 
     PlayerData playerData;
     Animator animator;
@@ -19,12 +19,16 @@ public class EnemyController : MonoBehaviour {
     GameObject explodeEffect;
     [SerializeField] string explodeEffectPrefabName;
 
+    RigidbodyConstraints2D rigidbodyConstraints2D;
+
+    public bool freezeEnemy;
+
     public int currentHealth;
     public int maxHealth;
     public int contactDamage;
     public int explosionDamage;
 
-    bool isInvincible;
+    public bool isInvincible;
 
     void Start() {
         animator = GetComponent<Animator>();
@@ -36,7 +40,7 @@ public class EnemyController : MonoBehaviour {
         currentHealth = maxHealth;
     }
     public void Invincible(bool invincibility) {
-        isInvincible = invincibility;
+        this.isInvincible = invincibility;
     }
     public void TakeDamage(float damage) {
         if (!isInvincible) {
@@ -63,18 +67,26 @@ public class EnemyController : MonoBehaviour {
         yield return new WaitForSeconds(.2f);
         Destroy(gameObject);
     }
+    public void FreezeEnemy(bool freeze) {
+        if (freeze) {
+            freezeEnemy = true;
+            animator.speed = 0;
+            rigidbodyConstraints2D = rb2d.constraints;
+            rb2d.constraints = RigidbodyConstraints2D.FreezeAll;
+        } else {
+            freezeEnemy = false;
+            animator.speed = 1;
+            rb2d.constraints = rigidbodyConstraints2D;
+        }
+    }
     private void OnTriggerStay2D(Collider2D other) {
 
-        //if (other.gameObject.CompareTag("Player")) {
-        //    PlayerX player = other.gameObject.GetComponent<PlayerX>();
-        //    player.Hit1State.HitSide(transform.position.x > player.transform.position.x);
-        //    player.StateMachine.ChangeState(player.Hit1State);
-        //}
-        if (other.gameObject.CompareTag("Player")) {
-            PlayerX.Instance.Hit1State.enemyDamage = this.contactDamage;
-            PlayerX.Instance.Hit1State.HitSide(transform.position.x > PlayerX.Instance.transform.position.x);
-            PlayerX.Instance.StateMachine.ChangeState(PlayerX.Instance.Hit1State);
+        if (!isInvincible) {
+            if (other.gameObject.CompareTag("Player")) {
+                PlayerX.Instance.Hit1State.HitSide(transform.position.x > PlayerX.Instance.transform.position.x);
+                PlayerX.Instance.Hit1State.enemyDamage = this.contactDamage;
+                PlayerX.Instance.StateMachine.ChangeState(PlayerX.Instance.Hit1State);
+            }
         }
-
     }
 }

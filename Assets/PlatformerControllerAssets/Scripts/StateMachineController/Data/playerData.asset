@@ -13,10 +13,7 @@ MonoBehaviour:
   m_Name: playerData
   m_EditorClassIdentifier: 
   debugMode: 1
-  bulletDamage: 1
-  bulletSpeed: 20
-  bulletDirection: {x: 1, y: 0}
-  bulletDestroyDelay: 2
+  maxHealth: 50
   movementVelocity: 12
   jumpVelocity: 30
   amountOfJumps: 2
@@ -43,3 +40,9 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 256
+  bulletDamage: 1
+  bulletSpeed: 20
+  bulletDirection: {x: 1, y: 0}
+  bulletDestroyDelay: 2
+  explodeEffectPrefab: {fileID: 265998454967612348, guid: 5c5e134b9acf7d746afaeaa3a28417f8,
+    type: 3}

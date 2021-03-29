@@ -54,8 +54,7 @@ public class PlayerShootState : PlayerState {
             player.Anim.SetBool("idleShoot", true);
         } else if (jumpInput) {
             stateMachine.ChangeState(player.JumpState);
-        } 
-        else if (!keyShoot) {
+        } else if (!keyShoot) {
             stateMachine.ChangeState(player.IdleState);
         }
     }
@@ -80,4 +79,5 @@ public class PlayerShootState : PlayerState {
             }
         }
     }
+
 }

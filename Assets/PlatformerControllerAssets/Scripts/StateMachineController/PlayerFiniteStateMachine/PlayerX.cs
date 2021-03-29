@@ -29,8 +29,8 @@ public class PlayerX : Singleton<PlayerX> {
     #endregion
 
     #region Player Info Variables
+
     public int currentHealth;
-    public int maxHealth = 100;
 
     #endregion
 
@@ -60,6 +60,8 @@ public class PlayerX : Singleton<PlayerX> {
     public Transform DashDirectionIndicator { get; private set; }
     public Material DashTimeIndicatorMaterial { get; private set; }
 
+    RigidbodyConstraints2D rigidbodyConstraints2D;
+
     #endregion
 
     #region Check Transforms
@@ -67,6 +69,7 @@ public class PlayerX : Singleton<PlayerX> {
     [SerializeField] private Transform groundCheck;
     [SerializeField] private Transform wallCheck;
     [SerializeField] private Transform ledgeCheck;
+    private Transform BulletShootPos;
 
     #endregion
 
@@ -74,8 +77,10 @@ public class PlayerX : Singleton<PlayerX> {
     private Vector2 previousVelocity;
     public Vector2 CurrentVelocity { get; private set; }
     public int FacingDirection { get; private set; }
-
-    private Transform BulletShootPos;
+    public GameObject MenuObject;
+    bool freezePlayer;
+    bool freezeBullets;
+    bool freezeInput;
 
     #endregion
 
@@ -107,15 +112,18 @@ public class PlayerX : Singleton<PlayerX> {
 
         FacingDirection = 1;
 
-        currentHealth = maxHealth;
+        currentHealth = playerData.maxHealth;
 
         StateMachine.Initialize(IdleState);
     }
 
     private void Update() {
-        CurrentVelocity = RB.velocity;
-        StateMachine.CurrentState.LogicUpdate();
 
+        CurrentVelocity = RB.velocity;
+
+        PlayerDebugInput();
+
+        StateMachine.CurrentState.LogicUpdate();
     }
     private void FixedUpdate() {
         StateMachine.CurrentState.PhysicsUpdate();
@@ -152,15 +160,15 @@ public class PlayerX : Singleton<PlayerX> {
         RB.velocity = previousVelocity;
         CurrentVelocity = previousVelocity;
     }
-
     private void Flip() {
         FacingDirection *= -1;
-        var scale = transform.localScale; 
-        scale.x *= -1; 
+        var scale = transform.localScale;
+        scale.x *= -1;
         transform.localScale = scale;
         // transform.Rotate(0.0f, 180.0f, 0.0f);
         // SR.flipX = FacingDirection != 1;
     }
+    // This is here because you cant instantiate without monobehavior
     public void ShootBullet() {
         GameObject bullet = Instantiate((GameObject)Resources.Load("Bullet"), BulletShootPos.position, Quaternion.identity);
         // bullet.name = BulletPrefab.name; // Instantiate creates a copy and renames it to clone --  this sets it back for visual convenience
@@ -200,10 +208,61 @@ public class PlayerX : Singleton<PlayerX> {
 
     #region Other Functions
 
-    private void OnDrawGizmos() { // Used to Check Wall Check Distance
-        Gizmos.color = Color.red;
-        Gizmos.DrawLine(wallCheck.position, wallCheck.position + (Vector3)(Vector2.right * playerData.wallCheckDistance * FacingDirection));
+    public void PlayerDebugInput() {
+
+        // TODO: Change all buttons to use New Input System
+
+        if (Input.GetKeyDown(KeyCode.B)) {
+            GameObject[] bullets = GameObject.FindGameObjectsWithTag("Bullet");
+            if (bullets.Length > 0) {
+                freezeBullets = !freezeBullets;
+                foreach (GameObject bullet in bullets) {
+                    bullet.GetComponent<BulletScript>().FreezeBullet(freezeBullets);
+                }
+            }
+            // TODO: Reference some sort of Dialogue Manager instance and display this to the player on screen
+            Debug.Log("Freeze Bullets");
+        }
+
+        if (Input.GetKeyDown(KeyCode.I) && !EnemyController.Instance.isInvincible) {
+            EnemyController.Instance.isInvincible = true;
+
+            // TODO: Reference some sort of Dialogue Manager instance and display this to the player on screen
+            Debug.Log("Invincible Mode Toggle");
+        } else if (Input.GetKeyDown(KeyCode.I) && EnemyController.Instance.isInvincible) {
+            EnemyController.Instance.isInvincible = false;
+            
+            // TODO: Reference some sort of Dialogue Manager instance and display this to the player on screen
+            Debug.Log("Invincible Mode Toggle");
+        }
+
+        if (Input.GetKeyDown(KeyCode.K)) {
+            freezeInput = !freezeInput;
+            if (freezeInput) InputHandler.DisableInputMode();
+            if (!freezeInput) InputHandler.EnableInputMode();
+        }
+
+        if (Input.GetKeyDown(KeyCode.P)) {
+            FreezePlayer(!freezePlayer);
+        }
+        if (Input.GetKeyDown(KeyCode.Escape)) {
+            MenuObject.SetActive(true);
+            InputHandler.playerInput.SwitchCurrentActionMap("Menu");
+        }
     }
+    public void FreezePlayer(bool freeze) {
+        if (freeze) {
+            freezePlayer = true;
+            Anim.speed = 0;
+            rigidbodyConstraints2D = RB.constraints;
+            RB.constraints = RigidbodyConstraints2D.FreezeAll;
+        } else {
+            freezePlayer = false;
+            Anim.speed = 1;
+            RB.constraints = rigidbodyConstraints2D;
+        }
+    }
+
     #endregion
 
     #region Animation Triggers
@@ -214,10 +273,16 @@ public class PlayerX : Singleton<PlayerX> {
 
     #endregion
 
-    #region Damage
-
+    #region Player Death
     public void Defeat() {
+        Invoke("StartDefeatAnimation", 0.5f); // Using function written below
+    }
+    void StartDefeatAnimation() {
+        GameObject explodeEffect = Instantiate(playerData.explodeEffectPrefab);
+        explodeEffect.name = playerData.explodeEffectPrefab.name;
+        explodeEffect.transform.position = SR.bounds.center;
         Destroy(gameObject);
     }
+
     #endregion
 }

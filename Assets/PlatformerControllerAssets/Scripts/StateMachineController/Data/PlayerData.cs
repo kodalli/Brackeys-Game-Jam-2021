@@ -4,14 +4,17 @@ using UnityEngine;
 
 [CreateAssetMenu(fileName = "newPlayerData", menuName = "Player Data")]
 public class PlayerData : ScriptableObject {
-    [Header("Debug Variables")]
+
+    [Header("Debug On/Off")]
     public bool debugMode;
 
-    [Header("Player Shoot Info")]
-    public float bulletDamage = 1f;
-    public float bulletSpeed = 5f;
-    public Vector2 bulletDirection = new Vector2(1, 0);
-    public float bulletDestroyDelay = 2f;
+    [Header("Player Info")]
+    public int maxHealth = 100;
+
+    [Header("Prefabs")]
+    public GameObject explodeEffectPrefab;
+
+    #region State Variables
 
     [Header("Move State")]
     public float movementVelocity = 10f;
@@ -52,4 +55,14 @@ public class PlayerData : ScriptableObject {
     public float groundCheckRadius = 0.3f;
     public float wallCheckDistance = 0.5f;
     public LayerMask whatIsGround;
+
+    [Header("Shoot State")]
+    public float bulletDamage = 1f;
+    public float bulletSpeed = 5f;
+    public Vector2 bulletDirection = new Vector2(1, 0);
+    public float bulletDestroyDelay = 2f;
+
+    #endregion
+
+
 }
