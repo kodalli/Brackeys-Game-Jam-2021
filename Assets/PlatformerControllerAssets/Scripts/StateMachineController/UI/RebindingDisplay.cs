@@ -15,8 +15,7 @@ public class RebindingDisplay : Singleton<RebindingDisplay> {
 
     private InputActionRebindingExtensions.RebindingOperation rebindingOperation;
     private const string RebindsKey = "rebinds";
-    
-    // private void Update() => EscapeInput();
+
     public void SaveRebindings() {
         string rebinds = inputHandler.PlayerInput.actions.SaveBindingOverridesAsJson();
         PlayerPrefs.SetString(RebindsKey, rebinds);
@@ -60,7 +59,7 @@ public class RebindingDisplay : Singleton<RebindingDisplay> {
         startRebindObject.SetActive(true);
         waitingForInputObject.SetActive(false);
 
-        inputHandler.PlayerInput.SwitchCurrentActionMap("Gameplay");
+        inputHandler.PlayerInput.SwitchCurrentActionMap("Menu");
 
     }
     public void ResetBindingOverrides() {
@@ -72,11 +71,9 @@ public class RebindingDisplay : Singleton<RebindingDisplay> {
             shootAction.action.bindings[bindingIndex].effectivePath,
             InputControlPath.HumanReadableStringOptions.OmitDevice);
     }
-    private void EscapeInput() {
-        if (Input.GetKeyDown(KeyCode.Escape)) {
-            MenuObject.SetActive(false);
-            inputHandler.PlayerInput.SwitchCurrentActionMap("Gameplay");
-        }
+    public void CloseMenu() {
+        inputHandler.PlayerInput.SwitchCurrentActionMap("Gameplay");
+        MenuObject.SetActive(false);
     }
 
 }
