@@ -6,7 +6,8 @@ using UnityEngine.InputSystem;
 public class PlayerInputHandler : MonoBehaviour {
 
     public AngleRotations angleRotations;
-    public PlayerInput playerInput;
+    private PlayerInput playerInput = null;
+    public PlayerInput PlayerInput => playerInput;
 
     #region Movement Variables 
     public Vector2 RawMovementInput { get; private set; }

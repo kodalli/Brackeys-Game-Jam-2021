@@ -131,6 +131,14 @@ public class PlayerX : Singleton<PlayerX> {
 
     #endregion
 
+    #region Animation Triggers
+
+    // Used so Animation Events on animations can be used
+    private void AnimationTrigger() => StateMachine.CurrentState.AnimationTrigger();
+    private void AnimationFinishTrigger() => StateMachine.CurrentState.AnimationFinishTrigger();
+
+    #endregion
+
     #region Set Functions
 
     public void SetVelocityToZero() {
@@ -231,7 +239,7 @@ public class PlayerX : Singleton<PlayerX> {
             Debug.Log("Invincible Mode Toggle");
         } else if (Input.GetKeyDown(KeyCode.I) && EnemyController.Instance.isInvincible) {
             EnemyController.Instance.isInvincible = false;
-            
+
             // TODO: Reference some sort of Dialogue Manager instance and display this to the player on screen
             Debug.Log("Invincible Mode Toggle");
         }
@@ -247,7 +255,7 @@ public class PlayerX : Singleton<PlayerX> {
         }
         if (Input.GetKeyDown(KeyCode.Escape)) {
             MenuObject.SetActive(true);
-            InputHandler.playerInput.SwitchCurrentActionMap("Menu");
+            InputHandler.PlayerInput.SwitchCurrentActionMap("Menu");
         }
     }
     public void FreezePlayer(bool freeze) {
@@ -262,14 +270,6 @@ public class PlayerX : Singleton<PlayerX> {
             RB.constraints = rigidbodyConstraints2D;
         }
     }
-
-    #endregion
-
-    #region Animation Triggers
-
-    // Used so Animation Events on animations can be used
-    private void AnimationTrigger() => StateMachine.CurrentState.AnimationTrigger();
-    private void AnimationFinishTrigger() => StateMachine.CurrentState.AnimationFinishTrigger();
 
     #endregion
 

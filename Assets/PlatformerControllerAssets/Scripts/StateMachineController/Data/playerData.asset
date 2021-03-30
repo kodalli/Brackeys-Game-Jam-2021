@@ -14,6 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   debugMode: 1
   maxHealth: 50
+  explodeEffectPrefab: {fileID: 265998454967612348, guid: 5c5e134b9acf7d746afaeaa3a28417f8,
+    type: 3}
   movementVelocity: 12
   jumpVelocity: 30
   amountOfJumps: 2
@@ -32,7 +34,7 @@ MonoBehaviour:
   wallJumpVelocity: 30
   wallJumpTime: 0.4
   wallJumpAngle: {x: 1, y: 2}
-  startOffset: {x: 0.85, y: 0.9}
+  startOffset: {x: 0.85, y: 2}
   stopOffset: {x: 0.5, y: 2}
   ledgeHangTime: 4
   groundCheckRadius: 0.3
@@ -44,5 +46,3 @@ MonoBehaviour:
   bulletSpeed: 20
   bulletDirection: {x: 1, y: 0}
   bulletDestroyDelay: 2
-  explodeEffectPrefab: {fileID: 265998454967612348, guid: 5c5e134b9acf7d746afaeaa3a28417f8,
-    type: 3}

@@ -1,0 +1,7 @@
+{
+  "files.exclude": {
+    "**/SubStates": true,
+    "**/SubStates.*": true,
+    "**/*.meta": true
+  }
+}

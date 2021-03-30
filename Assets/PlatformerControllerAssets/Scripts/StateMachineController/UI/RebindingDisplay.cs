@@ -10,31 +10,37 @@ public class RebindingDisplay : MonoBehaviour {
     [SerializeField] private PlayerInputHandler inputHandler = null;
     [SerializeField] private GameObject MenuObject = null;
     [SerializeField] private TMP_Text bindingDisplayNameText = null;
-    [SerializeField] private TMP_Text bindingActionNameText = null;
     [SerializeField] private GameObject startRebindObject = null;
     [SerializeField] private GameObject waitingForInputObject = null;
 
     private InputActionRebindingExtensions.RebindingOperation rebindingOperation;
+    private const string RebindsKey = "rebinds";
 
     private void Start() {
-        bindingActionNameText.text = "Shoot:";
-    }
-    private void Update() {
-        EscapeInput();
-    }
+        // string rebinds = PlayerPrefs.GetString(RebindsKey, string.Empty);
 
-    private void EscapeInput() {
-        if (Input.GetKeyDown(KeyCode.Escape)) {
-            MenuObject.SetActive(false);
-            inputHandler.playerInput.SwitchCurrentActionMap("Gameplay");
-        }
+        // if (string.IsNullOrEmpty(rebinds)) { return; }
+
+        // inputHandler.PlayerInput.actions.LoadBindingOverridesFromJson(rebinds);
+
+        // int bindingIndex = shootAction.action.GetBindingIndexForControl(shootAction.action.controls[0]);
+
+        // bindingDisplayNameText.text = InputControlPath.ToHumanReadableString(
+        //     shootAction.action.bindings[bindingIndex].effectivePath,
+        //     InputControlPath.HumanReadableStringOptions.OmitDevice);
+    }
+    // private void Update() => EscapeInput();
+
+    public void SaveRebindings() {
+        string rebinds = inputHandler.PlayerInput.actions.SaveBindingOverridesAsJson();
+        PlayerPrefs.SetString(RebindsKey, rebinds);
     }
 
     public void StartRebinding() {
         startRebindObject.SetActive(false);
         waitingForInputObject.SetActive(true);
 
-        inputHandler.playerInput.SwitchCurrentActionMap("Empty");
+        inputHandler.PlayerInput.SwitchCurrentActionMap("Empty");
 
         rebindingOperation = shootAction.action.PerformInteractiveRebinding()
         .WithControlsExcluding("Mouse")
@@ -55,7 +61,7 @@ public class RebindingDisplay : MonoBehaviour {
         startRebindObject.SetActive(true);
         waitingForInputObject.SetActive(false);
 
-        inputHandler.playerInput.SwitchCurrentActionMap("Gameplay");
+        inputHandler.PlayerInput.SwitchCurrentActionMap("Gameplay");
 
     }
     public void ResetBindingOverrides() {
@@ -67,6 +73,11 @@ public class RebindingDisplay : MonoBehaviour {
             shootAction.action.bindings[bindingIndex].effectivePath,
             InputControlPath.HumanReadableStringOptions.OmitDevice);
     }
-
+    private void EscapeInput() {
+        if (Input.GetKeyDown(KeyCode.Escape)) {
+            MenuObject.SetActive(false);
+            inputHandler.PlayerInput.SwitchCurrentActionMap("Gameplay");
+        }
+    }
 
 }
