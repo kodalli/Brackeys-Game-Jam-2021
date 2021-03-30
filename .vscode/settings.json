@@ -1,0 +1,7 @@
+{
+  "files.exclude": {
+    "**/FontLoader.cs": true,
+    "**/FontLoader.cs.*": true,
+    "**/*.meta": true
+  }
+}

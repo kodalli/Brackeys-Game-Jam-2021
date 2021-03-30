@@ -4,7 +4,8 @@ using UnityEngine;
 
 public static class FontLoader {
     //This is the order that the characters should be in the characterSheet
-    private static char[] chars = "abcdefghijklmnopqrstuvwxyzæABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890~><!?'\"#%&/\\()[]{}@£$*^+-.,:;_=".ToCharArray();
+    // private static char[] chars = "abcdefghijklmnopqrstuvwxyzæABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890~><!?'\"#%&/\\()[]{}@£$*^+-.,:;_=".ToCharArray();
+    private static char[] chars = " !\"#$%&'()*+,-./0123456789:;<=>?@abcdefghijklmnopqrstuvwxyz[\\]^_`ABCDEFGHIJKLMNOPQRSTUVWXYZ{|}~".ToCharArray();
     private static List<Dictionary<char, CharData>> loadedFonts = new List<Dictionary<char, CharData>>(); //Stores all loaded fonts
     private static List<Texture2D> loadedFontResources = new List<Texture2D>(); //This is to keep track of all the loaded fonts and only load them once
 
@@ -35,6 +36,7 @@ public static class FontLoader {
 
         Dictionary<char, CharData> loadedFontDictionary = GenerateCharFontDictionary(characterSheet, spriteSize, subsprites);
 
+
         if (addToLoaded) {
             loadedFonts.Add(loadedFontDictionary);
             loadedFontResources.Add(characterSheet);
@@ -63,6 +65,8 @@ public static class FontLoader {
         int charIndex = 0;
 
         Dictionary<char, CharData> charData = new Dictionary<char, CharData>();
+
+        // Perform vertical scan on each sprite to find the widths
 
         //Y Texture Coordinate
         for (int texCoordY = height - spriteSize; texCoordY >= 0 && charIndex < chars.Length; texCoordY -= spriteSize) {
@@ -104,12 +108,22 @@ public static class FontLoader {
                 //Store current sprite width
                 int currentSpriteWidth = spriteSize - (leftEdge + rightEdge);
 
+                // if (currentSpriteWidth < 0) {
+                //     Debug.Log($"{chars[charIndex]} width {currentSpriteWidth} {spriteSize} {leftEdge} {rightEdge}");
+                //     // vape fix, just manually set width for "!" because its setting the width to -8
+                //     currentSpriteWidth = 1;
+                // }
+
+                Debug.Log($"{chars[charIndex]} {currentSpriteWidth}");
+
                 //Determine center offsets
                 int halfWidth = spriteSize / 2;
                 int leftOffset = halfWidth - leftEdge;
                 int rightOffset = halfWidth - rightEdge;
 
-                charData.Add(chars[charIndex], new CharData(currentSpriteWidth, characterSprites[charIndex], leftOffset, rightOffset));
+                // charData.Add(chars[charIndex], new CharData(currentSpriteWidth, characterSprites[charIndex], leftOffset, rightOffset));
+                if (charIndex - 1 > -1)
+                    charData.Add(chars[charIndex], new CharData(currentSpriteWidth, characterSprites[charIndex - 1], leftOffset, rightOffset));
 
                 charIndex++;
             }
