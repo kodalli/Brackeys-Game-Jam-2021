@@ -35,6 +35,39 @@ TextureImporter:
   - first:
       213: -473172298352770199
     second: 1 (1)_10
+  - first:
+      213: -8307092553993482608
+    second: ledgeFlipped_0
+  - first:
+      213: -1761019235729715892
+    second: ledgeFlipped_1
+  - first:
+      213: 8425366089822967448
+    second: ledgeFlipped_2
+  - first:
+      213: -7663822301362220310
+    second: ledgeFlipped_3
+  - first:
+      213: -3753458462804098767
+    second: ledgeFlipped_4
+  - first:
+      213: -2893215718576712718
+    second: ledgeFlipped_5
+  - first:
+      213: -5240143478797546058
+    second: ledgeFlipped_6
+  - first:
+      213: 2911774665430215057
+    second: ledgeFlipped_7
+  - first:
+      213: -1211274700687613913
+    second: ledgeFlipped_8
+  - first:
+      213: -9039720196248339409
+    second: ledgeFlipped_9
+  - first:
+      213: 7634716713814699621
+    second: ledgeFlipped_10
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -148,232 +181,232 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 1 (1)_0
+      name: ledgeFlipped_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 28
         height: 40
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a03667bbcd553f880800000000000000
-      internalID: -8578418458684398838
+      spriteID: 09e0de2c55747bc80800000000000000
+      internalID: -8307092553993482608
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 1 (1)_1
+      name: ledgeFlipped_1
       rect:
         serializedVersion: 2
         x: 30
         y: 0
         width: 29
         height: 44
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 079b4e66323a03c70800000000000000
-      internalID: 8948831832030624112
+      spriteID: c4d43bbd55a9f87e0800000000000000
+      internalID: -1761019235729715892
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 1 (1)_2
+      name: ledgeFlipped_2
       rect:
         serializedVersion: 2
         x: 61
         y: 0
         width: 28
         height: 41
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 60f72612af08d9ea0800000000000000
-      internalID: -5864389327976235258
+      spriteID: 8961586b1d9ece470800000000000000
+      internalID: 8425366089822967448
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 1 (1)_3
+      name: ledgeFlipped_3
       rect:
         serializedVersion: 2
         x: 91
         y: 0
         width: 31
         height: 43
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e49e661591d61bc20800000000000000
-      internalID: 3220475164053924174
+      spriteID: ae29699b832a4a590800000000000000
+      internalID: -7663822301362220310
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 1 (1)_4
+      name: ledgeFlipped_4
       rect:
         serializedVersion: 2
         x: 124
         y: 0
         width: 32
         height: 43
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9b18be4d2fe537a90800000000000000
-      internalID: -7317400572499623495
+      spriteID: 131c06d2a6909ebc0800000000000000
+      internalID: -3753458462804098767
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 1 (1)_5
+      name: ledgeFlipped_5
       rect:
         serializedVersion: 2
         x: 158
         y: 0
         width: 30
         height: 43
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c08c949a3362e7950800000000000000
-      internalID: 6448633719766501388
+      spriteID: 2f398a302ab39d7d0800000000000000
+      internalID: -2893215718576712718
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 1 (1)_6
+      name: ledgeFlipped_6
       rect:
         serializedVersion: 2
         x: 190
         y: 0
         width: 29
         height: 43
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f0cd195bb7ec63e10800000000000000
-      internalID: 2177154500602747919
+      spriteID: 6bd413ef4454747b0800000000000000
+      internalID: -5240143478797546058
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 1 (1)_7
+      name: ledgeFlipped_7
       rect:
         serializedVersion: 2
         x: 221
         y: 0
         width: 35
         height: 40
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e5a53fc3781af3970800000000000000
-      internalID: 8736879404337289822
+      spriteID: 19923f681a3b86820800000000000000
+      internalID: 2911774665430215057
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 1 (1)_8
+      name: ledgeFlipped_8
       rect:
         serializedVersion: 2
         x: 258
         y: 0
         width: 32
         height: 37
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 400b4fd0d7cab7020800000000000000
-      internalID: 2340654084454133764
+      spriteID: 720e81cc310b03fe0800000000000000
+      internalID: -1211274700687613913
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 1 (1)_9
+      name: ledgeFlipped_9
       rect:
         serializedVersion: 2
         x: 292
         y: 0
         width: 31
         height: 37
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7232ea0878878cb10800000000000000
-      internalID: 2001982557740999463
+      spriteID: f2c71b140667c8280800000000000000
+      internalID: -9039720196248339409
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 1 (1)_10
+      name: ledgeFlipped_10
       rect:
         serializedVersion: 2
         x: 325
         y: 0
         width: 31
         height: 44
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 963c0273d44fe69f0800000000000000
-      internalID: -473172298352770199
+      spriteID: 56ea9a79666f3f960800000000000000
+      internalID: 7634716713814699621
       vertices: []
       indices: 
       edges: []

@@ -3,12 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerInputHandler : MonoBehaviour{
+public class PlayerInputHandler : MonoBehaviour {
 
     public AngleRotations angleRotations;
-    private PlayerInput playerInput;
-
-    [SerializeField] private bool DisableInput;
+    private PlayerInput playerInput = null;
+    public PlayerInput PlayerInput => playerInput;
 
     #region Movement Variables 
     public Vector2 RawMovementInput { get; private set; }
@@ -26,7 +25,7 @@ public class PlayerInputHandler : MonoBehaviour{
     #endregion
 
     #region Dash Variables
-    
+
     // Dash Button Variables
     public bool DashInput { get; private set; }
     public bool DashInputStop { get; private set; }
@@ -50,7 +49,6 @@ public class PlayerInputHandler : MonoBehaviour{
         playerInput = GetComponent<PlayerInput>();
         angleRotations.up = 0f; angleRotations.right = 90f; angleRotations.down = 180f; angleRotations.left = 270f;
 
-        if (DisableInput) DisableInputMode();
     }
     private void Update() {
         CheckJumpInputHoldTime();
@@ -60,6 +58,7 @@ public class PlayerInputHandler : MonoBehaviour{
     #endregion
 
     #region Unity PlayerInput Event Functions
+
     public void OnMoveInput(InputAction.CallbackContext context) {
         RawMovementInput = context.ReadValue<Vector2>();
 
@@ -92,10 +91,9 @@ public class PlayerInputHandler : MonoBehaviour{
 
     }
     public void OnShootInput(InputAction.CallbackContext context) {
-        if(context.started) {
+        if (context.started) {
             KeyShoot = true;
-        }
-        else if (context.canceled) {
+        } else if (context.canceled) {
             KeyShoot = false;
         }
     }
@@ -106,19 +104,19 @@ public class PlayerInputHandler : MonoBehaviour{
     public void UseJumpInput() => JumpInput = false;
     public void UseDashInput() => DashInput = false;
     private void CheckJumpInputHoldTime() {
-        if(Time.time >= jumpinputStartTime + inputHoldTime) {
+        if (Time.time >= jumpinputStartTime + inputHoldTime) {
             JumpInput = false;
         }
     }
     private void CheckDashInputHoldTime() {
-        if(Time.time >= dashInputStartTime + inputHoldTime) {
-            DashInput = false;  
+        if (Time.time >= dashInputStartTime + inputHoldTime) {
+            DashInput = false;
         }
     }
 
-    private void DisableInputMode() {
-        playerInput.currentActionMap.Disable();
-    }
+    public void DisableInputMode() => playerInput.currentActionMap.Disable();
+
+    public void EnableInputMode() => playerInput.currentActionMap.Enable();
 
     #endregion
 

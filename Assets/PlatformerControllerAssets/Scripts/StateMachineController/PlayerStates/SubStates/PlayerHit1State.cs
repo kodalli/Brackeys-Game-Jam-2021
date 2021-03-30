@@ -42,16 +42,16 @@ public class PlayerHit1State : PlayerDamagedState {
         }
     }
     public void HitSide(bool rightSide) {
-        hitSideRight = rightSide;
+        this.hitSideRight = rightSide;
     }
     public void Invincible(bool invincibility) {
-        isInvincible = invincibility;
+        this.isInvincible = invincibility;
     }
     void TakeDamage(int damage) {
         if (!isInvincible) {
             player.currentHealth -= damage;
-            Mathf.Clamp(player.currentHealth, 0, player.maxHealth);
-            UIHealthBar.Instance.SetValue(player.currentHealth / (float)player.maxHealth);
+            Mathf.Clamp(player.currentHealth, 0, playerData.maxHealth);
+            UIHealthBar.Instance.SetValue(player.currentHealth / (float)playerData.maxHealth);
             if (player.currentHealth <= 0) {
                 player.Defeat();
             } else {
