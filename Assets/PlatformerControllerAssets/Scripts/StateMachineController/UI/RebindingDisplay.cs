@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class RebindingDisplay : MonoBehaviour {
+public class RebindingDisplay : Singleton<RebindingDisplay> {
 
     [SerializeField] private InputActionReference shootAction = null;
     [SerializeField] private PlayerInputHandler inputHandler = null;
@@ -15,25 +15,24 @@ public class RebindingDisplay : MonoBehaviour {
 
     private InputActionRebindingExtensions.RebindingOperation rebindingOperation;
     private const string RebindsKey = "rebinds";
-
-    private void Start() {
-        // string rebinds = PlayerPrefs.GetString(RebindsKey, string.Empty);
-
-        // if (string.IsNullOrEmpty(rebinds)) { return; }
-
-        // inputHandler.PlayerInput.actions.LoadBindingOverridesFromJson(rebinds);
-
-        // int bindingIndex = shootAction.action.GetBindingIndexForControl(shootAction.action.controls[0]);
-
-        // bindingDisplayNameText.text = InputControlPath.ToHumanReadableString(
-        //     shootAction.action.bindings[bindingIndex].effectivePath,
-        //     InputControlPath.HumanReadableStringOptions.OmitDevice);
-    }
+    
     // private void Update() => EscapeInput();
-
     public void SaveRebindings() {
         string rebinds = inputHandler.PlayerInput.actions.SaveBindingOverridesAsJson();
         PlayerPrefs.SetString(RebindsKey, rebinds);
+    }
+    public void LoadRebindings(PlayerInput player) {
+        string rebinds = PlayerPrefs.GetString(RebindsKey, string.Empty);
+
+        if (string.IsNullOrEmpty(rebinds)) { return; }
+
+        player.actions.LoadBindingOverridesFromJson(rebinds, true);
+
+        int bindingIndex = shootAction.action.GetBindingIndexForControl(shootAction.action.controls[0]);
+
+        bindingDisplayNameText.text = InputControlPath.ToHumanReadableString(
+            shootAction.action.bindings[bindingIndex].effectivePath,
+            InputControlPath.HumanReadableStringOptions.OmitDevice);
     }
 
     public void StartRebinding() {
