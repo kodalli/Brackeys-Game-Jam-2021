@@ -246,8 +246,12 @@ public class PlayerX : Singleton<PlayerX> {
 
         if (Input.GetKeyDown(KeyCode.K)) {
             freezeInput = !freezeInput;
-            if (freezeInput) InputHandler.DisableInputMode();
-            if (!freezeInput) InputHandler.EnableInputMode();
+            if (freezeInput) InputHandler.PlayerInput.SwitchCurrentActionMap("Empty");
+            if (!freezeInput) InputHandler.PlayerInput.SwitchCurrentActionMap("Gameplay");
+        }
+        if (Input.GetKeyDown(KeyCode.Equals)) {
+            this.Defeat();
+            Debug.Log("Defeat()");
         }
 
         if (Input.GetKeyDown(KeyCode.P)) {
@@ -268,6 +272,7 @@ public class PlayerX : Singleton<PlayerX> {
             freezePlayer = false;
             Anim.speed = 1;
             RB.constraints = rigidbodyConstraints2D;
+            RB.velocity = new Vector2(0, -0.1f);
         }
     }
 
@@ -275,12 +280,14 @@ public class PlayerX : Singleton<PlayerX> {
 
     #region Player Death
     public void Defeat() {
+        GameManager.Instance.PlayerDefeated();
         Invoke("StartDefeatAnimation", 0.5f); // Using function written below
     }
     void StartDefeatAnimation() {
         GameObject explodeEffect = Instantiate(playerData.explodeEffectPrefab);
         explodeEffect.name = playerData.explodeEffectPrefab.name;
         explodeEffect.transform.position = SR.bounds.center;
+        SoundManager.Instance.Play(playerData.explodeEffectClip);
         Destroy(gameObject);
     }
 

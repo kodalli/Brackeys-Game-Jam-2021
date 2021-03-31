@@ -66,6 +66,7 @@ public class PlayerShootState : PlayerState {
             isShooting = true;
             keyShootRelease = false;
             shootTime = Time.time;
+            SoundManager.Instance.Play(playerData.shootBulletClip);
             player.ShootBullet();
         }
         if (!keyShoot && !keyShootRelease) {
