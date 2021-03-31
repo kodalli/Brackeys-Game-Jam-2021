@@ -9,24 +9,48 @@ public static class FontLoader {
     private static List<Dictionary<char, CharData>> loadedFonts = new List<Dictionary<char, CharData>>(); //Stores all loaded fonts
     private static List<Texture2D> loadedFontResources = new List<Texture2D>(); //This is to keep track of all the loaded fonts and only load them once
 
+    /// <summary>
+    /// Property with dictonary of font characters and char data
+    /// </summary>
     public static List<Dictionary<char, CharData>> LoadedFonts {
         get { return loadedFonts; }
     }
 
+    /// <summary>
+    /// Loads font resources from character sheet array into dictionary
+    /// </summary>
+    /// <param name="characterSheet"></param>
+    /// <returns></returns>
     public static List<Dictionary<char, CharData>> LoadFontResources(params Texture2D[] characterSheet) {
         return characterSheet != null && characterSheet.Any() ?
             characterSheet.Select(x => LoadFontResource(x)).ToList() :
             new List<Dictionary<char, CharData>>();
     }
+
+    /// <summary>
+    /// Reload font resources from character sheet array into dictionary
+    /// </summary>
+    /// <param name="characterSheet"></param>
+    /// <returns></returns>
     public static List<Dictionary<char, CharData>> ReloadFontResources(params Texture2D[] characterSheet) {
         return characterSheet != null && characterSheet.Any() ?
             characterSheet.Select(x => ReloadFontResource(x)).ToList() :
             new List<Dictionary<char, CharData>>();
     }
 
-
+    /// <summary>
+    /// Loads font resources from character sheet into dictionary
+    /// </summary>
+    /// <param name="characterSheet"></param>
+    /// <returns></returns>
     public static Dictionary<char, CharData> LoadFontResource(Texture2D characterSheet) => LoadFontResource(characterSheet, true);
 
+    /// <summary>
+    /// Loads font resource from character sheet and adds it to existing loaded font if applicable
+    /// </summary>
+    /// <param name="characterSheet"></param>
+    /// <param name="addToLoaded"></param>
+    /// <returns></returns>
     private static Dictionary<char, CharData> LoadFontResource(Texture2D characterSheet, bool addToLoaded) {
         //If we already have this loaded then we just return the loaded one
         if (IsFontLoaded(characterSheet)) return loadedFonts[loadedFontResources.IndexOf(characterSheet)];
@@ -45,6 +69,11 @@ public static class FontLoader {
         return loadedFontDictionary;
     }
 
+    /// <summary>
+    /// Reloads font resource from character sheet into dictionary
+    /// </summary>
+    /// <param name="characterSheet"></param>
+    /// <returns></returns>
     public static Dictionary<char, CharData> ReloadFontResource(Texture2D characterSheet) {
         if (IsFontLoaded(characterSheet)) {
             Dictionary<char, CharData> loadedFontResource = LoadFontResource(characterSheet, false);
@@ -56,8 +85,20 @@ public static class FontLoader {
         }
     }
 
+    /// <summary>
+    /// Checks if loaded font resources contains the character sheet
+    /// </summary>
+    /// <param name="characterSheet"></param>
+    /// <returns></returns>
     public static bool IsFontLoaded(Texture2D characterSheet) => loadedFontResources.Contains(characterSheet);
 
+    /// <summary>
+    /// Generates font dictionary by performing a vertical scan on each font sprite and stores character width
+    /// </summary>
+    /// <param name="characterSheet"></param>
+    /// <param name="spriteSize"></param>
+    /// <param name="characterSprites"></param>
+    /// <returns></returns>
     private static Dictionary<char, CharData> GenerateCharFontDictionary(Texture2D characterSheet, int spriteSize, Sprite[] characterSprites) {
         int height = characterSheet.height; // We might need this if we ever use a text image that is on more than one line
         int width = characterSheet.width;
@@ -114,7 +155,7 @@ public static class FontLoader {
                 //     currentSpriteWidth = 1;
                 // }
 
-                Debug.Log($"{chars[charIndex]} {currentSpriteWidth}");
+                // Debug.Log($"{chars[charIndex]} {currentSpriteWidth}");
 
                 //Determine center offsets
                 int halfWidth = spriteSize / 2;
@@ -132,6 +173,9 @@ public static class FontLoader {
     }
 }
 
+/// <summary>
+/// Struct holding char data of width, left offset, right offset, and sprite data
+/// </summary>
 public struct CharData {
     public int Width;
     public int LeftOffset;
