@@ -11,6 +11,7 @@ TagManager:
   - Confiner
   - Enemy
   - Bullet
+  - Explosion
   layers:
   - Default
   - TransparentFX

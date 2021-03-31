@@ -50,7 +50,7 @@ public class PlayerHit1State : PlayerDamagedState {
     void TakeDamage(int damage) {
         if (!isInvincible) {
             player.currentHealth -= damage;
-            Mathf.Clamp(player.currentHealth, 0, playerData.maxHealth);
+            player.currentHealth = Mathf.Clamp(player.currentHealth, 0, playerData.maxHealth);
             UIHealthBar.Instance.SetValue(player.currentHealth / (float)playerData.maxHealth);
             if (player.currentHealth <= 0) {
                 player.Defeat();
@@ -67,6 +67,7 @@ public class PlayerHit1State : PlayerDamagedState {
             player.RB.drag = 0f;
             player.RB.velocity = Vector2.zero;
             player.RB.AddForce(new Vector2(hitForceX, hitForceY), ForceMode2D.Impulse);
+            SoundManager.Instance.Play(playerData.takingDamageClip);
         }
     }
 }

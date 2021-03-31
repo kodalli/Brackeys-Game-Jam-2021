@@ -14,6 +14,13 @@ public class PlayerData : ScriptableObject {
     [Header("Prefabs")]
     public GameObject explodeEffectPrefab;
 
+    [Header("Audio Clips")]
+    public AudioClip jumpLandedClip;
+    public AudioClip shootBulletClip;
+    public AudioClip takingDamageClip;
+    public AudioClip explodeEffectClip;
+
+
     #region State Variables
 
     [Header("Move State")]

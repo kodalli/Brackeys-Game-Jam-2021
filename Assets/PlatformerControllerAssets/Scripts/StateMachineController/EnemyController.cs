@@ -3,10 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Animator))]
-[RequireComponent(typeof(BoxCollider2D))]
-[RequireComponent(typeof(Rigidbody2D))]
-[RequireComponent(typeof(SpriteRenderer))]
+
 
 public class EnemyController : Singleton<EnemyController> {
 
@@ -15,20 +12,22 @@ public class EnemyController : Singleton<EnemyController> {
     BoxCollider2D box2d;
     Rigidbody2D rb2d;
     SpriteRenderer sprite;
-
-    GameObject explodeEffect;
-    [SerializeField] string explodeEffectPrefabName;
-
     RigidbodyConstraints2D rigidbodyConstraints2D;
 
-    public bool freezeEnemy;
-
+    public int scorePoints = 500;
     public int currentHealth;
     public int maxHealth;
     public int contactDamage;
     public int explosionDamage;
-
     public bool isInvincible;
+    public bool freezeEnemy;
+
+    GameObject explodeEffect;
+    public AudioClip shootBullet;
+
+    [SerializeField] string explodeEffectPrefabName;
+    [SerializeField] AudioClip damageClip;
+    [SerializeField] AudioClip blockAttackClip;
 
     void Start() {
         animator = GetComponent<Animator>();
@@ -45,10 +44,13 @@ public class EnemyController : Singleton<EnemyController> {
     public void TakeDamage(float damage) {
         if (!isInvincible) {
             currentHealth -= (int)damage;
-            Mathf.Clamp(currentHealth, 0, maxHealth);
+            currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
+            SoundManager.Instance.Play(damageClip);
             if (currentHealth <= 0) {
                 StartCoroutine(Defeat());
             }
+        } else {
+            SoundManager.Instance.Play(blockAttackClip);
         }
     }
     void StartDefeatAnimation() {
@@ -63,9 +65,9 @@ public class EnemyController : Singleton<EnemyController> {
     }
     IEnumerator Defeat() {
         StartDefeatAnimation();
-        // explodeEffect.SetActive(true);
         yield return new WaitForSeconds(.2f);
         Destroy(gameObject);
+        GameManager.Instance.AddScorePoints(this.scorePoints);
     }
     public void FreezeEnemy(bool freeze) {
         if (freeze) {

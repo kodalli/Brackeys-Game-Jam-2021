@@ -8,6 +8,7 @@ public class PlayerInputHandler : MonoBehaviour {
     public AngleRotations angleRotations;
     private PlayerInput playerInput = null;
     public PlayerInput PlayerInput => playerInput;
+    [SerializeField] private RebindingDisplay rebind = null;
 
     #region Movement Variables 
     public Vector2 RawMovementInput { get; private set; }
@@ -48,7 +49,7 @@ public class PlayerInputHandler : MonoBehaviour {
     private void Start() {
         playerInput = GetComponent<PlayerInput>();
         angleRotations.up = 0f; angleRotations.right = 90f; angleRotations.down = 180f; angleRotations.left = 270f;
-        RebindingDisplay.Instance.LoadRebindings(PlayerInput);
+        rebind.LoadRebindings(PlayerInput);
 
     }
     private void Update() {
@@ -114,10 +115,6 @@ public class PlayerInputHandler : MonoBehaviour {
             DashInput = false;
         }
     }
-
-    public void DisableInputMode() => playerInput.currentActionMap.Disable();
-
-    public void EnableInputMode() => playerInput.currentActionMap.Enable();
 
     #endregion
 

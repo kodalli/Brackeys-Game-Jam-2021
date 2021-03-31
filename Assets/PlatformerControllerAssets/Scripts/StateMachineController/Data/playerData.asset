@@ -16,6 +16,10 @@ MonoBehaviour:
   maxHealth: 50
   explodeEffectPrefab: {fileID: 265998454967612348, guid: 5c5e134b9acf7d746afaeaa3a28417f8,
     type: 3}
+  jumpLandedClip: {fileID: 8300000, guid: 8d1f317db4bb67c42860e4cb845420d0, type: 3}
+  shootBulletClip: {fileID: 8300000, guid: 37cc1a2371baedb43ad73c1934b391ab, type: 3}
+  takingDamageClip: {fileID: 8300000, guid: bd6db19b14ec63b4ca0514d3a8106e18, type: 3}
+  explodeEffectClip: {fileID: 8300000, guid: 0f3beb0fd9ed24544acf11136c09faa6, type: 3}
   movementVelocity: 12
   jumpVelocity: 30
   amountOfJumps: 2

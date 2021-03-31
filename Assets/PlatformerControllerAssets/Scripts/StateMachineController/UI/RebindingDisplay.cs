@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class RebindingDisplay : Singleton<RebindingDisplay> {
+public class RebindingDisplay : MonoBehaviour {
 
     [SerializeField] private InputActionReference shootAction = null;
     [SerializeField] private PlayerInputHandler inputHandler = null;
