@@ -13,5 +13,10 @@ MonoBehaviour:
   m_Name: DialogueObject
   m_EditorClassIdentifier: 
   dialogueID: 
-  dialogue: []
-  responseOptions: []
+  dialogue:
+  - 
+  responseOptions:
+  - text: 
+    dialogueObject: {fileID: 0}
+  - text: 
+    dialogueObject: {fileID: 0}

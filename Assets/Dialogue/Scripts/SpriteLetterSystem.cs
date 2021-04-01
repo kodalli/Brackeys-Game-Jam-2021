@@ -91,6 +91,7 @@ public class SpriteLetterSystem : MonoBehaviour {
                 charData.rectTransform = newLetterSprite.GetComponent<RectTransform>();
                 charData.image = newLetterSprite.GetComponent<Image>();
 
+                // set active color here so we can wrap other effects in color tags
                 charData.color = activeColor;
 
                 fxChars.Add(charData, activeEffect);

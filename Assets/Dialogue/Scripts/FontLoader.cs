@@ -163,6 +163,7 @@ public static class FontLoader {
                 int rightOffset = halfWidth - rightEdge;
 
                 // charData.Add(chars[charIndex], new CharData(currentSpriteWidth, characterSprites[charIndex], leftOffset, rightOffset));
+                // fix for first sprite being empty in sprite sheet
                 if (charIndex - 1 > -1)
                     charData.Add(chars[charIndex], new CharData(currentSpriteWidth, characterSprites[charIndex - 1], leftOffset, rightOffset));
 
