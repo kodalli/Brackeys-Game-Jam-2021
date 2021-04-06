@@ -58,12 +58,12 @@ TagManager:
   - name: Decorations
     uniqueID: 3097172403
     locked: 0
+  - name: Enemy
+    uniqueID: 3587040573
+    locked: 0
   - name: Player
     uniqueID: 3591341311
     locked: 0
   - name: ForegoundDecorations
     uniqueID: 1544318859
-    locked: 0
-  - name: Key
-    uniqueID: 3159253547
     locked: 0

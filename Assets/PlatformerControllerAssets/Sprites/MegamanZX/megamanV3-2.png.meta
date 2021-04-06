@@ -128,6 +128,9 @@ TextureImporter:
   - first:
       213: 355414169130058130
     second: megamanV3-2_41
+  - first:
+      213: 2172652663370403955
+    second: megamanV3-2_42
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -1118,6 +1121,27 @@ TextureImporter:
       bones: []
       spriteID: 2914323cd4faee400800000000000000
       internalID: 355414169130058130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: megamanV3-2_42
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 57
+        width: 35
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 370df7c0610d62e10800000000000000
+      internalID: 2172652663370403955
       vertices: []
       indices: 
       edges: []
