@@ -10,7 +10,7 @@ public class PlayerGroundedState : PlayerState {
     private bool keyShoot;
 
     private bool isGrounded;
- 
+
     public PlayerGroundedState(PlayerX player, PlayerStateMachine stateMachine, PlayerData playerData, string animBoolName) : base(player, stateMachine, playerData, animBoolName) {
     }
 
@@ -39,7 +39,11 @@ public class PlayerGroundedState : PlayerState {
         dashInput = player.InputHandler.DashInput;
         keyShoot = player.InputHandler.KeyShoot;
 
-        if (jumpInput && player.JumpState.canJump()) {
+        if (player.InputHandler.AttackInputs[(int)CombatInputs.primary]) {
+            stateMachine.ChangeState(player.PrimaryAttackState);
+        } else if (player.InputHandler.AttackInputs[(int)CombatInputs.secondary]) {
+            stateMachine.ChangeState(player.SecondaryAttackState);
+        } else if (jumpInput && player.JumpState.canJump()) {
             stateMachine.ChangeState(player.JumpState);
         } else if (!isGrounded) {
             player.InAirState.StartCoyoteTime();

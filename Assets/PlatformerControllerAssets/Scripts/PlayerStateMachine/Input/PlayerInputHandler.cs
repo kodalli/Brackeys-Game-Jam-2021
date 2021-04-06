@@ -1,56 +1,64 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+public enum CombatInputs {
+    primary,
+    secondary,
+}
 public class PlayerInputHandler : MonoBehaviour {
 
-    public AngleRotations angleRotations;
     private PlayerInput playerInput = null;
     public PlayerInput PlayerInput => playerInput;
+    public AngleRotations angleRotations;
     [SerializeField] private RebindingDisplay rebind = null;
 
-    #region Movement Variables 
+    #region Variables
+
+    // Movement Variables
     public Vector2 RawMovementInput { get; private set; }
     public int NormInputX { get; private set; }
     public int NormInputY { get; private set; }
 
-    #endregion
-
-    #region Jump Variables
+    // Jump Variables
     public bool JumpInput { get; private set; }
     public bool JumpInputStop { get; private set; }
-    [SerializeField] private float inputHoldTime; // Fixes Double Jump from Spamming Spacebar
-    private float jumpinputStartTime;
 
-    #endregion
-
-    #region Dash Variables
-
-    // Dash Button Variables
+    // Dash Variables
     public bool DashInput { get; private set; }
     public bool DashInputStop { get; private set; }
-    private float dashInputStartTime;
 
-    // ** Dash with Arrow Keys
-    public Vector2 DashDirectionKeyboardInput { get; private set; }
+    // ** Dash with Arrow Keys ** 
     public int DashInputX { get; private set; }
     public int DashInputY { get; private set; }
+    public Vector2 DashDirectionKeyboardInput { get; private set; }
+
+    // Shooting Variables
+    public bool KeyShoot { get; private set; }
+
+    // Attack Variables
+    public bool[] AttackInputs { get; private set; }
 
     #endregion
 
-    #region Shooting Variables
-
-    public bool KeyShoot { get; private set; }
+    #region Other Variables
+    [SerializeField] private float inputHoldTime; // Fixes Double Jump from spamming Spacebar
+    private float jumpinputStartTime;
+    private float dashInputStartTime;
 
     #endregion
 
     #region Unity Callback Functions
     private void Start() {
         playerInput = GetComponent<PlayerInput>();
-        angleRotations.up = 0f; angleRotations.right = 90f; angleRotations.down = 180f; angleRotations.left = 270f;
         rebind.LoadRebindings(PlayerInput);
 
+        int count = Enum.GetValues(typeof(CombatInputs)).Length;
+        AttackInputs = new bool[count];
+
+        angleRotations.up = 0f; angleRotations.right = 90f; angleRotations.down = 180f; angleRotations.left = 270f;
     }
     private void Update() {
         CheckJumpInputHoldTime();
@@ -60,6 +68,15 @@ public class PlayerInputHandler : MonoBehaviour {
     #endregion
 
     #region Unity PlayerInput Event Functions
+
+    public void OnPrimaryAttackInput(InputAction.CallbackContext context) {
+        if (context.started) { AttackInputs[(int)CombatInputs.primary] = true; }
+        if (context.canceled) { AttackInputs[(int)CombatInputs.primary] = false; }
+    }
+    public void OnSecondaryAttackInput(InputAction.CallbackContext context) {
+        if (context.started) { AttackInputs[(int)CombatInputs.secondary] = true; }
+        if (context.canceled) { AttackInputs[(int)CombatInputs.secondary] = false; }
+    }
 
     public void OnMoveInput(InputAction.CallbackContext context) {
         RawMovementInput = context.ReadValue<Vector2>();
@@ -105,16 +122,8 @@ public class PlayerInputHandler : MonoBehaviour {
     #region Other Functions
     public void UseJumpInput() => JumpInput = false;
     public void UseDashInput() => DashInput = false;
-    private void CheckJumpInputHoldTime() {
-        if (Time.time >= jumpinputStartTime + inputHoldTime) {
-            JumpInput = false;
-        }
-    }
-    private void CheckDashInputHoldTime() {
-        if (Time.time >= dashInputStartTime + inputHoldTime) {
-            DashInput = false;
-        }
-    }
+    private void CheckJumpInputHoldTime() { if (Time.time >= jumpinputStartTime + inputHoldTime) JumpInput = false; }
+    private void CheckDashInputHoldTime() { if (Time.time >= dashInputStartTime + inputHoldTime) DashInput = false; }
 
     #endregion
 
@@ -122,7 +131,5 @@ public class PlayerInputHandler : MonoBehaviour {
     public struct AngleRotations {
         public float up, down, left, right;
     }
-
     #endregion
-
 }

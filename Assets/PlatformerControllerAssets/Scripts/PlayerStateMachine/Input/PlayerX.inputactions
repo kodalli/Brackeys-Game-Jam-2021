@@ -46,9 +46,17 @@
                     "interactions": ""
                 },
                 {
-                    "name": "DisableInput",
+                    "name": "PrimaryAttack",
                     "type": "Button",
-                    "id": "4de0bc82-0f7c-4650-93bc-b1c9b81f4ada",
+                    "id": "f2c52090-8d27-4fba-808b-868dec8119df",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "SecondaryAttack",
+                    "type": "Button",
+                    "id": "80707a20-21a7-479f-9f1f-2c277ec2231a",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
@@ -233,12 +241,45 @@
                 },
                 {
                     "name": "",
-                    "id": "31b8577b-f4c0-4c10-85cd-89299fd253e0",
-                    "path": "<Keyboard>/k",
+                    "id": "ec52d513-4af0-43b0-8b58-6798d18e0e3d",
+                    "path": "<Keyboard>/c",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
-                    "action": "DisableInput",
+                    "action": "PrimaryAttack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5aace6a0-2a07-4e79-95e9-ef20a4a0334f",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "PrimaryAttack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "eba306c7-0101-4ee2-8974-88964c95d9e2",
+                    "path": "<Keyboard>/x",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "SecondaryAttack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "69431086-c870-4e24-9dbd-daf33a740945",
+                    "path": "<Gamepad>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "SecondaryAttack",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

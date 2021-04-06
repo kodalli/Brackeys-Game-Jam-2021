@@ -2,17 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Entity : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+public class Entity : MonoBehaviour {
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    public Rigidbody2D RB { get; private set; }
+    public Animator Anim { get; private set; }
+    public GameObject AliveGO { get; private set; }
+
+    public virtual void Start() {
+        AliveGO = transform.Find("Alive").gameObject;
     }
 }

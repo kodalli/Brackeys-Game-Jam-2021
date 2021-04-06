@@ -42,7 +42,7 @@ public class PlayerInAirState : PlayerState {
             player.LedgeClimbState.SetDetectedPos(player.transform.position);
         }
 
-        if (!wallJumpCoyoteTime && !isTouchingWall && !isTouchingWallBack && (oldIsTouchingWall || oldIsTouchingWallBack)){
+        if (!wallJumpCoyoteTime && !isTouchingWall && !isTouchingWallBack && (oldIsTouchingWall || oldIsTouchingWallBack)) {
             StartWallJumpCoyoteTime();
         }
 
@@ -75,24 +75,27 @@ public class PlayerInAirState : PlayerState {
 
         CheckJumpMultiplier();
 
-        if(isGrounded && player.CurrentVelocity.y < 0.01f) {
+        if (player.InputHandler.AttackInputs[(int)CombatInputs.primary]) {
+            stateMachine.ChangeState(player.PrimaryAttackState);
+        } else if (player.InputHandler.AttackInputs[(int)CombatInputs.secondary]) {
+            stateMachine.ChangeState(player.SecondaryAttackState);
+        } else if (isGrounded && player.CurrentVelocity.y < 0.01f) {
             stateMachine.ChangeState(player.LandState);
-        }
-        else if (isTouchingWall && !isTouchingLedge) {
+        } else if (isTouchingWall && !isTouchingLedge) {
             stateMachine.ChangeState(player.LedgeClimbState);
         }
-        // ** Use this ELSE IF to enable wall jumping without first sliding aka while falling while touching wall **
-        //else if (jumpInput && (isTouchingWall || isTouchingWallBack || wallJumpCoyoteTime)) {
-        //    StopWallJumpCoyoteTime();
-        //    isTouchingWall = player.CheckIfTouchingWall();
-        //    player.WallJumpState.DetermineWallJumpDirection(isTouchingWall);
-        //    stateMachine.ChangeState(player.WallJumpState);
-        //}
-        else if(jumpInput && player.JumpState.canJump()) {
+          // ** Use this ELSE IF to enable wall jumping without first sliding aka while falling while touching wall **
+          //else if (jumpInput && (isTouchingWall || isTouchingWallBack || wallJumpCoyoteTime)) {
+          //    StopWallJumpCoyoteTime();
+          //    isTouchingWall = player.CheckIfTouchingWall();
+          //    player.WallJumpState.DetermineWallJumpDirection(isTouchingWall);
+          //    stateMachine.ChangeState(player.WallJumpState);
+          //}
+          else if (jumpInput && player.JumpState.canJump()) {
             stateMachine.ChangeState(player.JumpState);
-        } else if(isTouchingWall && xInput == player.FacingDirection && player.CurrentVelocity.y <= 0) {
+        } else if (isTouchingWall && xInput == player.FacingDirection && player.CurrentVelocity.y <= 0) {
             stateMachine.ChangeState(player.WallSlideState);
-        } else if(dashInput && player.DashState.CheckIfCanDash()) {
+        } else if (dashInput && player.DashState.CheckIfCanDash()) {
             stateMachine.ChangeState(player.DashState);
         } else {
             player.CheckIfShouldFlip(xInput);
@@ -111,8 +114,7 @@ public class PlayerInAirState : PlayerState {
             if (jumpInputStop) {
                 player.SetVelocityY(player.CurrentVelocity.y * playerData.variableJumpHeightMultiplier);
                 isJumping = false;
-            }
-            else if (player.CurrentVelocity.y <= 0) {
+            } else if (player.CurrentVelocity.y <= 0) {
                 isJumping = false;
             }
         }

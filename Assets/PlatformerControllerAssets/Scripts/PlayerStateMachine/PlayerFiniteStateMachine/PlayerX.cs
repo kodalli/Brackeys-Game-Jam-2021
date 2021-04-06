@@ -47,12 +47,15 @@ public class PlayerX : Singleton<PlayerX> {
     public PlayerDashState DashState { get; private set; }
     public PlayerShootState ShootState { get; private set; }
     public PlayerHit1State Hit1State { get; private set; }
+    public PlayerAttackState PrimaryAttackState { get; private set; }
+    public PlayerAttackState SecondaryAttackState { get; private set; }
 
     [SerializeField] private PlayerData playerData;
     #endregion
 
     #region Components
     public PlayerInputHandler InputHandler { get; private set; }
+    public PlayerInventory Inventory { get; private set; }
     public Animator Anim { get; private set; }
     public Rigidbody2D RB { get; private set; }
     public SpriteRenderer SR { get; private set; }
@@ -99,20 +102,27 @@ public class PlayerX : Singleton<PlayerX> {
         DashState = new PlayerDashState(this, StateMachine, playerData, "dash");
         ShootState = new PlayerShootState(this, StateMachine, playerData, "shoot");
         Hit1State = new PlayerHit1State(this, StateMachine, playerData, "hit1");
+        PrimaryAttackState = new PlayerAttackState(this, StateMachine, playerData, "attack");
+        SecondaryAttackState = new PlayerAttackState(this, StateMachine, playerData, "attack");
     }
     private void Start() {
         Anim = GetComponent<Animator>();
         InputHandler = GetComponent<PlayerInputHandler>();
         RB = GetComponent<Rigidbody2D>();
         SR = GetComponent<SpriteRenderer>();
+        Inventory = GetComponent<PlayerInventory>();
+
         DashDirectionIndicator = transform.Find("DashDirectionIndicator");
         DashTimeIndicator = transform.Find("DashTimeIndicator");
         DashTimeIndicatorMaterial = DashTimeIndicator.GetComponent<Renderer>().material;
         BulletShootPos = transform.Find("BulletShootPos");
 
+        currentHealth = playerData.maxHealth;
         FacingDirection = 1;
 
-        currentHealth = playerData.maxHealth;
+        PrimaryAttackState.SetWeapon(Inventory.weapons[(int)CombatInputs.primary]);
+        // SecondaryAttackState.SetWeapon(Inventory.weapons[(int)CombatInputs.primary]);
+
 
         StateMachine.Initialize(IdleState);
     }

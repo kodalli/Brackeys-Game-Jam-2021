@@ -8,7 +8,7 @@ public class PlayerLandState : PlayerGroundedState {
 
     public override void AnimationTrigger() {
         base.AnimationTrigger();
-        SoundManager.Instance.Play(playerData.jumpLandedClip, 0.1f);
+        SoundManager.Instance.Play(playerData.jumpLandedClip, 0.02f);
     }
 
     public override void Enter() {
