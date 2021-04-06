@@ -19,13 +19,14 @@ public class EnemyController : Singleton<EnemyController> {
     public int explosionDamage;
     public bool isInvincible;
     public bool freezeEnemy;
-
+    public float damageTimer = 0.1f;
     GameObject explodeEffect;
     public AudioClip shootBullet;
 
     [SerializeField] string explodeEffectPrefabName;
     [SerializeField] AudioClip damageClip;
     [SerializeField] AudioClip blockAttackClip;
+
 
     void Start() {
         animator = GetComponent<Animator>();
@@ -50,6 +51,7 @@ public class EnemyController : Singleton<EnemyController> {
         } else {
             SoundManager.Instance.Play(blockAttackClip);
         }
+        StartCoroutine(ChangeColor(Color.red));
     }
     void StartDefeatAnimation() {
         explodeEffect = Instantiate((GameObject)Resources.Load(explodeEffectPrefabName));
@@ -88,5 +90,15 @@ public class EnemyController : Singleton<EnemyController> {
                 PlayerX.Instance.StateMachine.ChangeState(PlayerX.Instance.Hit1State);
             }
         }
+    }
+
+    IEnumerator ChangeColor(Color color) {
+        var countDown = damageTimer;
+        sprite.color = color;
+        while (countDown > 0) {
+            countDown -= Time.deltaTime;
+            yield return default;
+        }
+        sprite.color = Color.white;
     }
 }

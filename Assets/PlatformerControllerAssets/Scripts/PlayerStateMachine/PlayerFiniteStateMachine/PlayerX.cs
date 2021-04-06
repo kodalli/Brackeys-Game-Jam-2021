@@ -261,7 +261,7 @@ public class PlayerX : Singleton<PlayerX> {
         }
         if (Input.GetKeyDown(KeyCode.Equals)) {
             this.Defeat();
-            Debug.Log("Defeat()");
+            Debug.Log("Defeat");
         }
 
         if (Input.GetKeyDown(KeyCode.P)) {
