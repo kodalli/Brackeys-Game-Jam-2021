@@ -5,13 +5,13 @@ TagManager:
   serializedVersion: 2
   tags:
   - BattleSystem
-  - Sign
   - BattleNPC
   - ItemPickup
   - Confiner
   - Enemy
   - Bullet
   - Explosion
+  - EnemyFSM
   layers:
   - Default
   - TransparentFX
@@ -24,7 +24,7 @@ TagManager:
   - Ground
   - Player
   - Enemy
-  - 
+  - Damageable
   - 
   - 
   - 
