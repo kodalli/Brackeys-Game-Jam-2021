@@ -69,10 +69,10 @@ public class GameManager : MonoBehaviour {
             return;
         }
 
-        if (playerScoreText != null) {
-            playerScoreText.text = String.Format("<mspace=\"{0}\">{1:0000000}</mspace>",
-            playerScoreText.fontSize, playerScore); // mspace means monospace and equally spacing letters
-        }
+        //if (playerScoreText != null) {
+        playerScoreText.text = String.Format("<mspace=\"{0}\">{1:0000000}</mspace>",
+        playerScoreText.fontSize, playerScore); // mspace means monospace and equally spacing letters
+        //}
 
         if (!isGameOver) {
             // Do stuff while the game is running

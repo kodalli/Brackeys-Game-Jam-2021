@@ -13,13 +13,14 @@ public class IdleState : EnemyState {
     public IdleState(Entity entity, EnemyStateMachine stateMachine, string animBoolName, D_IdleState stateData) : base(entity, stateMachine, animBoolName) {
         this.stateData = stateData;
     }
-
+    public override void DoChecks() {
+        base.DoChecks();
+        isPlayerInMinAgroRange = entity.CheckPlayerInMinAgroRange();
+    }
     public override void Enter() {
         base.Enter();
 
         entity.SetVelocity(0f);
-
-        isPlayerInMinAgroRange = entity.CheckPlayerInMinAgroRange();
 
         isIdleTimeOver = false;
         SetRandomIdleTime();
@@ -42,8 +43,6 @@ public class IdleState : EnemyState {
 
     public override void PhysicsUpdate() {
         base.PhysicsUpdate();
-        isPlayerInMinAgroRange = entity.CheckPlayerInMinAgroRange();
-
     }
     public void SetFlipAfterIdle(bool flip) {
         flipAfterIdle = flip;

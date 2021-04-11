@@ -12,7 +12,7 @@ namespace TimelineUtils {
             float currentAlpha = 0f;
             Color finalColor = Color.black;
 
-            if (!text) { return; }
+            // if (!text) { return; }
 
             int inputCount = playable.GetInputCount();
             for (int i = 0; i < inputCount; i++) {
