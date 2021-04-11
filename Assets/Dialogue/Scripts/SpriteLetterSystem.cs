@@ -10,18 +10,28 @@ public class SpriteLetterSystem : MonoBehaviour {
 
     #region Variables
     // public
-    public Texture2D charSheet; //This should be the resource you want to load, Make sure that the image is in Assets/Resources ideally. Its a folder that unity can load things from using Resources.LoadAll etc
-    public Dictionary<char, CharData> loadedFont;
-    public GameObject letterObject;
-    public float letterSpacing = 3.5f;
-    public float wordSpacing = 10f;
-    public float lineSpacing = 100f;
-    public float letterSize = 10f;
+    [SerializeField] private Texture2D charSheet; //This should be the resource you want to load, Make sure that the image is in Assets/Resources ideally. Its a folder that unity can load things from using Resources.LoadAll etc
+    [SerializeField] private GameObject letterObject;
+    [SerializeField] private DialogueObject dObj;
+    [SerializeField] private RectTransform dialogueBoxRT;
+    // text settings
+    [Header("Text Settings")]
+    [SerializeField] private float letterSpacing = 3.5f;
+    [SerializeField] private float wordSpacing = 10f;
+    [SerializeField] private float lineSpacing = 100f;
+    [SerializeField] private float letterSize = 10f;
+    [SerializeField] private float indentLeft = 20f;
+    [SerializeField] private float indentRight = 20f;
+    // text effects
+    [Header("Text Effects")]
+    [SerializeField] private float wavyStrength = 0.5f;
+    [SerializeField] private float shakyStrength = 0.5f;
     // private
     private TextEffect activeEffect;
-    private Color activeColor = Color.white;
+    private Color activeColor = Color.black;
     private List<GameObject> letterObjects = new List<GameObject>();
     private Dictionary<CharSpriteData, TextEffect> fxChars = new Dictionary<CharSpriteData, TextEffect>();
+    private Dictionary<char, CharData> loadedFont;
     #endregion
 
     /// <summary>
@@ -33,6 +43,7 @@ public class SpriteLetterSystem : MonoBehaviour {
         public Image image; // gameobject component
         public Color color { set { this.image.color = value; } }
         public RectTransform rectTransform; // gameobject component
+        public float rightOffset;
 
     }
 
@@ -41,9 +52,11 @@ public class SpriteLetterSystem : MonoBehaviour {
     }
 
     private void Start() {
-        string textToGenerate = "<c=(255,50,120)><w>I am a top level Chungoloist</w></c>, and I have concluded with <c=(255,0,0)>absolute</c> <c=(0,255,0)>certainty </c>that Big Chungus himself shall enter into existence at 2:31 PM this April 9th.";
+        // string textToGenerate = "<c=(255,50,120)><w>I am a top level Chungoloist</w></c>, and I have concluded with <c=(255,0,0)>absolute</c> <c=(0,255,0)>certainty </c>that Big Chungus himself shall enter into existence at 2:31 PM this April 9th.";
+        string textToGenerate = dObj.dialogue[0];
         GenerateSpriteText(textToGenerate);
-        transform.localScale = new Vector3(letterSize / 100f, letterSize / 100f, 1f);
+        // transform.localScale = new Vector3(letterSize / 100f, letterSize / 100f, 1f);
+
     }
 
     private void FixedUpdate() {
@@ -57,11 +70,22 @@ public class SpriteLetterSystem : MonoBehaviour {
     public void GenerateSpriteText(string textToGenerate) {
         if (letterObject == null) return;
 
+        // Vector3[] corners = new Vector3[4];
+        // dialogueBoxRT.GetWorldCorners(corners);
+        // corners.ToList().ForEach(x => Debug.Log(x));
 
-        float xPosition = 0;
+        float scale = letterSize / 100f;
+
+        Rect dBoxRect = dialogueBoxRT.rect;
+
+        float xPosition = indentLeft;
         float yPosition = 0;
 
         bool inTag = false;
+
+        int wordCount = 0;
+
+        List<CharSpriteData> word = new List<CharSpriteData>();
 
         for (int i = 0; i < textToGenerate.Length; i++) {
 
@@ -73,6 +97,8 @@ public class SpriteLetterSystem : MonoBehaviour {
                 char currentCharacter = textToGenerate[i];
                 if (currentCharacter == ' ') {
                     xPosition += (letterSpacing * wordSpacing);
+                    wordCount++;
+                    word.Clear();
                     continue;
                 }
                 CharData currentCharacterData = loadedFont[currentCharacter];
@@ -83,6 +109,8 @@ public class SpriteLetterSystem : MonoBehaviour {
 
                 // Debug.Log("Letter Number: " + i + ", xpos: " + xPosition + ", ypos: " + yPosition);
                 GameObject newLetterSprite = CreateNewLetter(currentCharacterData, xPosition, yPosition, i);
+                newLetterSprite.transform.localScale = new Vector3(scale, scale, 1f);
+
                 letterObjects.Add(newLetterSprite);
 
                 CharSpriteData charData = new CharSpriteData();
@@ -90,15 +118,37 @@ public class SpriteLetterSystem : MonoBehaviour {
                 charData.transform = newLetterSprite.transform;
                 charData.rectTransform = newLetterSprite.GetComponent<RectTransform>();
                 charData.image = newLetterSprite.GetComponent<Image>();
+                charData.rightOffset = currentCharacterData.RightOffset;
+
+                word.Add(charData);
 
                 // set active color here so we can wrap other effects in color tags
                 charData.color = activeColor;
 
                 fxChars.Add(charData, activeEffect);
 
-                xPosition += currentCharacterData.RightOffset * letterSpacing;
+                xPosition += currentCharacterData.RightOffset * letterSpacing * scale;
+
+                Debug.Log(xPosition);
+
+                if (xPosition >= dBoxRect.width - indentRight) {
+                    yPosition -= lineSpacing;
+                    xPosition = indentLeft;
+
+                    // puts characters of unfinished word on the next line
+                    if (word.Count > 0) {
+                        for (int j = 0; j < word.Count(); j++) {
+                            var letterData = word[j];
+                            // letterData.transform = transform;
+                            letterData.transform.localPosition = new Vector3(transform.position.x + xPosition, transform.position.y + yPosition, 1f);
+                            xPosition += letterData.rightOffset * letterSpacing * scale;
+                        }
+                    }
+                }
+
             }
         }
+        Debug.Log(wordCount);
     }
 
     /// <summary>
@@ -143,7 +193,7 @@ public class SpriteLetterSystem : MonoBehaviour {
                 }
             } else {
                 activeEffect = TextEffect.None;
-                activeColor = Color.white;
+                activeColor = Color.black;
             }
         } else if (j > 0 && fullText[j - 1] == '>') {
             inTag = false;
@@ -192,12 +242,43 @@ public class SpriteLetterSystem : MonoBehaviour {
 
             switch (effect) {
                 case TextEffect.Wavy:
-                    rectTransform.anchoredPosition += Vector2.up * Mathf.Sin(position.x * 0.1f + 10 * Time.time) * 1f;
+                    rectTransform.anchoredPosition += Vector2.up * Mathf.Sin(position.x * 0.1f + 10 * Time.time) * wavyStrength;
                     break;
                 case TextEffect.Shaky:
-                    rectTransform.anchoredPosition = position + Random.insideUnitCircle * 0.8f;
+                    rectTransform.anchoredPosition = position + Random.insideUnitCircle * shakyStrength;
                     break;
             }
         }
     }
+
+    // public List<Image> imageList = new List<Image>();
+
+    // private void OnDrawGizmos()
+    // {
+    //     var min = Vector3.positiveInfinity;
+    //     var max = Vector3.negativeInfinity;
+
+    //     foreach (var image in imageList)
+    //     {
+    //         if(!image) continue;
+
+    //         // Get the 4 corners in world coordinates
+    //         var v = new Vector3[4];
+    //         image.rectTransform.GetWorldCorners(v);
+
+    //         // update min and max
+    //         foreach (var vector3 in v)
+    //         {
+    //             min = Vector3.Min(min, vector3);
+    //             max = Vector3.Max(max, vector3);
+    //         }
+    //     }
+
+    //     // create the bounds
+    //     var bounds = new Bounds();
+    //     bounds.SetMinMax(min, max);
+
+    //     Gizmos.color = Color.red;
+    //     Gizmos.DrawWireCube(bounds.center, bounds.size);
+    // }
 }
