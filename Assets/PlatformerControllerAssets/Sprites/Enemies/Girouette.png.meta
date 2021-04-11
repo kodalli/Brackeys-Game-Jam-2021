@@ -1,0 +1,2916 @@
+fileFormatVersion: 2
+guid: bbd14c1d56ab43c44aaeeba0c66565dc
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -853274787757129364
+    second: Girouette_0
+  - first:
+      213: 6582404844497717425
+    second: Girouette_1
+  - first:
+      213: -439637130632482289
+    second: Girouette_2
+  - first:
+      213: 8509953266039797580
+    second: Girouette_3
+  - first:
+      213: -6416288448463980179
+    second: Girouette_4
+  - first:
+      213: -6823385990246473126
+    second: Girouette_5
+  - first:
+      213: -6789756000292329214
+    second: Girouette_6
+  - first:
+      213: -9219601299260789511
+    second: Girouette_7
+  - first:
+      213: 6392192044871444037
+    second: Girouette_8
+  - first:
+      213: 3256946163518273208
+    second: Girouette_9
+  - first:
+      213: 2651199987362165356
+    second: Girouette_10
+  - first:
+      213: -5322290422373981455
+    second: Girouette_11
+  - first:
+      213: 8862622486798867550
+    second: Girouette_12
+  - first:
+      213: 6590989954488531152
+    second: Girouette_13
+  - first:
+      213: 8146026118519176045
+    second: Girouette_14
+  - first:
+      213: -7296264094712692607
+    second: Girouette_15
+  - first:
+      213: 7108397073933762942
+    second: Girouette_16
+  - first:
+      213: -8265784971463748670
+    second: Girouette_17
+  - first:
+      213: 7118680888080187368
+    second: Girouette_18
+  - first:
+      213: 3299428391667399279
+    second: Girouette_19
+  - first:
+      213: 8889205697764668794
+    second: Girouette_20
+  - first:
+      213: 3270882246747108834
+    second: Girouette_21
+  - first:
+      213: -5906998694316939477
+    second: Girouette_22
+  - first:
+      213: -4790796385864569535
+    second: Girouette_23
+  - first:
+      213: 3040604320292725042
+    second: Girouette_24
+  - first:
+      213: 5058813083336824248
+    second: Girouette_25
+  - first:
+      213: -6754860497733486580
+    second: Girouette_26
+  - first:
+      213: 6138271315999819923
+    second: Girouette_27
+  - first:
+      213: -6619363032408364539
+    second: Girouette_28
+  - first:
+      213: -1806952001166856059
+    second: Girouette_29
+  - first:
+      213: 5797087073017697827
+    second: Girouette_30
+  - first:
+      213: -3420918452967163123
+    second: Girouette_31
+  - first:
+      213: -4982285135119876048
+    second: Girouette_32
+  - first:
+      213: 8503876338097151949
+    second: Girouette_33
+  - first:
+      213: 7541956466310052001
+    second: Girouette_34
+  - first:
+      213: -6996715881102278590
+    second: Girouette_35
+  - first:
+      213: 7084293366128900886
+    second: Girouette_36
+  - first:
+      213: 6729547515423435393
+    second: Girouette_37
+  - first:
+      213: 2170189777573428124
+    second: Girouette_38
+  - first:
+      213: -1874187479094317345
+    second: Girouette_39
+  - first:
+      213: -4408002584595103510
+    second: Girouette_40
+  - first:
+      213: 5174026814654132443
+    second: Girouette_41
+  - first:
+      213: -7499941032210476895
+    second: Girouette_42
+  - first:
+      213: -5436759662166690313
+    second: Girouette_43
+  - first:
+      213: 6177392249154989880
+    second: Girouette_44
+  - first:
+      213: -1986399477015833887
+    second: Girouette_45
+  - first:
+      213: -2265635754755996508
+    second: Girouette_46
+  - first:
+      213: 5177953604403276217
+    second: Girouette_47
+  - first:
+      213: 3235041562946603926
+    second: Girouette_48
+  - first:
+      213: 3004618994310787581
+    second: Girouette_49
+  - first:
+      213: -8220923682594986276
+    second: Girouette_50
+  - first:
+      213: 5347664069244891497
+    second: Girouette_51
+  - first:
+      213: 3873791873166953354
+    second: Girouette_52
+  - first:
+      213: 3334123423685794697
+    second: Girouette_53
+  - first:
+      213: -6639486264275868202
+    second: Girouette_54
+  - first:
+      213: 5943664324762652173
+    second: Girouette_55
+  - first:
+      213: 1065409561465790777
+    second: Girouette_56
+  - first:
+      213: 3104877688396928778
+    second: Girouette_57
+  - first:
+      213: 7433687011219515066
+    second: Girouette_58
+  - first:
+      213: -9131585262109543031
+    second: Girouette_59
+  - first:
+      213: -2929165075305920121
+    second: Girouette_60
+  - first:
+      213: -3546363724242258102
+    second: Girouette_61
+  - first:
+      213: -3841171407653174741
+    second: Girouette_62
+  - first:
+      213: 4997615768344826960
+    second: Girouette_63
+  - first:
+      213: -6439746790018065398
+    second: Girouette_64
+  - first:
+      213: 2961060730799446838
+    second: Girouette_65
+  - first:
+      213: -7359268791642200473
+    second: Girouette_66
+  - first:
+      213: 1787151175611231572
+    second: Girouette_67
+  - first:
+      213: 6159101952756368351
+    second: Girouette_68
+  - first:
+      213: 3062566345106061034
+    second: Girouette_69
+  - first:
+      213: 6694105585821009350
+    second: Girouette_70
+  - first:
+      213: 876650390797440499
+    second: Girouette_71
+  - first:
+      213: 6518412891297017678
+    second: Girouette_72
+  - first:
+      213: 518601199567458968
+    second: Girouette_73
+  - first:
+      213: -3241917504673644084
+    second: Girouette_74
+  - first:
+      213: -6205588466674376255
+    second: Girouette_75
+  - first:
+      213: 2250944129323742181
+    second: Girouette_76
+  - first:
+      213: -5892599244627457185
+    second: Girouette_77
+  - first:
+      213: 2688561482271789577
+    second: Girouette_78
+  - first:
+      213: 6767539407817753357
+    second: Girouette_79
+  - first:
+      213: 5247258507872024867
+    second: Girouette_80
+  - first:
+      213: -8948536699993068557
+    second: Girouette_81
+  - first:
+      213: -7561391040301886671
+    second: Girouette_82
+  - first:
+      213: -5493769483172930519
+    second: Girouette_83
+  - first:
+      213: 1432563882196856245
+    second: Girouette_84
+  - first:
+      213: -330419701327158319
+    second: Girouette_85
+  - first:
+      213: -4702504234373355809
+    second: Girouette_86
+  - first:
+      213: -4751065490769304227
+    second: Girouette_87
+  - first:
+      213: 4782103536296982406
+    second: Girouette_88
+  - first:
+      213: -4493267907734801403
+    second: Girouette_89
+  - first:
+      213: -5533539188710041527
+    second: Girouette_90
+  - first:
+      213: 2171032240876963485
+    second: Girouette_91
+  - first:
+      213: -8883338683145451145
+    second: Girouette_92
+  - first:
+      213: -3807714951900415987
+    second: Girouette_93
+  - first:
+      213: 8535121711590975281
+    second: Girouette_94
+  - first:
+      213: -7820572072868356085
+    second: Girouette_95
+  - first:
+      213: 8476591512925461367
+    second: Girouette_96
+  - first:
+      213: 8849014719016901110
+    second: Girouette_97
+  - first:
+      213: -2690252311360501776
+    second: Girouette_98
+  - first:
+      213: -8428446592170542794
+    second: Girouette_99
+  - first:
+      213: 3355353152089563264
+    second: Girouette_100
+  - first:
+      213: -6862815230228240388
+    second: Girouette_101
+  - first:
+      213: 6412150485768690011
+    second: Girouette_102
+  - first:
+      213: 138279279544484824
+    second: Girouette_103
+  - first:
+      213: 682815822404187979
+    second: Girouette_104
+  - first:
+      213: -9070352419575019477
+    second: Girouette_105
+  - first:
+      213: 1707899766907352158
+    second: Girouette_106
+  - first:
+      213: 3851151573217250781
+    second: Girouette_107
+  - first:
+      213: -8880103361725537976
+    second: Girouette_108
+  - first:
+      213: -274672733970036346
+    second: Girouette_109
+  - first:
+      213: -8243380798516451285
+    second: Girouette_110
+  - first:
+      213: 5074837268498269168
+    second: Girouette_111
+  - first:
+      213: -8209833841375464959
+    second: Girouette_112
+  - first:
+      213: -4368020080528162516
+    second: Girouette_113
+  - first:
+      213: -8153237350300491492
+    second: Girouette_114
+  - first:
+      213: -3869454361914374944
+    second: Girouette_115
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Girouette_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 436
+        width: 23
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6180f3f91f8824f0800000000000000
+      internalID: -853274787757129364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girouette_1
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 436
+        width: 23
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b8c81cb456695b50800000000000000
+      internalID: 6582404844497717425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girouette_2
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 436
+        width: 24
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f023496eb5816e9f0800000000000000
+      internalID: -439637130632482289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girouette_3
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 436
+        width: 24
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c473a75686d691670800000000000000
+      internalID: 8509953266039797580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girouette_4
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 436
+        width: 24
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d69bcdca6a3c4f6a0800000000000000
+      internalID: -6416288448463980179
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girouette_5
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 436
+        width: 24
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a526bfdf7967e41a0800000000000000
+      internalID: -6823385990246473126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girouette_6
+      rect:
+        serializedVersion: 2
+        x: 154
+        y: 436
+        width: 20
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 209aff234e0f5c1a0800000000000000
+      internalID: -6789756000292329214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girouette_7
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 436
+        width: 23
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9fca4d247756d0080800000000000000
+      internalID: -9219601299260789511
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girouette_8
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 436
+        width: 18
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 546e3aa2cc0a5b850800000000000000
+      internalID: 6392192044871444037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girouette_9
+      rect:
+        serializedVersion: 2
+        x: 221
+        y: 436
+        width: 27
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b6f319974ff23d20800000000000000
+      internalID: 3256946163518273208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girouette_10
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 436
+        width: 30
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c62fd338754fac420800000000000000
+      internalID: 2651199987362165356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girouette_11
+      rect:
+        serializedVersion: 2
+        x: 282
+        y: 436
+        width: 40
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f26fee3f0d6326b0800000000000000
+      internalID: -5322290422373981455
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girouette_12
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 436
+        width: 25
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5c1900123c5efa70800000000000000
+      internalID: 8862622486798867550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girouette_13
+      rect:
+        serializedVersion: 2
+        x: 351
+        y: 436
+        width: 36
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d8f47b6176e77b50800000000000000
+      internalID: 6590989954488531152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girouette_14
+      rect:
+        serializedVersion: 2
+        x: 389
+        y: 436
+        width: 30
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6bb365689f7c0170800000000000000
+      internalID: 8146026118519176045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girouette_15
+      rect:
+        serializedVersion: 2
+        x: 423
+        y: 436
+        width: 28
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 180863f86767eba90800000000000000
+      internalID: -7296264094712692607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girouette_16
+      rect:
+        serializedVersion: 2
+        x: 453
+        y: 436
+        width: 31
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e718f321a7916a260800000000000000
+      internalID: 7108397073933762942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girouette_17
+      rect:
+        serializedVersion: 2
+        x: 486
+        y: 436
+        width: 29
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c3142acc580a4d80800000000000000
+      internalID: -8265784971463748670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girouette_18
+      rect:
+        serializedVersion: 2
+        x: 517
+        y: 436
+        width: 29
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8efb1632d82aac260800000000000000
+      internalID: 7118680888080187368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girouette_19
+      rect:
+        serializedVersion: 2
+        x: 548
+        y: 436
+        width: 30
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6a7c2f14ace9cd20800000000000000
+      internalID: 3299428391667399279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girouette_20
+      rect:
+        serializedVersion: 2
+        x: 580
+        y: 436
+        width: 29
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7534ae2c7dcc5b70800000000000000
+      internalID: 8889205697764668794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girouette_21
+      rect:
+        serializedVersion: 2
+        x: 611
+        y: 436
+        width: 26
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e53e73d212846d20800000000000000
+      internalID: 3270882246747108834
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girouette_22
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 379
+        width: 44
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b27ea80fbff160ea0800000000000000
+      internalID: -5906998694316939477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girouette_23
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 379
+        width: 42
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14d215dd11ca38db0800000000000000
+      internalID: -4790796385864569535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girouette_24
+      rect:
+        serializedVersion: 2
+        x: 246
+        y: 379
+        width: 42
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 231e09df485623a20800000000000000
+      internalID: 3040604320292725042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girouette_25
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 379
+        width: 40
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b5d36152b3843640800000000000000
+      internalID: 5058813083336824248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girouette_26
+      rect:
+        serializedVersion: 2
+        x: 332
+        y: 379
+        width: 38
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c08f6458a2ae142a0800000000000000
+      internalID: -6754860497733486580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girouette_27
+      rect:
+        serializedVersion: 2
+        x: 372
+        y: 379
+        width: 38
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 398832d6d358f2550800000000000000
+      internalID: 6138271315999819923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girouette_28
+      rect:
+        serializedVersion: 2
+        x: 412
+        y: 379
+        width: 33
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50a62f5946c4324a0800000000000000
+      internalID: -6619363032408364539
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girouette_29
+      rect:
+        serializedVersion: 2
+        x: 447
+        y: 379
+        width: 50
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 580b4448aba6ce6e0800000000000000
+      internalID: -1806952001166856059
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girouette_30
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 282
+        width: 42
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3269a378af3637050800000000000000
+      internalID: 5797087073017697827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girouette_31
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 282
+        width: 42
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0b3055bac47680d0800000000000000
+      internalID: -3420918452967163123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girouette_32
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 282
+        width: 42
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 030887f111e5bdab0800000000000000
+      internalID: -4982285135119876048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girouette_33
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 282
+        width: 42
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dcf512a5976d30670800000000000000
+      internalID: 8503876338097151949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girouette_34
+      rect:
+        serializedVersion: 2
+        x: 219
+        y: 282
+        width: 42
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a8fed572796aa860800000000000000
+      internalID: 7541956466310052001
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girouette_35
+      rect:
+        serializedVersion: 2
+        x: 263
+        y: 282
+        width: 44
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2408090f9fba6ee90800000000000000
+      internalID: -6996715881102278590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girouette_36
+      rect:
+        serializedVersion: 2
+        x: 309
+        y: 282
+        width: 101
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61bf4c44847705260800000000000000
+      internalID: 7084293366128900886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girouette_37
+      rect:
+        serializedVersion: 2
+        x: 412
+        y: 282
+        width: 90
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18a2de38fc7246d50800000000000000
+      internalID: 6729547515423435393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girouette_38
+      rect:
+        serializedVersion: 2
+        x: 504
+        y: 281
+        width: 91
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9bb273ca101e1e10800000000000000
+      internalID: 2170189777573428124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girouette_39
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 199
+        width: 49
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fde291aea6c8df5e0800000000000000
+      internalID: -1874187479094317345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girouette_40
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 215
+        width: 8
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae084300101a3d2c0800000000000000
+      internalID: -4408002584595103510
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girouette_41
+      rect:
+        serializedVersion: 2
+        x: 151
+        y: 219
+        width: 20
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd03ec989f5ddc740800000000000000
+      internalID: 5174026814654132443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girouette_42
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 213
+        width: 26
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a0d7ba1e5bdae790800000000000000
+      internalID: -7499941032210476895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girouette_43
+      rect:
+        serializedVersion: 2
+        x: 234
+        y: 236
+        width: 4
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f5b16774efbc84b0800000000000000
+      internalID: -5436759662166690313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girouette_44
+      rect:
+        serializedVersion: 2
+        x: 249
+        y: 231
+        width: 15
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83f622975818ab550800000000000000
+      internalID: 6177392249154989880
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girouette_45
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 222
+        width: 20
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e213763334ee64e0800000000000000
+      internalID: -1986399477015833887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girouette_46
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 179
+        width: 64
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a4485fe848de80e0800000000000000
+      internalID: -2265635754755996508
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girouette_47
+      rect:
+        serializedVersion: 2
+        x: 121
+        y: 210
+        width: 10
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b929e58e59cbd740800000000000000
+      internalID: 5177953604403276217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girouette_48
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 200
+        width: 25
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69b8e09592d25ec20800000000000000
+      internalID: 3235041562946603926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girouette_49
+      rect:
+        serializedVersion: 2
+        x: 213
+        y: 218
+        width: 7
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df139416e0d82b920800000000000000
+      internalID: 3004618994310787581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girouette_50
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 205
+        width: 18
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd6645d877969ed80800000000000000
+      internalID: -8220923682594986276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girouette_51
+      rect:
+        serializedVersion: 2
+        x: 548
+        y: 178
+        width: 33
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96136794328b63a40800000000000000
+      internalID: 5347664069244891497
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girouette_52
+      rect:
+        serializedVersion: 2
+        x: 583
+        y: 178
+        width: 27
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8b49e53f2972c530800000000000000
+      internalID: 3873791873166953354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girouette_53
+      rect:
+        serializedVersion: 2
+        x: 612
+        y: 178
+        width: 25
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98bd912c69f254e20800000000000000
+      internalID: 3334123423685794697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girouette_54
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 186
+        width: 5
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d560ce8b6ecbd3a0800000000000000
+      internalID: -6639486264275868202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girouette_55
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 185
+        width: 35
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0ec3a566332c7250800000000000000
+      internalID: 5943664324762652173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girouette_56
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 180
+        width: 67
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9312973f95819ce00800000000000000
+      internalID: 1065409561465790777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girouette_57
+      rect:
+        serializedVersion: 2
+        x: 187
+        y: 178
+        width: 68
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a075fe7aecdb61b20800000000000000
+      internalID: 3104877688396928778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girouette_58
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 178
+        width: 39
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab6ac2b83f2c92760800000000000000
+      internalID: 7433687011219515066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girouette_59
+      rect:
+        serializedVersion: 2
+        x: 321
+        y: 178
+        width: 39
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 985b4c7d597164180800000000000000
+      internalID: -9131585262109543031
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girouette_60
+      rect:
+        serializedVersion: 2
+        x: 362
+        y: 178
+        width: 39
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78909e522e38957d0800000000000000
+      internalID: -2929165075305920121
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girouette_61
+      rect:
+        serializedVersion: 2
+        x: 403
+        y: 178
+        width: 35
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4775347bf8c8cec0800000000000000
+      internalID: -3546363724242258102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girouette_62
+      rect:
+        serializedVersion: 2
+        x: 440
+        y: 178
+        width: 34
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b220275c4fa61bac0800000000000000
+      internalID: -3841171407653174741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girouette_63
+      rect:
+        serializedVersion: 2
+        x: 476
+        y: 178
+        width: 34
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 054951410191b5540800000000000000
+      internalID: 4997615768344826960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girouette_64
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 178
+        width: 34
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0cd289e96c61a6a0800000000000000
+      internalID: -6439746790018065398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girouette_65
+      rect:
+        serializedVersion: 2
+        x: 139
+        y: 129
+        width: 31
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63bd8a9db0dc71920800000000000000
+      internalID: 2961060730799446838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girouette_66
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 129
+        width: 44
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7666c8b6600aed990800000000000000
+      internalID: -7359268791642200473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girouette_67
+      rect:
+        serializedVersion: 2
+        x: 218
+        y: 129
+        width: 45
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45daa36868c3dc810800000000000000
+      internalID: 1787151175611231572
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girouette_68
+      rect:
+        serializedVersion: 2
+        x: 265
+        y: 129
+        width: 45
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd3457df796897550800000000000000
+      internalID: 6159101952756368351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girouette_69
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 129
+        width: 45
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae6fc1d5ddb608a20800000000000000
+      internalID: 3062566345106061034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girouette_70
+      rect:
+        serializedVersion: 2
+        x: 359
+        y: 129
+        width: 45
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c5c1db309d36ec50800000000000000
+      internalID: 6694105585821009350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girouette_71
+      rect:
+        serializedVersion: 2
+        x: 406
+        y: 129
+        width: 31
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f550bfb2ec7a2c00800000000000000
+      internalID: 876650390797440499
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girouette_72
+      rect:
+        serializedVersion: 2
+        x: 439
+        y: 129
+        width: 33
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4fe5151dfd067a50800000000000000
+      internalID: 6518412891297017678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girouette_73
+      rect:
+        serializedVersion: 2
+        x: 474
+        y: 129
+        width: 34
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8925f481b01723700800000000000000
+      internalID: 518601199567458968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girouette_74
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 63
+        width: 29
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc18ec6b4356203d0800000000000000
+      internalID: -3241917504673644084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girouette_75
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 63
+        width: 26
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c1ec9d0b2251e9a0800000000000000
+      internalID: -6205588466674376255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girouette_76
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 63
+        width: 25
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e3b79572c5fc3f10800000000000000
+      internalID: 2250944129323742181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girouette_77
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 63
+        width: 42
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5bce341538493ea0800000000000000
+      internalID: -5892599244627457185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girouette_78
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 63
+        width: 53
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9029b9b6c60bf4520800000000000000
+      internalID: 2688561482271789577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girouette_79
+      rect:
+        serializedVersion: 2
+        x: 233
+        y: 63
+        width: 80
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d034f664c312bed50800000000000000
+      internalID: 6767539407817753357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girouette_80
+      rect:
+        serializedVersion: 2
+        x: 315
+        y: 63
+        width: 54
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 329bb5ecfc102d840800000000000000
+      internalID: 5247258507872024867
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girouette_81
+      rect:
+        serializedVersion: 2
+        x: 371
+        y: 63
+        width: 69
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3fbed51684960d380800000000000000
+      internalID: -8948536699993068557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girouette_82
+      rect:
+        serializedVersion: 2
+        x: 442
+        y: 63
+        width: 52
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1331cfa29ea801790800000000000000
+      internalID: -7561391040301886671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girouette_83
+      rect:
+        serializedVersion: 2
+        x: 496
+        y: 63
+        width: 45
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92c989523c532c3b0800000000000000
+      internalID: -5493769483172930519
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girouette_84
+      rect:
+        serializedVersion: 2
+        x: 543
+        y: 63
+        width: 50
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5bde564c24d71e310800000000000000
+      internalID: 1432563882196856245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girouette_85
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 24
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d3aa93480d1a6bf0800000000000000
+      internalID: -330419701327158319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girouette_86
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 24
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd6e76350595dbeb0800000000000000
+      internalID: -4702504234373355809
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girouette_87
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 24
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d55241ebb13d01eb0800000000000000
+      internalID: -4751065490769304227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girouette_88
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 24
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 687fe1064d17d5240800000000000000
+      internalID: 4782103536296982406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girouette_89
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 24
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 504fdcee4a4b4a1c0800000000000000
+      internalID: -4493267907734801403
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girouette_90
+      rect:
+        serializedVersion: 2
+        x: 118
+        y: 24
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9481c320d6be433b0800000000000000
+      internalID: -5533539188710041527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girouette_91
+      rect:
+        serializedVersion: 2
+        x: 125
+        y: 15
+        width: 30
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d964469025e012e10800000000000000
+      internalID: 2171032240876963485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girouette_92
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 18
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77901ab988a08b480800000000000000
+      internalID: -8883338683145451145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girouette_93
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 17
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d083806ec67482bc0800000000000000
+      internalID: -3807714951900415987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girouette_94
+      rect:
+        serializedVersion: 2
+        x: 187
+        y: 17
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 137aa16c9f7d27670800000000000000
+      internalID: 8535121711590975281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girouette_95
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 8
+        width: 8
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b006758822fb77390800000000000000
+      internalID: -7820572072868356085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girouette_96
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 0
+        width: 10
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77b5302f117e2a570800000000000000
+      internalID: 8476591512925461367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girouette_97
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 2
+        width: 16
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f9943bb0040eca70800000000000000
+      internalID: 8849014719016901110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girouette_98
+      rect:
+        serializedVersion: 2
+        x: 245
+        y: 3
+        width: 24
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f70f21c6cd4aaad0800000000000000
+      internalID: -2690252311360501776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girouette_99
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 2
+        width: 50
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 639b251fa74280b80800000000000000
+      internalID: -8428446592170542794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girouette_100
+      rect:
+        serializedVersion: 2
+        x: 323
+        y: 3
+        width: 54
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08029461aeb909e20800000000000000
+      internalID: 3355353152089563264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girouette_101
+      rect:
+        serializedVersion: 2
+        x: 379
+        y: 24
+        width: 28
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf7ea1ba8e162c0a0800000000000000
+      internalID: -6862815230228240388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girouette_102
+      rect:
+        serializedVersion: 2
+        x: 409
+        y: 24
+        width: 18
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b59579ec4e88cf850800000000000000
+      internalID: 6412150485768690011
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girouette_103
+      rect:
+        serializedVersion: 2
+        x: 429
+        y: 24
+        width: 30
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d3cb09a5444be100800000000000000
+      internalID: 138279279544484824
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girouette_104
+      rect:
+        serializedVersion: 2
+        x: 461
+        y: 24
+        width: 12
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b47fa6d6f59d97900800000000000000
+      internalID: 682815822404187979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girouette_105
+      rect:
+        serializedVersion: 2
+        x: 475
+        y: 24
+        width: 23
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2840abf782af1280800000000000000
+      internalID: -9070352419575019477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girouette_106
+      rect:
+        serializedVersion: 2
+        x: 502
+        y: 0
+        width: 68
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e543c760acda3b710800000000000000
+      internalID: 1707899766907352158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girouette_107
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 15
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ddd0dc993f9027530800000000000000
+      internalID: 3851151573217250781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girouette_108
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 15
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 841e8939a0983c480800000000000000
+      internalID: -8880103361725537976
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girouette_109
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 15
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6890b3e8a9a203cf0800000000000000
+      internalID: -274672733970036346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girouette_110
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 15
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b28a62cc6d0a99d80800000000000000
+      internalID: -8243380798516451285
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girouette_111
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 15
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f3c0c9ab917d6640800000000000000
+      internalID: 5074837268498269168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girouette_112
+      rect:
+        serializedVersion: 2
+        x: 118
+        y: 15
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 102b5db6e9fc01e80800000000000000
+      internalID: -8209833841375464959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girouette_113
+      rect:
+        serializedVersion: 2
+        x: 387
+        y: 14
+        width: 11
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c21885821eca163c0800000000000000
+      internalID: -4368020080528162516
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girouette_114
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 14
+        width: 31
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1164edd3d1e9de80800000000000000
+      internalID: -8153237350300491492
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Girouette_115
+      rect:
+        serializedVersion: 2
+        x: 433
+        y: 14
+        width: 33
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e4028352cfec4ac0800000000000000
+      internalID: -3869454361914374944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

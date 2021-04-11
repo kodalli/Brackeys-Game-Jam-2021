@@ -1,0 +1,1116 @@
+fileFormatVersion: 2
+guid: 89ecf6ae859d5ce4eb5aa74514999e37
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7748841513480356517
+    second: Fistleo_1_0
+  - first:
+      213: 1739597578670141626
+    second: Fistleo_1_1
+  - first:
+      213: 26806655410106628
+    second: Fistleo_1_2
+  - first:
+      213: 2930747501241893878
+    second: Fistleo_1_3
+  - first:
+      213: 5719031374807108208
+    second: Fistleo_1_4
+  - first:
+      213: 1082851323006249763
+    second: Fistleo_1_5
+  - first:
+      213: 8357028161199115189
+    second: Fistleo_1_6
+  - first:
+      213: -4306805643693578525
+    second: Fistleo_1_7
+  - first:
+      213: 8319798104955946782
+    second: Fistleo_1_8
+  - first:
+      213: -5005030378346656419
+    second: Fistleo_1_9
+  - first:
+      213: 4755716374233775371
+    second: Fistleo_1_10
+  - first:
+      213: -6943554722428795809
+    second: Fistleo_1_11
+  - first:
+      213: 2281069489481745431
+    second: Fistleo_1_12
+  - first:
+      213: 1420948110657155971
+    second: Fistleo_1_13
+  - first:
+      213: 9001831424377526621
+    second: Fistleo_1_14
+  - first:
+      213: -8320153333316133980
+    second: Fistleo_1_15
+  - first:
+      213: 6255317812651583546
+    second: Fistleo_1_16
+  - first:
+      213: -5517389144136733172
+    second: Fistleo_1_17
+  - first:
+      213: 2407429429536950670
+    second: Fistleo_1_18
+  - first:
+      213: 6836689404901949625
+    second: Fistleo_1_19
+  - first:
+      213: -7228524827487132761
+    second: Fistleo_1_20
+  - first:
+      213: 7275751793211004335
+    second: Fistleo_1_21
+  - first:
+      213: -6164128135224044492
+    second: Fistleo_1_22
+  - first:
+      213: 8947090003277397887
+    second: Fistleo_1_23
+  - first:
+      213: -5985162082115949593
+    second: Fistleo_1_24
+  - first:
+      213: -3686102802760720984
+    second: Fistleo_1_25
+  - first:
+      213: -958337973254737009
+    second: Fistleo_1_26
+  - first:
+      213: -3643434359678700434
+    second: Fistleo_1_27
+  - first:
+      213: -3308756997675265898
+    second: Fistleo_1_28
+  - first:
+      213: -4630887914356545595
+    second: Fistleo_1_29
+  - first:
+      213: -7969035061410919293
+    second: Fistleo_1_30
+  - first:
+      213: 2304088012521830332
+    second: Fistleo_1_31
+  - first:
+      213: 5404103196875432368
+    second: Fistleo_1_32
+  - first:
+      213: 8573509855078194208
+    second: Fistleo_1_33
+  - first:
+      213: 1261351103717705855
+    second: Fistleo_1_34
+  - first:
+      213: 1812144934504069326
+    second: Fistleo_1_35
+  - first:
+      213: 7246423587535776337
+    second: Fistleo_1_36
+  - first:
+      213: -2838992230954097528
+    second: Fistleo_1_37
+  - first:
+      213: -8807412317603893195
+    second: Fistleo_1_38
+  - first:
+      213: 6683425361690643594
+    second: Fistleo_1_39
+  - first:
+      213: -2716062152799341223
+    second: Fistleo_1_40
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Fistleo_1_0
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 149
+        width: 35
+        height: 68
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a20cc72d4a698b60800000000000000
+      internalID: 7748841513480356517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fistleo_1_1
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 149
+        width: 39
+        height: 67
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab073c0f7ca442810800000000000000
+      internalID: 1739597578670141626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fistleo_1_2
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 149
+        width: 45
+        height: 62
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 401f555d28c3f5000800000000000000
+      internalID: 26806655410106628
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fistleo_1_3
+      rect:
+        serializedVersion: 2
+        x: 263
+        y: 149
+        width: 48
+        height: 46
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f303e9135b1ca820800000000000000
+      internalID: 2930747501241893878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fistleo_1_4
+      rect:
+        serializedVersion: 2
+        x: 313
+        y: 149
+        width: 48
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07a01b21cb41e5f40800000000000000
+      internalID: 5719031374807108208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fistleo_1_5
+      rect:
+        serializedVersion: 2
+        x: 363
+        y: 149
+        width: 48
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32b69548a8f070f00800000000000000
+      internalID: 1082851323006249763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fistleo_1_6
+      rect:
+        serializedVersion: 2
+        x: 413
+        y: 149
+        width: 48
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5bb853ec5d02af370800000000000000
+      internalID: 8357028161199115189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fistleo_1_7
+      rect:
+        serializedVersion: 2
+        x: 463
+        y: 149
+        width: 48
+        height: 46
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e62ff2e5172b34c0800000000000000
+      internalID: -4306805643693578525
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fistleo_1_8
+      rect:
+        serializedVersion: 2
+        x: 514
+        y: 149
+        width: 48
+        height: 46
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e170ed8db4cd57370800000000000000
+      internalID: 8319798104955946782
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fistleo_1_9
+      rect:
+        serializedVersion: 2
+        x: 564
+        y: 149
+        width: 48
+        height: 46
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5dcb90836f8a8ab0800000000000000
+      internalID: -5005030378346656419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fistleo_1_10
+      rect:
+        serializedVersion: 2
+        x: 614
+        y: 149
+        width: 48
+        height: 55
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0d76b278d2bff140800000000000000
+      internalID: 4755716374233775371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fistleo_1_11
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 84
+        width: 48
+        height: 53
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f54452bb4c983af90800000000000000
+      internalID: -6943554722428795809
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fistleo_1_12
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 84
+        width: 48
+        height: 53
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7148a847d9cf7af10800000000000000
+      internalID: 2281069489481745431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fistleo_1_13
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 84
+        width: 48
+        height: 54
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3837bf337c838b310800000000000000
+      internalID: 1420948110657155971
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fistleo_1_14
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 84
+        width: 48
+        height: 54
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5998f99cfdecec70800000000000000
+      internalID: 9001831424377526621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fistleo_1_15
+      rect:
+        serializedVersion: 2
+        x: 316
+        y: 84
+        width: 50
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4abd8ea10a0e88c80800000000000000
+      internalID: -8320153333316133980
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fistleo_1_16
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 84
+        width: 49
+        height: 45
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a386544986a5fc650800000000000000
+      internalID: 6255317812651583546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fistleo_1_17
+      rect:
+        serializedVersion: 2
+        x: 419
+        y: 83
+        width: 43
+        height: 52
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0e22284ecb4e63b0800000000000000
+      internalID: -5517389144136733172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fistleo_1_18
+      rect:
+        serializedVersion: 2
+        x: 464
+        y: 83
+        width: 44
+        height: 44
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e890f51af48e86120800000000000000
+      internalID: 2407429429536950670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fistleo_1_19
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 83
+        width: 45
+        height: 46
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b08bda9accc0ee50800000000000000
+      internalID: 6836689404901949625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fistleo_1_20
+      rect:
+        serializedVersion: 2
+        x: 557
+        y: 83
+        width: 44
+        height: 50
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a3a98fb7fe1fab90800000000000000
+      internalID: -7228524827487132761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fistleo_1_21
+      rect:
+        serializedVersion: 2
+        x: 603
+        y: 83
+        width: 44
+        height: 51
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa5d04415b9a8f460800000000000000
+      internalID: 7275751793211004335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fistleo_1_22
+      rect:
+        serializedVersion: 2
+        x: 649
+        y: 83
+        width: 43
+        height: 53
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 434daf5be1e947aa0800000000000000
+      internalID: -6164128135224044492
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fistleo_1_23
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 48
+        height: 54
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7f3cca44f27a2c70800000000000000
+      internalID: 8947090003277397887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fistleo_1_24
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 0
+        width: 48
+        height: 52
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7eb675c0cce60fca0800000000000000
+      internalID: -5985162082115949593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fistleo_1_25
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 0
+        width: 48
+        height: 53
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ad10ebd70558dcc0800000000000000
+      internalID: -3686102802760720984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fistleo_1_26
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 0
+        width: 35
+        height: 74
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f833269d0bc43b2f0800000000000000
+      internalID: -958337973254737009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fistleo_1_27
+      rect:
+        serializedVersion: 2
+        x: 187
+        y: 0
+        width: 35
+        height: 74
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e64f5ece0cbef6dc0800000000000000
+      internalID: -3643434359678700434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fistleo_1_28
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 0
+        width: 35
+        height: 75
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6905a798a0fe412d0800000000000000
+      internalID: -3308756997675265898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fistleo_1_29
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 0
+        width: 35
+        height: 75
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c7e0263af7cbbfb0800000000000000
+      internalID: -4630887914356545595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fistleo_1_30
+      rect:
+        serializedVersion: 2
+        x: 298
+        y: 0
+        width: 39
+        height: 73
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38c08f955dc486190800000000000000
+      internalID: -7969035061410919293
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fistleo_1_31
+      rect:
+        serializedVersion: 2
+        x: 339
+        y: 0
+        width: 45
+        height: 68
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb7799df6d3c9ff10800000000000000
+      internalID: 2304088012521830332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fistleo_1_32
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 0
+        width: 45
+        height: 68
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b12053b93b3ffa40800000000000000
+      internalID: 5404103196875432368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fistleo_1_33
+      rect:
+        serializedVersion: 2
+        x: 433
+        y: 0
+        width: 45
+        height: 69
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02c1f3ee9c93bf670800000000000000
+      internalID: 8573509855078194208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fistleo_1_34
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 0
+        width: 45
+        height: 69
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f78042a5528318110800000000000000
+      internalID: 1261351103717705855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fistleo_1_35
+      rect:
+        serializedVersion: 2
+        x: 527
+        y: 0
+        width: 50
+        height: 52
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec873ae7738062910800000000000000
+      internalID: 1812144934504069326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fistleo_1_36
+      rect:
+        serializedVersion: 2
+        x: 579
+        y: 0
+        width: 42
+        height: 68
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15ae4131cd7709460800000000000000
+      internalID: 7246423587535776337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fistleo_1_37
+      rect:
+        serializedVersion: 2
+        x: 623
+        y: 0
+        width: 43
+        height: 68
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88423e98b9fd998d0800000000000000
+      internalID: -2838992230954097528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fistleo_1_38
+      rect:
+        serializedVersion: 2
+        x: 668
+        y: 0
+        width: 43
+        height: 69
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 530f1da2929c5c580800000000000000
+      internalID: -8807412317603893195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fistleo_1_39
+      rect:
+        serializedVersion: 2
+        x: 714
+        y: 0
+        width: 42
+        height: 69
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8c4866c4fb40cc50800000000000000
+      internalID: 6683425361690643594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fistleo_1_40
+      rect:
+        serializedVersion: 2
+        x: 758
+        y: 0
+        width: 49
+        height: 51
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9553382ccdb9e4ad0800000000000000
+      internalID: -2716062152799341223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
