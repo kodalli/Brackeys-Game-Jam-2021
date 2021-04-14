@@ -47,6 +47,10 @@ public class PlayerHit1State : PlayerDamagedState {
     public void Invincible(bool invincibility) {
         this.isInvincible = invincibility;
     }
+    public void SetHitForce(float forceX, float forceY) {
+        this.hitForceX = forceX;
+        this.hitForceY = forceY;
+    }
     void TakeDamage(int damage) {
         if (!isInvincible) {
             player.currentHealth -= damage;
