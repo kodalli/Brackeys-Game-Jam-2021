@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerState{
+public class PlayerState {
 
     protected PlayerX player;
     protected PlayerStateMachine stateMachine;
@@ -12,9 +12,10 @@ public class PlayerState{
     protected bool isExitingState;
 
     protected float startTime;
+    public float StartTime { get { return startTime; } }
 
     private string animBoolName;
-   
+
     public PlayerState(PlayerX player, PlayerStateMachine stateMachine, PlayerData playerData, string animBoolName) {
         this.player = player;
         this.stateMachine = stateMachine;
@@ -37,8 +38,7 @@ public class PlayerState{
         DoChecks();
     }
     public virtual void DoChecks() { }
-    public virtual void AnimationTrigger() { } 
+    public virtual void AnimationTrigger() { }
     public virtual void AnimationFinishTrigger() => isAnimationFinished = true;
-
 
 }
