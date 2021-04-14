@@ -20,12 +20,18 @@ public class PlayerAttackState : PlayerAbilityState {
 
         setVelocity = false;
         shouldCheckFlip = true;
-        weapon.EnterWeapon();
+
+        // *** REMOVE AFTER SECONDARY ATTACK IMPLEMENTED ***
+
+        if (!weapon)
+            stateMachine.ChangeState(player.IdleState);
+
+        weapon?.EnterWeapon();
     }
     public override void Exit() {
         base.Exit();
 
-        weapon.ExitWeapon();
+        weapon?.ExitWeapon();
     }
     public override void LogicUpdate() {
         base.LogicUpdate();

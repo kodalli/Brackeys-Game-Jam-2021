@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1bea34966f2690445991d12d8cdfa3a4, type: 3}
+  m_Script: {fileID: 11500000, guid: 8aabf55335c5bcf4f8ab2b924be8dc77, type: 3}
   m_Name: E1_MeleeAttackState
   m_EditorClassIdentifier: 
   attackRadius: 1

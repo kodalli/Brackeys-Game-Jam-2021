@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31379b53a336a8f43aac4f46b1db6234, type: 3}
+  m_Script: {fileID: 11500000, guid: d183ae7c1980efc42989206d4ad1e985, type: 3}
   m_Name: E1_BaseData
   m_EditorClassIdentifier: 
   wallCheckDistance: 4
