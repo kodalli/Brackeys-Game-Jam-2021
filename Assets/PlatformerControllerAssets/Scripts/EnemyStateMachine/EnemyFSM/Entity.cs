@@ -5,7 +5,7 @@ using UnityEngine;
 public class Entity : MonoBehaviour {
 
     public EnemyStateMachine StateMachine;
-    public D_Entity entityData;
+    public SO_Entity entityData;
 
     public Rigidbody2D RB { get; private set; }
     public Animator Anim { get; private set; }

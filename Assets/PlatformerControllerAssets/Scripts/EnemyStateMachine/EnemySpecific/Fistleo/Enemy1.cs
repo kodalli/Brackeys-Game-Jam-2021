@@ -11,12 +11,12 @@ public class Enemy1 : Entity {
     public E1_LookForPlayerState lookForPlayerState { get; private set; }
     public E1_MeleeAttckState meleeAttackState { get; private set; }
 
-    [SerializeField] private D_IdleState idleStateData;
-    [SerializeField] private D_MoveState moveStateData;
-    [SerializeField] private D_PlayerDetected playerDetectedData;
-    [SerializeField] private D_ChargeState chargeStateData;
-    [SerializeField] private D_LookForPlayer lookForPlayerStateData;
-    [SerializeField] private D_MeleeAttackState meleeAttackStateData;
+    [SerializeField] private SO_IdleState idleStateData;
+    [SerializeField] private SO_MoveState moveStateData;
+    [SerializeField] private SO_PlayerDetected playerDetectedData;
+    [SerializeField] private SO_ChargeState chargeStateData;
+    [SerializeField] private SO_LookForPlayer lookForPlayerStateData;
+    [SerializeField] private SO_MeleeAttackState meleeAttackStateData;
 
     [SerializeField] private Transform meleeAttackPosition;
 

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ChargeState : EnemyState {
-    protected D_ChargeState stateData;
+    protected SO_ChargeState stateData;
 
     protected bool isPlayerInMinAgroRange;
     protected bool isDetectingLedge;
@@ -11,7 +11,7 @@ public class ChargeState : EnemyState {
     protected bool isChargeTimeOver;
     protected bool performCloseRangeAction;
 
-    public ChargeState(Entity entity, EnemyStateMachine stateMachine, string animBoolName, D_ChargeState stateData) : base(entity, stateMachine, animBoolName) {
+    public ChargeState(Entity entity, EnemyStateMachine stateMachine, string animBoolName, SO_ChargeState stateData) : base(entity, stateMachine, animBoolName) {
         this.stateData = stateData;
     }
     public override void DoChecks() {

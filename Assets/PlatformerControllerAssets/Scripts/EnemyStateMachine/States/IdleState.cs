@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class IdleState : EnemyState {
-    protected D_IdleState stateData;
+    protected SO_IdleState stateData;
     protected bool flipAfterIdle;
     protected bool isIdleTimeOver;
 
     protected bool isPlayerInMinAgroRange;
     protected float idleTime;
 
-    public IdleState(Entity entity, EnemyStateMachine stateMachine, string animBoolName, D_IdleState stateData) : base(entity, stateMachine, animBoolName) {
+    public IdleState(Entity entity, EnemyStateMachine stateMachine, string animBoolName, SO_IdleState stateData) : base(entity, stateMachine, animBoolName) {
         this.stateData = stateData;
     }
     public override void DoChecks() {

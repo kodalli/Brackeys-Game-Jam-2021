@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class LookForPlayerState : EnemyState {
-    D_LookForPlayer stateData;
+    SO_LookForPlayer stateData;
 
     protected bool turnImmediately;
     protected bool isPlayerInMinAgroRange;
@@ -12,7 +12,7 @@ public class LookForPlayerState : EnemyState {
     protected float lastTurnTime;
     protected int amountOfTurnsDone;
 
-    public LookForPlayerState(Entity entity, EnemyStateMachine stateMachine, string animBoolName, D_LookForPlayer stateData) : base(entity, stateMachine, animBoolName) {
+    public LookForPlayerState(Entity entity, EnemyStateMachine stateMachine, string animBoolName, SO_LookForPlayer stateData) : base(entity, stateMachine, animBoolName) {
         this.stateData = stateData;
     }
 
