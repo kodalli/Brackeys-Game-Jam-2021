@@ -44,9 +44,10 @@ public class PlayerDashState : PlayerAbilityState {
         base.Exit();
 
         // Fall down cleaner
-        if (player.CurrentVelocity.y > 0) {
-            player.SetVelocityY(player.CurrentVelocity.y * playerData.variableDashMultiplier);
-        }
+        // if (player.CurrentVelocity.y > 0) {
+        //     // player.SetVelocityY(player.CurrentVelocity.y * playerData.variableDashMultiplier);
+        //     // player.SetVelocityY(playerData.movementVelocity);
+        // }
     }
 
     public override void LogicUpdate() {
@@ -75,8 +76,7 @@ public class PlayerDashState : PlayerAbilityState {
                 if (dashInputStop || Time.unscaledTime >= startTime + playerData.dashMaxHoldTime) {
                     ApplyDash(); // Apply Dash Logic
                 }
-            }
-            else {
+            } else {
                 ApplyDashTimeEnd(); // Apply Dash if buttoh is held down too long
             }
         }
@@ -92,7 +92,7 @@ public class PlayerDashState : PlayerAbilityState {
         dashDirection.x = dashX;
         dashDirection.y = dashY;
 
-        if(dashDirection == Vector2.zero) {
+        if (dashDirection == Vector2.zero) {
             dashDirection.x = player.FacingDirection;
         }
 
@@ -120,21 +120,16 @@ public class PlayerDashState : PlayerAbilityState {
             player.DashDirectionIndicator.gameObject.SetActive(true);
             if (dashX > 0) {
                 player.DashDirectionIndicator.rotation = Quaternion.Euler(0f, 0f, 45f - player.InputHandler.angleRotations.right);
-            }
-            else if (dashX < 0) {
+            } else if (dashX < 0) {
                 player.DashDirectionIndicator.rotation = Quaternion.Euler(0f, 0f, 45f - player.InputHandler.angleRotations.left);
-            }
-            else if (dashY > 0) {
+            } else if (dashY > 0) {
                 player.DashDirectionIndicator.rotation = Quaternion.Euler(0f, 0f, 45f - player.InputHandler.angleRotations.up);
-            }
-            else if (dashY < 0) {
+            } else if (dashY < 0) {
                 player.DashDirectionIndicator.rotation = Quaternion.Euler(0f, 0f, 45f - player.InputHandler.angleRotations.down);
-            }
-            else {
+            } else {
                 player.DashDirectionIndicator.rotation = Quaternion.Euler(0f, 0f, 45f); ;
             }
-        }
-        else {
+        } else {
             player.DashDirectionIndicator.gameObject.SetActive(false);
         }
     }

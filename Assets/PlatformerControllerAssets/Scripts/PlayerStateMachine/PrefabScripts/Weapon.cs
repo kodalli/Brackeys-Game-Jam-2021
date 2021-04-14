@@ -10,7 +10,7 @@ public class Weapon : MonoBehaviour {
     protected Animator weaponAnimator;
 
     protected int attackCounter;
-    private float enterTime;
+    private float timeSinceFirstAttack;
 
     protected virtual void Start() {
         baseAnimator = transform.Find("Base").GetComponent<Animator>();
@@ -22,12 +22,13 @@ public class Weapon : MonoBehaviour {
     public virtual void EnterWeapon() {
         gameObject.SetActive(true);
 
-        if (attackCounter >= weaponData.movementSpeed.Length) {
+        // Resets attack counter after final attack sequence reached, Reset counter once time since first attack passes the reset time limit
+        if (attackCounter >= weaponData.movementSpeed.Length || Time.time - timeSinceFirstAttack >= weaponData.resetTime) {
             attackCounter = 0;
         }
-        // if (Time.time >= state.StartTime + weaponData.resetTime) {
-        //     attackCounter = 0;
-        // }
+
+        // Keep track of time when first attack is used
+        if (attackCounter == 0) timeSinceFirstAttack = Time.time;
 
         baseAnimator.SetBool("attack", true);
         weaponAnimator.SetBool("attack", true);

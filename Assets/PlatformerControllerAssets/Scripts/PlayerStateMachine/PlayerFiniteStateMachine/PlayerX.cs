@@ -178,6 +178,13 @@ public class PlayerX : Singleton<PlayerX> {
         RB.velocity = previousVelocity;
         CurrentVelocity = previousVelocity;
     }
+
+    public void SetVelocity(Vector2 velocity) {
+        previousVelocity.Set(velocity.x, velocity.y);
+        RB.velocity = previousVelocity;
+        CurrentVelocity = previousVelocity;
+    }
+
     private void Flip() {
         FacingDirection *= -1;
         var scale = transform.localScale;
