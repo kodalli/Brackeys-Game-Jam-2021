@@ -39,7 +39,7 @@ public class PlayerData : ScriptableObject {
     public float dashCoolDown = 0.5f;
     public float dashMaxHoldTime = 5f;
 
-    [Tooltip("Slows down time down during dash if enabled.")]
+    [Tooltip("Slows down time during dash if enabled.")]
     public float holdTimeScale = 0.25f;
 
     [Tooltip("Duration of the dash animation.")]
