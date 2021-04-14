@@ -5,7 +5,7 @@ using UnityEngine;
 public class E1_ChargeState : ChargeState {
     private Enemy1 enemy;
 
-    public E1_ChargeState(Entity entity, EnemyStateMachine stateMachine, string animBoolName, D_ChargeState stateData, Enemy1 enemy) : base(entity, stateMachine, animBoolName, stateData) {
+    public E1_ChargeState(Entity entity, EnemyStateMachine stateMachine, string animBoolName, SO_ChargeState stateData, Enemy1 enemy) : base(entity, stateMachine, animBoolName, stateData) {
         this.enemy = enemy;
     }
 
@@ -22,11 +22,15 @@ public class E1_ChargeState : ChargeState {
     public override void LogicUpdate() {
         base.LogicUpdate();
 
-        if (!isDetectingLedge || isDetectingWall) {
+        if (performCloseRangeAction) {
+            stateMachine.ChangeState(enemy.meleeAttackState);
+        } else if (!isDetectingLedge || isDetectingWall) {
             stateMachine.ChangeState(enemy.lookForPlayerState);
         } else if (isChargeTimeOver) {
             if (isPlayerInMinAgroRange) {
                 stateMachine.ChangeState(enemy.playerDetectedState);
+            } else {
+                stateMachine.ChangeState(enemy.lookForPlayerState);
             }
         }
     }

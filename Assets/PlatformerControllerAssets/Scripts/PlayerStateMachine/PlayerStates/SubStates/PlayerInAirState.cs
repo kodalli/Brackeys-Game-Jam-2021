@@ -18,7 +18,7 @@ public class PlayerInAirState : PlayerState {
     private bool oldIsTouchingWallBack;
     private bool isTouchingLedge;
 
-    private bool isJumping;
+    // private bool isJumping;
     private bool coyoteTime;
     private bool wallJumpCoyoteTime;
     private float startWallJumpCoyoteTime;
@@ -110,13 +110,10 @@ public class PlayerInAirState : PlayerState {
         base.PhysicsUpdate();
     }
     private void CheckJumpMultiplier() {
-        if (isJumping) {
-            if (jumpInputStop) {
-                player.SetVelocityY(player.CurrentVelocity.y * playerData.variableJumpHeightMultiplier);
-                isJumping = false;
-            } else if (player.CurrentVelocity.y <= 0) {
-                isJumping = false;
-            }
+        if (player.CurrentVelocity.y < 0) {
+            player.SetVelocityY(player.CurrentVelocity.y + Physics2D.gravity.y * (playerData.fallMulitiplier - 1) * Time.deltaTime);
+        } else if (player.CurrentVelocity.y > 0 && jumpInputStop) {
+            player.SetVelocityY(player.CurrentVelocity.y + Physics2D.gravity.y * (playerData.lowJumpMulitiplier - 1) * Time.deltaTime);
         }
     }
     private void CheckCoyoteTime() {
@@ -137,5 +134,4 @@ public class PlayerInAirState : PlayerState {
     }
 
     public void StopWallJumpCoyoteTime() => wallJumpCoyoteTime = false;
-    public void SetIsJumping() => isJumping = true;
 }

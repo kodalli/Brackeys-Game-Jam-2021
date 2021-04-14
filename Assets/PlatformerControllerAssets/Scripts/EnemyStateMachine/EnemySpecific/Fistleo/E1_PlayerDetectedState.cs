@@ -5,7 +5,7 @@ using UnityEngine;
 public class E1_PlayerDetectedState : PlayerDetectedState {
 
     private Enemy1 enemy;
-    public E1_PlayerDetectedState(Entity entity, EnemyStateMachine stateMachine, string animBoolName, D_PlayerDetected stateData, Enemy1 enemy) : base(entity, stateMachine, animBoolName, stateData) {
+    public E1_PlayerDetectedState(Entity entity, EnemyStateMachine stateMachine, string animBoolName, SO_PlayerDetected stateData, Enemy1 enemy) : base(entity, stateMachine, animBoolName, stateData) {
         this.enemy = enemy;
     }
 
@@ -17,11 +17,15 @@ public class E1_PlayerDetectedState : PlayerDetectedState {
     }
     public override void LogicUpdate() {
         base.LogicUpdate();
-        if (performLongRangeAction) {
+
+        if (performCloseRangeAction) {
+            stateMachine.ChangeState(enemy.meleeAttackState);
+        } else if (performLongRangeAction) {
             stateMachine.ChangeState(enemy.chargeState);
-        } else if(!isPlayerInMaxAgroRange){
+        } else if (!isPlayerInMaxAgroRange) {
             stateMachine.ChangeState(enemy.lookForPlayerState);
         }
+
     }
     public override void PhysicsUpdate() {
         base.PhysicsUpdate();

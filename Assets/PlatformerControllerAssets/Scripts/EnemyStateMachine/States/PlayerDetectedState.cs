@@ -3,19 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerDetectedState : EnemyState {
-    protected D_PlayerDetected stateData;
+    protected SO_PlayerDetected stateData;
 
     protected bool isPlayerInMinAgroRange;
     protected bool isPlayerInMaxAgroRange;
     protected bool performLongRangeAction;
+    protected bool performCloseRangeAction;
 
-    public PlayerDetectedState(Entity entity, EnemyStateMachine stateMachine, string animBoolName, D_PlayerDetected stateData) : base(entity, stateMachine, animBoolName) {
+    public PlayerDetectedState(Entity entity, EnemyStateMachine stateMachine, string animBoolName, SO_PlayerDetected stateData) : base(entity, stateMachine, animBoolName) {
         this.stateData = stateData;
     }
     public override void DoChecks() {
         base.DoChecks();
         isPlayerInMinAgroRange = entity.CheckPlayerInMinAgroRange();
         isPlayerInMaxAgroRange = entity.CheckPlayerInMaxAgroRange();
+
+        performCloseRangeAction = entity.CheckPlayerInCloseRangeAction();
     }
     public override void Enter() {
         base.Enter();

@@ -14,7 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueID: 
   dialogue:
-  - 
+  - <c=(255,50,120)><w>I am a top level Chungoloist</w></c>, and I have concluded
+    with <c=(255,0,0)>absolute</c> <c=(0,255,0)>certainty </c>that Big Chungus himself
+    shall enter into existence at 2:31 PM this April 9th.
   responseOptions:
   - text: 
     dialogueObject: {fileID: 0}

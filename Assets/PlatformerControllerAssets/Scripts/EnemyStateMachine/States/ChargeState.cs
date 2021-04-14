@@ -3,14 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ChargeState : EnemyState {
-    protected D_ChargeState stateData;
+    protected SO_ChargeState stateData;
 
     protected bool isPlayerInMinAgroRange;
     protected bool isDetectingLedge;
     protected bool isDetectingWall;
     protected bool isChargeTimeOver;
+    protected bool performCloseRangeAction;
 
-    public ChargeState(Entity entity, EnemyStateMachine stateMachine, string animBoolName, D_ChargeState stateData) : base(entity, stateMachine, animBoolName) {
+    public ChargeState(Entity entity, EnemyStateMachine stateMachine, string animBoolName, SO_ChargeState stateData) : base(entity, stateMachine, animBoolName) {
         this.stateData = stateData;
     }
     public override void DoChecks() {
@@ -18,6 +19,7 @@ public class ChargeState : EnemyState {
         isPlayerInMinAgroRange = entity.CheckPlayerInMinAgroRange();
         isDetectingLedge = entity.CheckLedge();
         isDetectingWall = entity.CheckWall();
+        performCloseRangeAction = entity.CheckPlayerInCloseRangeAction();
     }
     public override void Enter() {
         base.Enter();
@@ -30,7 +32,7 @@ public class ChargeState : EnemyState {
     }
     public override void LogicUpdate() {
         base.LogicUpdate();
-        if(Time.time >= startTime + stateData.chargeTime){
+        if (Time.time >= startTime + stateData.chargeTime) {
             isChargeTimeOver = true;
         }
     }
