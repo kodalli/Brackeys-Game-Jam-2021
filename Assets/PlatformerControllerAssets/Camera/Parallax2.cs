@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ParralaxBackground : MonoBehaviour {
+public class Parallax2 : MonoBehaviour {
     [SerializeField] private Vector2 parallaxEffectMultiplier = default;
     [SerializeField] private bool infiniteHorizontal = default;
     [SerializeField] private bool infiniteVertical = default;
