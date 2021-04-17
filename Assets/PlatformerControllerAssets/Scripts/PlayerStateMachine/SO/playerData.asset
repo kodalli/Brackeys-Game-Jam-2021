@@ -24,12 +24,13 @@ MonoBehaviour:
   jumpVelocity: 30
   amountOfJumps: 2
   coyoteTime: 0.2
-  variableJumpHeightMultiplier: 0.5
+  fallMulitiplier: 5
+  lowJumpMulitiplier: 10
   dashCoolDown: 0.5
-  dashMaxHoldTime: 1
+  dashMaxHoldTime: 0.5
   holdTimeScale: 0.25
-  dashTime: 0.3
-  dashVelocity: 70
+  dashTime: 0.2
+  dashVelocity: 50
   drag: 10
   variableDashMultiplier: 0
   distanceBetweenAfterImages: 0.5

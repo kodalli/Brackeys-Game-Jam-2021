@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ab254261e61ab744b68bc133814e44e, type: 3}
+  m_Name: DialogueObject
+  m_EditorClassIdentifier: 
+  dialogueID: 
+  dialogue:
+  - <c=(255,50,120)><w>I am a top level Chungoloist</w></c>, and I have concluded
+    with <c=(255,0,0)>absolute</c> <c=(0,255,0)>certainty </c>that Big Chungus himself
+    shall enter into existence at 2:31 PM this April 9th.
+  responseOptions:
+  - text: 
+    dialogueObject: {fileID: 0}
+  - text: 
+    dialogueObject: {fileID: 0}
