@@ -40,7 +40,7 @@ MonoBehaviour:
   wallJumpTime: 0.4
   wallJumpAngle: {x: 1, y: 2}
   startOffset: {x: 0.85, y: 2}
-  stopOffset: {x: 0.5, y: 2}
+  stopOffset: {x: -0.1, y: 2}
   ledgeHangTime: 4
   groundCheckRadius: 0.3
   wallCheckDistance: 1.2

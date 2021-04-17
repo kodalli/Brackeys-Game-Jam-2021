@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerStateMachine 
-{
+public class PlayerStateMachine {
     public PlayerState CurrentState { get; private set; }
 
     public void Initialize(PlayerState startingState) {
