@@ -48,6 +48,8 @@ public class PlayerDashState : PlayerAbilityState {
         //     // player.SetVelocityY(player.CurrentVelocity.y * playerData.variableDashMultiplier);
         //     // player.SetVelocityY(playerData.movementVelocity);
         // }
+        player.Anim.SetBool("dashX", false);
+        player.Anim.SetBool("dashY", false);
     }
 
     public override void LogicUpdate() {
@@ -88,13 +90,13 @@ public class PlayerDashState : PlayerAbilityState {
         if (playerData.dashTimeFreeze) Time.timeScale = 1f; // Enable Time Freeze
 
         // ** Use this for arrow key dashing **
-        // ** Remove if you want to use mousePos dashing **
         dashDirection.x = dashX;
         dashDirection.y = dashY;
 
-        if (dashDirection == Vector2.zero) {
-            dashDirection.x = player.FacingDirection;
-        }
+        if (dashDirection == Vector2.zero) dashDirection.x = player.FacingDirection;
+
+        if (dashDirection.y != 0) player.Anim.SetBool("dashY", true);
+        if (dashDirection.x != 0) player.Anim.SetBool("dashX", true);
 
         player.CheckIfShouldFlip(Mathf.RoundToInt(dashDirection.x)); // Rotate Player based on dash direction
         player.RB.drag = playerData.drag;
@@ -104,6 +106,8 @@ public class PlayerDashState : PlayerAbilityState {
     }
     private void ApplyDashTimeEnd() {
         player.Anim.enabled = true;
+        if (dashDirection.x != 0) player.Anim.SetBool("dashX", true);
+        if (dashDirection.y != 0) player.Anim.SetBool("dashY", true);
         player.SetDashVelocity(playerData.dashVelocity, dashDirection);
         player.DashTimeIndicator.gameObject.SetActive(false);
 
