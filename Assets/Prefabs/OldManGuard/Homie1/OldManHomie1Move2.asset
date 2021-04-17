@@ -15,7 +15,7 @@ MonoBehaviour:
   MoveName: Wisdom
   StatusEffect: 10
   MonsterMoveType: 2
-  SecondaryMonsterMoveType: 4
+  SecondaryMonsterMoveType: 0
   MPCost: 0
   MaxUsesForMove: 0
   Description: Makes the user freeze in awe of the woke knowledge just bestowed
