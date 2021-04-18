@@ -54,15 +54,15 @@ public class PlayerLedgeClimbState : PlayerState {
 
         isHanging = false;
 
-        // jumping in direction of wall from ledge
-        if (isLedgeJumping && xInput == player.FacingDirection) {
-            player.transform.position = stopPos;
-            isLedgeJumping = false;
-        // jumping opposite of wall from ledge
-        } else if (isLedgeJumping) {
-            var oppositeStopPos = new Vector2(player.transform.position.x + xInput * playerData.stopOffset.x,
+        var oppositeStopPos = new Vector2(player.transform.position.x + xInput * playerData.stopOffset.x,
                 player.transform.position.y + playerData.stopOffset.y);
 
+        // jumping in direction of wall from ledge
+        if (isLedgeJumping && xInput == player.FacingDirection) {
+            player.transform.position = oppositeStopPos;
+            isLedgeJumping = false;
+            // jumping opposite of wall from ledge
+        } else if (isLedgeJumping) {
             player.transform.position = oppositeStopPos;
             isLedgeJumping = false;
         }
