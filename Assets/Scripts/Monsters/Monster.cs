@@ -18,6 +18,7 @@ public enum Status {
 
 public class Monster {
     #region Variables
+
     public string Name { get; }
     public bool Fused { get; }
     public List<AttackMove> MoveSet { get; }
@@ -27,26 +28,26 @@ public class Monster {
     public int CurAtk { get; private set; }
     public Status CurrentStatus { get; set; }
 
-    private MonsterScriptableObject baseData;
     private int curLevel, curXP;
-
+    
+    private readonly MonsterScriptableObject baseData;
     private readonly float SCALING = 0.2f;
     private readonly int MAX_LEVEL = 30;
+
     #endregion
+
     public Monster(MonsterScriptableObject baseData) {
         this.baseData = baseData;
         Name = baseData.Name;
         curLevel = baseData.BaseLevel;
-        curXP = GetXP(curLevel);
+        curXP = GetXPFromLevel(curLevel);
         LevelUp();
         CurrentStatus = Status.Neutral;
         Fused = baseData.Fused;
         MoveSet = baseData.MoveSet;
     }
 
-    public GameObject GetPrefab() {
-        return baseData.Prefab;
-    }
+    public GameObject GetPrefab() => baseData.Prefab;
 
     #region HP Methods
     public void AddHP(int val) {
@@ -63,9 +64,8 @@ public class Monster {
             CurHP += val;
     }
 
-    public int GetMaxHP() {
-        return Mathf.RoundToInt(baseData.BaseHP * Mathf.Pow((1 + SCALING), curLevel));
-    }
+    public int GetMaxHP() => Mathf.RoundToInt(baseData.BaseHP * Mathf.Pow((1 + SCALING), curLevel));
+    
     public void Revive() {
         // Reset all values
         CurrentStatus = Status.Neutral;
@@ -74,10 +74,11 @@ public class Monster {
         CurDef = GetMaxDef();
         CurMP = GetMaxMP();
     }
+    
     public int TakeDamage(int enemyAtk) {
         // add crit chance
         var damageMultiplier = 100f / (100 + CurDef);
-        var damage = -Mathf.RoundToInt(Mathf.Sqrt(enemyAtk) * damageMultiplier);
+        var damage = -Mathf.RoundToInt(Mathf.Pow(enemyAtk, 0.75f) * damageMultiplier);
         AddHP(damage);
         return damage;
         //Debug.Log(Name + ": multiplier: " + damageMultiplier + " damage taken: " + damage);
@@ -104,9 +105,8 @@ public class Monster {
             CurMP += val;
     }
 
-    public int GetMaxMP() {
-        return Mathf.RoundToInt(baseData.BaseMP * Mathf.Pow((1 + SCALING), curLevel));
-    }
+    public int GetMaxMP() => Mathf.RoundToInt(baseData.BaseMP * Mathf.Pow((1 + SCALING), curLevel));
+
     #endregion
 
     #region Def Methods
@@ -117,9 +117,8 @@ public class Monster {
             CurDef += val;
     }
 
-    public int GetMaxDef() {
-        return Mathf.RoundToInt(baseData.BaseDefense * (curLevel + 1) * (1 + SCALING));
-    }
+    public int GetMaxDef() => Mathf.RoundToInt(baseData.BaseDefense * (curLevel + 1) * (1 + SCALING));
+
     #endregion
 
     #region Atk Methods
@@ -130,23 +129,16 @@ public class Monster {
             CurAtk += val;
     }
 
-    public int GetMaxAtk() {
-        return Mathf.RoundToInt(baseData.BaseAttack * Mathf.Pow((1 + SCALING), curLevel));
-    }
+    public int GetMaxAtk() => Mathf.RoundToInt(baseData.BaseAttack * Mathf.Pow((1 + SCALING), curLevel));
     #endregion
 
     #region XP Methods
-    public int GetXP(int? level = 0) {
-        level = Mathf.Max((int)level, curLevel);
-        return Mathf.RoundToInt(4f * Mathf.Pow((int)level, 3f) / 5f);
-    }
+    public int GetXPFromLevel(int level = 0) => Mathf.RoundToInt(4f * Mathf.Pow(level, 3f) / 5f);
 
-    public int GetCurXP() {
-        return curXP;
-    }
+    public int GetCurXP() => curXP;
 
     public void AddXP(int val) {
-        var maxXP = GetXP(MAX_LEVEL);
+        var maxXP = GetXPFromLevel(MAX_LEVEL);
         var prevLevel = curLevel;
         if (val + curXP > maxXP) {
             curXP = maxXP;
@@ -158,7 +150,7 @@ public class Monster {
         }
         else {
             curXP += val;
-            curLevel = GetLevel(curXP);
+            curLevel = GetLevel();
         }
 
         if (curLevel != prevLevel)
@@ -167,14 +159,11 @@ public class Monster {
     #endregion
 
     #region Level Methods
-    public int GetLevel(int? xp = null) {
-        xp = xp ?? curXP;
-        return Mathf.RoundToInt(5f * Mathf.Pow((int)xp, 1 / 3f) / 4f);
-    }
+    public int GetLevel() => Mathf.RoundToInt(5f * Mathf.Pow(curXP, 1 / 3f) / 4f);
 
     public void AddLevel(int val) {
         if (val + curLevel > MAX_LEVEL) {
-            curXP = GetXP(MAX_LEVEL);
+            curXP = GetXPFromLevel(MAX_LEVEL);
             curLevel = MAX_LEVEL;
         }
         else if (val + curLevel < 0) {
@@ -183,7 +172,7 @@ public class Monster {
         }
         else {
             curLevel += val;
-            curXP = GetXP(curLevel);
+            curXP = GetXPFromLevel(curLevel);
         }
         LevelUp();
     }
@@ -195,7 +184,7 @@ public class Monster {
         CurMP = GetMaxMP();
         CurDef = GetMaxDef();
         CurAtk = GetMaxDef();
-        curXP = GetXP(curLevel);
+        curXP = GetXPFromLevel(curLevel);
     }
     #endregion
 

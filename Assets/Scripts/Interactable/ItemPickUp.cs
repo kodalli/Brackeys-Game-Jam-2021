@@ -33,10 +33,7 @@ public class ItemPickUp : MonoBehaviour
         keyObj = Instantiate(keyPrefab, pos, Quaternion.identity);
     }
 
-    public void DisableKey() {
-        Dialog.Instance.dialogBox.SetActive(false);
-        Destroy(keyObj);
-    }
+    public void DisableKey() => Destroy(keyObj);
 
     public void AddToInventory() {
         if (Dialog.Instance.dialogBox.activeSelf) {
@@ -44,6 +41,8 @@ public class ItemPickUp : MonoBehaviour
         }
 
         Dialog.Instance.DisplayTextInDialogueBox(dialog);
+        //Dialog.Instance.dialogBox.SetActive(true);
+        Debug.Log(Dialog.Instance.dialogBox.activeSelf);
         Debug.Log("picked");
 
         // check duplicates then add
@@ -63,6 +62,7 @@ public class ItemPickUp : MonoBehaviour
             squadMenu.UpdateMenu();
         }
 
-        gameObject.SetActive(false);
+        // gameObject.SetActive(false);
+        Destroy(gameObject);
     }
 }

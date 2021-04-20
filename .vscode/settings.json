@@ -1,0 +1,20 @@
+{
+  "files.exclude": {
+    "**/*.meta": true
+  },
+  "editor.tokenColorCustomizations": {
+    "comments": "#6262a7",
+    "textMateRules": [
+        {
+            "scope": [
+                "meta.tag.cs",
+                "entity.other.attribute-name",
+                "comment.block.documentation.cs"
+            ],
+            "settings": {
+                "foreground": "#6262a7"
+            }
+        }
+    ]
+}
+}

@@ -1,0 +1,1452 @@
+fileFormatVersion: 2
+guid: 0f23f85eabb98fe44b1655f7ca15e2a8
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 2884010204807557824
+    second: GalleonWing_0
+  - first:
+      213: -6872966818450808060
+    second: GalleonWing_1
+  - first:
+      213: -3919923509709606188
+    second: GalleonWing_2
+  - first:
+      213: 3397811424854541895
+    second: GalleonWing_3
+  - first:
+      213: 4047033417378553868
+    second: GalleonWing_4
+  - first:
+      213: -6507190532456837642
+    second: GalleonWing_5
+  - first:
+      213: 6745622469211487403
+    second: GalleonWing_6
+  - first:
+      213: -3159413443669750924
+    second: GalleonWing_7
+  - first:
+      213: -1591598982884106686
+    second: GalleonWing_8
+  - first:
+      213: 5787235474524039121
+    second: GalleonWing_9
+  - first:
+      213: -4245292839716994790
+    second: GalleonWing_10
+  - first:
+      213: 3316914870802498263
+    second: GalleonWing_11
+  - first:
+      213: 7445912871349849986
+    second: GalleonWing_12
+  - first:
+      213: -2453462775220373204
+    second: GalleonWing_13
+  - first:
+      213: -3659618893825347078
+    second: GalleonWing_14
+  - first:
+      213: 5753548614909550795
+    second: GalleonWing_15
+  - first:
+      213: -1365602758882448125
+    second: GalleonWing_16
+  - first:
+      213: 6144285209416883036
+    second: GalleonWing_17
+  - first:
+      213: -4945417986776578999
+    second: GalleonWing_18
+  - first:
+      213: 5461546262358212846
+    second: GalleonWing_19
+  - first:
+      213: -7105300110253549876
+    second: GalleonWing_20
+  - first:
+      213: -2627093195407642938
+    second: GalleonWing_21
+  - first:
+      213: 1303378243006317333
+    second: GalleonWing_22
+  - first:
+      213: -351530475781953041
+    second: GalleonWing_24
+  - first:
+      213: 8360967259671892794
+    second: GalleonWing_25
+  - first:
+      213: 1994052090642888842
+    second: GalleonWing_26
+  - first:
+      213: 1073830905949434842
+    second: GalleonWing_27
+  - first:
+      213: 3341353400563176920
+    second: GalleonWing_28
+  - first:
+      213: 1039481151186608780
+    second: GalleonWing_29
+  - first:
+      213: 5789200006733929847
+    second: GalleonWing_30
+  - first:
+      213: -3611145856853411256
+    second: GalleonWing_31
+  - first:
+      213: 6538560755467456380
+    second: GalleonWing_32
+  - first:
+      213: -1965023494178540406
+    second: GalleonWing_33
+  - first:
+      213: 578991041024125345
+    second: GalleonWing_34
+  - first:
+      213: -5779010281460655792
+    second: GalleonWing_36
+  - first:
+      213: -3669966115105152082
+    second: GalleonWing_37
+  - first:
+      213: -8455225370911167028
+    second: GalleonWing_38
+  - first:
+      213: 7997837917038859817
+    second: GalleonWing_39
+  - first:
+      213: 5057124803622620103
+    second: GalleonWing_44
+  - first:
+      213: 7144032425005185011
+    second: GalleonWing_47
+  - first:
+      213: -3604099479726793026
+    second: GalleonWing_48
+  - first:
+      213: -6384895657642099321
+    second: GalleonWing_49
+  - first:
+      213: 2007625686082393505
+    second: GalleonWing_50
+  - first:
+      213: 2321020309264727480
+    second: GalleonWing_51
+  - first:
+      213: 5593589658989203625
+    second: GalleonWing_52
+  - first:
+      213: -4147948247589226219
+    second: GalleonWing_54
+  - first:
+      213: 3017704441222128472
+    second: GalleonWing_55
+  - first:
+      213: -6640717972108923370
+    second: GalleonWing_56
+  - first:
+      213: 597658628311230770
+    second: GalleonWing_57
+  - first:
+      213: -8082837474354846754
+    second: GalleonWing_58
+  - first:
+      213: -7826904625948291540
+    second: GalleonWing_59
+  - first:
+      213: -5243520285924311754
+    second: GalleonWing_60
+  - first:
+      213: -7869727624091415529
+    second: GalleonWing_61
+  - first:
+      213: 1938279912850049142
+    second: GalleonWing_62
+  - first:
+      213: 256766940615625621
+    second: GalleonWing_63
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: GalleonWing_0
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 205
+        width: 24
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c2f72a4000160820800000000000000
+      internalID: 2884010204807557824
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GalleonWing_1
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 205
+        width: 31
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4036139d7115e90a0800000000000000
+      internalID: -6872966818450808060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GalleonWing_2
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 205
+        width: 25
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d27e092652a999c0800000000000000
+      internalID: -3919923509709606188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GalleonWing_3
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 205
+        width: 26
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74608301d73772f20800000000000000
+      internalID: 3397811424854541895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GalleonWing_4
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 205
+        width: 26
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c00ebf47373f92830800000000000000
+      internalID: 4047033417378553868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GalleonWing_5
+      rect:
+        serializedVersion: 2
+        x: 186
+        y: 205
+        width: 41
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6fd0023ffa0d1b5a0800000000000000
+      internalID: -6507190532456837642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GalleonWing_6
+      rect:
+        serializedVersion: 2
+        x: 229
+        y: 205
+        width: 38
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bac7e3a55e34d9d50800000000000000
+      internalID: 6745622469211487403
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GalleonWing_7
+      rect:
+        serializedVersion: 2
+        x: 269
+        y: 205
+        width: 39
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47b887756328724d0800000000000000
+      internalID: -3159413443669750924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GalleonWing_8
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 153
+        width: 38
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24ed150682189e9e0800000000000000
+      internalID: -1591598982884106686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GalleonWing_9
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 153
+        width: 37
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d76b828004605050800000000000000
+      internalID: 5787235474524039121
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GalleonWing_10
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 153
+        width: 38
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a11c821a7a0b515c0800000000000000
+      internalID: -4245292839716994790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GalleonWing_11
+      rect:
+        serializedVersion: 2
+        x: 154
+        y: 153
+        width: 37
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d2c460508c080e20800000000000000
+      internalID: 3316914870802498263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GalleonWing_12
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 153
+        width: 39
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28f015d6e42355760800000000000000
+      internalID: 7445912871349849986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GalleonWing_13
+      rect:
+        serializedVersion: 2
+        x: 234
+        y: 153
+        width: 37
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c29785dda9c83fdd0800000000000000
+      internalID: -2453462775220373204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GalleonWing_14
+      rect:
+        serializedVersion: 2
+        x: 273
+        y: 153
+        width: 36
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af17b3c610c663dc0800000000000000
+      internalID: -3659618893825347078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GalleonWing_15
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 116
+        width: 13
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc0ef9d4bf5b8df40800000000000000
+      internalID: 5753548614909550795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GalleonWing_16
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 116
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30da48ca6876c0de0800000000000000
+      internalID: -1365602758882448125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GalleonWing_17
+      rect:
+        serializedVersion: 2
+        x: 123
+        y: 116
+        width: 15
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5bdaf918d2e44550800000000000000
+      internalID: 6144285209416883036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GalleonWing_18
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 116
+        width: 13
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 944ca500b885e5bb0800000000000000
+      internalID: -4945417986776578999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GalleonWing_19
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 116
+        width: 13
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee0493c936f4bcb40800000000000000
+      internalID: 5461546262358212846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GalleonWing_20
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 116
+        width: 13
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc61bc9f137e46d90800000000000000
+      internalID: -7105300110253549876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GalleonWing_21
+      rect:
+        serializedVersion: 2
+        x: 185
+        y: 117
+        width: 31
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6cea1ef58a0ba8bd0800000000000000
+      internalID: -2627093195407642938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GalleonWing_22
+      rect:
+        serializedVersion: 2
+        x: 218
+        y: 116
+        width: 22
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5134d5e3b97861210800000000000000
+      internalID: 1303378243006317333
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GalleonWing_24
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 118
+        width: 26
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe9ea4f05ec1f1bf0800000000000000
+      internalID: -351530475781953041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GalleonWing_25
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 126
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a331a63ac6f180470800000000000000
+      internalID: 8360967259671892794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GalleonWing_26
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 122
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a88f46ebfcb4cab10800000000000000
+      internalID: 1994052090642888842
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GalleonWing_27
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 116
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad3b3f1058307ee00800000000000000
+      internalID: 1073830905949434842
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GalleonWing_28
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 116
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d59c9de63fde5e20800000000000000
+      internalID: 3341353400563176920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GalleonWing_29
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 116
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c82213f799afc6e00800000000000000
+      internalID: 1039481151186608780
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GalleonWing_30
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 116
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77d901fcbbe575050800000000000000
+      internalID: 5789200006733929847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GalleonWing_31
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 63
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84af022d9f1a2edc0800000000000000
+      internalID: -3611145856853411256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GalleonWing_32
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 63
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7f82f34d52adba50800000000000000
+      internalID: 6538560755467456380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GalleonWing_33
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 63
+        width: 32
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a84f03e0b85dab4e0800000000000000
+      internalID: -1965023494178540406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GalleonWing_34
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 63
+        width: 33
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a96060c84df80800800000000000000
+      internalID: 578991041024125345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GalleonWing_36
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 63
+        width: 34
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 059153c74c4dccfa0800000000000000
+      internalID: -5779010281460655792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GalleonWing_37
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 63
+        width: 35
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea3ef6b3349a11dc0800000000000000
+      internalID: -3669966115105152082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GalleonWing_38
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 68
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ccd28f6a25109aa80800000000000000
+      internalID: -8455225370911167028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GalleonWing_39
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 76
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 926504016370efe60800000000000000
+      internalID: 7997837917038859817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GalleonWing_44
+      rect:
+        serializedVersion: 2
+        x: 244
+        y: 63
+        width: 35
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7cb4eb017348e2640800000000000000
+      internalID: 5057124803622620103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GalleonWing_47
+      rect:
+        serializedVersion: 2
+        x: 285
+        y: 74
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f77e4cc3a3b42360800000000000000
+      internalID: 7144032425005185011
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GalleonWing_48
+      rect:
+        serializedVersion: 2
+        x: 291
+        y: 74
+        width: 8
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ebed6b75e9aabfdc0800000000000000
+      internalID: -3604099479726793026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GalleonWing_49
+      rect:
+        serializedVersion: 2
+        x: 301
+        y: 74
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78dfe4e5a3b4467a0800000000000000
+      internalID: -6384895657642099321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GalleonWing_50
+      rect:
+        serializedVersion: 2
+        x: 311
+        y: 74
+        width: 11
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a514e4bce48cdb10800000000000000
+      internalID: 2007625686082393505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GalleonWing_51
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 74
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8bdf03a8cabe53020800000000000000
+      internalID: 2321020309264727480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GalleonWing_52
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 74
+        width: 13
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a09953a82c60ad40800000000000000
+      internalID: 5593589658989203625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GalleonWing_54
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 24
+        width: 22
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5197dbbab078f66c0800000000000000
+      internalID: -4147948247589226219
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GalleonWing_55
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 24
+        width: 28
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 853e928633a01e920800000000000000
+      internalID: 3017704441222128472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GalleonWing_56
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 24
+        width: 18
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61e25ea303e67d3a0800000000000000
+      internalID: -6640717972108923370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GalleonWing_57
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 24
+        width: 30
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 239207d1b5f4b4800800000000000000
+      internalID: 597658628311230770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GalleonWing_58
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 24
+        width: 12
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed32ddb442ef3df80800000000000000
+      internalID: -8082837474354846754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GalleonWing_59
+      rect:
+        serializedVersion: 2
+        x: 182
+        y: 24
+        width: 23
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2e8d7f16bf316390800000000000000
+      internalID: -7826904625948291540
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GalleonWing_60
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 0
+        width: 68
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63d3de0d4164b37b0800000000000000
+      internalID: -5243520285924311754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GalleonWing_61
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 14
+        width: 11
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71cc3f6eb6c19c290800000000000000
+      internalID: -7869727624091415529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GalleonWing_62
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 14
+        width: 31
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 678c3b0bf4726ea10800000000000000
+      internalID: 1938279912850049142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GalleonWing_63
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 14
+        width: 33
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59b457d0c28309300800000000000000
+      internalID: 256766940615625621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

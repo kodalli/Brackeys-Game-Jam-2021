@@ -8,13 +8,14 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6823735961725218623}
-  - component: {fileID: 6823735962981802171}
-  - component: {fileID: 6823735962981802170}
-  - component: {fileID: 6823735962981802053}
-  - component: {fileID: 6823735962981802052}
-  - component: {fileID: 6823735962981802055}
-  - component: {fileID: 6823735962981802054}
+  - component: {fileID: 2847755054162349526}
+  - component: {fileID: 2847755054162349527}
+  - component: {fileID: 2847755054162349520}
+  - component: {fileID: 2847755054162349524}
+  - component: {fileID: 2847755054162349525}
+  - component: {fileID: 2847755054162349531}
+  - component: {fileID: 1596717948}
+  - component: {fileID: 1596717954}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -126,8 +127,8 @@ BoxCollider2D:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6823735962981802049}
-  m_Enabled: 1
+  m_GameObject: {fileID: 2847755054162349521}
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -165,7 +166,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &6823735962981802054
+--- !u!114 &1596717948
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -177,3 +178,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7376de2b67b0d0448a29891dc5b6e593, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1596717954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2847755054162349521}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca0a7e6a54078184ea816930a6ad48f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tileMap: {fileID: 0}
+  flipPath: 1
+  speed: 5
+  countDown: 0.4
+  adjust: {x: 0.5, y: 0}
