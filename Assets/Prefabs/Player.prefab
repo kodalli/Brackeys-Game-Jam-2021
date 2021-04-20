@@ -127,8 +127,18 @@ BoxCollider2D:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
+<<<<<<< HEAD
   m_GameObject: {fileID: 2847755054162349521}
   m_Enabled: 0
+=======
+  m_GameObject: {fileID: 6823735962981802049}
+  m_Enabled: 1
+>>>>>>> raja
+=======
+  m_GameObject: {fileID: 2847755054162349521}
+  m_Enabled: 0
+>>>>>>> raja
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -166,7 +176,11 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+<<<<<<< HEAD
+--- !u!114 &6823735962981802054
+=======
 --- !u!114 &1596717948
+>>>>>>> raja
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

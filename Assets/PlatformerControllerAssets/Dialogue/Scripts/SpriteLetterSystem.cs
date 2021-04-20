@@ -14,15 +14,19 @@ public class SpriteLetterSystem : MonoBehaviour {
     [SerializeField] private GameObject letterObject;
     [SerializeField] private DialogueObject dObj;
     [SerializeField] private RectTransform dialogueBoxRT;
-    // text settings
+    // 
     [Header("Text Settings")]
     [SerializeField] private float letterSpacing = 3.5f;
     [SerializeField] private float wordSpacing = 10f;
     [SerializeField] private float lineSpacing = 100f;
     [SerializeField] private float letterSize = 10f;
+    //
+    [Header("Text Position In Dialogue Box")]
     [SerializeField] private float indentLeft = 20f;
     [SerializeField] private float indentRight = 20f;
-    // text effects
+    [SerializeField] private float indentTop = -20f;
+    [SerializeField] private float indentBottom = 0f;
+    // 
     [Header("Text Effects")]
     [SerializeField] private float wavyStrength = 0.5f;
     [SerializeField] private float shakyStrength = 0.5f;
@@ -44,6 +48,7 @@ public class SpriteLetterSystem : MonoBehaviour {
         public Color color { set { this.image.color = value; } }
         public RectTransform rectTransform; // gameobject component
         public float rightOffset;
+        public float leftOffset;
 
     }
 
@@ -70,22 +75,20 @@ public class SpriteLetterSystem : MonoBehaviour {
     public void GenerateSpriteText(string textToGenerate) {
         if (letterObject == null) return;
 
-        // Vector3[] corners = new Vector3[4];
-        // dialogueBoxRT.GetWorldCorners(corners);
-        // corners.ToList().ForEach(x => Debug.Log(x));
+        // The sprite text generator object should be place at the top left corner of the text box
 
         float scale = letterSize / 100f;
 
         Rect dBoxRect = dialogueBoxRT.rect;
 
         float xPosition = indentLeft;
-        float yPosition = 0;
+        float yPosition = indentTop;
 
         bool inTag = false;
 
         int wordCount = 0;
 
-        List<CharSpriteData> word = new List<CharSpriteData>();
+        List<CharSpriteData> wordList = new List<CharSpriteData>();
 
         for (int i = 0; i < textToGenerate.Length; i++) {
 
@@ -93,12 +96,17 @@ public class SpriteLetterSystem : MonoBehaviour {
 
             // Debug.Log($"{inTag} {activeEffect} {textToGenerate[i]}");
 
+            // Out of dialogue box bounds Y
+            if (yPosition < -dBoxRect.height + indentBottom) {
+                continue;
+            }
+
             if (!inTag) {
                 char currentCharacter = textToGenerate[i];
                 if (currentCharacter == ' ') {
                     xPosition += (letterSpacing * wordSpacing);
                     wordCount++;
-                    word.Clear();
+                    wordList.Clear();
                     continue;
                 }
                 CharData currentCharacterData = loadedFont[currentCharacter];
@@ -119,8 +127,9 @@ public class SpriteLetterSystem : MonoBehaviour {
                 charData.rectTransform = newLetterSprite.GetComponent<RectTransform>();
                 charData.image = newLetterSprite.GetComponent<Image>();
                 charData.rightOffset = currentCharacterData.RightOffset;
+                charData.leftOffset = currentCharacterData.LeftOffset;
 
-                word.Add(charData);
+                wordList.Add(charData);
 
                 // set active color here so we can wrap other effects in color tags
                 charData.color = activeColor;
@@ -129,26 +138,31 @@ public class SpriteLetterSystem : MonoBehaviour {
 
                 xPosition += currentCharacterData.RightOffset * letterSpacing * scale;
 
-                Debug.Log(xPosition);
+                // if (xPosition >= dBoxRect.width - indentRight) {
+                //     yPosition -= lineSpacing;
+                //     xPosition = indentLeft;
+                // }
 
                 if (xPosition >= dBoxRect.width - indentRight) {
-                    yPosition -= lineSpacing;
-                    xPosition = indentLeft;
+                    yPosition -= lineSpacing; // go to next line
+                    xPosition = indentLeft; // reset x position
 
                     // puts characters of unfinished word on the next line
-                    if (word.Count > 0) {
-                        for (int j = 0; j < word.Count(); j++) {
-                            var letterData = word[j];
+                    if (wordList.Count > 0) {
+                        for (int j = 0; j < wordList.Count; j++) {
+                            var letterData = wordList[j];
                             // letterData.transform = transform;
-                            letterData.transform.localPosition = new Vector3(transform.position.x + xPosition, transform.position.y + yPosition, 1f);
+                            xPosition += letterData.leftOffset * letterSpacing;
+                            letterData.transform.localPosition = new Vector3(xPosition, yPosition, 1f);
                             xPosition += letterData.rightOffset * letterSpacing * scale;
                         }
                     }
                 }
-
+                // Debug.Log(charData.transform.localPosition);
             }
         }
         Debug.Log(wordCount);
+        // Debug.Log($"width: {dBoxRect.width}, height: {dBoxRect.height}");
     }
 
     /// <summary>

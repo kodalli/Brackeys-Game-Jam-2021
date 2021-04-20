@@ -67,6 +67,7 @@ public class PlayerLedgeClimbState : PlayerState {
             isLedgeJumping = false;
         }
 
+
     }
 
     public override void LogicUpdate() {
