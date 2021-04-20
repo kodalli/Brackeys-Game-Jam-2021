@@ -55,7 +55,11 @@ public class PlayerLedgeClimbState : PlayerState {
         isHanging = false;
 
         var oppositeStopPos = new Vector2(player.transform.position.x + xInput * playerData.stopOffset.x,
+<<<<<<< HEAD
             player.transform.position.y + playerData.stopOffset.y);
+=======
+                player.transform.position.y + playerData.stopOffset.y);
+>>>>>>> raja
 
         // jumping in direction of wall from ledge
         if (isLedgeJumping && xInput == player.FacingDirection) {

@@ -1,5 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: ed8aab2b418d96846bda03736d8f2aba
+=======
+<<<<<<< HEAD:Assets/Pixel Art/Custom/Background/Custom.prefab.meta
+guid: 5d4b46f8a2175f14f950d45c68bb876d
+=======
+guid: ed8aab2b418d96846bda03736d8f2aba
+>>>>>>> raja:Assets/PlatformerControllerAssets/Dialogue/Resources/LetterObject.prefab.meta
+>>>>>>> raja
 PrefabImporter:
   externalObjects: {}
   userData: 

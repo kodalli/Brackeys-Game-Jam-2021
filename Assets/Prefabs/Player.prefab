@@ -8,13 +8,14 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6823735961725218623}
-  - component: {fileID: 6823735962981802171}
-  - component: {fileID: 6823735962981802170}
-  - component: {fileID: 6823735962981802053}
-  - component: {fileID: 6823735962981802052}
-  - component: {fileID: 6823735962981802055}
-  - component: {fileID: 6823735962981802054}
+  - component: {fileID: 2847755054162349526}
+  - component: {fileID: 2847755054162349527}
+  - component: {fileID: 2847755054162349520}
+  - component: {fileID: 2847755054162349524}
+  - component: {fileID: 2847755054162349525}
+  - component: {fileID: 2847755054162349531}
+  - component: {fileID: 1596717948}
+  - component: {fileID: 1596717954}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -127,11 +128,16 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_GameObject: {fileID: 2847755054162349521}
   m_Enabled: 0
 =======
   m_GameObject: {fileID: 6823735962981802049}
   m_Enabled: 1
+>>>>>>> raja
+=======
+  m_GameObject: {fileID: 2847755054162349521}
+  m_Enabled: 0
 >>>>>>> raja
   m_Density: 1
   m_Material: {fileID: 0}
@@ -170,7 +176,11 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+<<<<<<< HEAD
 --- !u!114 &6823735962981802054
+=======
+--- !u!114 &1596717948
+>>>>>>> raja
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
