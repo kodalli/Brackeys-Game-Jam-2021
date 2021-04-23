@@ -3,13 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
+
+
 public class Enemy1 : Entity, IDamageable {
-    [SerializeField] private int health;
+
+    [SerializeField] private int currentHealth;
+    [SerializeField] private int maxHealth = 100;
     [SerializeField] private string enemyName;
 
     public string EnemyName { get { return enemyName; } }
 
-    public event Action<Enemy1> enemyDelegate;
+    private event Action<Enemy1> enemyDelegate;
+    public int EnemyDelegateCount { get { return enemyDelegate?.GetInvocationList().Length ?? 0; } }
 
     public E1_IdleState idleState { get; private set; }
     public E1_MoveState moveState { get; private set; }
@@ -30,7 +35,7 @@ public class Enemy1 : Entity, IDamageable {
     public override void Start() {
         base.Start();
 
-        health = 100;
+        currentHealth = maxHealth;
 
         moveState = new E1_MoveState(this, StateMachine, "move", moveStateData, this);
         idleState = new E1_IdleState(this, StateMachine, "idle", idleStateData, this);
@@ -43,14 +48,15 @@ public class Enemy1 : Entity, IDamageable {
     }
     public void TakeDamage(float damage) {
 
-        health -= (int)damage;
+        currentHealth -= (int)damage;
 
-        if (health <= 0) {
-            Destroy(this.gameObject);
+        if (currentHealth <= 0) {
+            if (enemyDelegate != null) enemyDelegate(this);
+            Destroy(this.gameObject, 0.1f);
         }
-        Debug.Log(health);
+        Debug.Log(currentHealth);
 
-        if (enemyDelegate != null) enemyDelegate(this);
+        Debug.Log(EnemyDelegateCount);
     }
 
     public override void OnDrawGizmos() {
@@ -59,4 +65,9 @@ public class Enemy1 : Entity, IDamageable {
         Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(meleeAttackPosition.position, meleeAttackStateData.attackRadius);
     }
+
+    public void AddDelegate(Action<Enemy1> func) { if (EnemyDelegateCount < 1) enemyDelegate += func; }
+
+    public void RemoveDelegate(Action<Enemy1> func) { if (EnemyDelegateCount > 0) enemyDelegate -= func; }
+
 }

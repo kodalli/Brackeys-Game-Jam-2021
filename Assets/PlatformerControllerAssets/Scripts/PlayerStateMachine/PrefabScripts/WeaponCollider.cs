@@ -8,20 +8,11 @@ public class WeaponCollider : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D other) {
 
-        Enemy1 enemy = other.gameObject.GetComponentInParent<Enemy1>();
-        if (enemy != null) enemy.enemyDelegate += DisplayEnemyInteracted;
+        other.gameObject.GetComponentInParent<Enemy1>()?.AddDelegate(DisplayEnemyInteracted);
 
         other.gameObject.GetComponentInParent<IDamageable>()?.TakeDamage(weaponData.meleeAttackDamage);
-
     }
 
-    private void OnTriggerExit2D(Collider2D other) {
-
-        Enemy1 enemy = other.gameObject.GetComponentInParent<Enemy1>();
-        if (enemy != null) enemy.enemyDelegate -= DisplayEnemyInteracted;
-    }
-
-    void DisplayEnemyInteracted(Enemy1 enemy) => Debug.Log($"{enemy.EnemyName}");
-
+    void DisplayEnemyInteracted(Enemy1 enemy) => Debug.Log($"{enemy.EnemyName} dead");
 
 }

@@ -22,40 +22,40 @@ AnimationClip:
     - time: 0
       value: {fileID: -5138138833772191605, guid: 46162c06044eabe41aacd99a4dbbd386,
         type: 3}
-    - time: 0.06666667
+    - time: 0.05882353
       value: {fileID: -477760283426993505, guid: 46162c06044eabe41aacd99a4dbbd386,
         type: 3}
-    - time: 0.13333334
+    - time: 0.11764706
       value: {fileID: 4728085595126842890, guid: 46162c06044eabe41aacd99a4dbbd386,
         type: 3}
-    - time: 0.2
+    - time: 0.1764706
       value: {fileID: 2343359259581333269, guid: 46162c06044eabe41aacd99a4dbbd386,
         type: 3}
-    - time: 0.26666668
+    - time: 0.23529412
       value: {fileID: -4184264974786406182, guid: 46162c06044eabe41aacd99a4dbbd386,
         type: 3}
-    - time: 0.33333334
+    - time: 0.29411766
       value: {fileID: 7997217668310475274, guid: 46162c06044eabe41aacd99a4dbbd386,
         type: 3}
-    - time: 0.4
+    - time: 0.3529412
       value: {fileID: -4469789066697968006, guid: 46162c06044eabe41aacd99a4dbbd386,
         type: 3}
-    - time: 0.46666667
+    - time: 0.4117647
       value: {fileID: -2714289963643029378, guid: 46162c06044eabe41aacd99a4dbbd386,
         type: 3}
-    - time: 0.53333336
+    - time: 0.47058824
       value: {fileID: -7929489902402965, guid: 46162c06044eabe41aacd99a4dbbd386, type: 3}
-    - time: 0.6
+    - time: 0.5294118
       value: {fileID: -1014896715538733823, guid: 46162c06044eabe41aacd99a4dbbd386,
         type: 3}
-    - time: 0.6666667
+    - time: 0.5882353
       value: {fileID: -420006129571721568, guid: 46162c06044eabe41aacd99a4dbbd386,
         type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
     script: {fileID: 0}
-  m_SampleRate: 15
+  m_SampleRate: 17
   m_WrapMode: 0
   m_Bounds:
     m_Center: {x: 0, y: 0, z: 0}
@@ -86,7 +86,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.73333335
+    m_StopTime: 0.64705884
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -106,21 +106,21 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
-  - time: 0.13333334
+  - time: 0.11764706
     functionName: AnimationStartMovementTrigger
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.46666667
+  - time: 0.4117647
     functionName: AnimationStopMovementTrigger
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.73333335
+  - time: 0.64705884
     functionName: AnimationFinishTrigger
     data: 
     objectReferenceParameter: {fileID: 0}
