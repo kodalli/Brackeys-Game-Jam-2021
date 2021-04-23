@@ -20,6 +20,10 @@ public class SpriteLetterSystem : MonoBehaviour {
     [SerializeField] private float wordSpacing = 10f;
     [SerializeField] private float lineSpacing = 100f;
     [SerializeField] private float letterSize = 10f;
+
+    public float LetterSize { set { letterSize = value; } }
+    public float LetterSpacing { set { letterSpacing = value; } }
+
     //
     [Header("Text Position In Dialogue Box")]
     [SerializeField] private float indentLeft = 20f;
@@ -59,7 +63,7 @@ public class SpriteLetterSystem : MonoBehaviour {
     private void Start() {
         // string textToGenerate = "<c=(255,50,120)><w>I am a top level Chungoloist</w></c>, and I have concluded with <c=(255,0,0)>absolute</c> <c=(0,255,0)>certainty </c>that Big Chungus himself shall enter into existence at 2:31 PM this April 9th.";
         string textToGenerate = dObj.dialogue[0];
-        GenerateSpriteText(textToGenerate);
+        // GenerateSpriteText(textToGenerate);
         // transform.localScale = new Vector3(letterSize / 100f, letterSize / 100f, 1f);
 
     }
@@ -155,13 +159,15 @@ public class SpriteLetterSystem : MonoBehaviour {
                             xPosition += letterData.leftOffset * letterSpacing;
                             letterData.transform.localPosition = new Vector3(xPosition, yPosition, 1f);
                             xPosition += letterData.rightOffset * letterSpacing * scale;
+
+                            if (yPosition < -dBoxRect.height) letterData.transform.gameObject.SetActive(false);
                         }
                     }
                 }
                 // Debug.Log(charData.transform.localPosition);
             }
         }
-        Debug.Log(wordCount);
+        // Debug.Log(wordCount);
         // Debug.Log($"width: {dBoxRect.width}, height: {dBoxRect.height}");
     }
 
