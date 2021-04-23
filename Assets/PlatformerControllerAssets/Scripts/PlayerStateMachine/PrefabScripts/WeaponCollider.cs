@@ -21,7 +21,6 @@ public class WeaponCollider : MonoBehaviour {
         if (enemy != null) enemy.enemyDelegate -= DisplayEnemyInteracted;
     }
 
-    void DisplayEnemyInteracted(Enemy1 enemy) => Debug.Log($"{enemy.EnemyName}");
-
+    void DisplayEnemyInteracted(Enemy1 enemy) => Debug.Log($"{enemy.EnemyName} dead");
 
 }
