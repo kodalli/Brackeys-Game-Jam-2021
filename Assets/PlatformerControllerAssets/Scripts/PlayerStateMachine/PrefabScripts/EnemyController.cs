@@ -53,19 +53,6 @@ public class EnemyController : Singleton<EnemyController>, IDamageable {
         }
         StartCoroutine(ChangeColor(Color.red));
     }
-    public void TakeDamage(int damage) {
-        if (!isInvincible) {
-            currentHealth -= (int)damage;
-            currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
-            SoundManager.Instance.Play(damageClip);
-            if (currentHealth <= 0) {
-                StartCoroutine(Defeat());
-            }
-        } else {
-            SoundManager.Instance.Play(blockAttackClip);
-        }
-        StartCoroutine(ChangeColor(Color.red));
-    }
     void StartDefeatAnimation() {
         explodeEffect = Instantiate((GameObject)Resources.Load(explodeEffectPrefabName));
         explodeEffect.name = "ExplodeEffect1";

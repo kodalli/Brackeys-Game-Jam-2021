@@ -5,9 +5,11 @@ using System;
 
 public class Enemy1 : Entity, IDamageable {
     [SerializeField] private int health;
-    public int Health { get { return health; } }
+    [SerializeField] private string enemyName;
 
-    public event Action enemyDelegate;
+    public string EnemyName { get { return enemyName; } }
+
+    public event Action<Enemy1> enemyDelegate;
 
     public E1_IdleState idleState { get; private set; }
     public E1_MoveState moveState { get; private set; }
@@ -39,13 +41,15 @@ public class Enemy1 : Entity, IDamageable {
 
         StateMachine.Initialize(idleState);
     }
-    public void TakeDamage(int damage) {
-        if (health > 0) {
-            health -= damage;
+    public void TakeDamage(float damage) {
+        health -= (int)damage;
+
+        if (health <= 0) {
+            Destroy(this.gameObject);
         }
         Debug.Log(health);
 
-        if (enemyDelegate != null) enemyDelegate();
+        if (enemyDelegate != null) enemyDelegate(this);
     }
 
     public override void OnDrawGizmos() {

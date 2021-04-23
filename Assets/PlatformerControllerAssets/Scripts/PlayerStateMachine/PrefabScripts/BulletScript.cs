@@ -61,7 +61,7 @@ public class BulletScript : MonoBehaviour {
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
-        other.gameObject.GetComponentInParent<IDamageable>()?.TakeDamage((int)this.bulletDamage);
+        other.gameObject.GetComponentInParent<IDamageable>()?.TakeDamage(this.bulletDamage);
     }
     private void OnCollisionEnter2D(Collision2D other) {
         Destroy(this.gameObject, 0.1f);
