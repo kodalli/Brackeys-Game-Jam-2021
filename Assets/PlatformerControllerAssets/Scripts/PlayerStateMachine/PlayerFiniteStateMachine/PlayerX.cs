@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 using UnityEditor;
 
@@ -296,6 +297,7 @@ public class PlayerX : Singleton<PlayerX> {
     #endregion
 
     #region Player Death
+
     public void Defeat() {
         GameManager.Instance.PlayerDefeated();
         Invoke("StartDefeatAnimation", 0.5f); // Using function written below

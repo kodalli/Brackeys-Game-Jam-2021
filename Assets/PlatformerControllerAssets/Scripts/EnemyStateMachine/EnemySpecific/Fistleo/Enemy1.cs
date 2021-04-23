@@ -1,8 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
-public class Enemy1 : Entity {
+public class Enemy1 : Entity, IDamageable {
+    [SerializeField] private int health;
+    [SerializeField] private string enemyName;
+
+    public string EnemyName { get { return enemyName; } }
+
+    public event Action<Enemy1> enemyDelegate;
 
     public E1_IdleState idleState { get; private set; }
     public E1_MoveState moveState { get; private set; }
@@ -23,6 +30,8 @@ public class Enemy1 : Entity {
     public override void Start() {
         base.Start();
 
+        health = 100;
+
         moveState = new E1_MoveState(this, StateMachine, "move", moveStateData, this);
         idleState = new E1_IdleState(this, StateMachine, "idle", idleStateData, this);
         playerDetectedState = new E1_PlayerDetectedState(this, StateMachine, "playerDetected", playerDetectedData, this);
@@ -32,6 +41,18 @@ public class Enemy1 : Entity {
 
         StateMachine.Initialize(idleState);
     }
+    public void TakeDamage(float damage) {
+
+        health -= (int)damage;
+
+        if (health <= 0) {
+            Destroy(this.gameObject);
+        }
+        Debug.Log(health);
+
+        if (enemyDelegate != null) enemyDelegate(this);
+    }
+
     public override void OnDrawGizmos() {
         base.OnDrawGizmos();
 

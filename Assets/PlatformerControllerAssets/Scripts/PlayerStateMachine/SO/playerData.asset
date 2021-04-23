@@ -47,7 +47,7 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 256
-  bulletDamage: 1
+  bulletDamage: 10
   bulletSpeed: 20
   bulletDirection: {x: 1, y: 0}
   bulletDestroyDelay: 2
