@@ -42,6 +42,7 @@ public class Enemy1 : Entity, IDamageable {
         StateMachine.Initialize(idleState);
     }
     public void TakeDamage(float damage) {
+
         health -= (int)damage;
 
         if (health <= 0) {
