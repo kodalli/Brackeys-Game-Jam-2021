@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Linq;
+using StaticUtils;
 
 //Attatch this to something, ideally something in a unity canvas
 public class SpriteLetterSystem : MonoBehaviour {
@@ -36,7 +37,7 @@ public class SpriteLetterSystem : MonoBehaviour {
     [SerializeField] private float shakyStrength = 0.5f;
     // private
     private TextEffect activeEffect;
-    private Color activeColor = Color.white;
+    private Color activeColor = Color.black;
     private List<GameObject> letterObjects = new List<GameObject>();
     private Dictionary<CharSpriteData, TextEffect> fxChars = new Dictionary<CharSpriteData, TextEffect>();
     private Dictionary<char, CharData> loadedFont;
@@ -87,10 +88,9 @@ public class SpriteLetterSystem : MonoBehaviour {
             GenerateBigText(dObj.dialogue[0]);
         } else if (GUI.Button(new Rect(0, 50, 200, 50), "Generate Small Text")) {
             GenerateSmallText(dObj.dialogue[0]);
+        } else if (GUI.Button(new Rect(0, 300, 200, 50), "Generate Text")) {
+            GenerateSpriteText(dObj.dialogue[0]);
         }
-        // } else if (GUI.Button(new Rect(0, 300, 200, 50), "Generate Text")) {
-        //     GenerateSpriteText(dObj.dialogue[0]);
-        // }
     }
 #endif
 
@@ -122,7 +122,7 @@ public class SpriteLetterSystem : MonoBehaviour {
 
         gameObject.SetActiveAllChildren<RectTransform>(false);
 
-        textToGenerate = textToGenerate.ToLower();
+        // textToGenerate = textToGenerate.ToLower();
 
         if (letterObject == null) return;
 
@@ -251,7 +251,7 @@ public class SpriteLetterSystem : MonoBehaviour {
                 }
             } else {
                 activeEffect = TextEffect.None;
-                activeColor = Color.white;
+                activeColor = Color.black;
             }
         } else if (j > 0 && fullText[j - 1] == '>') {
             inTag = false;

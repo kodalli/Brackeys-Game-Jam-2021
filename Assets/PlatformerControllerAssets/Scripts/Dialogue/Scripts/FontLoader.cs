@@ -139,7 +139,7 @@ public static class FontLoader {
                 int currentSpriteWidth = spriteSize - (leftEdge + rightEdge);
 
                 if (currentSpriteWidth < 0) {
-                    // Debug.Log($"{chars[charIndex]} width {currentSpriteWidth} {spriteSize} {leftEdge} {rightEdge}");
+                    Debug.Log($"{chars[charIndex]} width {currentSpriteWidth} {spriteSize} {leftEdge} {rightEdge}");
                     // vape fix, just manually set width for "!" and "B" because its setting the width to < 0
                     // CharData temp = charData['A'];
                     charData.Add(chars[charIndex], new CharData(14, characterSprites[charIndex], 3, 3));
@@ -152,7 +152,7 @@ public static class FontLoader {
                     charData.Add(chars[charIndex], new CharData(currentSpriteWidth, characterSprites[charIndex], leftOffset, rightOffset));
                 }
 
-                // Debug.Log($"{chars[charIndex]} width {currentSpriteWidth} {spriteSize} {leftEdge} {rightEdge}");
+                Debug.Log($"{chars[charIndex]} width {currentSpriteWidth} {spriteSize} {leftEdge} {rightEdge}");
 
                 // //Determine center offsets
                 // int halfWidth = spriteSize / 2;
