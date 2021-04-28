@@ -152,7 +152,7 @@ public static class FontLoader {
                     charData.Add(chars[charIndex], new CharData(currentSpriteWidth, characterSprites[charIndex], leftOffset, rightOffset));
                 }
 
-                Debug.Log($"{chars[charIndex]} width {currentSpriteWidth} {spriteSize} {leftEdge} {rightEdge}");
+                // Debug.Log($"{chars[charIndex]} width {currentSpriteWidth} {spriteSize} {leftEdge} {rightEdge}");
 
                 // //Determine center offsets
                 // int halfWidth = spriteSize / 2;
@@ -160,10 +160,6 @@ public static class FontLoader {
                 // int rightOffset = halfWidth - rightEdge;
 
                 // charData.Add(chars[charIndex], new CharData(currentSpriteWidth, characterSprites[charIndex], leftOffset, rightOffset));
-
-                // fix for first sprite being empty in sprite sheet
-                // if (charIndex > 0 && charIndex < chars.Length)
-                //     charData.Add(chars[charIndex], new CharData(currentSpriteWidth, characterSprites[charIndex - 1], leftOffset, rightOffset));
 
                 charIndex++;
             }

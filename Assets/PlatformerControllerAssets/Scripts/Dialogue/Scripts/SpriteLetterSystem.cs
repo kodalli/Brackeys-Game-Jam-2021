@@ -43,6 +43,7 @@ public class SpriteLetterSystem : MonoBehaviour {
     private Dictionary<char, CharData> loadedFont;
     #endregion
 
+
     public void GenerateBigText(string text) {
         letterSpacing = 6f;
         wordSpacing = 10f;
@@ -54,6 +55,7 @@ public class SpriteLetterSystem : MonoBehaviour {
         indentBottom = 0f;
         GenerateSpriteText(text);
     }
+
 
     public void GenerateSmallText(string text) {
         letterSpacing = 4f;
@@ -75,24 +77,33 @@ public class SpriteLetterSystem : MonoBehaviour {
         public Transform transform; // gameobject component
         public Vector2 position { get { return this.transform.position; } }
         public Image image; // gameobject component
-        public Color color { set { this.image.color = value; } }
         public RectTransform rectTransform; // gameobject component
         public float rightOffset;
         public float leftOffset;
 
+        public CharSpriteData(Transform t, Image i, Color c, RectTransform rt, float right, float left) {
+            transform = t;
+            image = i;
+            image.color = c;
+            rectTransform = rt;
+            rightOffset = right;
+            leftOffset = left;
+        }
+
     }
+
 
 #if UNITY_EDITOR
     private void OnGUI() {
-        if (GUI.Button(new Rect(0, 0, 200, 50), "Generate Big Text")) {
-            GenerateBigText(dObj.dialogue[0]);
-        } else if (GUI.Button(new Rect(0, 50, 200, 50), "Generate Small Text")) {
-            GenerateSmallText(dObj.dialogue[0]);
-        } else if (GUI.Button(new Rect(0, 300, 200, 50), "Generate Text")) {
+        if (GUI.Button(new Rect(0, 0, 200, 50), "Generate Text")) {
             GenerateSpriteText(dObj.dialogue[0]);
+        } else if (GUI.Button(new Rect(0, 50, 200, 50), "Clear Text")) {
+            gameObject.DestroyAllChildren<RectTransform>();
+            fxChars.Clear();
         }
     }
 #endif
+
 
     private void Awake() {
         loadedFont = FontLoader.LoadFontResource(charSheet);
@@ -113,6 +124,7 @@ public class SpriteLetterSystem : MonoBehaviour {
         DoTextEffects();
     }
 
+
     /// <summary>
     /// Generates characters sprites from string and applies text effects
     /// </summary>
@@ -120,7 +132,9 @@ public class SpriteLetterSystem : MonoBehaviour {
         // GetComponentsInChildren<RectTransform>().ToList().ForEach(x => x.gameObject.SetActive(false));
         // gameObject.SetActive(true);
 
-        gameObject.SetActiveAllChildren<RectTransform>(false);
+        // gameObject.SetActiveAllChildren<RectTransform>(false);
+        gameObject.DestroyAllChildren<RectTransform>();
+        fxChars.Clear();
 
         // textToGenerate = textToGenerate.ToLower();
 
@@ -141,9 +155,9 @@ public class SpriteLetterSystem : MonoBehaviour {
 
         List<CharSpriteData> wordList = new List<CharSpriteData>();
 
-        for (int i = 0; i < textToGenerate.Length; i++) {
+        foreach (var (currentCharacter, index) in textToGenerate.WithIndex()) {
 
-            CheckTag(textToGenerate, textToGenerate[i], i, ref inTag);
+            CheckTag(textToGenerate, currentCharacter, index, ref inTag);
 
             // Debug.Log($"{inTag} {activeEffect} {textToGenerate[i]}");
 
@@ -153,46 +167,38 @@ public class SpriteLetterSystem : MonoBehaviour {
             }
 
             if (!inTag) {
-                char currentCharacter = textToGenerate[i];
                 if (currentCharacter == ' ') {
-                    xPosition += (letterSpacing * wordSpacing);
+                    xPosition += (letterSpacing * wordSpacing * scale);
                     wordCount++;
                     wordList.Clear();
                     continue;
                 }
                 CharData currentCharacterData = loadedFont[currentCharacter];
 
-                xPosition += currentCharacterData.LeftOffset * letterSpacing;
+                xPosition += currentCharacterData.LeftOffset * letterSpacing * scale;
 
                 // Create new game object
 
                 // Debug.Log("Letter Number: " + i + ", xpos: " + xPosition + ", ypos: " + yPosition);
-                GameObject newLetterSprite = CreateNewLetter(currentCharacterData, xPosition, yPosition, i);
+                GameObject newLetterSprite = CreateNewLetter(currentCharacterData, xPosition, yPosition, index);
                 newLetterSprite.transform.localScale = new Vector3(scale, scale, 1f);
 
                 letterObjects.Add(newLetterSprite);
 
-                CharSpriteData charData = new CharSpriteData();
-
-                charData.transform = newLetterSprite.transform;
-                charData.rectTransform = newLetterSprite.GetComponent<RectTransform>();
-                charData.image = newLetterSprite.GetComponent<Image>();
-                charData.rightOffset = currentCharacterData.RightOffset;
-                charData.leftOffset = currentCharacterData.LeftOffset;
+                // set active color here so we can wrap other effects in color tags
+                CharSpriteData charData = new CharSpriteData(
+                    newLetterSprite.transform,
+                    newLetterSprite.GetComponent<Image>(),
+                    activeColor,
+                    newLetterSprite.GetComponent<RectTransform>(),
+                    currentCharacterData.RightOffset, currentCharacterData.LeftOffset
+                );
 
                 wordList.Add(charData);
-
-                // set active color here so we can wrap other effects in color tags
-                charData.color = activeColor;
 
                 fxChars.Add(charData, activeEffect);
 
                 xPosition += currentCharacterData.RightOffset * letterSpacing * scale;
-
-                // if (xPosition >= dBoxRect.width - indentRight) {
-                //     yPosition -= lineSpacing;
-                //     xPosition = indentLeft;
-                // }
 
                 if (xPosition >= dBoxRect.width - indentRight) {
                     yPosition -= lineSpacing; // go to next line
@@ -200,10 +206,9 @@ public class SpriteLetterSystem : MonoBehaviour {
 
                     // puts characters of unfinished word on the next line
                     if (wordList.Count > 0) {
-                        for (int j = 0; j < wordList.Count; j++) {
-                            var letterData = wordList[j];
+                        foreach (var letterData in wordList) {
                             // letterData.transform = transform;
-                            xPosition += letterData.leftOffset * letterSpacing;
+                            xPosition += letterData.leftOffset * letterSpacing * scale;
                             letterData.transform.localPosition = new Vector3(xPosition, yPosition, 1f);
                             xPosition += letterData.rightOffset * letterSpacing * scale;
 
@@ -217,6 +222,7 @@ public class SpriteLetterSystem : MonoBehaviour {
         // Debug.Log(wordCount);
         // Debug.Log($"width: {dBoxRect.width}, height: {dBoxRect.height}");
     }
+
 
     /// <summary>
     /// Creates new letter sprite and displays on canvas
@@ -233,6 +239,7 @@ public class SpriteLetterSystem : MonoBehaviour {
 
         return newLetterSprite;
     }
+
 
     /// <summary>
     /// Applies tag effects and checks if current char is in tagged element
@@ -257,6 +264,7 @@ public class SpriteLetterSystem : MonoBehaviour {
             inTag = false;
         }
     }
+
 
     /// <summary>
     /// Sets active color to value specified in element tag
@@ -289,6 +297,7 @@ public class SpriteLetterSystem : MonoBehaviour {
         activeColor.b = colorParams[2] / 255f;
         activeColor.a = 1;
     }
+
 
     /// <summary>
     /// Applies text effects to each text object in the ui canvas
