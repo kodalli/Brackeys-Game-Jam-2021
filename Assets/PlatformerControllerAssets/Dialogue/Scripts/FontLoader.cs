@@ -5,7 +5,8 @@ using UnityEngine;
 public static class FontLoader {
     //This is the order that the characters should be in the characterSheet
     // private static char[] chars = "abcdefghijklmnopqrstuvwxyzæABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890~><!?'\"#%&/\\()[]{}@£$*^+-.,:;_=".ToCharArray();
-    private static char[] chars = " !\"#$%&'()*+,-./0123456789:;<=>?@abcdefghijklmnopqrstuvwxyz[\\]^_`ABCDEFGHIJKLMNOPQRSTUVWXYZ{|}~".ToCharArray();
+    // private static char[] chars = " !\"#$%&'()*+,-./0123456789:;<=>?@abcdefghijklmnopqrstuvwxyz[\\]^_`ABCDEFGHIJKLMNOPQRSTUVWXYZ{|}~".ToCharArray();
+    private static char[] chars = "!\"#$%&'()*+,-./0123456789:;<=>?@abcdefghijklmnopqrstuvwxyz[\\]^_ABCDEFGHIJKLMNOPQRSTUVWXYZ{|}~".ToCharArray();
     private static List<Dictionary<char, CharData>> loadedFonts = new List<Dictionary<char, CharData>>(); //Stores all loaded fonts
     private static List<Texture2D> loadedFontResources = new List<Texture2D>(); //This is to keep track of all the loaded fonts and only load them once
 
@@ -19,8 +20,6 @@ public static class FontLoader {
     /// <summary>
     /// Loads font resources from character sheet array into dictionary
     /// </summary>
-    /// <param name="characterSheet"></param>
-    /// <returns></returns>
     public static List<Dictionary<char, CharData>> LoadFontResources(params Texture2D[] characterSheet) {
         return characterSheet != null && characterSheet.Any() ?
             characterSheet.Select(x => LoadFontResource(x)).ToList() :
@@ -30,8 +29,6 @@ public static class FontLoader {
     /// <summary>
     /// Reload font resources from character sheet array into dictionary
     /// </summary>
-    /// <param name="characterSheet"></param>
-    /// <returns></returns>
     public static List<Dictionary<char, CharData>> ReloadFontResources(params Texture2D[] characterSheet) {
         return characterSheet != null && characterSheet.Any() ?
             characterSheet.Select(x => ReloadFontResource(x)).ToList() :
@@ -41,22 +38,21 @@ public static class FontLoader {
     /// <summary>
     /// Loads font resources from character sheet into dictionary
     /// </summary>
-    /// <param name="characterSheet"></param>
-    /// <returns></returns>
     public static Dictionary<char, CharData> LoadFontResource(Texture2D characterSheet) => LoadFontResource(characterSheet, true);
 
     /// <summary>
     /// Loads font resource from character sheet and adds it to existing loaded font if applicable
     /// </summary>
-    /// <param name="characterSheet"></param>
-    /// <param name="addToLoaded"></param>
-    /// <returns></returns>
     private static Dictionary<char, CharData> LoadFontResource(Texture2D characterSheet, bool addToLoaded) {
         //If we already have this loaded then we just return the loaded one
         if (IsFontLoaded(characterSheet)) return loadedFonts[loadedFontResources.IndexOf(characterSheet)];
 
         Sprite[] subsprites = Resources.LoadAll<Sprite>(characterSheet.name);
-        int spriteSize = (int)subsprites[0].rect.width; //characterSheet.width / subsprites.Length; //OLD
+        int spriteSize = (int)subsprites.Max(x => x.rect.width);
+        // int spriteSize = (int)subsprites[0].rect.width; //characterSheet.width / subsprites.Length; //OLD
+
+        // Debug.Log(subsprites.Length);
+        // Debug.Log(chars.Length);
 
         Dictionary<char, CharData> loadedFontDictionary = GenerateCharFontDictionary(characterSheet, spriteSize, subsprites);
 
@@ -72,8 +68,6 @@ public static class FontLoader {
     /// <summary>
     /// Reloads font resource from character sheet into dictionary
     /// </summary>
-    /// <param name="characterSheet"></param>
-    /// <returns></returns>
     public static Dictionary<char, CharData> ReloadFontResource(Texture2D characterSheet) {
         if (IsFontLoaded(characterSheet)) {
             Dictionary<char, CharData> loadedFontResource = LoadFontResource(characterSheet, false);
@@ -88,17 +82,11 @@ public static class FontLoader {
     /// <summary>
     /// Checks if loaded font resources contains the character sheet
     /// </summary>
-    /// <param name="characterSheet"></param>
-    /// <returns></returns>
     public static bool IsFontLoaded(Texture2D characterSheet) => loadedFontResources.Contains(characterSheet);
 
     /// <summary>
     /// Generates font dictionary by performing a vertical scan on each font sprite and stores character width
     /// </summary>
-    /// <param name="characterSheet"></param>
-    /// <param name="spriteSize"></param>
-    /// <param name="characterSprites"></param>
-    /// <returns></returns>
     private static Dictionary<char, CharData> GenerateCharFontDictionary(Texture2D characterSheet, int spriteSize, Sprite[] characterSprites) {
         int height = characterSheet.height; // We might need this if we ever use a text image that is on more than one line
         int width = characterSheet.width;
@@ -147,25 +135,35 @@ public static class FontLoader {
                 }
 
                 //Store current sprite width
+                // int currentSpriteWidth = Mathf.Max(spriteSize - (leftEdge + rightEdge), 1);
                 int currentSpriteWidth = spriteSize - (leftEdge + rightEdge);
 
-                // if (currentSpriteWidth < 0) {
-                //     Debug.Log($"{chars[charIndex]} width {currentSpriteWidth} {spriteSize} {leftEdge} {rightEdge}");
-                //     // vape fix, just manually set width for "!" because its setting the width to -8
-                //     currentSpriteWidth = 1;
-                // }
+                if (currentSpriteWidth < 0) {
+                    // Debug.Log($"{chars[charIndex]} width {currentSpriteWidth} {spriteSize} {leftEdge} {rightEdge}");
+                    // vape fix, just manually set width for "!" and "B" because its setting the width to < 0
+                    // CharData temp = charData['A'];
+                    charData.Add(chars[charIndex], new CharData(14, characterSprites[charIndex], 3, 3));
+                } else {
+                    //Determine center offsets
+                    int halfWidth = spriteSize / 2;
+                    int leftOffset = halfWidth - leftEdge;
+                    int rightOffset = halfWidth - rightEdge;
 
-                // Debug.Log($"{chars[charIndex]} {currentSpriteWidth}");
+                    charData.Add(chars[charIndex], new CharData(currentSpriteWidth, characterSprites[charIndex], leftOffset, rightOffset));
+                }
 
-                //Determine center offsets
-                int halfWidth = spriteSize / 2;
-                int leftOffset = halfWidth - leftEdge;
-                int rightOffset = halfWidth - rightEdge;
+                // Debug.Log($"{chars[charIndex]} width {currentSpriteWidth} {spriteSize} {leftEdge} {rightEdge}");
+
+                // //Determine center offsets
+                // int halfWidth = spriteSize / 2;
+                // int leftOffset = halfWidth - leftEdge;
+                // int rightOffset = halfWidth - rightEdge;
 
                 // charData.Add(chars[charIndex], new CharData(currentSpriteWidth, characterSprites[charIndex], leftOffset, rightOffset));
+
                 // fix for first sprite being empty in sprite sheet
-                if (charIndex - 1 > -1)
-                    charData.Add(chars[charIndex], new CharData(currentSpriteWidth, characterSprites[charIndex - 1], leftOffset, rightOffset));
+                // if (charIndex > 0 && charIndex < chars.Length)
+                //     charData.Add(chars[charIndex], new CharData(currentSpriteWidth, characterSprites[charIndex - 1], leftOffset, rightOffset));
 
                 charIndex++;
             }

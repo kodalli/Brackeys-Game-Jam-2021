@@ -36,11 +36,36 @@ public class SpriteLetterSystem : MonoBehaviour {
     [SerializeField] private float shakyStrength = 0.5f;
     // private
     private TextEffect activeEffect;
-    private Color activeColor = Color.black;
+    private Color activeColor = Color.white;
     private List<GameObject> letterObjects = new List<GameObject>();
     private Dictionary<CharSpriteData, TextEffect> fxChars = new Dictionary<CharSpriteData, TextEffect>();
     private Dictionary<char, CharData> loadedFont;
     #endregion
+
+    public void GenerateBigText(string text) {
+        letterSpacing = 6f;
+        wordSpacing = 10f;
+        lineSpacing = 110f;
+        letterSize = 80f;
+        indentLeft = 50f;
+        indentRight = 50f;
+        indentTop = -120f;
+        indentBottom = 0f;
+        GenerateSpriteText(text);
+    }
+
+    public void GenerateSmallText(string text) {
+        letterSpacing = 4f;
+        wordSpacing = 10f;
+        lineSpacing = 70f;
+        letterSize = 50f;
+        indentLeft = 40f;
+        indentRight = 40f;
+        indentTop = -60f;
+        indentBottom = 0f;
+        GenerateSpriteText(text);
+    }
+
 
     /// <summary>
     /// Container for character sprite data
@@ -56,17 +81,33 @@ public class SpriteLetterSystem : MonoBehaviour {
 
     }
 
+#if UNITY_EDITOR
+    private void OnGUI() {
+        if (GUI.Button(new Rect(0, 0, 200, 50), "Generate Big Text")) {
+            GenerateBigText(dObj.dialogue[0]);
+        } else if (GUI.Button(new Rect(0, 50, 200, 50), "Generate Small Text")) {
+            GenerateSmallText(dObj.dialogue[0]);
+        }
+        // } else if (GUI.Button(new Rect(0, 300, 200, 50), "Generate Text")) {
+        //     GenerateSpriteText(dObj.dialogue[0]);
+        // }
+    }
+#endif
+
     private void Awake() {
         loadedFont = FontLoader.LoadFontResource(charSheet);
     }
 
-    private void Start() {
-        // string textToGenerate = "<c=(255,50,120)><w>I am a top level Chungoloist</w></c>, and I have concluded with <c=(255,0,0)>absolute</c> <c=(0,255,0)>certainty </c>that Big Chungus himself shall enter into existence at 2:31 PM this April 9th.";
-        string textToGenerate = dObj.dialogue[0];
-        // GenerateSpriteText(textToGenerate);
-        // transform.localScale = new Vector3(letterSize / 100f, letterSize / 100f, 1f);
+    // private void Start() {
+    //     // string textToGenerate = "<c=(255,50,120)><w>I am a top level Chungoloist</w></c>, and I have concluded with <c=(255,0,0)>absolute</c> <c=(0,255,0)>certainty </c>that Big Chungus himself shall enter into existence at 2:31 PM this April 9th.";
+    //     string textToGenerate = dObj.dialogue[0];
+    //     GenerateSpriteText(textToGenerate);
+    //     // transform.localScale = new Vector3(letterSize / 100f, letterSize / 100f, 1f);
+    //     // dialogueBox.SetActive(false);
 
-    }
+    // }
+
+
 
     private void FixedUpdate() {
         DoTextEffects();
@@ -75,8 +116,14 @@ public class SpriteLetterSystem : MonoBehaviour {
     /// <summary>
     /// Generates characters sprites from string and applies text effects
     /// </summary>
-    /// <param name="textToGenerate"></param>
     public void GenerateSpriteText(string textToGenerate) {
+        // GetComponentsInChildren<RectTransform>().ToList().ForEach(x => x.gameObject.SetActive(false));
+        // gameObject.SetActive(true);
+
+        gameObject.SetActiveAllChildren<RectTransform>(false);
+
+        textToGenerate = textToGenerate.ToLower();
+
         if (letterObject == null) return;
 
         // The sprite text generator object should be place at the top left corner of the text box
@@ -174,11 +221,6 @@ public class SpriteLetterSystem : MonoBehaviour {
     /// <summary>
     /// Creates new letter sprite and displays on canvas
     /// </summary>
-    /// <param name="newCharacter"></param>
-    /// <param name="positionX"></param>
-    /// <param name="positionY"></param>
-    /// <param name="letterNumber"></param>
-    /// <returns></returns>
     private GameObject CreateNewLetter(CharData newCharacter, float positionX, float positionY, int letterNumber) {
 
         //Create new game object
@@ -195,10 +237,6 @@ public class SpriteLetterSystem : MonoBehaviour {
     /// <summary>
     /// Applies tag effects and checks if current char is in tagged element
     /// </summary>
-    /// <param name="fullText"></param>
-    /// <param name="c"></param>
-    /// <param name="j"></param>
-    /// <param name="inTag"></param>
     private void CheckTag(string fullText, char c, int j, ref bool inTag) {
         if (c == '<') {
             inTag = true;
@@ -213,7 +251,7 @@ public class SpriteLetterSystem : MonoBehaviour {
                 }
             } else {
                 activeEffect = TextEffect.None;
-                activeColor = Color.black;
+                activeColor = Color.white;
             }
         } else if (j > 0 && fullText[j - 1] == '>') {
             inTag = false;
@@ -223,15 +261,13 @@ public class SpriteLetterSystem : MonoBehaviour {
     /// <summary>
     /// Sets active color to value specified in element tag
     /// </summary>
-    /// <param name="fullText"></param>
-    /// <param name="start"></param>
     private void SetColorFromText(string fullText, int start) {
         // c=( 256, 256, 256)
 
         int end = start;
         int length = 0;
 
-        while (fullText[end] != ')' && end < fullText.Length) {
+        while (end < fullText.Length && fullText[end] != ')') {
             end++;
             length++;
         }
@@ -241,7 +277,10 @@ public class SpriteLetterSystem : MonoBehaviour {
 
         // [256, 256, 256]
         string[] strSplit = str.Split(',');
-        if (strSplit.Length != 3) Debug.LogError("color must follow c=(0-256,0-256,0-256) format");
+
+        // Debug.Log(strSplit.Length + " " + fullText + " " + str);
+
+        if (strSplit.Length != 3 && end != fullText.Length) Debug.LogError("color must follow <c=(0-256,0-256,0-256)></c> format");
 
         int[] colorParams = strSplit.Select(int.Parse).ToArray();
 
@@ -271,34 +310,4 @@ public class SpriteLetterSystem : MonoBehaviour {
         }
     }
 
-    // public List<Image> imageList = new List<Image>();
-
-    // private void OnDrawGizmos()
-    // {
-    //     var min = Vector3.positiveInfinity;
-    //     var max = Vector3.negativeInfinity;
-
-    //     foreach (var image in imageList)
-    //     {
-    //         if(!image) continue;
-
-    //         // Get the 4 corners in world coordinates
-    //         var v = new Vector3[4];
-    //         image.rectTransform.GetWorldCorners(v);
-
-    //         // update min and max
-    //         foreach (var vector3 in v)
-    //         {
-    //             min = Vector3.Min(min, vector3);
-    //             max = Vector3.Max(max, vector3);
-    //         }
-    //     }
-
-    //     // create the bounds
-    //     var bounds = new Bounds();
-    //     bounds.SetMinMax(min, max);
-
-    //     Gizmos.color = Color.red;
-    //     Gizmos.DrawWireCube(bounds.center, bounds.size);
-    // }
 }
