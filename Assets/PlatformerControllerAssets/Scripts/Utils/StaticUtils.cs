@@ -41,15 +41,6 @@ namespace StaticUtils {
 
 
         /// <summary>
-        /// Returns all the state names from an animator as a string array.
-        /// </summary>
-        public static AnimatorState[] GetStateNames(Animator animator) {
-            AnimatorController controller = animator ? animator.runtimeAnimatorController as AnimatorController : null;
-            return controller == null ? null : controller.layers.SelectMany(l => l.stateMachine.states).Select(s => s.state).ToArray();
-        }
-
-
-        /// <summary>
         /// Allows a loop with the item and index. <para />
         /// <example>
         /// This sample shows how to call the <see cref="WithIndex"/> method.
@@ -63,6 +54,26 @@ namespace StaticUtils {
         public static IEnumerable<(T item, int index)> WithIndex<T>(this IEnumerable<T> source) {
             return source.Select((item, index) => (item, index));
         }
+
+        /// <summary>
+        /// Returns all the state names from an animator as a string array.
+        /// </summary>
+        public static AnimatorState[] GetStateNames(Animator animator) {
+            AnimatorController controller = animator ? animator.runtimeAnimatorController as AnimatorController : null;
+            return controller == null ? null : controller.layers.SelectMany(l => l.stateMachine.states).Select(s => s.state).ToArray();
+        }
+
+
+
+        public static bool IsPlayingOnLayer(this Animator animator, int fullPathHash, int layer) {
+            return animator.GetCurrentAnimatorStateInfo(layer).fullPathHash == fullPathHash;
+        }
+
+        public static double NormalizedTime(this Animator animator, System.Int32 layer) {
+            double time = animator.GetCurrentAnimatorStateInfo(layer).normalizedTime;
+            return time > 1 ? 1 : time;
+        }
+
 
     }
 }

@@ -182,6 +182,7 @@ public class SpriteLetterSystem : MonoBehaviour {
                 // Debug.Log("Letter Number: " + i + ", xpos: " + xPosition + ", ypos: " + yPosition);
                 GameObject newLetterSprite = CreateNewLetter(currentCharacterData, xPosition, yPosition, index);
                 newLetterSprite.transform.localScale = new Vector3(scale, scale, 1f);
+                Debug.Log(xPosition + " " + index);
 
                 letterObjects.Add(newLetterSprite);
 
