@@ -69,8 +69,8 @@ namespace StaticUtils {
             return animator.GetCurrentAnimatorStateInfo(layer).fullPathHash == fullPathHash;
         }
 
-        public static double NormalizedTime(this Animator animator, System.Int32 layer) {
-            double time = animator.GetCurrentAnimatorStateInfo(layer).normalizedTime;
+        public static float NormalizedTime(this Animator animator, int layer) {
+            float time = animator.GetCurrentAnimatorStateInfo(layer).normalizedTime;
             return time > 1 ? 1 : time;
         }
 
