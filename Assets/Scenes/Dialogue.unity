@@ -525,6 +525,11 @@ PrefabInstance:
       propertyPath: letterSize
       value: 30
       objectReference: {fileID: 0}
+    - target: {fileID: 873291067770439086, guid: e054713075da2de4cb96e0a0f45340ea,
+        type: 3}
+      propertyPath: letterSpacing
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 873291067900050596, guid: e054713075da2de4cb96e0a0f45340ea,
         type: 3}
       propertyPath: m_Pivot.x
