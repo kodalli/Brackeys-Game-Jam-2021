@@ -12,7 +12,6 @@ public class PlayerState {
     protected bool isExitingState;
 
     protected float startTime;
-    public float StartTime { get { return startTime; } }
 
     private string animBoolName;
 
